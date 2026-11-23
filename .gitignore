@@ -1,0 +1,27 @@
+# Too big for GitHub (302 MB; zip is still 70.9 MB). See data/README.md.
+data/usage-refs.csv
+data/usage-refs.csv.zip
+
+# Never commit a copy of the Alpöge source; it is pinned by commit instead.
+rh-source/
+riemann-hypothesis*/
+
+# Lean build output
+.lake/
+build/
+*.olean
+*.ilean
+
+# Secrets and local settings
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+credentials*
+settings.local.json
+.claude/
+
+# OS and editor
+.DS_Store
+Thumbs.db
