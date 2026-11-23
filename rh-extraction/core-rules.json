@@ -1,0 +1,538 @@
+{
+ "wrapper_count": 194,
+ "raw_file_theorems": 195,
+ "open_structure": 215,
+ "join_line": 810,
+ "stop_count": 2785,
+ "membership": {
+  "published_result_proof": 1160,
+  "wrapper_rhs": 372,
+  "wrapper_result": 193,
+  "published_namespace": 1671,
+  "literature_wrapper": 194
+ },
+ "published_prop_heads": 594,
+ "result_count": 193,
+ "rhs_count": 372,
+ "ambiguous_producer_signatures": 240,
+ "unresolved_wrapper_tokens": [
+  [
+   "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:447",
+   "rhs",
+   "And.left",
+   []
+  ]
+ ],
+ "roots": {
+  "headline": [
+   1020229,
+   "riemannHypothesis",
+   "Main.lean:4"
+  ],
+  "main_argument": [
+   558535,
+   "UpperTheory.Lit.every_character_of_theta_integrals_local_matching",
+   "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean:69"
+  ],
+  "covolume": [
+   558798,
+   "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt",
+   "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16"
+  ],
+  "window": [
+   501564,
+   "UpperTheory.One.vwin_of_row",
+   "Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/VwinOfRow.lean:4"
+  ]
+ },
+ "ambiguous_producer_signatures_resolved_by_source": 1,
+ "ambiguous_producer_signatures_excluded_by_imports": 239,
+ "removed_import_invisible_single_targets": [
+  {
+   "id": 26844,
+   "name": "GlobalTheory.AutQuotCheck.cls",
+   "file:line": "Development/AbelianVarietyTheory/Counterexamples/LevelGroupExamples/RightInvariantOfCovolume.lean:11",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 46263,
+   "name": "GlobalTheory.CMVal.ObjModel.mulQ",
+   "file:line": "Development/AbelianVarietyTheory/Definitions/Divisors/HasSumZeroOfTwoLe.lean:170",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 97850,
+   "name": "GlobalTheory.ProjSpace.ptEquiv",
+   "file:line": "Development/AbelianVarietyTheory/Proofs/CovolumeBounds/IsProjOverCompOfIsClosedImmersion.lean:268",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 130213,
+   "name": "GlobalTheory.HeckeTwoExp.toQ",
+   "file:line": "Development/AbelianVarietyTheory/Proofs/DivisorProofs/AbsNormEqProd.lean:48",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 164425,
+   "name": "GlobalTheory.Div.QFibre.toQ",
+   "file:line": "Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsEquivFourierClassesPosConeSummand.lean:22",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 197294,
+   "name": "GlobalTheory.HilbFam.transfQuot",
+   "file:line": "Development/AbelianVarietyTheory/Proofs/DivisorProofs/HilbertEisensteinValueLinearTransfer.lean:23",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 198466,
+   "name": "GlobalTheory.HomothetyLatSum.mulQ",
+   "file:line": "Development/AbelianVarietyTheory/Proofs/DivisorProofs/HomothetyLatSum.lean:13",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 221617,
+   "name": "GlobalTheory.EisModular.clsEquiv",
+   "file:line": "Development/AbelianVarietyTheory/Proofs/DivisorProofs/MemDualIffLatM.lean:97",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 236985,
+   "name": "GlobalTheory.QuotRegular.cl",
+   "file:line": "Development/AbelianVarietyTheory/Proofs/DivisorProofs/RegularRepresentationOfFinitePair.lean:16",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 236987,
+   "name": "GlobalTheory.QuotRegular.tr",
+   "file:line": "Development/AbelianVarietyTheory/Proofs/DivisorProofs/RegularRepresentationOfFinitePair.lean:22",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 485466,
+   "name": "PositivityTheory.KB.SpectralGap.DesignMultiplication.rmul",
+   "file:line": "Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/ArithmeticGapBounds/PDesign.lean:143",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 485797,
+   "name": "PositivityTheory.KB.AffineStabilizerVanishing.actQ",
+   "file:line": "Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/HeckeDoubleCosets/Formal.lean:39",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 709486,
+   "name": "Formalism.DoubleCosetMeasures.P.clsTS",
+   "file:line": "Formalism/DoubleCosetMeasures/LowerUnipotentOrbits/TwoSided.lean:26",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 740683,
+   "name": "Formalism.FourierDecayAlt.P.A5x9.kap",
+   "file:line": "Formalism/HermitianCurvature/HermitianCurvatureProofs/LatticeAverageIdentity.lean:1436",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 812321,
+   "name": "Formalism.L2.SG.Pf.CountAb.cellEquiv",
+   "file:line": "Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/CardCells.lean:13",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 818806,
+   "name": "Formalism.L2.SG.Pf.CountAt.fC",
+   "file:line": "Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/SecondValueMul.lean:23",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 819112,
+   "name": "Formalism.L2.SG.Pf.StabilizerMassQuotient.qmap",
+   "file:line": "Formalism/LocalToGlobal/SiegelLatticeTheory/CokernelGLCounts/RankPointCounts/StabilizerMassQuotient.lean:49",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 951305,
+   "name": "GroundTheory.Automorphic.FourierWhittaker.cosetEquiv",
+   "file:line": "GroundTheory/AutomorphicForms/FourierWhittaker.lean:139",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 1031116,
+   "name": "ReciprocityTheory.Coh.CCA.cosetMul",
+   "file:line": "ReciprocityTheory/GroupCohomology/CupCorA.lean:59",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 1031426,
+   "name": "ReciprocityTheory.Coh.CohomologyFunctoriality₂.cosetMul",
+   "file:line": "ReciprocityTheory/GroupCohomology/PartialProdCoe.lean:112",
+   "candidate": "GlobalTheory.Published.Langlands.Quotient @ Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/LanglandsClassification.lean:28"
+  },
+  {
+   "id": 94969,
+   "name": "GlobalTheory.LatticeLinearEquivBasis.exists_linearEquiv_map_lattice_eq",
+   "file:line": "Development/AbelianVarietyTheory/Proofs/CoherentCohomologyProofs/ExistsLinearEquivMapLatticeEq.lean:16",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 199911,
+   "name": "GlobalTheory.TargetInequalityLemmas.target",
+   "file:line": "Development/AbelianVarietyTheory/Proofs/DivisorProofs/ImportsTerRest.lean:23",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 546537,
+   "name": "Bl.EqIdOfFixed.goal1",
+   "file:line": "Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CapelliComplements/EqIdOfFixed.lean:48",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 546540,
+   "name": "Bl.FirstLemmaC.goal1",
+   "file:line": "Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CapelliComplements/FirstLemmaC.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 546541,
+   "name": "Bl.FirstLemmaD.goal1",
+   "file:line": "Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CapelliComplements/FirstLemmaD.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 546548,
+   "name": "Bl.FirstLemmaK.goal1",
+   "file:line": "Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CapelliComplements/FirstLemmaK.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 546555,
+   "name": "Bl.general_b_fact_third_alt.goal1",
+   "file:line": "Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CapelliComplements/GeneralBFactThird.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1019987,
+   "name": "Bl.VolumeRatioCancellation.goal1",
+   "file:line": "Lemmata/Cancellation/EnnrealVolumeRatioStepCancel.lean:12",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1019994,
+   "name": "Bl.ClearingDenominators.goal1",
+   "file:line": "Lemmata/ClearingDenominators/UmonLeUzmon.lean:103",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020000,
+   "name": "Bl.ComplementLifts.goal1",
+   "file:line": "Lemmata/ComplementLifts/ComplLift.lean:29",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020022,
+   "name": "Bl.DualWeylPullback.goal1",
+   "file:line": "Lemmata/DualWeylPullback/DualWeylPull.lean:314",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020029,
+   "name": "Bl.FirstBlockLemmaE.goal1",
+   "file:line": "Lemmata/FirstBlockLemmaE/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020032,
+   "name": "Bl.FirstBlockLemmaH.goal1",
+   "file:line": "Lemmata/FirstBlockLemmaH/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020040,
+   "name": "Bl.general_b_fact_alt_form.goal1",
+   "file:line": "Lemmata/GeneralBFactAltForm/Imports.lean:7",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020042,
+   "name": "Bl.general_b_fact_bis_other.goal1",
+   "file:line": "Lemmata/GeneralBFactBisAlt/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020048,
+   "name": "Bl.general_b_fact_left.goal1",
+   "file:line": "Lemmata/GeneralBFactLeft/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020049,
+   "name": "Bl.general_b_fact_left_alt.goal1",
+   "file:line": "Lemmata/GeneralBFactLeftAlt/Imports.lean:28",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020050,
+   "name": "Bl.general_b_fact_left_alt_form.goal1",
+   "file:line": "Lemmata/GeneralBFactLeftAltForm/MQ.lean:60",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020051,
+   "name": "Bl.general_b_fact_left_bis.goal1",
+   "file:line": "Lemmata/GeneralBFactLeftBis/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020052,
+   "name": "Bl.general_b_fact_left''''''''.goal1",
+   "file:line": "Lemmata/GeneralBFactLeftBisAlt/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020053,
+   "name": "Bl.general_b_fact_left_bis_form.goal1",
+   "file:line": "Lemmata/GeneralBFactLeftBisForm/Imports.lean:94",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020065,
+   "name": "Bl.general_b_fact_left_ter_form.goal1",
+   "file:line": "Lemmata/GeneralBFactLeftTerForm/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020067,
+   "name": "Bl.general_b_fact_left_version.goal1",
+   "file:line": "Lemmata/GeneralBFactLeftVersion/Imports.lean:60",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020071,
+   "name": "Bl.general_b_fact_rest.goal1",
+   "file:line": "Lemmata/GeneralBFactRest/Imports.lean:7",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020074,
+   "name": "Bl.general_b_fact_right_alt_form.goal1",
+   "file:line": "Lemmata/GeneralBFactRightAltForm/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020084,
+   "name": "Bl.general_b_fact_right_more.goal1",
+   "file:line": "Lemmata/GeneralBFactRightMore/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020086,
+   "name": "Bl.general_b_fact_right_rest.goal1",
+   "file:line": "Lemmata/GeneralBFactRightRest/Imports.lean:25",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020090,
+   "name": "Bl.general_b_fact_right_variant.goal1",
+   "file:line": "Lemmata/GeneralBFactRightVariant/Imports.lean:7",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020091,
+   "name": "Bl.general_b_fact_right_version.goal1",
+   "file:line": "Lemmata/GeneralBFactRightVersion/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020092,
+   "name": "Bl.general_b_fact_second.goal1",
+   "file:line": "Lemmata/GeneralBFactSecond/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020093,
+   "name": "Bl.general_b_fact_second_alt.goal1",
+   "file:line": "Lemmata/GeneralBFactSecondAlt/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020096,
+   "name": "Bl.general_b_fact_second''''''''.goal1",
+   "file:line": "Lemmata/GeneralBFactSecondBisAlt/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020100,
+   "name": "Bl.general_b_fact_second_form.goal1",
+   "file:line": "Lemmata/GeneralBFactSecondForm/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020101,
+   "name": "Bl.general_b_fact_second''.goal1",
+   "file:line": "Lemmata/GeneralBFactSecondFurther/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020103,
+   "name": "Bl.general_b_fact_second'.goal1",
+   "file:line": "Lemmata/GeneralBFactSecondMore/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020105,
+   "name": "Bl.general_b_fact_second_rest.goal1",
+   "file:line": "Lemmata/GeneralBFactSecondRest/Imports.lean:13",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020106,
+   "name": "Bl.general_b_fact_second'''''.goal1",
+   "file:line": "Lemmata/GeneralBFactSecondSide/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020107,
+   "name": "Bl.general_b_fact_second''''''.goal1",
+   "file:line": "Lemmata/GeneralBFactSecondTail/Imports.lean:7",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020112,
+   "name": "Bl.general_b_fact_second_version.goal1",
+   "file:line": "Lemmata/GeneralBFactSecondVersion/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020113,
+   "name": "Bl.general_b_fact_side.goal1",
+   "file:line": "Lemmata/GeneralBFactSide/Imports.lean:7",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020118,
+   "name": "Bl.general_b_fact_third_alt.goal1",
+   "file:line": "Lemmata/GeneralBFactThirdAlt/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020119,
+   "name": "Bl.general_b_fact_third_alt_form.goal1",
+   "file:line": "Lemmata/GeneralBFactThirdAltForm/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020121,
+   "name": "Bl.general_b_fact_third_bis_other.goal1",
+   "file:line": "Lemmata/GeneralBFactThirdBisAlt/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020123,
+   "name": "Bl.general_b_fact_third_extra.goal1",
+   "file:line": "Lemmata/GeneralBFactThirdExtra/Imports.lean:6",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020124,
+   "name": "Bl.general_b_fact_third_form.goal1",
+   "file:line": "Lemmata/GeneralBFactThirdForm/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020129,
+   "name": "Bl.general_b_fact_third'.goal1",
+   "file:line": "Lemmata/GeneralBFactThirdMore/Key.lean:15",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020130,
+   "name": "Bl.general_b_fact_third''''.goal1",
+   "file:line": "Lemmata/GeneralBFactThirdRest/Imports.lean:28",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020131,
+   "name": "Bl.general_b_fact_third'''''.goal1",
+   "file:line": "Lemmata/GeneralBFactThirdSide/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020132,
+   "name": "Bl.general_b_fact_third''''''.goal1",
+   "file:line": "Lemmata/GeneralBFactThirdTail/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020133,
+   "name": "Bl.general_b_fact_third_ter.goal1",
+   "file:line": "Lemmata/GeneralBFactThirdTer/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020135,
+   "name": "Bl.general_b_fact_third_ter_form.goal1",
+   "file:line": "Lemmata/GeneralBFactThirdTerForm/Imports.lean:39",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020137,
+   "name": "Bl.general_b_fact_third_version.goal1",
+   "file:line": "Lemmata/GeneralBFactThirdVersion/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020140,
+   "name": "Bl.general_b_fact_upper_bis.goal1",
+   "file:line": "Lemmata/GeneralBFactUpperBis/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020158,
+   "name": "Bl.IntegerMulIntegral.goal1",
+   "file:line": "Lemmata/IntegerMulIntegral/IntMulIntegral.lean:11",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020160,
+   "name": "Bl.IterateZero.goal1",
+   "file:line": "Lemmata/IterateZero/IterZero.lean:35",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020169,
+   "name": "Bl.SecondBlockLemmaK.goal1",
+   "file:line": "Lemmata/MiscLemmasJ/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020174,
+   "name": "Bl.SecondBlockLemmaP.goal1",
+   "file:line": "Lemmata/MiscLemmasO/Imports.lean:5",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020186,
+   "name": "Bl.NatMulIsIntegral.goal1",
+   "file:line": "Lemmata/NatMulIsIntegral/ExistsNatMulIsIntegral.lean:17",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020188,
+   "name": "Bl.NearbyExistence.goal1",
+   "file:line": "Lemmata/NearbyExistence/ExistsNear.lean:18",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020223,
+   "name": "Bl.SimultaneousEigenvectors.goal1",
+   "file:line": "Lemmata/SimultaneousEigenvectors/BlSimeig.lean:67",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  },
+  {
+   "id": 1020225,
+   "name": "Bl.SmulListSum.goal1",
+   "file:line": "Lemmata/SmulListSum/SmulListSum.lean:13",
+   "candidate": "GlobalTheory.Published.RaynaudExtension.Exists @ Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/HenselianLocalRingOfIsAdicComplete.lean:224"
+  }
+ ]
+}

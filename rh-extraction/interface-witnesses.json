@@ -1,0 +1,1607 @@
+[
+ {
+  "decl": "UpperTheory.EveryCharacter (Development/AutomorphicArithmetic/CharacterBoxes/EveryCharacter.lean:13)",
+  "consumer": "Formalism.VW.rh_of_every (Formalism/GammaFactorNonvanishing/CritLine.lean:29)",
+  "supplier": "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+  "statement": "def UpperTheory.EveryCharacter : Prop :=\n  ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ), 1 / 2 < s.re → (χ ≠ 1 ∨ s ≠ 1) → DirichletCharacter.LFunction χ s ≠ 0",
+  "id": 514126,
+  "consumer_id": 719090,
+  "supplier_id": 1061430,
+  "call_site": "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+  "call_line": 9,
+  "call_excerpt": "Formalism.VW.rh_of_every allChi",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ]
+  ]
+ },
+ {
+  "decl": "UpperTheory.GalStar.Row0b (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TypeConditions/WeightsConjBis.lean:69)",
+  "consumer": "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+  "supplier": "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean:6)",
+  "statement": "def Row0b : Prop :=\n  ∀ (E Ω : Type) [Field E] [NumberField E] [IsCMField E] [Field Ω] [Algebra E Ω] [IsAlgClosure E Ω]\n    (l : ℕ) [Fact l.Prime] (ι : Qbar l ≃+* ℂ) (a : ℕ), 1 ≤ a →\n    ∀ (π : CuspSub E a) (χ : HChar (maximalRealSubfield E)), (CG.mk π).IsRegAlg → GlobalTheory.ContraPair.PolarizedPair π χ →\n      ∃ (r : G E Ω →* GL (Fin a) (Qbar l)) (wt : ℤ) (HT : (E →+* Qbar l) → Multiset ℤ), PropsB Rc π ι r wt HT",
+  "id": 544604,
+  "consumer_id": 514159,
+  "supplier_id": 533026,
+  "call_site": "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+  "call_line": 11,
+  "call_excerpt": "UpperTheory.FinalTheorems.everyCharacter_of_row UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ]
+  ]
+ },
+ {
+  "decl": "UpperTheory.TP.TLiftK (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/HalfIndexLattices/TLiftK.lean:12)",
+  "consumer": "UpperTheory.Gal.Int.galoisRepresentations_of_thetaLift (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GaloisRepresentationsOfThetaLift.lean:6)",
+  "supplier": "UpperTheory.TP.K.tLiftK (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TLiftK.lean:4)",
+  "statement": "def TLiftK : Prop :=\n  ∀ (E : Type) [Field E] [NumberField E] [IsCMField E] (B : Base (maximalRealSubfield E) E), W.GoodK (cj E) B →\n    ∀ (n : ℕ), 1 ≤ n → ∀ X : Spc (maximalRealSubfield E) E n, X.J = 1 → X.IsHerm (cj E) B n 0 →\n    ∃ d₀ : ℕ, ∀ d, d₀ ≤ d → ∀ (W : Spc (maximalRealSubfield E) E d) (δ : E), W.J = δ • (1 : Matrix (Fin d) (Fin d) E) →\n      W.IsSkew (cj E) B d 0 → ∀ (χX χW : Chr (maximalRealSubfield E) E) (mX mW : InfinitePlace (maximalRealSubfield E) → ℤ),\n      IsHecke (maximalRealSubfield E) E χX → IsHecke (maximalRealSubfield E) E χW →\n      ResEtaPow (Units.map (algebraMap (maximalRealSubfield E) (AF (maximalRealSubfield E))).toMonoidHom).range χX n →\n      ResEtaPow (Units.map (algebraMap (maximalRealSubfield E) (AF (maximalRealSubfield E))).toMonoidHom).range χW d →\n      HasExp B.emb χX mX → HasExp B.emb χW mW →\n      ∀ (U : Submodule ℂ (GlobalTheory.UnitaryBC.UA E n → ℂ)) (lam : InfinitePlace (maximalRealSubfield E) → DomWeight n),\n        GlobalTheory.UnitaryBC.IsAutRepU U → (∀ w, GlobalTheory.UnitaryBC.HasWeightAt U (B.emb w).1 (lam w)) →\n        (∀ w k, (d : ℤ) + mW w ≤ 2 * (lam w).w k) → ∃ U' : Submodule ℂ (GlobalTheory.UnitaryBC.UA E d → ℂ), IsLift B χX χW mX mW lam U U'",
+  "id": 540959,
+  "consumer_id": 532359,
+  "supplier_id": 543383,
+  "call_site": "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean:6)",
+  "call_line": 6,
+  "call_excerpt": "galoisRepresentations_of_thetaLift UpperTheory.TP.K.tLiftK",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter"
+   ]
+  ]
+ },
+ {
+  "decl": "UpperTheory.Top.VWin (Development/AutomorphicArithmetic/CharacterBoxes/ExistsPageN.lean:49)",
+  "consumer": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "supplier": "UpperTheory.One.vwin_of_row (Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/VwinOfRow.lean:4)",
+  "statement": "def VWin : Prop := ∀ ψ : PChar, VWinAt ψ 401",
+  "id": 514135,
+  "consumer_id": 555987,
+  "supplier_id": 501564,
+  "call_site": "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+  "call_line": 8,
+  "call_excerpt": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin ⟨h, UpperTheory.Zero.LLC.recTExists, h⟩ (UpperTheory.One.vwin_of_row",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ]
+  ]
+ },
+ {
+  "decl": "UpperTheory.Gal.Int.Geo.GeoOne (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/HodgeTrAt.lean:79)",
+  "consumer": "UpperTheory.Gal.Int.galoisLocalGlobalStrong_of_geometry_lift (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean:30)",
+  "supplier": "UpperTheory.Gal.Int.Geo.geoOne_holds (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/WeightOneGeometricRealization.lean:11)",
+  "statement": "def GeoOne : Prop :=\n  ∀ (E Ω : Type) [Field E] [NumberField E] [IsCMField E] [Field Ω] [Algebra E Ω] [IsAlgClosure E Ω] (l : ℕ) [Fact l.Prime] (ι : Qbar l ≃+* ℂ)\n    (a : ℕ), Odd a → ∀ d : ℕ, FieldOK E l d → ∀ x : E, x ^ 2 = -(d : E) →\n    ∀ T : Finset (HeightOneSpectrum (𝓞 E)), NonSplitSet T → ∀ w₀ v' : HeightOneSpectrum (𝓞 E), ((l : ℕ) : 𝓞 E) ∈ w₀.asIdeal → ((l : ℕ) : 𝓞 E) ∈ v'.asIdeal → Apart v' w₀ → OneK x w₀ v' →\n    ∀ (S : Finset (HeightOneSpectrum (𝓞 E))) (U : Submodule ℂ (UA E a → ℂ)), AutOffT T U → GlobalTheory.CongW.TyEll E l a w₀ U → SphOffU w₀ S U →\n    (∃ B, SatU U v' B) → LacWtAt ι v' U →\n    (∃ (dd : ℕ) (ρ : G E Ω →* GL (Fin dd) (Qbar l)), VBase ι d U ρ) ∧\n    (∀ w, UsPl d w → ((l : ℕ) : 𝓞 E) ∉ w.asIdeal → (∃ B, SatU U w B) →\n      ∃ (dd : ℕ) (ρ : G E Ω →* GL (Fin dd) (Qbar l)), VBase ι d U ρ ∧ ∀ B, SatU U w B → ESAt ι ρ w (algSat a (normV w) B)) ∧\n    ∀ w, ((l : ℕ) : 𝓞 E) ∈ w.asIdeal → OneK x w v' → Apart w w₀ → Apart w v' → (∃ B, SatU U w B) →\n      (∃ (dd : ℕ) (ρ : G E Ω →* GL (Fin dd) (Qbar l)), VBase ι d U ρ ∧ CrysAt ρ w ∧ JumpsOcc U ι ρ w) ∧\n      ∃ (dd : ℕ) (ρ : G E Ω →* GL (Fin dd) (Qbar l)), VBase ι d U ρ ∧ ∀ B, SatU U w B → PhiKilled ι ρ w a B",
+  "id": 532532,
+  "consumer_id": 532358,
+  "supplier_id": 532997,
+  "call_site": "UpperTheory.Gal.Int.galoisRepresentations_of_thetaLift (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GaloisRepresentationsOfThetaLift.lean:6)",
+  "call_line": 6,
+  "call_excerpt": "galoisLocalGlobalStrong_of_geometry_lift UpperTheory.Gal.Int.Geo.geoOne_holds",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter"
+   ],
+   [
+    "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean:6)",
+    6,
+    "galoisRepresentations_of_thetaLift"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.Published.LanglandsExhaustionGL (Development/AbelianVarietyTheory/PublishedTheorems/GaloisCohomology₂/LanglandsExhaustionGL.lean:10)",
+  "consumer": "GlobalTheory.LocLanglands.exists_isLExt (Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/LanglandsExtensionUniqueOnCuspidal.lean:34)",
+  "supplier": "UpperTheory.Zero.LLC.Pr.exh (Development/AutomorphicArithmetic/Foundations/LocalLanglands/Multi.lean:11)",
+  "statement": "def LanglandsExhaustionGL : Prop :=\n  ∀ (k : Type) [Field k] [ValuativeRel k] [TopologicalSpace k] [IsNonarchimedeanLocalField k] [CharZero k]\n    (x : IrrGL k), ∃ 𝔪 : Multiset (Segment k), IsL 𝔪 x.rep",
+  "id": 465695,
+  "consumer_id": 337024,
+  "supplier_id": 545931,
+  "call_site": "UpperTheory.Zero.LLC.recTExists (Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/RecTExists.lean:20)",
+  "call_line": 26,
+  "call_excerpt": "GlobalTheory.LocLanglands.exists_isLExt UpperTheory.Zero.LLC.Pr.exh",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.Zero.LLC.recTExists"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.CompanionTheory.Hypotheses₂.ResolutionCharZero (Development/AutomorphicSpectrum/PublishedTheorems/Geometry₂/ConclusionOfSmooth.lean:53)",
+  "consumer": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "supplier": "UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:557)",
+  "statement": "def ResolutionCharZero : Prop :=\n  ∀ (k : Type) [Field k] [CharZero k] (X : Scheme.{0}) (g : X ⟶ Sp k) [LocallyOfFiniteType g],\n    QuasiCompact g → IsSeparated g → IsReduced X →\n    ∃ (X' : Scheme.{0}) (s : X' ⟶ X),\n      IsBlowupSeq s ∧ Smooth (s ≫ g) ∧ IsIso (s ∣_ g.smoothLocus) ∧\n        FinalTheorems.Snc (preRed s (g.smoothLocus : Set X)ᶜ g.smoothLocus.isOpen.isClosed_compl)",
+  "id": 629243,
+  "consumer_id": 558798,
+  "supplier_id": 555962,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 812,
+  "call_excerpt": "_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (_root_.UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.Published.LanglandsMultisegments (Development/AbelianVarietyTheory/PublishedTheorems/GaloisCohomology₂/LanglandsMultisegments.lean:10)",
+  "consumer": "GlobalTheory.LocLanglands.exists_isLExt (Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/LanglandsExtensionUniqueOnCuspidal.lean:34)",
+  "supplier": "UpperTheory.Zero.LLC.Pr.multi (Development/AutomorphicArithmetic/Foundations/LocalLanglands/Multi.lean:12)",
+  "statement": "def LanglandsMultisegments : Prop :=\n  ∀ (k : Type) [Field k] [ValuativeRel k] [TopologicalSpace k] [IsNonarchimedeanLocalField k] [CharZero k],\n    (∀ (𝔪 𝔫 : Multiset (Segment k)) (x : IrrGL k), IsL 𝔪 x.rep → IsL 𝔫 x.rep → 𝔪 = 𝔫) ∧\n    ∀ (𝔪 𝔫 : Multiset (Segment k)) (x : Fin 2 → IrrGL k) (y : IrrGL k) (hd : ∑ a, (x a).1 = y.1),\n      IsL 𝔪 (x 0).rep → IsL 𝔫 (x 1).rep → IsL (𝔪 + 𝔫) y.rep → IsSubquotient y.rep (prodIrr x hd)",
+  "id": 465696,
+  "consumer_id": 337024,
+  "supplier_id": 545932,
+  "call_site": "UpperTheory.Zero.LLC.recTExists (Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/RecTExists.lean:20)",
+  "call_line": 26,
+  "call_excerpt": "GlobalTheory.LocLanglands.exists_isLExt UpperTheory.Zero.LLC.Pr.exh UpperTheory.Zero.LLC.Pr.multi",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.Zero.LLC.recTExists"
+   ]
+  ]
+ },
+ {
+  "decl": "PositivityTheory.Rg.BcN.BaseChangeIsobaricN (Development/WeilBound/RepresentationTheoryGL/ArchimedeanBaseChange/ArchimedeanBaseChangeProof/BaseChangeIsobaricNOf.lean:39)",
+  "consumer": "UpperTheory.One.Join.automorphic_window_of_inputs (Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TopMainZj.lean:71)",
+  "supplier": "UpperTheory.BaseChangeIdentities.baseChangeN (Development/AutomorphicArithmetic/Foundations/BaseChangeIdentities/DefiniteNHolds.lean:5)",
+  "statement": "def BaseChangeIsobaricN : Prop :=\n  ∀ (E : Type) [Field E] [NumberField E] [IsCMField E],\n    (∀ w : HeightOneSpectrum (𝓞 E), Algebra.IsUnramifiedAt (𝓞 (maximalRealSubfield E)) w.asIdeal) →\n    ∀ n : ℕ, 1 ≤ n → ∀ π : Submodule ℂ (UA E n → ℂ), IsAutRepU π →\n      ∃ (c : ℕ) (N : Fin c → ℕ) (h : ∑ i, N i = n) (V : ∀ i, Submodule ℂ (Sm E (N i)))\n        (σ : ∀ i (w : HeightOneSpectrum (𝓞 E)), SmIrr (GL (Fin (N i)) (w.adicCompletion E)))\n        (m : Fin c → (E →+* ℂ) → Multiset ℂ)\n        (P : ∀ w : HeightOneSpectrum (𝓞 E), SmIrr (GL (Fin n) (w.adicCompletion E))), IsBaseChangeN π h V σ m P",
+  "id": 678555,
+  "consumer_id": 501391,
+  "supplier_id": 520903,
+  "call_site": "UpperTheory.One.vwin_of_row (Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/VwinOfRow.lean:4)",
+  "call_line": 5,
+  "call_excerpt": "UpperTheory.One.Join.automorphic_window_of_inputs (UpperTheory.LiteratureTheorems.OpenImageCondition.mk h) UpperTheory.BaseChangeIdentities.baseChangeN",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.One.vwin_of_row"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.CompanionTheory.Hypotheses₂.PrincipalisationCharZero (Development/AutomorphicSpectrum/PublishedTheorems/Geometry₂/NotSubsetOfDenseCompl.lean:57)",
+  "consumer": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "supplier": "UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:555)",
+  "statement": "def PrincipalisationCharZero : Prop :=\n  ∀ (k : Type) [Field k] [CharZero k] (d : ℕ) (X : Scheme.{0}) (g : X ⟶ Sp k),\n    SmoothOfRelativeDimension d g → QuasiCompact g → IsSeparated g →\n    ∀ (I : X.IdealSheafData) (E : Closeds X),\n      (∀ C ∈ irreducibleComponents X, ¬ C ⊆ (I.support : Set X)) →\n      (∀ x ∈ E, FinalTheorems.SncAt (Scheme.IdealSheafData.vanishingIdeal E) x) →\n      ∃ (X' : Scheme.{0}) (s : X' ⟶ X) (E' : Closeds X'),\n        IsSncBlowupSeq g E s E' ∧ Smooth (s ≫ g) ∧\n        FinalTheorems.EffCartier (I.comap s) ∧ FinalTheorems.Snc (Scheme.IdealSheafData.vanishingIdeal (I.comap s).support) ∧\n        IsIso (s ∣_ I.support.compl)",
+  "id": 629254,
+  "consumer_id": 558798,
+  "supplier_id": 555961,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 812,
+  "call_excerpt": "_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (_root_.UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.ThetaIntegralsAgree (Development/AbelianVarietyTheory/BlockTheory/DivisorBase/WeilTensorModels.lean:585)",
+  "consumer": "UpperTheory.Lit.every_character_of_theta_integrals_local_matching (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean:69)",
+  "supplier": "UpperTheory.LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:565)",
+  "statement": "def ThetaIntegralsAgree : Prop :=\n  (∀ (F E : Type) [Field F] [NumberField F] [Field E] [NumberField E] [Algebra F E] (σ : E →ₐ[F] E) (B : Base F E)\n    (a a' : ℕ) (G : Geo σ a a') (X : Chars F E) om om', IsTriple B G X om om' → Decay B G om om' ∧\n      ∀ R Rf, IsMatched B G X om om' R Rf → OneConst B G X om om' R Rf ∧ Coinv B G X om om' Rf) ∧\n  (∃ e₁ e₂ s : ℤˣ, ∀ (F E : Type) [Field F] [NumberField F] [Field E] [NumberField E] [Algebra F E] (σ : E →ₐ[F] E),\n    StepBeta σ e₁ e₂ s) ∧\n  ∃ e₁ e₂ s : ℤˣ, ∀ (F E : Type) [Field F] [NumberField F] [Field E] [NumberField E] [Algebra F E] (σ : E →ₐ[F] E),\n    StepAlpha σ e₁ e₂ s",
+  "id": 15281,
+  "consumer_id": 558535,
+  "supplier_id": 555966,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 811,
+  "call_excerpt": "_root_.UpperTheory.Lit.every_character_of_theta_integrals_local_matching (_root_.UpperTheory.LiteratureTheorems.published_results_eigen O) (_root_.UpperTheory.LiteratureTheorems.published_results_first O) (_root_.UpperTheory.LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.CompanionTheory.Hypotheses₂.PoincareLelongInv (Development/AutomorphicSpectrum/PublishedTheorems/Metrics₂/PoincareLelongInv.lean:9)",
+  "consumer": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "supplier": "UpperTheory.LiteratureTheorems.poincare_lelong_inv_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:553)",
+  "statement": "def PoincareLelongInv : Prop :=\n  ∀ (K : Type) [Fintype K] (ι : K → Type) [∀ k, Fintype (ι k)] (P : Ideal (MRing ι)) (n : ℕ)\n    (L : Fin n → HermLine ι) (A B : HermLine ι) (s : MRing ι),\n    IsArithVar P (n + 2) → (∀ j, IsSmoothHerm (L j)) → IsSmoothHerm A → IsSmoothHerm B →\n    (∀ j, IsConjInvariantH (L j)) → IsConjInvariantH A → IsConjInvariantH B →\n    B.a = 0 → IsSectionOn P A s →\n    ptsIntegral P (Fin.cons (fun z => Real.log (B.h z)) (pot L)) (logNorm A s) =\n      (∑ᶠ (W) (_ : W ∈ divSupp P s ∧ IsHorizontal W),\n          (multAt (P ⊔ Ideal.span {s}) W : ℝ) * ptsIntegral W (pot L) (fun z => Real.log (B.h z))) -\n        ptsIntegral P (Fin.cons (fun z => Real.log (A.h z)) (pot L)) (fun z => Real.log (B.h z))",
+  "id": 629278,
+  "consumer_id": 558798,
+  "supplier_id": 555960,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 812,
+  "call_excerpt": "_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (_root_.UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.poincare_lelong_inv_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "ReciprocityTheory.ChartRestriction.G.ArakelovGeometry.MoriwakiBigStatement (ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/ArakelovGeometry/MoriwakiSt.lean:29)",
+  "consumer": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "supplier": "PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright (Development/WeilBound/CoreStatements/AutomorphicKernels/MoriwakiBigness/MoriwakiBigTheorem/Outright.lean:9)",
+  "statement": "def MoriwakiBigStatement : Prop :=\n  ∀ (K : Type) [Fintype K] (ι : K → Type) [∀ k, Fintype (ι k)] (Ω : Type) [Field Ω]\n    (y : (Σ k, ι k) → Ω) (D : ℕ) (A : HermLine ι) (P0 : Ideal (MRing ι)) (II : IntersectionSystem),\n    IsIntersectionSystem II → IsArithVar (mCoordIdeal y) (D + 1) → Birational y →\n    P0 ≤ mCoordIdeal y → IsSemipositiveRel P0 (mCoordIdeal y) A → IsConjInvariantH A →\n    NefOnFibres (mCoordIdeal y) A.a → NefOnGeneric (mCoordIdeal y) A →\n    II K ι (mCoordIdeal y) (D + 1) (fun _ => A) ≤\n      arVolP (IsSmallH (mCoordIdeal y) y A) (chartLat y A.a) 1 D",
+  "id": 1034740,
+  "consumer_id": 558798,
+  "supplier_id": 651737,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 812,
+  "call_excerpt": "_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (_root_.UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.poincare_lelong_inv_of_literature O) PositivityTheory.Pf1.HilbertSamuelMoriwaki.hsUse_outright PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.CompanionTheory.Ar.HT.FarguesExact (Development/AutomorphicSpectrum/PublishedTheorems/Algebra₂/FarguesExact.lean:10)",
+  "consumer": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "supplier": "UpperTheory.LiteratureTheorems.fargues_exact_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:549)",
+  "statement": "def FarguesExact : Prop :=\n  ∀ (p : ℕ) [Fact p.Prime] (C : Type) [Field C] [IsAlgClosed C] [CharZero C] (v : Valuation C NNReal)\n    (O : Type) [CommRing O] [Algebra O C] [Algebra ℤ_[p] O], v.Integers O → v (p : C) < 1 →\n    IsAdicComplete (Ideal.span {(p : O)}) O → ∀ G : PDivGroup p O,\n    ∀ (ζ : ℕ → O) (h0 : ζ 0 = 1) (h : ∀ n, ζ (n + 1) ^ p = ζ n), ζ 1 ≠ 1 →\n      ∀ B : O ⊗[ℤ_[p]] G.Tate →ₗ[O] O ⊗[ℤ_[p]] G.dual.Tate →ₗ[O] O,\n        (∀ (x : G.Tate) (χ : G.dual.Tate), ∃ a : ℤ_[p], pairing G O x χ = a • muTate O ζ h0 h ∧\n          B (1 ⊗ₜ x) (1 ⊗ₜ χ) = algebraMap ℤ_[p] O a) →\n        ∀ x, hodgeTateLinear G x = 0 ↔ ∀ y, dlogLinear G y = 0 → B x y = 0",
+  "id": 629209,
+  "consumer_id": 558798,
+  "supplier_id": 555958,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 812,
+  "call_excerpt": "_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (_root_.UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.poincare_lelong_inv_of_literature O) PositivityTheory.Pf1.HilbertSamuelMoriwaki.hsUse_outright PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright (_root_.UpperTheory.LiteratureTheorems.fargues_exact_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.CompanionTheory.Ar.GR.ZarhinStatement (Development/AutomorphicSpectrum/PublishedTheorems/Algebra₂/ZarhinStatement.lean:21)",
+  "consumer": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "supplier": "UpperTheory.LiteratureTheorems.zarhin_statement (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:547)",
+  "statement": "def ZarhinStatement : Prop :=\n  ∀ (C : Type) [Field C] [IsAlgClosed C] (v : Valuation C NNReal) (R : Type) [CommRing R]\n    [Algebra R C], v.Integers R →\n    ∀ (A : Over (Spec (CommRingCat.of R))) [GrpObj A] (L : LB A.left),\n      IsAbelianScheme A → L.IsLB → Out.RelAmple A L →\n      ∃ (P : Out.PolAV (Spec (CommRingCat.of R))) (i : A ⟶ P.A) (r : P.A ⟶ A),\n        IsMonHom i ∧ IsMonHom r ∧ i ≫ r = 𝟙 A",
+  "id": 629227,
+  "consumer_id": 558798,
+  "supplier_id": 555957,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 812,
+  "call_excerpt": "_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (_root_.UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.poincare_lelong_inv_of_literature O) PositivityTheory.Pf1.HilbertSamuelMoriwaki.hsUse_outright PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright (_root_.UpperTheory.LiteratureTheorems.fargues_exact_of_literature O) (_root_.UpperTheory.LiteratureTheorems.zarhin_statement",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.CompanionTheory.Ar.Pub.NefRR (Development/AutomorphicSpectrum/PublishedTheorems/Geometry₂/NefRR.lean:8)",
+  "consumer": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "supplier": "UpperTheory.LiteratureTheorems.nef_rr_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:551)",
+  "statement": "def NefRR : Prop :=\n  ∀ (K : Type) [Fintype K] (ι : K → Type) [∀ k, Fintype (ι k)] (Ω : Type) [Field Ω] [CharZero Ω]\n    (y : (Σ k, ι k) → Ω) (D : ℕ) (a : K → ℤ),\n    IsArithVar (mCoordIdeal y) (D + 1) → Birational y → NefOnGenericDeg (mCoordIdeal y) a →\n      (∀ τ, FiniteDimensional ℚ (Submodule.span ℚ (chartLatNm y a τ : Set Ω))) ∧\n      Tendsto (fun τ : ℕ => (D.factorial : ℝ) * (Module.finrank ℚ (Submodule.span ℚ (chartLatNm y a τ : Set Ω)) : ℝ) /\n        (τ : ℝ) ^ D) atTop (𝓝 (genDeg (mCoordIdeal y) D a : ℝ))",
+  "id": 629247,
+  "consumer_id": 558798,
+  "supplier_id": 555959,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 812,
+  "call_excerpt": "_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (_root_.UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.poincare_lelong_inv_of_literature O) PositivityTheory.Pf1.HilbertSamuelMoriwaki.hsUse_outright PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright (_root_.UpperTheory.LiteratureTheorems.fargues_exact_of_literature O) (_root_.UpperTheory.LiteratureTheorems.zarhin_statement O) (_root_.UpperTheory.LiteratureTheorems.nef_rr_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.Published.SiegelToroidalIntegral (Development/AbelianVarietyTheory/PublishedTheorems/AutomorphicForms₂/SiegelToroidalIntegral.lean:145)",
+  "consumer": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "supplier": "UpperTheory.LiteratureTheorems.siegel_toroidal_integral_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:509)",
+  "statement": "def SiegelToroidalIntegral : Prop :=\n  ∀ g : ℕ, 1 ≤ g → ∃ φ : InvFun ℤ, IsPolFan id g φ ∧ ∀ n : ℕ, 3 ≤ n → Odd n →\n    ∃ (F : SFam g n (zetaAway n)) (S : Scheme.{0}) (s : S ⟶ Sp (cycAway n)) (j : F.X ⟶ S) (_ : IsOpenImmersion j)\n      (G : Over S) (_ : GrpObj G) (e : F.univ.A.left ⟶ G.left) (BD : EffCartierData S) (d N : ℕ),\n      IsProjOver s ∧ SmoothOfRelativeDimension (g * (g + 1) / 2) s ∧ j ≫ s = F.s ∧\n      (∀ x : S, x ∈ closure (Set.range j ∩ s ⁻¹' {s x})) ∧\n      IsSemiAbelian G ∧ SmoothOfRelativeDimension g G.hom ∧ IsGrpPullback F.univ.A G j e ∧ abLocus G = Set.range j ∧\n      1 ≤ d ∧ (∀ x : S, HasChart F s j e φ BD d x) ∧\n      1 ≤ N ∧ IsGenerated (lbPow (hodge G g) N) ∧\n      ∃ k₀ : ℕ, ∀ k, k₀ ≤ k → IsAmpleLB (CechPic.tens (lbPow (hodge G g) (N * k)) (CechPic.dual BD.lb))",
+  "id": 463731,
+  "consumer_id": 558798,
+  "supplier_id": 555938,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 812,
+  "call_excerpt": "_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (_root_.UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.poincare_lelong_inv_of_literature O) PositivityTheory.Pf1.HilbertSamuelMoriwaki.hsUse_outright PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright (_root_.UpperTheory.LiteratureTheorems.fargues_exact_of_literature O) (_root_.UpperTheory.LiteratureTheorems.zarhin_statement O) (_root_.UpperTheory.LiteratureTheorems.nef_rr_of_literature O) (_root_.UpperTheory.LiteratureTheorems.siegel_toroidal_integral_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.Published.ToroidalForFanKS (Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/ToroidalCompactificationBis.lean:45)",
+  "consumer": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "supplier": "UpperTheory.LiteratureTheorems.toroidal_for_fan_ks_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:523)",
+  "statement": "def ToroidalForFanKS : Prop :=\n  ∀ (E : Type) [Field E] [NumberField E] [IsCMField E] (H : Host E) (Dw : Datum H), 1 ≤ Dw.p + Dw.q →\n    ∀ φ : InvFun (𝓞 E), IsPolFan H.bar (min Dw.p Dw.q) φ → NoSelfInt H.bar (min Dw.p Dw.q) φ →\n      ∀ (l : Geo.Tor.Level H) (Xo : Moduli Dw l) (c : Coeff l),\n        ∃ (Y : Model Xo c (RingHom.id c.F)) (BD : EffCartierData Y.X) (d k : ℕ), 1 ≤ d ∧ 1 ≤ k ∧\n          SmoothOfRelativeDimension Dw.dim (genStr Y) ∧ FinalTheorems.Snc (genBdIdeal Y) ∧\n          (∀ x ∈ BD.idealSheaf.support, x ∉ abLocus Y.t.G) ∧\n          (∀ x ∈ genBd Y, GlobalTheory.MumfordChart.HasChartOf φ Y BD d x) ∧\n          ((GlobalTheory.FlagMod.detOm Y).IsLB → GlobalTheory.IsAmpleLB (GlobalTheory.TorRef.polOf Y k BD)) ∧\n          GlobalTheory.LogKS.HasLogKS Y.t Y.s (GlobalTheory.LogKS.interior Y)",
+  "id": 465291,
+  "consumer_id": 558798,
+  "supplier_id": 555945,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 812,
+  "call_excerpt": "_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (_root_.UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.poincare_lelong_inv_of_literature O) PositivityTheory.Pf1.HilbertSamuelMoriwaki.hsUse_outright PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright (_root_.UpperTheory.LiteratureTheorems.fargues_exact_of_literature O) (_root_.UpperTheory.LiteratureTheorems.zarhin_statement O) (_root_.UpperTheory.LiteratureTheorems.nef_rr_of_literature O) (_root_.UpperTheory.LiteratureTheorems.siegel_toroidal_integral_of_literature O) (_root_.UpperTheory.LiteratureTheorems.toroidal_for_fan_ks_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.Published.SemiAbelianLieSeminegative (Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/InterNumDetNonposSplitTorus.lean:23)",
+  "consumer": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "supplier": "UpperTheory.LiteratureTheorems.semi_abelian_lie_seminegative_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:499)",
+  "statement": "def SemiAbelianLieSeminegative : Prop :=\n  ∀ (k : Type) [Field k] [CharZero k] (C : Scheme.{0}) [Algebra k Γ(C, ⊤)],\n    SmoothOfRelativeDimension 1 (strHom k C) → IsProjOver (strHom k C) → GeometricallyConnected (strHom k C) →\n    ∀ (G : Over C) [GrpObj G] [IsSemiAbelian G] (W : C.Modules) (r : ℕ), IsVB W r →\n      ∀ i : W ⟶ Lie G, Mono i → interNum k (structureModule C) ![det W r] ≤ 0",
+  "id": 464515,
+  "consumer_id": 558798,
+  "supplier_id": 555933,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 812,
+  "call_excerpt": "_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (_root_.UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.poincare_lelong_inv_of_literature O) PositivityTheory.Pf1.HilbertSamuelMoriwaki.hsUse_outright PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright (_root_.UpperTheory.LiteratureTheorems.fargues_exact_of_literature O) (_root_.UpperTheory.LiteratureTheorems.zarhin_statement O) (_root_.UpperTheory.LiteratureTheorems.nef_rr_of_literature O) (_root_.UpperTheory.LiteratureTheorems.siegel_toroidal_integral_of_literature O) (_root_.UpperTheory.LiteratureTheorems.toroidal_for_fan_ks_of_literature O) (_root_.UpperTheory.LiteratureTheorems.semi_abelian_lie_seminegative_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.Published.PointSeparationPair (Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/PointSeparationPair.lean:15)",
+  "consumer": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "supplier": "UpperTheory.LiteratureTheorems.point_separation_pair_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:471)",
+  "statement": "def PointSeparationPair : Prop :=\n  ∀ (X : Scheme.{0}) [IsIntegral X] [IsLocallyNoetherian X] [GlobalTheory.IsNormalScheme X]\n    (p : X ⟶ Sp ℂ) (n : ℕ), IsProjOver p → topologicalKrullDim X = n →\n    letI := algebraΓOfHom p\n    ∀ (M : LB X) (Δ : X → ℚ) (m : ℕ) (G : CartierDiv X) (r : ℕ) (N₀ : LB X) (x₁ x₂ : X) (c : ℕ → ℝ),\n      M.IsLB → IsEffQDiv Δ → (∀ y, KltAt p n Δ y) → 0 < m → IsLogCanonicalMultiple p n Δ m G →\n      0 < r → IsNef ℂ N₀ → IsBig ℂ N₀ →\n      (∀ C : Closeds X, IsCompleteCurve ℂ C → (interNumRed ℂ C ![M] : ℚ) =\n        interNumRed ℂ C ![toLB G] / m + interNumRed ℂ C ![N₀] / r) →\n      IsClosed ({x₁} : Set X) → IsClosed ({x₂} : Set X) → x₁ ≠ x₂ →\n      (∀ e ∈ Finset.Icc 1 n, 0 < c e) →\n      (∀ (Z : Closeds X) (e : ℕ), IsIrreducible (Z : Set X) → x₁ ∈ Z ∨ x₂ ∈ Z → 1 ≤ e →\n        topologicalKrullDim (Z : Set X) = e →\n        c e ^ e < (interNumRed ℂ Z fun _ : Fin e => N₀ : ℝ) / (r : ℝ) ^ e) →\n      ∑ e ∈ Finset.Icc 1 n, (2 : ℝ) ^ (1 / (e : ℝ)) * e / c e ≤ 1 →\n      ∃ s : M.Sec, (x₁ ∈ nonzeroLocus s ∧ x₂ ∉ nonzeroLocus s) ∨ (x₂ ∈ nonzeroLocus s ∧ x₁ ∉ nonzeroLocus s)",
+  "id": 465122,
+  "consumer_id": 558798,
+  "supplier_id": 555919,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 812,
+  "call_excerpt": "_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (_root_.UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.poincare_lelong_inv_of_literature O) PositivityTheory.Pf1.HilbertSamuelMoriwaki.hsUse_outright PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright (_root_.UpperTheory.LiteratureTheorems.fargues_exact_of_literature O) (_root_.UpperTheory.LiteratureTheorems.zarhin_statement O) (_root_.UpperTheory.LiteratureTheorems.nef_rr_of_literature O) (_root_.UpperTheory.LiteratureTheorems.siegel_toroidal_integral_of_literature O) (_root_.UpperTheory.LiteratureTheorems.toroidal_for_fan_ks_of_literature O) (_root_.UpperTheory.LiteratureTheorems.semi_abelian_lie_seminegative_of_literature O) (_root_.UpperTheory.LiteratureTheorems.point_separation_pair_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.Published.ArDegree (Development/AbelianVarietyTheory/PublishedTheorems/AutomorphicForms₂/ArBirational.lean:25)",
+  "consumer": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "supplier": "UpperTheory.LiteratureTheorems.ar_degree_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:251)",
+  "statement": "def ArDegree : Prop := ArBirational ∧ ChernDegree",
+  "id": 463386,
+  "consumer_id": 558798,
+  "supplier_id": 555809,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 812,
+  "call_excerpt": "_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (_root_.UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.poincare_lelong_inv_of_literature O) PositivityTheory.Pf1.HilbertSamuelMoriwaki.hsUse_outright PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright (_root_.UpperTheory.LiteratureTheorems.fargues_exact_of_literature O) (_root_.UpperTheory.LiteratureTheorems.zarhin_statement O) (_root_.UpperTheory.LiteratureTheorems.nef_rr_of_literature O) (_root_.UpperTheory.LiteratureTheorems.siegel_toroidal_integral_of_literature O) (_root_.UpperTheory.LiteratureTheorems.toroidal_for_fan_ks_of_literature O) (_root_.UpperTheory.LiteratureTheorems.semi_abelian_lie_seminegative_of_literature O) (_root_.UpperTheory.LiteratureTheorems.point_separation_pair_of_literature O) (_root_.UpperTheory.LiteratureTheorems.ar_degree_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.Published.GrothendieckDeformation (Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/GrothendieckDeformation.lean:12)",
+  "consumer": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "supplier": "UpperTheory.LiteratureTheorems.grothendieck_deformation_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:405)",
+  "statement": "def GrothendieckDeformation : Prop :=\n  ∀ (R : Type) [CommRing R] (I : Ideal R) (κ : DividedPowers I), IsNilDP κ →\n    ∀ (R₀ : Type) [CommRing R₀] (π : R →+* R₀), Function.Surjective π → RingHom.ker π = I →\n      GrothendieckMessing.At κ π",
+  "id": 464380,
+  "consumer_id": 558798,
+  "supplier_id": 555886,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 812,
+  "call_excerpt": "_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (_root_.UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature O) (_root_.UpperTheory.LiteratureTheorems.poincare_lelong_inv_of_literature O) PositivityTheory.Pf1.HilbertSamuelMoriwaki.hsUse_outright PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright (_root_.UpperTheory.LiteratureTheorems.fargues_exact_of_literature O) (_root_.UpperTheory.LiteratureTheorems.zarhin_statement O) (_root_.UpperTheory.LiteratureTheorems.nef_rr_of_literature O) (_root_.UpperTheory.LiteratureTheorems.siegel_toroidal_integral_of_literature O) (_root_.UpperTheory.LiteratureTheorems.toroidal_for_fan_ks_of_literature O) (_root_.UpperTheory.LiteratureTheorems.semi_abelian_lie_seminegative_of_literature O) (_root_.UpperTheory.LiteratureTheorems.point_separation_pair_of_literature O) (_root_.UpperTheory.LiteratureTheorems.ar_degree_of_literature O) (_root_.UpperTheory.LiteratureTheorems.published_results_arithmetic O) (_root_.UpperTheory.LiteratureTheorems.grothendieck_deformation_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.CovTop.CovolumeBoundOfX (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/LiftLambdaBound.lean:60)",
+  "consumer": "UpperTheory.Lit.every_character_of_theta_integrals_local_matching (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean:69)",
+  "supplier": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "statement": "def CovolumeBoundOfX : Prop := Closed FamHyp fun Fm CH =>\n  ∃ C0 : ℝ, 0 ≤ C0 ∧ _root_.GlobalTheory.CovTop.EventuallyAtAllPoints Fm fun _ _ _ p => ∀ C, C0 ≤ C → (p.S false).L3 (p.N C CH)",
+  "id": 557129,
+  "consumer_id": 558535,
+  "supplier_id": 558798,
+  "call_site": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+  "call_line": 811,
+  "call_excerpt": "_root_.UpperTheory.Lit.every_character_of_theta_integrals_local_matching (_root_.UpperTheory.LiteratureTheorems.published_results_eigen O) (_root_.UpperTheory.LiteratureTheorems.published_results_first O) (_root_.UpperTheory.LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature O).1 (_root_.UpperTheory.LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature O).2\n    (_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ]
+  ]
+ },
+ {
+  "decl": "PositivityTheory.Rg.BcB.F.FX.CandFin (Development/WeilBound/RepresentationTheoryGL/ArchimedeanBaseChange/ArchimedeanBaseChangeProof/SatakeExponents/UniformizerValuations/StrictJoinCandidates/CandSt.lean:22)",
+  "consumer": "UpperTheory.BaseChangeIdentities.baseChangeN_of (Development/AutomorphicArithmetic/Foundations/BaseChangeIdentities/FillPre.lean:7)",
+  "supplier": "UpperTheory.HeckeLevelFrameExistence.candFin (Development/AutomorphicArithmetic/Foundations/BaseChangeIdentities/FrameMatching/HeckeEigenvalueFiniteness/FrameEx.lean:15)",
+  "statement": "def CandFin : Prop := ∀ (hR : Rd.ReadLimit) (E : Type) [Field E] [NumberField E] [IsCMField E], GlobalTheory.BCT.Unr E → ∀ (n : ℕ),\n  1 ≤ n → ∀ (π : Submodule ℂ (UA E n → ℂ)), IsAutRepU π → ∀ (S : Finset (Pl E)) (F₀ : Frame0 hR π S) (T' : Finset (Pl E))\n  (c : Pl E → (Fin n → ℤ) →₀ ℂ) (e : ∀ w : Pl E, GLw n w → ℂ) (b : ∀ w : Pl E, GLw n w),\n  (∀ w ∈ T', ¬ IsSplitAt w ∧ w ∉ F₀.d₀.S₀ ∧ w ∉ F₀.d₀.Bad) →\n  (∀ i w, ∃ Z : Set ((Fin (F₀.C.a i) → ℂˣ) × (Fin (n - F₀.C.a i) → ℂˣ)), Z.Finite ∧\n    ∀ s₁ s₂ Pa Pb D, F₀.Cand (F₀.loc T' c e b) i s₁ s₂ Pa Pb D → w ∈ T' →\n      ∀ ξa ξb, JEig Pa Pb w (F₀.d₀.ϖ w) ξa ξb → (ξa, ξb) ∈ Z) ∧\n  (∀ w ∈ F₀.d₀.S₀, ∃ (k : ℕ) (Dl : Fin k → Pre E n), ∀ i s₁ s₂ Pa Pb D, F₀.Cand (F₀.loc T' c e b) i s₁ s₂ Pa Pb D →\n    ∃ j, (∀ τ : SmIrr (GLw n w), GlobalTheory.SmGL.IsSubquotient τ.ρ (prodAt D w) ↔ GlobalTheory.SmGL.IsSubquotient τ.ρ (prodAt (Dl j) w)) ∧\n      Module.finrank ℂ ↥(fixed (prodAt D w) (F₀.d₀.K' w)) = Module.finrank ℂ ↥(fixed (prodAt (Dl j) w) (F₀.d₀.K' w)) ∧\n      FiniteDimensional ℂ ↥(fixed (prodAt (Dl j) w) (F₀.d₀.K' w))) ∧\n  ∃ m₀ : ℕ, ∀ i s₁ s₂ Pa Pb D, F₀.Cand (F₀.loc T' c e b) i s₁ s₂ Pa Pb D → ∀ w ∈ T',\n    Module.finrank ℂ ↥(fixed (pairAt Pa Pb w) (I2 (F₀.C.a i) (n - F₀.C.a i) w)) ≤ m₀",
+  "id": 683287,
+  "consumer_id": 520904,
+  "supplier_id": 520944,
+  "call_site": "UpperTheory.BaseChangeIdentities.baseChangeN (Development/AutomorphicArithmetic/Foundations/BaseChangeIdentities/DefiniteNHolds.lean:5)",
+  "call_line": 6,
+  "call_excerpt": "UpperTheory.BaseChangeIdentities.baseChangeN_of UpperTheory.HeckeLevelFrameExistence.candFin",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.One.vwin_of_row"
+   ],
+   [
+    "UpperTheory.One.vwin_of_row (Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/VwinOfRow.lean:4)",
+    5,
+    "UpperTheory.BaseChangeIdentities.baseChangeN"
+   ]
+  ]
+ },
+ {
+  "decl": "UpperTheory.Gal.LocalSmoothExtension.HolomorphicLefschetzFormula (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/LefschetzSigmaSums/HodgeTraceFromLefschetzAndGroupSide.lean:102)",
+  "consumer": "UpperTheory.Gal.Int.Geo.geometric_realization_of_weight_one (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/GeometricRealizationOfWeightOne.lean:25)",
+  "supplier": "UpperTheory.Gal.Int.Geo.weight_one_geometric_realization (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/WeightOneGeometricRealization.lean:7)",
+  "statement": "def HolomorphicLefschetzFormula : Prop :=\n  ∀ (Z : Scheme.{0}) (s : Z ⟶ Sp ℂ) (d : ℕ) [SmoothOfRelativeDimension d s], IsProjOver s →\n  ∀ (Y : Scheme.{0}) (s' : Y ⟶ Sp ℂ) (c1 c2 : Y ⟶ Z) (h1 : c1 ≫ s = s') (h2 : c2 ≫ s = s') [IsFinite c1] [Etale c1],\n  IsFinite c2 → Etale c2 →\n  ∀ (F : Finset (CxPts s' (RingHom.id ℂ))), (∀ y, y ∈ F ↔ y.1 ≫ c1 = y.1 ≫ c2) →\n  ∀ A : CxPts s' (RingHom.id ℂ) → Matrix (Fin d) (Fin d) ℂ,\n    (∀ y ∈ F, GlobalTheory.W1.IsTan d c1 c2 h1 h2 y (A y) ∧ (1 - A y).det ≠ 0) →\n  ∀ a : ℕ, (∀ b, FiniteDimensional ℂ (hodgeH s a b)) ∧\n    ∑ b ∈ Finset.range (d + 1), (-1 : ℂ) ^ b * LinearMap.trace ℂ _ (hodgeTrace h1 a b ∘ₗ hodgePull h2 a b) =\n      ∑ y ∈ F, (Matrix.det (1 + (Polynomial.X : Polynomial ℂ) • (A y).map Polynomial.C)).coeff a / (1 - A y).det",
+  "id": 534213,
+  "consumer_id": 532520,
+  "supplier_id": 532996,
+  "call_site": "UpperTheory.Gal.Int.Geo.geoOne_holds (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/WeightOneGeometricRealization.lean:11)",
+  "call_line": 11,
+  "call_excerpt": "geometric_realization_of_weight_one weight_one_geometric_realization",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter"
+   ],
+   [
+    "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean:6)",
+    6,
+    "galoisRepresentations_of_thetaLift"
+   ],
+   [
+    "UpperTheory.Gal.Int.galoisRepresentations_of_thetaLift (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GaloisRepresentationsOfThetaLift.lean:6)",
+    6,
+    "UpperTheory.Gal.Int.Geo.geoOne_holds"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.ThK.Dbl.Stab2Cpt_k (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/ThkBaseKPair.lean:16)",
+  "consumer": "GlobalTheory.ThK.Dbl.hgtEx_of_k (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/ThkBaseHgtInt.lean:15)",
+  "supplier": "GlobalTheory.ThK.Dbl.stab2Cpt_k (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/Stab2CptK.lean:18)",
+  "statement": "def Stab2Cpt_k : Prop :=\n  ∀ (F E : Type) [Field F] [NumberField F] [Field E] [NumberField E] [Algebra F E] (σ : E →ₐ[F] E) (B : Base F E) (n : ℕ) (Y : Spc F E n) r s, _root_.UpperTheory.TP.W.GoodK σ B → (Y.IsHerm σ B r s ∨ Y.IsSkew σ B r s) →\n    ∀ K, IsStab2 (σ := σ) (Y := Y) B K → IsCompact (K : Set (G2 σ Y))",
+  "id": 543587,
+  "consumer_id": 543585,
+  "supplier_id": 543378,
+  "call_site": "UpperTheory.TP.tLift_holds_k (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGHolds.lean:58)",
+  "call_line": 58,
+  "call_excerpt": "_root_.GlobalTheory.ThK.Dbl.hgtEx_of_k _root_.GlobalTheory.ThK.Dbl.stab2Cpt_k",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter"
+   ],
+   [
+    "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean:6)",
+    6,
+    "UpperTheory.TP.K.tLiftK"
+   ],
+   [
+    "UpperTheory.TP.K.tLiftK (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TLiftK.lean:4)",
+    5,
+    "UpperTheory.TP.tLift_holds_k"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.Published.ChevalleyUnits (Development/AbelianVarietyTheory/PublishedTheorems/GaloisCohomology₂/ChevalleyUnits.lean:7)",
+  "consumer": "GlobalTheory.ArtinLocalInj.artin_localIdele_injective (Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/GlobalArtinLocalIdeleInjective.lean:23)",
+  "supplier": "GlobalTheory.Published.chevalleyUnits' (Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ChevalleyUnits.lean:174)",
+  "statement": "def ChevalleyUnits : Prop :=\n  ∀ (E : Type) [Field E] [NumberField E] (m b : ℕ), 0 < m → 0 < b →\n    ∃ a : ℕ, 0 < a ∧ a.Coprime b ∧ ∀ u : (𝓞 E)ˣ, (a : 𝓞 E) ∣ (u : 𝓞 E) - 1 → ∃ v : (𝓞 E)ˣ, u = v ^ m",
+  "id": 465383,
+  "consumer_id": 332401,
+  "supplier_id": 319445,
+  "call_site": "UpperTheory.Zero.LLC.artEx (Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/ArtEx.lean:7)",
+  "call_line": 13,
+  "call_excerpt": "GlobalTheory.ArtinLocalInj.artin_localIdele_injective GlobalTheory.Published.chevalleyUnits'",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.Zero.LLC.recTExists"
+   ],
+   [
+    "UpperTheory.Zero.LLC.recTExists (Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/RecTExists.lean:20)",
+    23,
+    "UpperTheory.Zero.LLC.artEx"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.Published.BernsteinZelevinskyFiniteness (Development/AbelianVarietyTheory/PublishedTheorems/TwistedTraceFormula/HasFiniteLengthOfIsIrreducible.lean:49)",
+  "consumer": "GlobalTheory.T.centralCharacter_eq_prod_supercuspidalSupport (Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/CentralCharacterEqProdSupercuspidalSupportStatement.lean:11)",
+  "supplier": "UpperTheory.Zero.LLC.Pr.bz (Development/AutomorphicArithmetic/Foundations/LocalLanglands/Multi.lean:14)",
+  "statement": "def BernsteinZelevinskyFiniteness : Prop :=\n  ∀ (k : Type) [Field k] [ValuativeRel k] [TopologicalSpace k] [IsNonarchimedeanLocalField k],\n    IrreducibleAdmissible k ∧ JacquetFiniteLength k ∧ InductionFiniteLength k ∧\n      InductionContragredient k",
+  "id": 466938,
+  "consumer_id": 319091,
+  "supplier_id": 545934,
+  "call_site": "UpperTheory.Zero.LLC.extDim (Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/ExtDim.lean:57)",
+  "call_line": 63,
+  "call_excerpt": "GlobalTheory.T.centralCharacter_eq_prod_supercuspidalSupport Pr.bz",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.Zero.LLC.recTExists"
+   ],
+   [
+    "UpperTheory.Zero.LLC.recTExists (Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/RecTExists.lean:20)",
+    29,
+    "UpperTheory.Zero.LLC.extDim"
+   ]
+  ]
+ },
+ {
+  "decl": "ReciprocityTheory.ChartRestriction.G.Geo.ResK.ResKStatement (ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/BirationalGeometry/BlowupProjections/BlowupProjStatement.lean:66)",
+  "consumer": "PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_of_classicalTheorems (Development/WeilBound/CoreStatements/AutomorphicKernels/MoriwakiBigness/MoriwakiBigTheorem/HSChain.lean:367)",
+  "supplier": "PositivityTheory.ResPlug.FromRes.resK (Development/WeilBound/CoreStatements/ResolutionCharZero/PlugResK.lean:7)",
+  "statement": "def ResKStatement : Prop :=\n  ∀ (K : Type) [Field K] [CharZero K] (M D : ℕ) (X : Scheme.{0}) (i : X ⟶ PSpace K M) (U : X.Opens),\n    IsResInput M i U D →\n    ∃ (r : ℕ) (X' : Scheme.{0}) (j : X' ⟶ pullback (PSpace.str K M) (PSpace.str K r)) (f : X' ⟶ X),\n      IsClosedImmersion j ∧ f ≫ i = j ≫ pullback.fst _ _ ∧ IsResWithCoords (i ≫ PSpace.str K M) U D f",
+  "id": 1037314,
+  "consumer_id": 651734,
+  "supplier_id": 673434,
+  "call_site": "PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright (Development/WeilBound/CoreStatements/AutomorphicKernels/MoriwakiBigness/MoriwakiBigTheorem/Outright.lean:9)",
+  "call_line": 10,
+  "call_excerpt": "moriwakiBig_of_classicalTheorems PositivityTheory.ResPlug.FromRes.resK",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ],
+   [
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+    812,
+    "PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.CompanionTheory.Ar.Pub.PoincareLelong (Development/AutomorphicSpectrum/PublishedTheorems/Metrics₂/PoincareLelong.lean:6)",
+  "consumer": "GlobalTheory.ArithmeticHeightTower.ArakelovDirectHeights.cycleHeights_direct (Development/WeilBound/CoreStatements/TemperedRepresentationTheory/ArakelovCycleHeights/CycleHeightFormulas/CycleHeightsDirect.lean:144)",
+  "supplier": "PositivityTheory.Tls2.Pl.poincareLelong (Development/WeilBound/CoreStatements/TemperedRepresentationTheory/PoincareLelong/PoincareLelongInv.lean:13)",
+  "statement": "def PoincareLelong : Prop :=\n  ReciprocityTheory.ChartRestriction.G.Geo.ArithmeticPoincareLelongFormula",
+  "id": 629277,
+  "consumer_id": 674022,
+  "supplier_id": 674477,
+  "call_site": "UpperTheory.LiteratureTheorems.ar_degree_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:251)",
+  "call_line": 252,
+  "call_excerpt": "GlobalTheory.ArithmeticHeightTower.ArakelovDirectHeights.cycleHeights_direct PositivityTheory.Tls2.Pl.poincareLelong",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ],
+   [
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+    812,
+    "_root_.UpperTheory.LiteratureTheorems.ar_degree_of_literature"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.Published.GreenRegularCharacters (Development/AbelianVarietyTheory/PublishedTheorems/GaloisCohomology₂/GreenRegularCharacters.lean:13)",
+  "consumer": "GlobalTheory.GreenBridge.green_of_regular (Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/SumRangeEqRoots.lean:225)",
+  "supplier": "GlobalTheory.greenRegularCharacters_holds (Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/GreenCuspidalCharsByRegularCharsProof.lean:137)",
+  "statement": "def GreenRegularCharacters : Prop :=\n  ∀ (g : ℕ) [Fact g.Prime] (d : ℕ), 0 < d → ∀ (K : Type) [Field K] [Algebra (ZMod g) K], Module.finrank (ZMod g) K = d →\n    ∃ τ : (Kˣ →* ℂˣ) → Gn g d → ℂ,\n      (∀ θ, IsRegularChar g d θ → IsCusp (τ θ) ∧ τ θ 1 = ∏ i ∈ Finset.Ico 1 d, ((g : ℂ) ^ i - 1) ∧\n        ∀ y : Gn g d, Irreducible (y : Mt g d).charpoly → ∀ z : Kˣ, aeval (z : K) (y : Mt g d).charpoly = 0 →\n          τ θ y = (-1) ^ (d - 1) * ∑ i ∈ Finset.range d, ((θ (z ^ g ^ i) : ℂˣ) : ℂ)) ∧\n      (∀ θ θ', IsRegularChar g d θ → IsRegularChar g d θ' → (τ θ = τ θ' ↔ ∃ i < d, θ' = θ ^ g ^ i)) ∧\n      ∀ χ : Gn g d → ℂ, IsCusp χ → ∃ θ, IsRegularChar g d θ ∧ χ = τ θ",
+  "id": 465601,
+  "consumer_id": 346231,
+  "supplier_id": 332610,
+  "call_site": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+  "call_line": 18,
+  "call_excerpt": "GlobalTheory.GreenBridge.green_of_regular GlobalTheory.greenRegularCharacters_holds",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ],
+   [
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+    812,
+    "_root_.SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.Published.AbelianDeRham (Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/CrysToDRBijective.lean:65)",
+  "consumer": "GlobalTheory.Published.grothendieckDeformation_of_lifting (Development/AbelianVarietyTheory/Proofs/DivisorProofs/GrothendieckDeformationOfLifting.lean:9)",
+  "supplier": "UpperTheory.LiteratureTheorems.abelian_de_rham_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:239)",
+  "statement": "def AbelianDeRham : Prop :=\n  AbelianDeRham.Free ∧ AbelianDeRham.Hodge ∧ AbelianDeRham.BaseChange ∧ AbelianDeRham.Rigid ∧\n    AbelianDeRham.Duality",
+  "id": 463942,
+  "consumer_id": 192552,
+  "supplier_id": 555803,
+  "call_site": "UpperTheory.LiteratureTheorems.grothendieck_deformation_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:405)",
+  "call_line": 406,
+  "call_excerpt": "GlobalTheory.Published.grothendieckDeformation_of_lifting (_root_.UpperTheory.LiteratureTheorems.abelian_de_rham_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ],
+   [
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+    812,
+    "_root_.UpperTheory.LiteratureTheorems.grothendieck_deformation_of_literature"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.Published.DualAbelianScheme (Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/ExistsCrystalPairing.lean:25)",
+  "consumer": "PositivityTheory.HtPt.Narrow.zarhin (Development/WeilBound/CoreStatements/HodgeTatePoints/ZarTop.lean:6)",
+  "supplier": "UpperTheory.LiteratureTheorems.dual_abelian_scheme_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:545)",
+  "statement": "def DualAbelianScheme : Prop :=\n  ∀ (S : Scheme.{0}) (A : Over S) [GrpObj A], IsAbelianScheme A →\n    ∃ (B : Over S) (_ : GrpObj B) (P : LB (A ⊗ B).left), IsAbelianScheme B ∧\n      (∀ g : ℕ, SmoothOfRelativeDimension g A.hom → SmoothOfRelativeDimension g B.hom) ∧\n      IsDual A B P ∧ IsDual B A (swap P)",
+  "id": 464188,
+  "consumer_id": 662025,
+  "supplier_id": 555956,
+  "call_site": "UpperTheory.LiteratureTheorems.zarhin_statement (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:547)",
+  "call_line": 548,
+  "call_excerpt": "PositivityTheory.HtPt.Narrow.zarhin (_root_.UpperTheory.LiteratureTheorems.dual_abelian_scheme_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ],
+   [
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+    812,
+    "_root_.UpperTheory.LiteratureTheorems.zarhin_statement"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.ThK.Dbl.EisBL (Development/WeilBound/ThetaLifts/LatticeBasics/HypothesesE.lean:46)",
+  "consumer": "PositivityTheory.ThKR.theoremK_head2 (Development/WeilBound/ThetaLifts/Reductions/FiniteClosure/TheoremKOfMod.lean:26)",
+  "supplier": "UpperTheory.LiteratureTheorems.eis_bl_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:561)",
+  "statement": "def EisBL : Prop :=\n  ∀ (F E : Type) [Field F] [NumberField F] [Field E] [NumberField E] [Algebra F E] (σ : E →ₐ[F] E) (B : Base F E) (n : ℕ) (Y : Spc F E n) r s, B.IsGood σ → 1 ≤ n → (Y.IsHerm σ B r s ∨ Y.IsSkew σ B r s) →\n    ∀ χ : Chr F E, IsHecke F E χ → ∀ c : ℕ, ResEtaPow (Units.map (algebraMap F (AF F)).toMonoidHom).range χ c →\n    ∀ b K a, IsFrame2 σ Y b → IsStdK (σ := σ) (Y := Y) B b K → IsHgt K a → ∀ s₁ f, IsSec K χ s₁ f →\n      ∃ Ê : ℂ → G2 σ Y → ℂ, (∃ t : ℝ, (∀ s : ℂ, t < s.re → ∀ x, HasSum (eisTerm (flat a f s₁ s) x) (Ê s x)) ∧\n          ∀ x, DifferentiableOn ℂ (Ê · x) {s | t < s.re}) ∧\n        ∀ s₀, ∃ (k : ℕ) (U : Set ℂ) (H : ℂ → modFun σ Y), U ∈ 𝓝 s₀ ∧ (∀ s ∈ U, s ≠ s₀ → ∀ x, (H s).1 x = (s - s₀) ^ k * Ê s x) ∧\n          ∀ μ, IsGrowForm μ → DifferentiableOn ℂ (fun s => μ (H s)) U",
+  "id": 699485,
+  "consumer_id": 702238,
+  "supplier_id": 555964,
+  "call_site": "UpperTheory.LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:565)",
+  "call_line": 566,
+  "call_excerpt": "PositivityTheory.ThKR.theoremK_head2 (_root_.UpperTheory.LiteratureTheorems.eis_bl_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ],
+   [
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+    811,
+    "_root_.UpperTheory.LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.GLq.Green (Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/LabelDatum.lean:108)",
+  "consumer": "UpperTheory.Top.every_character_of_green_v_win (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean:16)",
+  "supplier": "GlobalTheory.GreenBridge.green_of_regular (Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/SumRangeEqRoots.lean:225)",
+  "statement": "def Green : Prop :=\n  ∀ (g : ℕ) [Fact g.Prime] (L : LabelDatum g) (d : ℕ), 0 < d → ∃ τ : (ZMod g)[X] → Gn g d → ℂ,\n    (∀ P, IsPrimeLab d P → IsCuspOf L P (τ P) ∧ τ P 1 = ∏ i ∈ Finset.Ico 1 d, ((g : ℂ) ^ i - 1)) ∧\n    (∀ P P', IsPrimeLab d P → IsPrimeLab d P' → τ P = τ P' → P = P') ∧\n    ∀ χ : Gn g d → ℂ, IsCusp χ → ∃ P, IsPrimeLab d P ∧ χ = τ P",
+  "id": 74779,
+  "consumer_id": 558803,
+  "supplier_id": 346231,
+  "call_site": "UpperTheory.Lit.every_character_of_theta_integrals_local_matching (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean:69)",
+  "call_line": 72,
+  "call_excerpt": "_root_.UpperTheory.Top.every_character_of_green_v_win (GlobalTheory.GreenBridge.green_of_regular",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ],
+   [
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+    811,
+    "_root_.UpperTheory.Lit.every_character_of_theta_integrals_local_matching"
+   ]
+  ]
+ },
+ {
+  "decl": "UpperTheory.GalStar.Row0 (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TypeConditions/WeightsConjAlt.lean:85)",
+  "consumer": "UpperTheory.GalStar.Row0.row0b (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TypeConditions/WeightsConjBis.lean:84)",
+  "supplier": "UpperTheory.Gal.Int.galoisLocalGlobal_of_geometry_lift (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean:27)",
+  "statement": "def Row0 : Prop :=\n  ∀ (E Ω : Type) [Field E] [NumberField E] [IsCMField E] [Field Ω] [Algebra E Ω] [IsAlgClosure E Ω]\n    (l : ℕ) [Fact l.Prime] (ι : Qbar l ≃+* ℂ) (a : ℕ), 1 ≤ a →\n    ∀ (π : CuspSub E a) (χ : HChar (maximalRealSubfield E)), (CG.mk π).IsRegAlg → GlobalTheory.ContraPair.PolarizedPair π χ →\n      ∃ (r : G E Ω →* GL (Fin a) (Qbar l)) (wt : ℤ) (HT : (E →+* Qbar l) → Multiset ℤ), Props Rc π ι r wt HT",
+  "id": 544594,
+  "consumer_id": 544606,
+  "supplier_id": 532357,
+  "call_site": "UpperTheory.Gal.Int.galoisLocalGlobalStrong_of_geometry_lift (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean:30)",
+  "call_line": 31,
+  "call_excerpt": "UpperTheory.GalStar.Row0.row0b recT (galoisLocalGlobal_of_geometry_lift",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter"
+   ],
+   [
+    "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean:6)",
+    6,
+    "galoisRepresentations_of_thetaLift"
+   ],
+   [
+    "UpperTheory.Gal.Int.galoisRepresentations_of_thetaLift (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GaloisRepresentationsOfThetaLift.lean:6)",
+    6,
+    "galoisLocalGlobalStrong_of_geometry_lift"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.SmGL.IsSmoothChar (Development/AbelianVarietyTheory/Definitions/TwistedInnerProducts/IsUnitarisableOfCharIff.lean:173)",
+  "consumer": "UpperTheory.Zero.LLC.twist_twist (Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/CuspEx.lean:60)",
+  "supplier": "GlobalTheory.LocGL.isSmoothChar_absPow (Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/NonemptyEquivMultiProdOne.lean:78)",
+  "statement": "def IsSmoothChar (χ : G →* Fˣ) : Prop := IsOpen (χ.ker : Set G)",
+  "id": 87107,
+  "consumer_id": 545674,
+  "supplier_id": 75511,
+  "call_site": "UpperTheory.Zero.LLC.cuspEx (Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/CuspEx.lean:168)",
+  "call_line": 252,
+  "call_excerpt": "twist_twist ha _ hχ (isSmoothChar_absPow",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.Zero.LLC.recTExists"
+   ],
+   [
+    "UpperTheory.Zero.LLC.recTExists (Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/RecTExists.lean:20)",
+    24,
+    "UpperTheory.Zero.LLC.cuspEx"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.ThK.Dbl.HgtEx_k (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/ThkBaseStmt.lean:16)",
+  "consumer": "UpperTheory.TP.tLift_of_tools_k (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGTop.lean:46)",
+  "supplier": "GlobalTheory.ThK.Dbl.hgtEx_of_k (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/ThkBaseHgtInt.lean:15)",
+  "statement": "def HgtEx_k : Prop :=\n  ∀ (F E : Type) [Field F] [NumberField F] [Field E] [NumberField E] [Algebra F E] (σ : E →ₐ[F] E) (B : Base F E) (n : ℕ) (Y : Spc F E n) r s, _root_.UpperTheory.TP.W.GoodK σ B → (Y.IsHerm σ B r s ∨ Y.IsSkew σ B r s) →\n    (∃ K a, IsStab2 (σ := σ) (Y := Y) B K ∧ IsHgt K a ∧ Continuous a ∧ ∀ x, 0 < a x) ∧\n    ∃ e : UA σ Y.J × UA σ Y.J →* G2 σ Y, Continuous e ∧ ∀ h h', IsEmb h h' (e (h, h'))",
+  "id": 543596,
+  "consumer_id": 543509,
+  "supplier_id": 543585,
+  "call_site": "UpperTheory.TP.tLift_holds_k (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TPGHolds.lean:58)",
+  "call_line": 58,
+  "call_excerpt": "_root_.UpperTheory.TP.tLift_of_tools_k _root_.UpperTheory.TP.tools_holds_k (_root_.GlobalTheory.ThK.Dbl.hgtEx_of_k",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter"
+   ],
+   [
+    "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean:6)",
+    6,
+    "UpperTheory.TP.K.tLiftK"
+   ],
+   [
+    "UpperTheory.TP.K.tLiftK (Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/ThetaKernels/TLiftK.lean:4)",
+    5,
+    "UpperTheory.TP.tLift_holds_k"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.ThK.Dbl.SiegelWeilStd (Development/WeilBound/ThetaLifts/LatticeBasics/HypothesesS.lean:11)",
+  "consumer": "PositivityTheory.ThKR.theoremK_head2 (Development/WeilBound/ThetaLifts/Reductions/FiniteClosure/TheoremKOfMod.lean:26)",
+  "supplier": "UpperTheory.LiteratureTheorems.siegel_weil_std_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:563)",
+  "statement": "def SiegelWeilStd : Prop :=\n  ∀ (F E : Type) [Field F] [NumberField F] [Field E] [NumberField E] [Algebra F E] (σ : E →ₐ[F] E) (B : Base F E) (m n : ℕ)\n    (A : Spc F E m) (Y : Spc F E n) r s r' s', B.IsGood σ → 1 ≤ m → 1 ≤ n → min r s = 0 →\n    (A.IsHerm σ B r s ∧ Y.IsSkew σ B r' s' ∨ A.IsSkew σ B r s ∧ Y.IsHerm σ B r' s') →\n    ∀ χ : Chr F E, IsHecke F E χ → ResEtaPow (Units.map (algebraMap F (AF F)).toMonoidHom).range χ m →\n    ∀ (κ : Type) [Fintype κ] dd om S l, IsDbl (σ := σ) (A := A) (Y := Y) (κ := κ) B.ψ dd χ om S l →\n    ∀ b K a, IsFrame2 σ Y b → IsStdK (σ := σ) (Y := Y) B b K → IsHgt K a →\n    ∀ (μ : Measure (UA σ A.J)) (D : Set (UA σ A.J)), μ.IsHaarMeasure → IsFundamentalDomain (ratU σ A.J) D μ →\n    ∀ Φ ∈ schA F κ, FiniteDimensional ℂ (Submodule.span ℂ (Set.range fun k : K => om k.1 Φ)) →\n      EisValueAt (flat a (fun x => l (om x Φ)) (((m : ℂ) - n) / 2)) (((m : ℂ) - n) / 2)\n        fun x => (if n < m then 1 else 2) * ⨍ g in D, thetaSum F (om x (S g Φ)) ∂μ",
+  "id": 699487,
+  "consumer_id": 702238,
+  "supplier_id": 555965,
+  "call_site": "UpperTheory.LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:565)",
+  "call_line": 566,
+  "call_excerpt": "PositivityTheory.ThKR.theoremK_head2 (_root_.UpperTheory.LiteratureTheorems.eis_bl_of_literature O) (_root_.UpperTheory.LiteratureTheorems.siegel_weil_std_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ],
+   [
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+    811,
+    "_root_.UpperTheory.LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature"
+   ]
+  ]
+ },
+ {
+  "decl": "GlobalTheory.Published.AbelianLifting (Development/AbelianVarietyTheory/PublishedTheorems/Divisors₂/AbelianLifting.lean:15)",
+  "consumer": "GlobalTheory.Published.grothendieckDeformation_of_lifting (Development/AbelianVarietyTheory/Proofs/DivisorProofs/GrothendieckDeformationOfLifting.lean:9)",
+  "supplier": "UpperTheory.LiteratureTheorems.abelian_lifting_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:403)",
+  "statement": "def AbelianLifting : Prop :=\n  ∀ (R : Type) [CommRing R] (I : Ideal R) (κ : DividedPowers I), IsNilDP κ →\n    ∀ (R₀ : Type) [CommRing R₀] (π : R →+* R₀), Function.Surjective π → RingHom.ker π = I →\n      GrothendieckMessing.LiftObj κ π ∧ GrothendieckMessing.LiftHom κ π",
+  "id": 463795,
+  "consumer_id": 192552,
+  "supplier_id": 555885,
+  "call_site": "UpperTheory.LiteratureTheorems.grothendieck_deformation_of_literature (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:405)",
+  "call_line": 406,
+  "call_excerpt": "GlobalTheory.Published.grothendieckDeformation_of_lifting (_root_.UpperTheory.LiteratureTheorems.abelian_de_rham_of_literature O) (_root_.UpperTheory.LiteratureTheorems.abelian_lifting_of_literature",
+  "caller_route": [
+   [
+    "riemannHypothesis (Main.lean:4)",
+    4,
+    "rhOfAll"
+   ],
+   [
+    "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+    9,
+    "allChi"
+   ],
+   [
+    "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+    7,
+    "UpperTheory.FinalTheorems.everyCharacter"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+    11,
+    "UpperTheory.FinalTheorems.everyCharacter_of_row"
+   ],
+   [
+    "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+    8,
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+   ],
+   [
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+    812,
+    "_root_.UpperTheory.LiteratureTheorems.grothendieck_deformation_of_literature"
+   ]
+  ]
+ }
+]

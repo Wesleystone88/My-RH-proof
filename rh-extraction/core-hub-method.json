@@ -1,0 +1,34 @@
+{
+ "single_lines": {
+  "rank40_value": 3304520,
+  "tied_at_cut": 1
+ },
+ "single_declarations": {
+  "rank40_value": 269091,
+  "tied_at_cut": 1
+ },
+ "single": {
+  "scc_count_with_groups": 507524,
+  "largest_scc_declarations": 152457,
+  "largest_scc_lines": 2204012,
+  "rank_candidate_components": 310290,
+  "all_reachable_nodes": 660273,
+  "giant_downstream_decls": 218099
+ },
+ "all_lines": {
+  "rank40_value": 7267675,
+  "tied_at_cut": 1
+ },
+ "all_declarations": {
+  "rank40_value": 606363,
+  "tied_at_cut": 1
+ },
+ "all": {
+  "scc_count_with_groups": 208723,
+  "largest_scc_declarations": 580158,
+  "largest_scc_lines": 6961420,
+  "rank_candidate_components": 173446,
+  "all_reachable_nodes": 785884,
+  "giant_downstream_decls": 587646
+ }
+}

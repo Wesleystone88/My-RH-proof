@@ -1,0 +1,132 @@
+{
+ "headline_single": {
+  "declarations": 660273,
+  "files": 121229,
+  "lines": 8672900,
+  "frontier": 800,
+  "frontier_rules": {
+   "literature_wrapper": 17,
+   "published_result_proof": 317,
+   "wrapper_rhs": 88,
+   "wrapper_result": 183,
+   "published_namespace": 454
+  },
+  "at_depth_one": 0,
+  "max_depth": 64
+ },
+ "headline_all": {
+  "declarations": 785884,
+  "files": 138350,
+  "lines": 10006103,
+  "frontier": 1037,
+  "frontier_rules": {
+   "published_result_proof": 405,
+   "published_namespace": 611,
+   "wrapper_result": 184,
+   "wrapper_rhs": 103,
+   "literature_wrapper": 17
+  },
+  "at_depth_one": 0,
+  "max_depth": 51
+ },
+ "main_argument_single": {
+  "declarations": 568601,
+  "files": 100037,
+  "lines": 7222849,
+  "frontier": 711,
+  "frontier_rules": {
+   "wrapper_result": 173,
+   "published_namespace": 414,
+   "published_result_proof": 283,
+   "wrapper_rhs": 84
+  },
+  "at_depth_one": 5,
+  "max_depth": 69
+ },
+ "main_argument_all": {
+  "declarations": 736884,
+  "files": 127684,
+  "lines": 9158550,
+  "frontier": 990,
+  "frontier_rules": {
+   "wrapper_result": 179,
+   "published_namespace": 602,
+   "published_result_proof": 381,
+   "wrapper_rhs": 99
+  },
+  "at_depth_one": 5,
+  "max_depth": 46
+ },
+ "covolume_single": {
+  "declarations": 314452,
+  "files": 61428,
+  "lines": 4019276,
+  "frontier": 573,
+  "frontier_rules": {
+   "published_result_proof": 234,
+   "wrapper_result": 149,
+   "published_namespace": 318,
+   "wrapper_rhs": 76
+  },
+  "at_depth_one": 19,
+  "max_depth": 69
+ },
+ "covolume_all": {
+  "declarations": 619749,
+  "files": 106979,
+  "lines": 7519769,
+  "frontier": 922,
+  "frontier_rules": {
+   "published_result_proof": 353,
+   "wrapper_result": 171,
+   "published_namespace": 560,
+   "wrapper_rhs": 92
+  },
+  "at_depth_one": 19,
+  "max_depth": 46
+ },
+ "window_single": {
+  "declarations": 255029,
+  "files": 48487,
+  "lines": 3197398,
+  "frontier": 544,
+  "frontier_rules": {
+   "wrapper_rhs": 74,
+   "published_result_proof": 244,
+   "published_namespace": 288,
+   "wrapper_result": 116
+  },
+  "at_depth_one": 1,
+  "max_depth": 68
+ },
+ "window_all": {
+  "declarations": 607931,
+  "files": 102787,
+  "lines": 7345264,
+  "frontier": 920,
+  "frontier_rules": {
+   "wrapper_rhs": 91,
+   "published_namespace": 559,
+   "published_result_proof": 356,
+   "wrapper_result": 166
+  },
+  "at_depth_one": 1,
+  "max_depth": 45
+ },
+ "overlap_single": {
+  "all_three_decls": 219997,
+  "all_three_lines": 2623359,
+  "union_decls": 656528,
+  "union_lines": 8618539,
+  "headline_outside_branches_lines": 54361,
+  "branch_union_outside_headline": 0
+ },
+ "overlap_all": {
+  "all_three_decls": 587713,
+  "all_three_lines": 6985099,
+  "union_decls": 784706,
+  "union_lines": 9985457,
+  "headline_outside_branches_lines": 20646,
+  "branch_union_outside_headline": 0
+ }
+}

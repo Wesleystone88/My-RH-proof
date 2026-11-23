@@ -1,0 +1,38 @@
+{
+ "headline_single": {
+  "body": 655,
+  "type": 145
+ },
+ "headline_all": {
+  "body": 893,
+  "type": 142,
+  "type and body": 2
+ },
+ "main_argument_single": {
+  "type": 124,
+  "body": 587
+ },
+ "main_argument_all": {
+  "type": 157,
+  "body": 828,
+  "type and body": 5
+ },
+ "covolume_single": {
+  "body": 507,
+  "type": 66
+ },
+ "covolume_all": {
+  "body": 789,
+  "type": 131,
+  "type and body": 2
+ },
+ "window_single": {
+  "body": 492,
+  "type": 52
+ },
+ "window_all": {
+  "body": 785,
+  "type": 132,
+  "type and body": 3
+ }
+}

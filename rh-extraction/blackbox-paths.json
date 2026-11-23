@@ -1,0 +1,149 @@
+{
+ "GlobalTheory.T.dualWeyl_dim_formula_duality_bound (Development/AbelianVarietyTheory/Proofs/DivisorProofs/DualWeylDimFormulaDualityBoundStatement.lean:9)": {
+  "path": [
+   "riemannHypothesis (Main.lean:4)",
+   "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+   "Formalism.VW.rh_of_every (Formalism/GammaFactorNonvanishing/CritLine.lean:29)",
+   "[ambiguous] GlobalTheory.HilbertRecip.hs (Development/AbelianVarietyTheory/Proofs/TwistedOperators/EvenCardOfNotLone.lean:49)",
+   "[ambiguous] GroundTheory.Arith.SchemeCoh.ChowGraph.F (GroundTheory/ArithmeticGeometry/SchemeCohomology/ProperCohomology/ChowGraph.lean:155)",
+   "[ambiguous] Formalism.L2.Col.Deco.IsUp.pullback (Formalism/LocalToGlobal/Columns/AtTOwedV.lean:86)",
+   "[ambiguous] Formalism.L2.Col.Dat.Ok (Formalism/LocalToGlobal/Columns/AbelianHostFieldConditions.lean:560)",
+   "[ambiguous] GlobalTheory.CovTop.DefSizes.sizes (Development/AbelianVarietyTheory/Proofs/DivisorProofs/WeightDimensionLogBound.lean:246)",
+   "GlobalTheory.T.dualWeyl_dim_formula_duality_bound (Development/AbelianVarietyTheory/Proofs/DivisorProofs/DualWeylDimFormulaDualityBoundStatement.lean:9)"
+  ],
+  "single_target_depth": 12
+ },
+ "GlobalTheory.T.siegel_massRatio_unimodular_definite (Development/AbelianVarietyTheory/Proofs/FlagMeasures/SiegelMassRatioUnimodularDefiniteStatement.lean:6)": {
+  "path": [
+   "riemannHypothesis (Main.lean:4)",
+   "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+   "Formalism.VW.rh_of_every (Formalism/GammaFactorNonvanishing/CritLine.lean:29)",
+   "Formalism.VW.rh_of_right (Formalism/GammaFactorNonvanishing/RhOfRight.lean:5)",
+   "[ambiguous] ReciprocityTheory.DiscreteGroups.LocalClassField.Herbrand.h (ReciprocityTheory/ClassFieldTheory/LocalClassField/HerbrandB.lean:81)",
+   "[ambiguous] Formalism.L2.SG.TermDef.Term.G (Formalism/LocalToGlobal/SiegelLatticeTheory/ClosedLocalOrbits/TermDef.lean:163)",
+   "[ambiguous] GlobalTheory.LocalRows.what₂ (Development/AbelianVarietyTheory/Proofs/FlagMeasures/AtChoice.lean:24)",
+   "GlobalTheory.LocalRows.at_choice (Development/AbelianVarietyTheory/Proofs/FlagMeasures/AtChoice.lean:15)",
+   "GlobalTheory.LoopRowsByName.loopRows_of_rowsFinDim (Development/AbelianVarietyTheory/Proofs/FlagMeasures/LoopRowOfFiniteDim.lean:27)",
+   "GlobalTheory.T.loopRows_of_large_gap_discreteSeries (Development/AbelianVarietyTheory/Proofs/FlagMeasures/LoopRowsOfLargeGapDiscreteSeriesStatement.lean:16)",
+   "GlobalTheory.LoopRowsCloseGap.loop_rows_closed_gap (Development/AbelianVarietyTheory/Proofs/FlagMeasures/LoopRowsOfLargeGapDiscreteSeries.lean:121)",
+   "GlobalTheory.T.loopRowBounds_along_family_largeGaps (Development/AbelianVarietyTheory/Proofs/FlagMeasures/LoopRowBoundsAlongFamilyLargeGapsStatement.lean:13)",
+   "GlobalTheory.LoopRowBoundsGap.rows_along_family (Development/AbelianVarietyTheory/Proofs/FlagMeasures/LoopRowBoundsAlongFamilyLargeGaps.lean:25)",
+   "GlobalTheory.CritLevelGap.along_family (Development/AbelianVarietyTheory/Proofs/FlagMeasures/TcritLowOfDsig.lean:97)",
+   "GlobalTheory.MassAtRecord.massRatio_at_record (Development/AbelianVarietyTheory/Proofs/FlagMeasures/MassRatioStatement.lean:8)",
+   "GlobalTheory.T.siegel_massRatio_unimodular_definite (Development/AbelianVarietyTheory/Proofs/FlagMeasures/SiegelMassRatioUnimodularDefiniteStatement.lean:6)"
+  ],
+  "single_target_depth": 18
+ },
+ "UpperTheory.V.FW.ferreroWashington (Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean:104)": {
+  "path": [
+   "riemannHypothesis (Main.lean:4)",
+   "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+   "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+   "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+   "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+   "UpperTheory.One.vwin_of_row (Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/VwinOfRow.lean:4)",
+   "UpperTheory.One.Join.automorphic_window_of_inputs (Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TopMainZj.lean:71)",
+   "UpperTheory.One.Join.v_window_of_depth_zero_residual_bc_cm (Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TopMainZj.lean:55)",
+   "UpperTheory.V.v_window_of_literal_automorphy_n (Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/WindowBoundOfLiteratureLevel.lean:33)",
+   "UpperTheory.V.HV.DescentVanishingReductions.v_window_of_automorphy_csd_ss_mono_odd (Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/WindowBoundOfLiteratureLevel.lean:30)",
+   "UpperTheory.V.HV.DescentVanishingReductions.vwin_of_hypotheses_H_E_alt (Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/WindowBoundOfLiteratureLevel.lean:25)",
+   "UpperTheory.V.HV.Core.of_four_alt (Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/HVCore.lean:18)",
+   "UpperTheory.V.FW.ferreroWashington (Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/FerreroWashington.lean:104)"
+  ],
+  "single_target_depth": 12
+ },
+ "UpperTheory.V.Win.window1 (Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Window1.lean:6)": {
+  "path": [
+   "riemannHypothesis (Main.lean:4)",
+   "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+   "Formalism.VW.rh_of_every (Formalism/GammaFactorNonvanishing/CritLine.lean:29)",
+   "[ambiguous] GlobalTheory.HilbertRecip.hs (Development/AbelianVarietyTheory/Proofs/TwistedOperators/EvenCardOfNotLone.lean:49)",
+   "[ambiguous] GroundTheory.Arith.SchemeCoh.ChowGraph.F (GroundTheory/ArithmeticGeometry/SchemeCohomology/ProperCohomology/ChowGraph.lean:155)",
+   "[ambiguous] Formalism.L2.Col.Deco.IsUp.pullback (Formalism/LocalToGlobal/Columns/AtTOwedV.lean:86)",
+   "[ambiguous] Formalism.CohomologicalDescent.ShortWeightBounds.Wts.Ok (Formalism/PieriBlockIdeals/LatticeInclusionRealSettingAlt.lean:96)",
+   "[ambiguous] UpperTheory.V.Win.window (Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Window.lean:7)",
+   "UpperTheory.V.Win.window1 (Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Window1.lean:6)"
+  ],
+  "single_target_depth": 15
+ },
+ "UpperTheory.LiteratureTheorems.published_results_first (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:727)": {
+  "path": [
+   "riemannHypothesis (Main.lean:4)",
+   "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+   "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+   "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+   "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+   "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+   "UpperTheory.LiteratureTheorems.published_results_first (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:727)"
+  ],
+  "single_target_depth": 6
+ },
+ "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)": {
+  "path": [
+   "riemannHypothesis (Main.lean:4)",
+   "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+   "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+   "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+   "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+   "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)"
+  ],
+  "single_target_depth": 5
+ },
+ "GlobalTheory.T.good_tower_volume_theorem (Development/AutomorphicSpectrum/Proofs/DivisibilityProofs/GoodTowerVolumeTheoremStatement.lean:26)": {
+  "path": [
+   "riemannHypothesis (Main.lean:4)",
+   "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+   "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+   "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+   "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+   "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+   "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean:16)",
+   "PositivityTheory.HtPt.Ah.deep_slim_use (Development/WeilBound/CoreStatements/AutomorphicKernels/MoriwakiBigness/HilbertSamuelApplications/AhSlimU.lean:9)",
+   "GlobalTheory.CompanionTheory.Ar.Plug.deepStR_of_use (Development/WeilBound/CoreStatements/AutomorphicKernels/MoriwakiBigness/HilbertSamuelApplications/DeepStROfUse.lean:12)",
+   "GlobalTheory.CompanionTheory.Ar.Link.good_tower_volume_theorem_bis (Development/WeilBound/CoreStatements/AutomorphicKernels/MoriwakiBigness/HilbertSamuelApplications/GoodTowerVolumeTheoremBis.lean:9)",
+   "GlobalTheory.T.final_theorem_of_inputs_right (Development/AutomorphicSpectrum/Proofs/GeometryProofs/FinalTheoremOfInputsRightStatement.lean:19)",
+   "GlobalTheory.CompanionTheory.Ar.Top.goodTower_volume_of_reduced (Development/AutomorphicSpectrum/Proofs/GeometryProofs/FinalTheoremOfInputsRight.lean:28)",
+   "GlobalTheory.T.good_tower_volume_theorem (Development/AutomorphicSpectrum/Proofs/DivisibilityProofs/GoodTowerVolumeTheoremStatement.lean:26)"
+  ],
+  "single_target_depth": 12
+ },
+ "Formalism.L2.DIV.linkDIV_at_words (Formalism/LocalToGlobal/Divisibility/RecBridge.lean:327)": {
+  "path": [
+   "riemannHypothesis (Main.lean:4)",
+   "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+   "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+   "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+   "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+   "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+   "UpperTheory.Lit.every_character_of_theta_integrals_local_matching (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean:69)",
+   "UpperTheory.Top.every_character_of_green_v_win (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean:16)",
+   "UpperTheory.Top.zero_free_all_of_green_v_win (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean:12)",
+   "UpperTheory.Top.shape_closed_link_n_of_green (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean:33)",
+   "Formalism.L2.DIV.closed_linkDIVt_of_closed_bridge_kernel (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/DIVRecBridgeSel.lean:197)",
+   "Formalism.L2.DIV.linkDIVt_of_bridge_kernel (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/DIVRecBridgeSel.lean:193)",
+   "Formalism.L2.DIV.linkDIVt_of_rowsT (Formalism/LocalToGlobal/Divisibility/RecBridgeTied.lean:200)",
+   "Formalism.L2.DIV.linkDIVt_of_rowsF (Formalism/LocalToGlobal/Divisibility/RecBridge.lean:656)",
+   "Formalism.L2.DIV.linkDIV_at_words (Formalism/LocalToGlobal/Divisibility/RecBridge.lean:327)"
+  ],
+  "single_target_depth": 14
+ },
+ "Formalism.MainNotions.LinkDIV_at (Formalism/SharpRestriction/GlobalTheoremInputs.lean:77)": {
+  "path": [
+   "riemannHypothesis (Main.lean:4)",
+   "rhOfAll (Supplements/Kernels/MainTheorems.lean:9)",
+   "allChi (Supplements/Kernels/MainTheorems.lean:7)",
+   "UpperTheory.FinalTheorems.everyCharacter (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:10)",
+   "UpperTheory.FinalTheorems.everyCharacter_of_row (Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean:7)",
+   "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean:810)",
+   "UpperTheory.Lit.every_character_of_theta_integrals_local_matching (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean:69)",
+   "UpperTheory.Top.every_character_of_green_v_win (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean:16)",
+   "UpperTheory.Top.zero_free_all_of_green_v_win (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean:12)",
+   "UpperTheory.Top.shape_closed_link_n_of_green (Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean:33)",
+   "UpperTheory.Top.topDesWin (Development/AutomorphicArithmetic/CharacterBoxes/DesWin.lean:11)",
+   "Formalism.MainNotions.J.linkMu_of_linkDIV (Formalism/SharpRestriction/AdmissibleParameterJoins/SumLogPrimeFactorsLe.lean:775)",
+   "Formalism.MainNotions.LinkDIV (Formalism/SharpRestriction/GlobalTheoremInputs.lean:91)",
+   "Formalism.MainNotions.LinkDIV_at (Formalism/SharpRestriction/GlobalTheoremInputs.lean:77)"
+  ],
+  "single_target_depth": 13
+ }
+}

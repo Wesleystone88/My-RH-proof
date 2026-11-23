@@ -1,0 +1,4 @@
+'RHX.besS_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHX.KD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHX.common_period_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHX.common_period_map_family' depends on axioms: [propext, Classical.choice, Quot.sound]

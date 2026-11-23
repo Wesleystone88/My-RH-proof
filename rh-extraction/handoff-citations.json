@@ -1,0 +1,3255 @@
+{
+ "basis": "Explicit relative paths, unique suffixes, brace-expanded filenames and the handoff-defined MSB, JCS and GB prefixes (lines 266 and 605). The handoff line describing the RH entry selects the root Main.lean. Ambiguous references retain all matching paths.",
+ "confirmed_files": 194,
+ "additional_candidates": 107,
+ "mentions": [
+  {
+   "text": "Formalism/StatementOC.lean",
+   "handoff_lines": [
+    33,
+    183
+   ],
+   "matches": [
+    "Formalism/StatementOC.lean"
+   ]
+  },
+  {
+   "text": "Landau.lean",
+   "handoff_lines": [
+    46,
+    184
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/Foundations/Convolution/SplitEigenfunctions/InfinitePlaceGluing/Landau.lean",
+    "Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Landau.lean"
+   ]
+  },
+  {
+   "text": "Main.lean",
+   "handoff_lines": [
+    182
+   ],
+   "matches": [
+    "Main.lean"
+   ]
+  },
+  {
+   "text": "Supplements/Kernels/MainTheorems.lean",
+   "handoff_lines": [
+    182
+   ],
+   "matches": [
+    "Supplements/Kernels/MainTheorems.lean"
+   ]
+  },
+  {
+   "text": "Formalism/GammaFactorNonvanishing/CritLine.lean",
+   "handoff_lines": [
+    182
+   ],
+   "matches": [
+    "Formalism/GammaFactorNonvanishing/CritLine.lean"
+   ]
+  },
+  {
+   "text": "Formalism/GammaFactorNonvanishing/RhOfRight.lean",
+   "handoff_lines": [
+    182
+   ],
+   "matches": [
+    "Formalism/GammaFactorNonvanishing/RhOfRight.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Window.lean",
+   "handoff_lines": [
+    184
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Window.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/TopWin.lean",
+   "handoff_lines": [
+    184
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/TopWin.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/ExplicitFormulaErrorOfHostConditions.lean",
+   "handoff_lines": [
+    184
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/ExplicitFormulaErrorOfHostConditions.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Analytic.lean",
+   "handoff_lines": [
+    184,
+    1077
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Analytic.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/WindowHypOfRpow.lean",
+   "handoff_lines": [
+    185
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/WindowHypOfRpow.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/lemmaL.lean",
+   "handoff_lines": [
+    185
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/lemmaL.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean",
+   "handoff_lines": [
+    185
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/poleData.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/landauWindow.lean",
+   "handoff_lines": [
+    185
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/landauWindow.lean"
+   ]
+  },
+  {
+   "text": "ChCore.lean",
+   "handoff_lines": [
+    185,
+    256,
+    294,
+    391,
+    896,
+    897
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/AutomorphicVarieties/WeakShimuraTheory/CompactIntegralFields/ChCore.lean",
+    "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChCore.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/GrowthBoundGivesRiemannHypothesis.lean",
+   "handoff_lines": [
+    186,
+    896
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/GrowthBoundGivesRiemannHypothesis.lean"
+   ]
+  },
+  {
+   "text": "ChainSlopeWindows/LipschitzWeightAndMinimum.lean",
+   "handoff_lines": [
+    186
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean"
+   ]
+  },
+  {
+   "text": "Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsRanksRankValFrame.lean",
+   "handoff_lines": [
+    187
+   ],
+   "matches": [
+    "Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/ExistsRanksRankValFrame.lean"
+   ]
+  },
+  {
+   "text": "PChain.lean",
+   "handoff_lines": [
+    187,
+    385
+   ],
+   "matches": [
+    "Development/WeilBound/RepresentationTheoryGL/CasimirAlgebra/TensorRelationsGL/PChain.lean",
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/PChain.lean"
+   ]
+  },
+  {
+   "text": "SChain.lean",
+   "handoff_lines": [
+    187,
+    368,
+    510
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SChain.lean",
+    "Formalism/SizeWindowBrackets/SChain.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/PrimitiveCosets/CardPsiA.lean",
+   "handoff_lines": [
+    188
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/PrimitiveCosets/CardPsiA.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/PrimitiveCosets/GmAEq.lean",
+   "handoff_lines": [
+    188
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/PrimitiveCosets/GmAEq.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/PrimitiveCosets/SigALe.lean",
+   "handoff_lines": [
+    188
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/PrimitiveCosets/SigALe.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/PrimitiveCosets/CoreGm.lean",
+   "handoff_lines": [
+    188,
+    391
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/PrimitiveCosets/CoreGm.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/PrimitiveCosets/WindowInequalityOfArtinInputs.lean",
+   "handoff_lines": [
+    188
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/PrimitiveCosets/WindowInequalityOfArtinInputs.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/CharacterBoxes/PairGood.lean",
+   "handoff_lines": [
+    189
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/PairGood.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/CharacterBoxes/BoundedTw.lean",
+   "handoff_lines": [
+    189
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/BoundedTw.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/CharacterBoxes/WinPairs.lean",
+   "handoff_lines": [
+    189
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/WinPairs.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/CharacterBoxes/SupplyChi.lean",
+   "handoff_lines": [
+    189,
+    1071
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/SupplyChi.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/CharacterBoxes/EveryCharacter.lean",
+   "handoff_lines": [
+    189
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/EveryCharacter.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/CharacterBoxes/ZeroFreeAllOfTopG.lean",
+   "handoff_lines": [
+    189
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/ZeroFreeAllOfTopG.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/CharacterBoxes/DivinNOfHypV.lean",
+   "handoff_lines": [
+    189,
+    535
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/DivinNOfHypV.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/ShortNorms/supplyOfAdmOf.lean",
+   "handoff_lines": [
+    189
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ShortNorms/supplyOfAdmOf.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/MeanSquareBounds/PrimeSetTwoBounds.lean",
+   "handoff_lines": [
+    190,
+    555
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/PrimeSetTwoBounds.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean",
+   "handoff_lines": [
+    190,
+    555
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/MeanSquareBounds/Stage1Succ.lean",
+   "handoff_lines": [
+    190
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/Stage1Succ.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/MeanSquareBounds/PairShare.lean",
+   "handoff_lines": [
+    190
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/PairShare.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/MeanSquareBounds/PairExists.lean",
+   "handoff_lines": [
+    190
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/PairExists.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean",
+   "handoff_lines": [
+    190
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/pairEx.lean"
+   ]
+  },
+  {
+   "text": "meanSqK.lean",
+   "handoff_lines": [
+    191,
+    555,
+    562
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean"
+   ]
+  },
+  {
+   "text": "MeanSqAbs.lean",
+   "handoff_lines": [
+    191,
+    223,
+    224,
+    425
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/MeanSqAbs.lean"
+   ]
+  },
+  {
+   "text": "SPsqLe.lean",
+   "handoff_lines": [
+    191
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/SPsqLe.lean"
+   ]
+  },
+  {
+   "text": "RRLe.lean",
+   "handoff_lines": [
+    191
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/RRLe.lean"
+   ]
+  },
+  {
+   "text": "twistK.lean",
+   "handoff_lines": [
+    191,
+    200
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean"
+   ]
+  },
+  {
+   "text": "BadShare.lean",
+   "handoff_lines": [
+    191,
+    225,
+    555
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean"
+   ]
+  },
+  {
+   "text": "BoxOfS.lean",
+   "handoff_lines": [
+    191,
+    226,
+    555
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean"
+   ]
+  },
+  {
+   "text": "CountBad.lean",
+   "handoff_lines": [
+    191
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/CountBad.lean"
+   ]
+  },
+  {
+   "text": "Formalism/GL3MeanSquares/SecondEstimateOfIntervalHypothesis.lean",
+   "handoff_lines": [
+    192,
+    555
+   ],
+   "matches": [
+    "Formalism/GL3MeanSquares/SecondEstimateOfIntervalHypothesis.lean"
+   ]
+  },
+  {
+   "text": "MeanSquareHypWIff.lean",
+   "handoff_lines": [
+    223,
+    243,
+    423
+   ],
+   "matches": [
+    "Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MeanSquareHypWIff.lean"
+   ]
+  },
+  {
+   "text": "PrimeSetTwoBounds.lean",
+   "handoff_lines": [
+    227,
+    273,
+    555
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/PrimeSetTwoBounds.lean"
+   ]
+  },
+  {
+   "text": "MeanSquareBounds/twistK.lean",
+   "handoff_lines": [
+    233
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean"
+   ]
+  },
+  {
+   "text": "PNTFinal.lean",
+   "handoff_lines": [
+    243
+   ],
+   "matches": [
+    "Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean"
+   ]
+  },
+  {
+   "text": "LandauZeroFreeBounds/NoZeroComplex.lean",
+   "handoff_lines": [
+    244
+   ],
+   "matches": [
+    "Formalism/LandauZeroFreeBounds/NoZeroComplex.lean"
+   ]
+  },
+  {
+   "text": "SiegelWalfiszAPOfSiegelLower.lean",
+   "handoff_lines": [
+    245,
+    282
+   ],
+   "matches": [
+    "Formalism/LandauZeroFreeBounds/SiegelWalfiszAPOfSiegelLower.lean"
+   ]
+  },
+  {
+   "text": "MSqPage.lean",
+   "handoff_lines": [
+    246
+   ],
+   "matches": [
+    "Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPage.lean"
+   ]
+  },
+  {
+   "text": "CountBadCore.lean",
+   "handoff_lines": [
+    248
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/CountBadCore.lean"
+   ]
+  },
+  {
+   "text": "CountZAll.lean",
+   "handoff_lines": [
+    248
+   ],
+   "matches": [
+    "Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean"
+   ]
+  },
+  {
+   "text": "DedekindLFunctions/SplitInertia.lean",
+   "handoff_lines": [
+    258,
+    295
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/DedekindLFunctions/SplitInertia.lean"
+   ]
+  },
+  {
+   "text": "MSB/MeanSqAbs.lean",
+   "handoff_lines": [
+    269
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/MeanSqAbs.lean"
+   ]
+  },
+  {
+   "text": "JCS/MeanSquareHypWIff.lean",
+   "handoff_lines": [
+    269,
+    280
+   ],
+   "matches": [
+    "Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MeanSquareHypWIff.lean"
+   ]
+  },
+  {
+   "text": "MSB/BadShare.lean",
+   "handoff_lines": [
+    271,
+    303
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean"
+   ]
+  },
+  {
+   "text": "MSB/BoxOfS.lean",
+   "handoff_lines": [
+    272
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean"
+   ]
+  },
+  {
+   "text": "MSB/twistK.lean",
+   "handoff_lines": [
+    276
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean"
+   ]
+  },
+  {
+   "text": "JCS/PNTFinal.lean",
+   "handoff_lines": [
+    280
+   ],
+   "matches": [
+    "Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/PNTFinal.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LandauZeroFreeBounds/Statement.lean",
+   "handoff_lines": [
+    281
+   ],
+   "matches": [
+    "Formalism/LandauZeroFreeBounds/Statement.lean"
+   ]
+  },
+  {
+   "text": "NoZeroComplex.lean",
+   "handoff_lines": [
+    281
+   ],
+   "matches": [
+    "Formalism/LandauZeroFreeBounds/NoZeroComplex.lean"
+   ]
+  },
+  {
+   "text": "LogDerivRegionChiOf.lean",
+   "handoff_lines": [
+    282
+   ],
+   "matches": [
+    "Formalism/LandauZeroFreeBounds/ExceptionalZeroBounds/LogDerivRegionChiOf.lean",
+    "Formalism/LandauZeroFreeBounds/LogDerivRegionChiOf.lean"
+   ]
+  },
+  {
+   "text": "JCS/MSqPage.lean",
+   "handoff_lines": [
+    283
+   ],
+   "matches": [
+    "Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPage.lean"
+   ]
+  },
+  {
+   "text": "MSB/CountBadCore.lean",
+   "handoff_lines": [
+    284
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/CountBadCore.lean"
+   ]
+  },
+  {
+   "text": "Formalism/GL3MeanSquares/ZeroDensityBox.lean",
+   "handoff_lines": [
+    284
+   ],
+   "matches": [
+    "Formalism/GL3MeanSquares/ZeroDensityBox.lean"
+   ]
+  },
+  {
+   "text": "JCS/CountZAll.lean",
+   "handoff_lines": [
+    284
+   ],
+   "matches": [
+    "Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/CountZAll.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChCore.lean",
+   "handoff_lines": [
+    292,
+    871
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChCore.lean"
+   ]
+  },
+  {
+   "text": "ChBalance.lean",
+   "handoff_lines": [
+    296
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChBalance.lean"
+   ]
+  },
+  {
+   "text": "FirstPrimeNeSecondPrime.lean",
+   "handoff_lines": [
+    314
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/FirstPrimeNeSecondPrime.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/FirstPrimeNeSecondPrime.lean",
+   "handoff_lines": [
+    314,
+    1002
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/FirstPrimeNeSecondPrime.lean"
+   ]
+  },
+  {
+   "text": "SplitInertia.lean",
+   "handoff_lines": [
+    334,
+    891
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/DedekindLFunctions/SplitInertia.lean"
+   ]
+  },
+  {
+   "text": "RunBaseDimensionLeRankAddGenusTerm.lean",
+   "handoff_lines": [
+    336
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/DedekindLFunctions/RunBaseDimensionLeRankAddGenusTerm.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChTop.lean",
+   "handoff_lines": [
+    340,
+    510,
+    888
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChTop.lean"
+   ]
+  },
+  {
+   "text": "ChainSlopeWindows/LevelOfCongruence.lean",
+   "handoff_lines": [
+    373
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/LevelOfCongruence.lean"
+   ]
+  },
+  {
+   "text": "QuotientSlopeBoundsWith.lean",
+   "handoff_lines": [
+    378,
+    498,
+    500,
+    502,
+    503,
+    942
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/QuotientSlopeBoundsWith.lean"
+   ]
+  },
+  {
+   "text": "ChainSlopeWindows/PChain.lean",
+   "handoff_lines": [
+    378
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/PChain.lean"
+   ]
+  },
+  {
+   "text": "ErrorFormsWeakWindowsFalse.lean",
+   "handoff_lines": [
+    383,
+    955
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ErrorFormsWeakWindowsFalse.lean"
+   ]
+  },
+  {
+   "text": "TieGlobal.lean",
+   "handoff_lines": [
+    385
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/TieGlobal.lean"
+   ]
+  },
+  {
+   "text": "LossesSmallShares.lean",
+   "handoff_lines": [
+    387,
+    496,
+    497,
+    498,
+    499,
+    500,
+    501,
+    502,
+    503,
+    504,
+    505,
+    506
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean",
+   "handoff_lines": [
+    398,
+    400,
+    496,
+    497,
+    498,
+    499,
+    500,
+    501,
+    502,
+    503,
+    504,
+    505,
+    506
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/ChainSlopeWindows/DiscriminantSettingSatisfied.lean",
+   "handoff_lines": [
+    398,
+    503,
+    691
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/DiscriminantSettingSatisfied.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/GlobalTheory/LossRequirementsOfSmallShares.lean",
+   "handoff_lines": [
+    400,
+    503,
+    535
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GlobalTheory/LossRequirementsOfSmallShares.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean",
+   "handoff_lines": [
+    402
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/twistK.lean"
+   ]
+  },
+  {
+   "text": "Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPairs.lean",
+   "handoff_lines": [
+    404
+   ],
+   "matches": [
+    "Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPairs.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean",
+   "handoff_lines": [
+    404,
+    555
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/meanSqK.lean"
+   ]
+  },
+  {
+   "text": "ParityEnergy.lean",
+   "handoff_lines": [
+    412,
+    480
+   ],
+   "matches": []
+  },
+  {
+   "text": "ScalarBridge.lean",
+   "handoff_lines": [
+    413
+   ],
+   "matches": []
+  },
+  {
+   "text": "Squarefree.lean",
+   "handoff_lines": [
+    414
+   ],
+   "matches": []
+  },
+  {
+   "text": "MSqPairs.lean",
+   "handoff_lines": [
+    424
+   ],
+   "matches": [
+    "Formalism/GL3MeanSquares/GenusMeanAsymptotics/JacobiCharacterSums/MSqPairs.lean"
+   ]
+  },
+  {
+   "text": "SizeWindowBrackets/ChainSlopeWindows/LevelOfCongruence.lean",
+   "handoff_lines": [
+    433
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/LevelOfCongruence.lean"
+   ]
+  },
+  {
+   "text": "RankGapBounds/MeanBoundSecondForm.lean",
+   "handoff_lines": [
+    433,
+    751
+   ],
+   "matches": [
+    "Formalism/RankGapBounds/MeanBoundSecondForm.lean"
+   ]
+  },
+  {
+   "text": "SizeWindowBrackets/QuotientSlopeBoundsWith.lean",
+   "handoff_lines": [
+    433
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/QuotientSlopeBoundsWith.lean"
+   ]
+  },
+  {
+   "text": "SizeWindowBrackets/Chain2aCoreNoAnalytic.lean",
+   "handoff_lines": [
+    468
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/Chain2aCoreNoAnalytic.lean"
+   ]
+  },
+  {
+   "text": "rh-extraction/TransferSkeleton.lean",
+   "handoff_lines": [
+    476
+   ],
+   "matches": []
+  },
+  {
+   "text": "TransferSkeleton.lean",
+   "handoff_lines": [
+    476
+   ],
+   "matches": []
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/CharacterBoxes/DesWin.lean",
+   "handoff_lines": [
+    488
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/DesWin.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GlobalSchurBounds/Chosen.lean",
+   "handoff_lines": [
+    488,
+    549
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/Chosen.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/GlobalTheory/PlacesMin.lean",
+   "handoff_lines": [
+    488,
+    502,
+    829
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GlobalTheory/PlacesMin.lean"
+   ]
+  },
+  {
+   "text": "MeanBoundSecondForm.lean",
+   "handoff_lines": [
+    496,
+    497,
+    499,
+    501,
+    503,
+    504,
+    505,
+    506,
+    943
+   ],
+   "matches": [
+    "Formalism/RankGapBounds/MeanBoundSecondForm.lean"
+   ]
+  },
+  {
+   "text": "Formalism/RankGapBounds/MeanBoundSecondForm.lean",
+   "handoff_lines": [
+    496,
+    497,
+    499,
+    501,
+    503,
+    504,
+    505,
+    506,
+    939
+   ],
+   "matches": [
+    "Formalism/RankGapBounds/MeanBoundSecondForm.lean"
+   ]
+  },
+  {
+   "text": "QuadraticLogDerivCongr.lean",
+   "handoff_lines": [
+    496,
+    497,
+    498,
+    504,
+    505,
+    514
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean",
+   "handoff_lines": [
+    496,
+    497,
+    498,
+    504,
+    505,
+    514
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/QuadraticLogDerivCongr.lean"
+   ]
+  },
+  {
+   "text": "LinkMin.lean",
+   "handoff_lines": [
+    496,
+    500,
+    501,
+    502,
+    503,
+    504,
+    508
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean",
+   "handoff_lines": [
+    496,
+    500,
+    501,
+    502,
+    503,
+    504,
+    508
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean"
+   ]
+  },
+  {
+   "text": "RecBridge.lean",
+   "handoff_lines": [
+    497,
+    498
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/Divisibility/RecBridge.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/Divisibility/RecBridge.lean",
+   "handoff_lines": [
+    497,
+    498
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/Divisibility/RecBridge.lean"
+   ]
+  },
+  {
+   "text": "LinkDIVL2R3Col.lean",
+   "handoff_lines": [
+    497
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/Divisibility/LinkDIVL2R3Col.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/Divisibility/LinkDIVL2R3Col.lean",
+   "handoff_lines": [
+    497
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/Divisibility/LinkDIVL2R3Col.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/QuotientSlopeBoundsWith.lean",
+   "handoff_lines": [
+    498,
+    500,
+    502,
+    503,
+    889,
+    935
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/QuotientSlopeBoundsWith.lean"
+   ]
+  },
+  {
+   "text": "WeightDegreeSizes.lean",
+   "handoff_lines": [
+    498
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/Divisibility/WeightDegreeSizes.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/Divisibility/WeightDegreeSizes.lean",
+   "handoff_lines": [
+    498
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/Divisibility/WeightDegreeSizes.lean"
+   ]
+  },
+  {
+   "text": "ClassOfRecordOfChoice.lean",
+   "handoff_lines": [
+    498
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/ClassOfRecordOfChoice.lean",
+    "Formalism/LocalToGlobal/ClassOfRecordOfChoice.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/ClassOfRecordOfChoice.lean",
+   "handoff_lines": [
+    498
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/ClassOfRecordOfChoice.lean"
+   ]
+  },
+  {
+   "text": "Compl3Record.lean",
+   "handoff_lines": [
+    499
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/Divisibility/HookProducts/Compl3Record.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/Divisibility/HookProducts/Compl3Record.lean",
+   "handoff_lines": [
+    499
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/Divisibility/HookProducts/Compl3Record.lean"
+   ]
+  },
+  {
+   "text": "IndefiniteRealisationChoice.lean",
+   "handoff_lines": [
+    499
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/IndefiniteRealisationChoice.lean",
+    "Formalism/LocalToGlobal/IndefiniteRealisationChoice.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/IndefiniteRealisationChoice.lean",
+   "handoff_lines": [
+    499
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/IndefiniteRealisationChoice.lean"
+   ]
+  },
+  {
+   "text": "FamilyPartFiveOfExplicitConstants.lean",
+   "handoff_lines": [
+    500
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/FamilyPartFiveOfExplicitConstants.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/FamilyPartFiveOfExplicitConstants.lean",
+   "handoff_lines": [
+    500
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/FamilyPartFiveOfExplicitConstants.lean"
+   ]
+  },
+  {
+   "text": "JointsL.lean",
+   "handoff_lines": [
+    500,
+    501
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean",
+   "handoff_lines": [
+    500,
+    501
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/JointsL.lean"
+   ]
+  },
+  {
+   "text": "LowerSlopeInequalityFamily.lean",
+   "handoff_lines": [
+    501
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GlobalTheory/GL4/LowerSlopeInequalityFamily.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/GlobalTheory/GL4/LowerSlopeInequalityFamily.lean",
+   "handoff_lines": [
+    501
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GlobalTheory/GL4/LowerSlopeInequalityFamily.lean"
+   ]
+  },
+  {
+   "text": "PStmtFree.lean",
+   "handoff_lines": [
+    501
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GlobalTheory/GL4/PStmtFree.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/GlobalTheory/GL4/PStmtFree.lean",
+   "handoff_lines": [
+    501
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GlobalTheory/GL4/PStmtFree.lean"
+   ]
+  },
+  {
+   "text": "TuSizeOfRealPlaceSecondLayer.lean",
+   "handoff_lines": [
+    501
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/TuSizeOfRealPlaceSecondLayer.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GlobalSchurBounds/TuSizeOfRealPlaceSecondLayer.lean",
+   "handoff_lines": [
+    501
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/TuSizeOfRealPlaceSecondLayer.lean"
+   ]
+  },
+  {
+   "text": "SlopesMFOfCountFam.lean",
+   "handoff_lines": [
+    501
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/SlopesMFOfCountFam.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/SlopesMFOfCountFam.lean",
+   "handoff_lines": [
+    501
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/GlobalRankLatticeProofs/SlopesMFOfCountFam.lean"
+   ]
+  },
+  {
+   "text": "PlacesMin.lean",
+   "handoff_lines": [
+    502,
+    562
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GlobalTheory/PlacesMin.lean"
+   ]
+  },
+  {
+   "text": "TopDensityNGeSixteen.lean",
+   "handoff_lines": [
+    502,
+    504,
+    506,
+    763
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+   "handoff_lines": [
+    502,
+    504,
+    506,
+    827
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean"
+   ]
+  },
+  {
+   "text": "WeightedSlopeExcessDecomposition.lean",
+   "handoff_lines": [
+    502
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/WeightedSlopeExcessDecomposition.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/ChainSlopeWindows/WeightedSlopeExcessDecomposition.lean",
+   "handoff_lines": [
+    502
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/WeightedSlopeExcessDecomposition.lean"
+   ]
+  },
+  {
+   "text": "DiscriminantSettingSatisfied.lean",
+   "handoff_lines": [
+    503
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/DiscriminantSettingSatisfied.lean"
+   ]
+  },
+  {
+   "text": "LossRequirementsOfSmallShares.lean",
+   "handoff_lines": [
+    503,
+    535
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GlobalTheory/LossRequirementsOfSmallShares.lean"
+   ]
+  },
+  {
+   "text": "JointDModelAppliesUnitLattice.lean",
+   "handoff_lines": [
+    504
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/JointDModelAppliesUnitLattice.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/ChainSlopeWindows/JointDModelAppliesUnitLattice.lean",
+   "handoff_lines": [
+    504
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/JointDModelAppliesUnitLattice.lean"
+   ]
+  },
+  {
+   "text": "LvlWire.lean",
+   "handoff_lines": [
+    505
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/Divisibility/DivisibilityRemainder/NoColumnCase/LvlWire.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/Divisibility/DivisibilityRemainder/NoColumnCase/LvlWire.lean",
+   "handoff_lines": [
+    505
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/Divisibility/DivisibilityRemainder/NoColumnCase/LvlWire.lean"
+   ]
+  },
+  {
+   "text": "BrestFinalAll.lean",
+   "handoff_lines": [
+    505
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/BrestFinalAll.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/BrestFinalAll.lean",
+   "handoff_lines": [
+    505
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/BrestFinalAll.lean"
+   ]
+  },
+  {
+   "text": "LinkIrr.lean",
+   "handoff_lines": [
+    506
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/LinkIrr.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/LinkIrr.lean",
+   "handoff_lines": [
+    506
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/LinkIrr.lean"
+   ]
+  },
+  {
+   "text": "MainConclusion.lean",
+   "handoff_lines": [
+    508
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean",
+   "handoff_lines": [
+    508
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean"
+   ]
+  },
+  {
+   "text": "EveryCharacterOfLiteratureOfVWin.lean",
+   "handoff_lines": [
+    508
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean",
+   "handoff_lines": [
+    508
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean"
+   ]
+  },
+  {
+   "text": "SiegelEisensteinSecondTermHypotheses.lean",
+   "handoff_lines": [
+    508
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean",
+   "handoff_lines": [
+    508
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean"
+   ]
+  },
+  {
+   "text": "TopPlug.lean",
+   "handoff_lines": [
+    508
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean",
+   "handoff_lines": [
+    508
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean"
+   ]
+  },
+  {
+   "text": "TopShape.lean",
+   "handoff_lines": [
+    508,
+    535
+   ],
+   "matches": [
+    "Development/AbelianVarietyTheory/Definitions/GlobalTwisting/TopShape.lean",
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean",
+   "handoff_lines": [
+    508,
+    535
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopShape.lean"
+   ]
+  },
+  {
+   "text": "LinkGl.lean",
+   "handoff_lines": [
+    508
+   ],
+   "matches": [
+    "Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/LinkGl.lean"
+   ]
+  },
+  {
+   "text": "Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/LinkGl.lean",
+   "handoff_lines": [
+    508
+   ],
+   "matches": [
+    "Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/LinkGl.lean"
+   ]
+  },
+  {
+   "text": "LogXLowerFamilyOfTheorems.lean",
+   "handoff_lines": [
+    508
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/LogXLowerFamilyOfTheorems.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GlobalSchurBounds/LogXLowerFamilyOfTheorems.lean",
+   "handoff_lines": [
+    508
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/LogXLowerFamilyOfTheorems.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/SChain.lean",
+   "handoff_lines": [
+    510,
+    897
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/SChain.lean"
+   ]
+  },
+  {
+   "text": "ChTop.lean",
+   "handoff_lines": [
+    510
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChTop.lean"
+   ]
+  },
+  {
+   "text": "LevelOfCongruence.lean",
+   "handoff_lines": [
+    510
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/LevelOfCongruence.lean",
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/LevelOfCongruence.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/ChainSlopeWindows/LevelOfCongruence.lean",
+   "handoff_lines": [
+    510
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/LevelOfCongruence.lean"
+   ]
+  },
+  {
+   "text": "DataParams₂.lean",
+   "handoff_lines": [
+    514,
+    549,
+    551,
+    1000
+   ],
+   "matches": [
+    "Formalism/LocalRingCardinality/DataParams₂.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalRingCardinality/DataParams₂.lean",
+   "handoff_lines": [
+    514,
+    549,
+    551,
+    997,
+    1257
+   ],
+   "matches": [
+    "Formalism/LocalRingCardinality/DataParams₂.lean"
+   ]
+  },
+  {
+   "text": "Params.lean",
+   "handoff_lines": [
+    514
+   ],
+   "matches": [
+    "Development/AbelianVarietyTheory/Definitions/Divisors/Params.lean",
+    "Formalism/LocalRingCardinality/Params.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalRingCardinality/Params.lean",
+   "handoff_lines": [
+    514
+   ],
+   "matches": [
+    "Formalism/LocalRingCardinality/Params.lean"
+   ]
+  },
+  {
+   "text": "DataArith.lean",
+   "handoff_lines": [
+    514
+   ],
+   "matches": [
+    "Formalism/LocalRingCardinality/DataArith.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalRingCardinality/DataArith.lean",
+   "handoff_lines": [
+    514
+   ],
+   "matches": [
+    "Formalism/LocalRingCardinality/DataArith.lean"
+   ]
+  },
+  {
+   "text": "DataHost.lean",
+   "handoff_lines": [
+    514
+   ],
+   "matches": [
+    "Formalism/LocalRingCardinality/DataHost.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalRingCardinality/DataHost.lean",
+   "handoff_lines": [
+    514
+   ],
+   "matches": [
+    "Formalism/LocalRingCardinality/DataHost.lean"
+   ]
+  },
+  {
+   "text": "CoeNeZeroOfNotMem.lean",
+   "handoff_lines": [
+    514
+   ],
+   "matches": [
+    "Formalism/LocalRingCardinality/CoeNeZeroOfNotMem.lean",
+    "GroundTheory/HeightsAndTheta/Heights/KleimanAmpleness/CoeNeZeroOfNotMem.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalRingCardinality/CoeNeZeroOfNotMem.lean",
+   "handoff_lines": [
+    514
+   ],
+   "matches": [
+    "Formalism/LocalRingCardinality/CoeNeZeroOfNotMem.lean"
+   ]
+  },
+  {
+   "text": "DivinNOfHypV.lean",
+   "handoff_lines": [
+    535
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/DivinNOfHypV.lean"
+   ]
+  },
+  {
+   "text": "Challenge.lean",
+   "handoff_lines": [
+    545
+   ],
+   "matches": [
+    "Challenge.lean"
+   ]
+  },
+  {
+   "text": "Chosen.lean",
+   "handoff_lines": [
+    549
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/Chosen.lean"
+   ]
+  },
+  {
+   "text": "FrameCodeOfAdditive.lean",
+   "handoff_lines": [
+    549
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/FrameCodeOfAdditive.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GlobalSchurBounds/FrameCodeOfAdditive.lean",
+   "handoff_lines": [
+    549
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/FrameCodeOfAdditive.lean"
+   ]
+  },
+  {
+   "text": "GlobalTheoremInputs.lean",
+   "handoff_lines": [
+    551
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalTheoremInputs.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GlobalTheoremInputs.lean",
+   "handoff_lines": [
+    551,
+    793,
+    1008
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalTheoremInputs.lean"
+   ]
+  },
+  {
+   "text": "SecondEstimateOfIntervalHypothesis.lean",
+   "handoff_lines": [
+    555
+   ],
+   "matches": [
+    "Formalism/GL3MeanSquares/SecondEstimateOfIntervalHypothesis.lean"
+   ]
+  },
+  {
+   "text": "StagePow.lean",
+   "handoff_lines": [
+    555
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/StagePow.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean",
+   "handoff_lines": [
+    555
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/BadShare.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean",
+   "handoff_lines": [
+    555
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/MeanSquareBounds/BoxOfS.lean"
+   ]
+  },
+  {
+   "text": "SizeWindowBrackets/SecondKindBucket.lean",
+   "handoff_lines": [
+    567
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/SecondKindBucket.lean"
+   ]
+  },
+  {
+   "text": "SizeWindowBrackets/ChainSlopeWindows/AdmissibleSchurLemma.lean",
+   "handoff_lines": [
+    578
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/AdmissibleSchurLemma.lean"
+   ]
+  },
+  {
+   "text": "LocalToGlobal/GlobalTheory/PowFourLtCeilThresholdPrime.lean",
+   "handoff_lines": [
+    580
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GlobalTheory/PowFourLtCeilThresholdPrime.lean"
+   ]
+  },
+  {
+   "text": "AdmissibleSchurLemma.lean",
+   "handoff_lines": [
+    586
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/AdmissibleSchurLemma.lean",
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/AdmissibleSchurLemma.lean"
+   ]
+  },
+  {
+   "text": "SizeWindowBrackets/PrimeClassLossHypothesesSatisfiable.lean",
+   "handoff_lines": [
+    589
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/PrimeClassLossHypothesesSatisfiable.lean"
+   ]
+  },
+  {
+   "text": "SizeWindowBrackets/WindowSettingSatisfiable.lean",
+   "handoff_lines": [
+    589,
+    595,
+    638
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/WindowSettingSatisfiable.lean"
+   ]
+  },
+  {
+   "text": "SizeWindowBrackets/ChainSlopeWindows/DiscriminantSettingSatisfied.lean",
+   "handoff_lines": [
+    589
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/DiscriminantSettingSatisfied.lean"
+   ]
+  },
+  {
+   "text": "SharpRestriction/GrowthBounds/SmallOrderPrimes.lean",
+   "handoff_lines": [
+    596
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/SmallOrderPrimes.lean"
+   ]
+  },
+  {
+   "text": "SharpRestriction/GlobalTheoremInputs.lean",
+   "handoff_lines": [
+    596,
+    613,
+    763
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalTheoremInputs.lean"
+   ]
+  },
+  {
+   "text": "SharpRestriction/GrowthBounds/PlaneCountTheoremWithConstants.lean",
+   "handoff_lines": [
+    596
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/PlaneCountTheoremWithConstants.lean"
+   ]
+  },
+  {
+   "text": "LocalToGlobal/GlobalTheory/IsResidueClassZero.lean",
+   "handoff_lines": [
+    596
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GlobalTheory/IsResidueClassZero.lean"
+   ]
+  },
+  {
+   "text": "LocalToGlobal/GlobalTheory/LossRequirementsOfSmallShares.lean",
+   "handoff_lines": [
+    597
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GlobalTheory/LossRequirementsOfSmallShares.lean"
+   ]
+  },
+  {
+   "text": "LocalToGlobal/GroupLattices/AdmissibleFamilyNoKernel.lean",
+   "handoff_lines": [
+    613
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GroupLattices/AdmissibleFamilyNoKernel.lean"
+   ]
+  },
+  {
+   "text": "GB/LogarithmicSums.lean",
+   "handoff_lines": [
+    613
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums.lean"
+   ]
+  },
+  {
+   "text": "GB/SmallOrderPrimes.lean",
+   "handoff_lines": [
+    613,
+    623
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/SmallOrderPrimes.lean"
+   ]
+  },
+  {
+   "text": "GB/LogarithmicSums/Conclusion1OfGainBoundAll.lean",
+   "handoff_lines": [
+    614
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/Conclusion1OfGainBoundAll.lean"
+   ]
+  },
+  {
+   "text": "GB/LogarithmicSums/NotSingularOfCentral.lean",
+   "handoff_lines": [
+    614
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/NotSingularOfCentral.lean"
+   ]
+  },
+  {
+   "text": "Conclusion1OfGainBoundAll.lean",
+   "handoff_lines": [
+    614
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/Conclusion1OfGainBoundAll.lean"
+   ]
+  },
+  {
+   "text": "GB/IsResidueClassZero.lean",
+   "handoff_lines": [
+    618
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/IsResidueClassZero.lean"
+   ]
+  },
+  {
+   "text": "GB/LogarithmicSums/StarFam.lean",
+   "handoff_lines": [
+    619
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/StarFam.lean"
+   ]
+  },
+  {
+   "text": "GB/LogarithmicSums/PartnerCountOfCentral.lean",
+   "handoff_lines": [
+    619
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/PartnerCountOfCentral.lean"
+   ]
+  },
+  {
+   "text": "GB/TopChoiceBounds.lean",
+   "handoff_lines": [
+    624,
+    634
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/TopChoiceBounds.lean"
+   ]
+  },
+  {
+   "text": "SubspaceCounting/GoodOrbitIntervalTileCondition.lean",
+   "handoff_lines": [
+    624
+   ],
+   "matches": [
+    "Formalism/SubspaceCounting/GoodOrbitIntervalTileCondition.lean"
+   ]
+  },
+  {
+   "text": "ChainSlopeWindows/OneLeThresholdMulPowers.lean",
+   "handoff_lines": [
+    638
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/OneLeThresholdMulPowers.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/PartnerCountOfCentral.lean",
+   "handoff_lines": [
+    653,
+    666,
+    675,
+    680
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/PartnerCountOfCentral.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/IsResidueClassZero.lean",
+   "handoff_lines": [
+    653,
+    666,
+    676
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/IsResidueClassZero.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/UnramifiedQuadraticSetting.lean",
+   "handoff_lines": [
+    666
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/UnramifiedQuadraticSetting.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/Conclusion1OfGainBoundAll.lean",
+   "handoff_lines": [
+    674
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/Conclusion1OfGainBoundAll.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/NotSingularOfCentral.lean",
+   "handoff_lines": [
+    676
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/NotSingularOfCentral.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/GainBoundAllAddOneOfGainBoundAllRequired.lean",
+   "handoff_lines": [
+    677
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/GainBoundAllAddOneOfGainBoundAllRequired.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/StarFam.lean",
+   "handoff_lines": [
+    677,
+    680
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/StarFam.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums.lean",
+   "handoff_lines": [
+    677
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/SmallOrderPrimes.lean",
+   "handoff_lines": [
+    678
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/SmallOrderPrimes.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/GroupLattices/AdmissibleFamilyNoKernel.lean",
+   "handoff_lines": [
+    678
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GroupLattices/AdmissibleFamilyNoKernel.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/PlaneCountTheoremWithConstants.lean",
+   "handoff_lines": [
+    678
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/PlaneCountTheoremWithConstants.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/WeilJacquetShalikaLaw.lean",
+   "handoff_lines": [
+    678
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/WeilJacquetShalikaLaw.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/GroupLattices/AdmissibleAtGeneratorPlaces.lean",
+   "handoff_lines": [
+    678
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GroupLattices/AdmissibleAtGeneratorPlaces.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/TopChoiceBounds.lean",
+   "handoff_lines": [
+    680,
+    698,
+    843
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/TopChoiceBounds.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/PrimeClassLossHypothesesSatisfiable.lean",
+   "handoff_lines": [
+    691
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/PrimeClassLossHypothesesSatisfiable.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/WindowSettingSatisfiable.lean",
+   "handoff_lines": [
+    691
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/WindowSettingSatisfiable.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/ChainSlopeWindows/OneLeThresholdMulPowers.lean",
+   "handoff_lines": [
+    691
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/OneLeThresholdMulPowers.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/AdmissibleParameterJoins/GandSa.lean",
+   "handoff_lines": [
+    698
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/AdmissibleParameterJoins/GandSa.lean"
+   ]
+  },
+  {
+   "text": "GrowthBounds/TopChoiceBounds.lean",
+   "handoff_lines": [
+    703
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/TopChoiceBounds.lean"
+   ]
+  },
+  {
+   "text": "AdmissibleParameterJoins/GandSa.lean",
+   "handoff_lines": [
+    711
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/AdmissibleParameterJoins/GandSa.lean"
+   ]
+  },
+  {
+   "text": "GandSa.lean",
+   "handoff_lines": [
+    716
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/AdmissibleParameterJoins/GandSa.lean"
+   ]
+  },
+  {
+   "text": "GlobalSchurBounds/CMFieldLemmas.lean",
+   "handoff_lines": [
+    716
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/CMFieldLemmas.lean"
+   ]
+  },
+  {
+   "text": "GlobalSchurBounds/ConclusionR7abs.lean",
+   "handoff_lines": [
+    716
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/ConclusionR7abs.lean"
+   ]
+  },
+  {
+   "text": "GlobalSchurBounds/Chosen.lean",
+   "handoff_lines": [
+    717
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/Chosen.lean"
+   ]
+  },
+  {
+   "text": "GlobalSchurBounds/LossesSmallShares.lean",
+   "handoff_lines": [
+    717
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/LossesSmallShares.lean"
+   ]
+  },
+  {
+   "text": "SizeWindowBrackets/GrowthBracketBoundOfSizeWindows.lean",
+   "handoff_lines": [
+    725
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/GrowthBracketBoundOfSizeWindows.lean"
+   ]
+  },
+  {
+   "text": "GrowthBounds/IsResidueClassZero.lean",
+   "handoff_lines": [
+    726
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/IsResidueClassZero.lean"
+   ]
+  },
+  {
+   "text": "GrowthBounds/UnramifiedQuadraticSetting.lean",
+   "handoff_lines": [
+    729
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/UnramifiedQuadraticSetting.lean"
+   ]
+  },
+  {
+   "text": "GrowthBounds/CornerGLContinuity.lean",
+   "handoff_lines": [
+    733
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/CornerGLContinuity.lean"
+   ]
+  },
+  {
+   "text": "SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean",
+   "handoff_lines": [
+    751
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean"
+   ]
+  },
+  {
+   "text": "SizeWindowBrackets/ChainSlopeWindows/JointDModelAppliesUnitLattice.lean",
+   "handoff_lines": [
+    751
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/JointDModelAppliesUnitLattice.lean"
+   ]
+  },
+  {
+   "text": "SizeWindowBrackets/FrameTraceRatioFinEquiv.lean",
+   "handoff_lines": [
+    751
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/FrameTraceRatioFinEquiv.lean"
+   ]
+  },
+  {
+   "text": "HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean",
+   "handoff_lines": [
+    751
+   ],
+   "matches": [
+    "Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean"
+   ]
+  },
+  {
+   "text": "HarderNarasimhan/StatementFrameF.lean",
+   "handoff_lines": [
+    760
+   ],
+   "matches": [
+    "Formalism/HarderNarasimhan/StatementFrameF.lean"
+   ]
+  },
+  {
+   "text": "HarderNarasimhanProofs/FrameLinearAlgebraFirst.lean",
+   "handoff_lines": [
+    760
+   ],
+   "matches": [
+    "Formalism/HarderNarasimhan/HarderNarasimhanProofs/FrameLinearAlgebraFirst.lean"
+   ]
+  },
+  {
+   "text": "HarderNarasimhanProofs/TheoremFSharp.lean",
+   "handoff_lines": [
+    761
+   ],
+   "matches": [
+    "Formalism/HarderNarasimhan/HarderNarasimhanProofs/TheoremFSharp.lean"
+   ]
+  },
+  {
+   "text": "LinkSFinal.lean",
+   "handoff_lines": [
+    764
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSFinal.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean",
+   "handoff_lines": [
+    799
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/CuspSpanNormBounds/AdmissibleBoundsFromSource.lean",
+   "handoff_lines": [
+    803
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/CuspSpanNormBounds/AdmissibleBoundsFromSource.lean"
+   ]
+  },
+  {
+   "text": "StandingHypothesesHoldFamily.lean",
+   "handoff_lines": [
+    808
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/CuspSpanNormBounds/StandingHypothesesHoldFamily.lean"
+   ]
+  },
+  {
+   "text": "FrobeniusProjectedBounds.lean",
+   "handoff_lines": [
+    812
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/CuspSpanNormBounds/FrobeniusProjectedBounds.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/CuspSpanNormBounds/FrobeniusProjectedBounds.lean",
+   "handoff_lines": [
+    815
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/CuspSpanNormBounds/FrobeniusProjectedBounds.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/ChainSlopeWindows/ChainLatticeSizesModelEventually.lean",
+   "handoff_lines": [
+    816
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/ChainLatticeSizesModelEventually.lean"
+   ]
+  },
+  {
+   "text": "LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSFinal.lean",
+   "handoff_lines": [
+    823
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/SiegelLatticeTheory/FlagStabilizerTensors/LinkSFinal.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/GlobalTheory/PlacesP.lean",
+   "handoff_lines": [
+    829
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GlobalTheory/PlacesP.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/ClaimGaFree.lean",
+   "handoff_lines": [
+    831
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ClaimGaFree.lean"
+   ]
+  },
+  {
+   "text": "PlacesP.lean",
+   "handoff_lines": [
+    845
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GlobalTheory/PlacesP.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/ErrorFormsWeakWindowsFalse.lean",
+   "handoff_lines": [
+    870,
+    890,
+    892
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ErrorFormsWeakWindowsFalse.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/DedekindLFunctions/SplitInertia.lean",
+   "handoff_lines": [
+    887
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/DedekindLFunctions/SplitInertia.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/TranslateWordBoundHypotheses.lean",
+   "handoff_lines": [
+    959
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/TranslateWordBoundHypotheses.lean"
+   ]
+  },
+  {
+   "text": "TranslateWordBoundHypotheses.lean",
+   "handoff_lines": [
+    963
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/TranslateWordBoundHypotheses.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/SBrDiv.lean",
+   "handoff_lines": [
+    965
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/SBrDiv.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SizeWindowBrackets/Chain2aCoreNoAnalytic.lean",
+   "handoff_lines": [
+    965
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/Chain2aCoreNoAnalytic.lean"
+   ]
+  },
+  {
+   "text": "ChainSlopeWindows/PBrDiv.lean",
+   "handoff_lines": [
+    969
+   ],
+   "matches": [
+    "Formalism/SizeWindowBrackets/ChainSlopeWindows/PBrDiv.lean"
+   ]
+  },
+  {
+   "text": "StatementOC.lean",
+   "handoff_lines": [
+    977,
+    1102
+   ],
+   "matches": [
+    "Formalism/StatementOC.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/Divisibility/Numbers.lean",
+   "handoff_lines": [
+    998
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/Divisibility/Numbers.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/KernelLattices/ColumnData.lean",
+   "handoff_lines": [
+    998
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/KernelLattices/ColumnData.lean"
+   ]
+  },
+  {
+   "text": "Numbers.lean",
+   "handoff_lines": [
+    999
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/Divisibility/Numbers.lean",
+    "ReciprocityTheory/ThetaSummability/RealCoinvariants/Numbers.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/Divisibility/RecBridgeSel.lean",
+   "handoff_lines": [
+    1009
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/Divisibility/RecBridgeSel.lean"
+   ]
+  },
+  {
+   "text": "RecBridgeTied.lean",
+   "handoff_lines": [
+    1009
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/Divisibility/RecBridgeTied.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/CharacterBoxes/ShapeWin.lean",
+   "handoff_lines": [
+    1010
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/ShapeWin.lean"
+   ]
+  },
+  {
+   "text": "DesWin.lean",
+   "handoff_lines": [
+    1010
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/DesWin.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicSpectrum/Proofs/GeometryProofs/ChowlaSelbergPeriodStatement.lean",
+   "handoff_lines": [
+    1013
+   ],
+   "matches": [
+    "Development/AutomorphicSpectrum/Proofs/GeometryProofs/ChowlaSelbergPeriodStatement.lean"
+   ]
+  },
+  {
+   "text": "ChowlaSelbergPeriod.lean",
+   "handoff_lines": [
+    1016
+   ],
+   "matches": [
+    "Development/AutomorphicSpectrum/Proofs/GeometryProofs/ChowlaSelbergPeriod.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicSpectrum/Statements/GeometryStatements/FlatDegree.lean",
+   "handoff_lines": [
+    1018
+   ],
+   "matches": [
+    "Development/AutomorphicSpectrum/Statements/GeometryStatements/FlatDegree.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicSpectrum/Proofs/GeometryProofs/FlatDegreeHolds.lean",
+   "handoff_lines": [
+    1022
+   ],
+   "matches": [
+    "Development/AutomorphicSpectrum/Proofs/GeometryProofs/FlatDegreeHolds.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicSpectrum/Proofs/DivisibilityProofs/GoodTowerVolumeTheoremStatement.lean",
+   "handoff_lines": [
+    1028
+   ],
+   "matches": [
+    "Development/AutomorphicSpectrum/Proofs/DivisibilityProofs/GoodTowerVolumeTheoremStatement.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LocalToGlobal/Divisibility/EigenvalueSumLeClosedOf.lean",
+   "handoff_lines": [
+    1056
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/Divisibility/EigenvalueSumLeClosedOf.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/CoarseMultiplicity/KeyMinorDvd.lean",
+   "handoff_lines": [
+    1067,
+    1142
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/CoarseMultiplicity/KeyMinorDvd.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LatticeSlopes/LatticeSlopesProofs/SlopeInequality.lean",
+   "handoff_lines": [
+    1068,
+    1207
+   ],
+   "matches": [
+    "Formalism/LatticeSlopes/LatticeSlopesProofs/SlopeInequality.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChBalance.lean",
+   "handoff_lines": [
+    1069
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChBalance.lean"
+   ]
+  },
+  {
+   "text": "Formalism/FrobeniusOrbits/FrobeniusOrbitsProofs/ThickExists.lean",
+   "handoff_lines": [
+    1070
+   ],
+   "matches": [
+    "Formalism/FrobeniusOrbits/FrobeniusOrbitsProofs/ThickExists.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Window1.lean",
+   "handoff_lines": [
+    1072
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Window1.lean"
+   ]
+  },
+  {
+   "text": "Development/AutomorphicArithmetic/CharacterBoxes/ExistsPageN.lean",
+   "handoff_lines": [
+    1073,
+    1251
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/ExistsPageN.lean"
+   ]
+  },
+  {
+   "text": "ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean",
+   "handoff_lines": [
+    1074
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean"
+   ]
+  },
+  {
+   "text": "Formalism/ThetaLiftIndependence/Statement.lean",
+   "handoff_lines": [
+    1075
+   ],
+   "matches": [
+    "Formalism/ThetaLiftIndependence/Statement.lean"
+   ]
+  },
+  {
+   "text": "ExistsPageN.lean",
+   "handoff_lines": [
+    1076
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/CharacterBoxes/ExistsPageN.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/FrobeniusPaths/LatticeCountingFormula.lean",
+   "handoff_lines": [
+    1163,
+    1258
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/FrobeniusPaths/LatticeCountingFormula.lean"
+   ]
+  },
+  {
+   "text": "LiftedColumnOrder.lean",
+   "handoff_lines": [
+    1163
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/FrobeniusPaths/LiftedColumnOrder.lean"
+   ]
+  },
+  {
+   "text": "ObjPol.lean",
+   "handoff_lines": [
+    1163,
+    1166
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/ObjPol.lean"
+   ]
+  },
+  {
+   "text": "BinomialRatio/FinalTheorems.lean",
+   "handoff_lines": [
+    1168
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/BinomialRatio/FinalTheorems.lean"
+   ]
+  },
+  {
+   "text": "RestRawTail1Of.lean",
+   "handoff_lines": [
+    1168,
+    1170,
+    1172,
+    1276
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/CoarseMultiplicity/RestRawTail1Of.lean"
+   ]
+  },
+  {
+   "text": "KeyOne.lean",
+   "handoff_lines": [
+    1172
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/CoarseMultiplicity/KeyOne.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/ObjBridge.lean",
+   "handoff_lines": [
+    1173
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/ObjBridge.lean"
+   ]
+  },
+  {
+   "text": "Formalism/SharpRestriction/GrowthBounds/CoarseMultiplicity.lean",
+   "handoff_lines": [
+    1174,
+    1249
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/CoarseMultiplicity.lean"
+   ]
+  },
+  {
+   "text": "TensorOfPairLift.lean",
+   "handoff_lines": [
+    1174,
+    1250
+   ],
+   "matches": [
+    "Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/TensorOfPairLift.lean"
+   ]
+  },
+  {
+   "text": "AdmissibleBoundsFromSource.lean",
+   "handoff_lines": [
+    1197
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/CuspSpanNormBounds/AdmissibleBoundsFromSource.lean"
+   ]
+  },
+  {
+   "text": "Formalism/LatticeSlopes/Statement.lean",
+   "handoff_lines": [
+    1207
+   ],
+   "matches": [
+    "Formalism/LatticeSlopes/Statement.lean"
+   ]
+  },
+  {
+   "text": "Statement.lean",
+   "handoff_lines": [
+    1213
+   ],
+   "matches": [
+    "Development/AbelianVarietyTheory/Proofs/DivisorProofs/Statement.lean",
+    "Development/WeilBound/CoreStatements/AutomorphicKernels/EisensteinSeriesG2/TubeDomainExtension/Statement.lean",
+    "Formalism/AdicCompletionExports/NonnegativeDivisors/Statement.lean",
+    "Formalism/AlphaUniqueness/Statement.lean",
+    "Formalism/ArtinHasse/Statement.lean",
+    "Formalism/BehrendSets/Statement.lean",
+    "Formalism/CharacterColumnKernels/Statement.lean",
+    "Formalism/CoboundaryTransfers/Statement.lean",
+    "Formalism/ConjugateSelfDual/Statement.lean",
+    "Formalism/DegreeFormula/Statement.lean",
+    "Formalism/DirichletDensity/Statement.lean",
+    "Formalism/DistinguishedUnitIdeals/Statement.lean",
+    "Formalism/DoubleCosetMeasures/Statement.lean",
+    "Formalism/DropLevelBounds/Statement.lean",
+    "Formalism/EllipticTorsion/Statement.lean",
+    "Formalism/FormalGroupLog/Statement.lean",
+    "Formalism/FormalGroupWitt/Statement.lean",
+    "Formalism/FrobeniusBaseCase/Statement.lean",
+    "Formalism/FrobeniusContraction/Statement.lean",
+    "Formalism/FrobeniusOrbits/Statement.lean",
+    "Formalism/GaloisCohomology/Statement.lean",
+    "Formalism/GaloisIrreducibility/Statement.lean",
+    "Formalism/GaussJetBounds/Statement.lean",
+    "Formalism/GaussValuationBounds/Statement.lean",
+    "Formalism/GelfandTransference/Statement.lean",
+    "Formalism/HalfLinks/Statement.lean",
+    "Formalism/HarderNarasimhan/Statement.lean",
+    "Formalism/HermitianCurvature/Statement.lean",
+    "Formalism/HyperbolicPlaceProducts/Statement.lean",
+    "Formalism/JacobiWeightFamilies/Statement.lean",
+    "Formalism/JumpKernelCokernel/Statement.lean",
+    "Formalism/LFunctionBounds/Statement.lean",
+    "Formalism/LagrangeIdealLifts/Statement.lean",
+    "Formalism/LandauZeroFreeBounds/Statement.lean",
+    "Formalism/LatticeLocalGlobal/Statement.lean",
+    "Formalism/LatticeSlopes/Statement.lean",
+    "Formalism/LatticeTheta/Statement.lean",
+    "Formalism/LocalToGlobal/Divisibility/JetBounds/Statement.lean",
+    "Formalism/LocalToGlobal/GenusGluing/GenusApproximation/Statement.lean",
+    "Formalism/LocalToGlobal/GlobalTheory/GL1/Statement.lean",
+    "Formalism/LocalToGlobal/GlobalTheory/GL2/Statement.lean",
+    "Formalism/LocalToGlobal/GlobalTheory/GL3/Statement.lean",
+    "Formalism/LocalToGlobal/GlobalTheory/GL4/Statement.lean",
+    "Formalism/LocalToGlobal/GlobalTheory/GL5/Statement.lean",
+    "Formalism/LocalToGlobal/GlobalTheory/GL6/Statement.lean",
+    "Formalism/LocalToGlobal/PairingIndexBounds/HalvesRecursion/Statement.lean",
+    "Formalism/LocalToGlobal/TorsionIntegrality/CMGoodModels/Statement.lean",
+    "Formalism/MahlerMeasure/Statement.lean",
+    "Formalism/MoebiusJetDuality/Statement.lean",
+    "Formalism/NormUnitaryBounds/Statement.lean",
+    "Formalism/PieriBlockIdeals/Statement.lean",
+    "Formalism/QuotientMetricDivisors/Statement.lean",
+    "Formalism/SatakeDualWeyl/Statement.lean",
+    "Formalism/Statement.lean",
+    "Formalism/SubspaceCounting/Statement.lean",
+    "Formalism/ThetaLiftIndependence/Statement.lean",
+    "Formalism/ThetaLogCoordinates/PartnerMeanCoordinates/Statement.lean",
+    "Formalism/ThickAverageLoss/Statement.lean",
+    "Formalism/TorsionNormIteration/Statement.lean",
+    "Formalism/TranslateCocycles/Statement.lean",
+    "Formalism/TwistFamilyExistence/Statement.lean",
+    "Formalism/WachLatticeTwists/CharacterSplitJumps/Statement.lean",
+    "Formalism/WachLatticeTwists/CoprimeLiftBounds/Statement.lean",
+    "Formalism/WachLatticeTwists/CupProductVanishing/Statement.lean",
+    "Formalism/WachLatticeTwists/DenseTopActions/Statement.lean",
+    "Formalism/WachLatticeTwists/HerrComplexInjectivity/Statement.lean",
+    "Formalism/WachLatticeTwists/HodgeTateChains/Statement.lean",
+    "Formalism/WachLatticeTwists/LagrangeExtensionCocycles/Statement.lean",
+    "Formalism/WachLatticeTwists/LatticeDualFibres/Statement.lean",
+    "Formalism/WachLatticeTwists/RamifiedBlockRings/Statement.lean",
+    "Formalism/WachLatticeTwists/RealClassMaps/Statement.lean",
+    "Formalism/WachLatticeTwists/RealDisplaySplitting/Statement.lean",
+    "Formalism/WachLatticeTwists/SandwichH1Classes/Statement.lean",
+    "Formalism/WachLatticeTwists/ShapeRowIsomorphisms/Statement.lean",
+    "Formalism/WachLatticeTwists/SplitClassesAll/Statement.lean",
+    "Formalism/WachLatticeTwists/SplitLocalLifts/Statement.lean",
+    "Formalism/WachLatticeTwists/Statement.lean",
+    "Formalism/WachLatticeTwists/TorsionKernelSplitting/Statement.lean",
+    "Formalism/WachLatticeTwists/WachProductBases/Statement.lean",
+    "Formalism/WachModuleLifts/Statement.lean",
+    "Formalism/WeaklyAdmissibleFiltrations/Statement.lean",
+    "Formalism/WideWeightTheorem/Statement.lean",
+    "Formalism/WindowSums/Statement.lean",
+    "Formalism/ZeroFreeRegion/Statement.lean",
+    "GroundTheory/GlobalFields/SecondInequality/Statement.lean",
+    "ReciprocityTheory/ReductiveGroups/SymplecticTraces/WeylCharacters/Statement.lean"
+   ]
+  },
+  {
+   "text": "OrthSum.lean",
+   "handoff_lines": [
+    1220
+   ],
+   "matches": [
+    "Formalism/BranchSandwichDivisors/BranchIsometryProofs/OrthSum.lean",
+    "Formalism/LatticeSlopes/LatticeSlopesProofs/OrthSum.lean"
+   ]
+  },
+  {
+   "text": "rh-extraction/DivisibleMeansBig.lean",
+   "handoff_lines": [
+    1231
+   ],
+   "matches": []
+  },
+  {
+   "text": "KeyMinorDvd.lean",
+   "handoff_lines": [
+    1255
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/CoarseMultiplicity/KeyMinorDvd.lean"
+   ]
+  },
+  {
+   "text": "PartnerCountOfCentral.lean",
+   "handoff_lines": [
+    1256
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/LogarithmicSums/PartnerCountOfCentral.lean"
+   ]
+  },
+  {
+   "text": "IsResidueClassZero.lean",
+   "handoff_lines": [
+    1256
+   ],
+   "matches": [
+    "Formalism/LocalToGlobal/GlobalTheory/IsResidueClassZero.lean",
+    "Formalism/SharpRestriction/GrowthBounds/IsResidueClassZero.lean"
+   ]
+  },
+  {
+   "text": "CoarseMultiplicity.lean",
+   "handoff_lines": [
+    1272
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/CoarseMultiplicity.lean"
+   ]
+  },
+  {
+   "text": "ColumnSystems.lean",
+   "handoff_lines": [
+    1272,
+    1283
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/ColumnSystems.lean"
+   ]
+  },
+  {
+   "text": "CoarseMultiplicity/RestRawTail1Of.lean",
+   "handoff_lines": [
+    1272
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/CoarseMultiplicity/RestRawTail1Of.lean"
+   ]
+  },
+  {
+   "text": "StandardPolynomials.lean",
+   "handoff_lines": [
+    1277
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/StandardPolynomials.lean"
+   ]
+  },
+  {
+   "text": "StandardPolynomials/ColTop.lean",
+   "handoff_lines": [
+    1277
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/StandardPolynomials/ColTop.lean"
+   ]
+  },
+  {
+   "text": "ColumnPolynomialCovectorZero.lean",
+   "handoff_lines": [
+    1277
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/StandardPolynomials/ColumnPolynomialCovectorZero.lean"
+   ]
+  },
+  {
+   "text": "RestTCore.lean",
+   "handoff_lines": [
+    1277
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/StandardPolynomials/RestTCore.lean"
+   ]
+  },
+  {
+   "text": "ColumnSpanDensity/LocalHypothesisOfGlobal.lean",
+   "handoff_lines": [
+    1289
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/ColumnSpanDensity/LocalHypothesisOfGlobal.lean"
+   ]
+  },
+  {
+   "text": "CoarseMultiplicity/CoarseMultiplicityAtIdentity.lean",
+   "handoff_lines": [
+    1293
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/CoarseMultiplicity/CoarseMultiplicityAtIdentity.lean"
+   ]
+  },
+  {
+   "text": "ObjSeg.lean",
+   "handoff_lines": [
+    1300
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/ObjSeg.lean"
+   ]
+  },
+  {
+   "text": "ColsDef.lean",
+   "handoff_lines": [
+    1364
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/StandardPolynomials/ColsDef.lean"
+   ]
+  },
+  {
+   "text": "ColTop.lean",
+   "handoff_lines": [
+    1370
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/StandardPolynomials/ColTop.lean"
+   ]
+  },
+  {
+   "text": "ColXNum.lean",
+   "handoff_lines": [
+    1370
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/StandardPolynomials/ColXNum.lean"
+   ]
+  },
+  {
+   "text": "TCoreDef.lean",
+   "handoff_lines": [
+    1372
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/StandardPolynomials/TCoreDef.lean"
+   ]
+  },
+  {
+   "text": "TCNumDef.lean",
+   "handoff_lines": [
+    1376
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/StandardPolynomials/TCNumDef.lean"
+   ]
+  },
+  {
+   "text": "TCXNum.lean",
+   "handoff_lines": [
+    1376
+   ],
+   "matches": [
+    "Formalism/SharpRestriction/GrowthBounds/StandardPolynomials/TCXNum.lean"
+   ]
+  },
+  {
+   "text": "Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsKeyDatumBaseChangeThetaJetsStatement.lean",
+   "handoff_lines": [
+    1411
+   ],
+   "matches": [
+    "Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsKeyDatumBaseChangeThetaJetsStatement.lean"
+   ]
+  },
+  {
+   "text": "Window1.lean",
+   "handoff_lines": [
+    1423
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Window1.lean"
+   ]
+  },
+  {
+   "text": "Window.lean",
+   "handoff_lines": [
+    1431
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Window.lean",
+    "Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/DifferentialTranslates/Window.lean",
+    "Formalism/ResultantValuation/ResultantAdjugateProofs/Window.lean",
+    "Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/Window.lean",
+    "Formalism/WeaklyAdmissibleFiltrations/CrystallineStableLifts/Window.lean",
+    "GroundTheory/AutomorphicForms/TensorProductTheorem/Window.lean"
+   ]
+  },
+  {
+   "text": "SecondBound.lean",
+   "handoff_lines": [
+    1435,
+    1439,
+    1440,
+    1442
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/SecondBound.lean"
+   ]
+  },
+  {
+   "text": "Exc.lean",
+   "handoff_lines": [
+    1439,
+    1441
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Exc.lean"
+   ]
+  },
+  {
+   "text": "Final.lean",
+   "handoff_lines": [
+    1445
+   ],
+   "matches": [
+    "Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Final.lean",
+    "Development/AutomorphicArithmetic/CommutativeAlgebra/EtaleCohomology/Final.lean"
+   ]
+  },
+  {
+   "text": "rh-extraction/WindowAvoid.lean",
+   "handoff_lines": [
+    1454
+   ],
+   "matches": []
+  },
+  {
+   "text": "WindowAvoid.lean",
+   "handoff_lines": [
+    1454
+   ],
+   "matches": []
+  },
+  {
+   "text": "GenusMassVolumeResults.lean",
+   "handoff_lines": [
+    1459
+   ],
+   "matches": [
+    "Formalism/GL3MeanSquares/GenusMassVolumeResults.lean"
+   ]
+  }
+ ]
+}
