@@ -10,16 +10,17 @@ Everything is here on purpose: the prompts, the handoff notes, the dead ends and
 | File | What it shows | Status |
 | --- | --- | --- |
 | [`CommonPeriodMap.lean`](results/common-period-map/CommonPeriodMap.lean) | The integral map `Bk` used by the divisibility argument equals, up to a nonzero scalar and two isometries, the matrix coefficients of the period map `Pu` used by the rank argument. On the headline family, the same map satisfies the lattice inclusion and the near-isometry (Gram) bound. | **COMPILED**, 23 Nov 2026. Output in [`common-period-map.out`](results/common-period-map/common-period-map.out) |
-| [`CommonPeriodMap2.lean`](results/common-period-map/CommonPeriodMap2.lean) | `one_map_three_sections`: from the headline proof's own premises, every member of the family eventually satisfies all three of Rubinstein's H8 conditions for the same map `Bk`: (8a) lattice inclusion, (8b) the height bound, (8c) its archimedean matrix being a block of a near-orthogonal frame (`MatK_at`, the shape of Zhang's Prop. 4.3). | Written; **compile pending**. The first build attempts failed on file-read errors in Mathlib's cache files, not on the proof. |
+| [`CommonPeriodMap2.lean`](results/common-period-map/CommonPeriodMap2.lean) | `one_map_three_sections`: from the headline proof's own premises, every member of the family eventually satisfies all three of Rubinstein's H8 conditions for the same map `Bk`: (8a) lattice inclusion, (8b) the height bound, (8c) its archimedean matrix being a block of a near-orthogonal frame (`MatK_at`, the shape of Zhang's Prop. 4.3). | **COMPILED**, 23 Nov 2026. Output in [`common-period-map2.out`](results/common-period-map/common-period-map2.out). Earlier build attempts failed on file-read errors in Mathlib's cache files (8 parallel Lean workers); a rerun with 2 workers succeeded. |
 | [`gap2_lemniscate_check.py`](results/gap2-test-bench/gap2_lemniscate_check.py) and [`gap2_lemniscate_results.txt`](results/gap2-test-bench/gap2_lemniscate_results.txt) | Independent recomputation of Rubinstein's worked lemniscate example and of his failing naive theta kernel. All of his numbers reproduce exactly. New: the naive kernel's p-divisibility grows like n/(p²−1) instead of the needed np/(p²−1), which is exactly one factor of p short (checked for n ≤ 300, p = 3, 7, 11, 19). | **COMPUTED**. The new pattern is numerical, not proved. |
 
-Lean output for the compiled file (verbatim from `common-period-map.out`):
+Lean output for the compiled files (verbatim from `common-period-map.out` and `common-period-map2.out`):
 
 ```
 'RHX.besS_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RHX.KD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RHX.common_period_map' depends on axioms: [propext, Classical.choice, Quot.sound]
 'RHX.common_period_map_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHX.one_map_three_sections' depends on axioms: [propext, Classical.choice, Quot.sound]
 ```
 
 These are the three standard axioms, and nothing else.
@@ -69,7 +70,7 @@ The prompts I gave are in [`prompts/`](prompts/) and the full investigation log 
 
 ## Reproduce it
 
-On Windows, run [`results/common-period-map/compile-closure.ps1`](results/common-period-map/compile-closure.ps1). You need about 25 GB free on C:, and a few hours. It uses no project cache: it checks out only the 705 source files listed in `closure-files.txt` from the pinned commit into `C:\rhc`, downloads Mathlib's own cache, builds those modules from source, and runs Lean on both files. It checks the axioms and writes `compile-log.txt` next to the script. It needs `git` installed; it installs `elan` (the Lean version manager) if missing.
+On Windows, run [`results/common-period-map/compile-closure.ps1`](results/common-period-map/compile-closure.ps1). You need about 25 GB free on C:, and a few hours. It uses no project cache: it checks out only the 705 source files listed in `closure-files.txt` from the pinned commit into `C:\rhc`, downloads Mathlib's own cache, builds those modules from source, and runs Lean on both files. (If you see "failed to read file" errors on Mathlib `.olean` files, retry with `LEAN_NUM_THREADS=2`; see `logs/build-retry.log`.) It checks the axioms and writes `compile-log.txt` next to the script. It needs `git` installed; it installs `elan` (the Lean version manager) if missing.
 
 ## Licenses
 
