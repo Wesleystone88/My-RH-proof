@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "One map, three sections: Lean checks on the Alpöge–Claude proof of RH"
+type: software
+authors:
+  - given-names: "Timothy Wesley"
+    family-names: "Stone"
+    affiliation: "Noesis Lab"
+date-released: "2026-11-23"
+repository-code: "https://github.com/Wesleystone88/My-RH-proof"
+license: MIT
