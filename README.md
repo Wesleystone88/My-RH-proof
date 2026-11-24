@@ -3,15 +3,15 @@
 **Timothy Wesley Stone** (Noesis Lab), working with Claude (Anthropic). Codex and GPT were used as tools.
 Everything is here on purpose: the prompts, the handoff notes, the dead ends and the corrections.
 
-**Main write-up:** [paper/](paper/).
+**Main write-up:** [`paper/alpoge-claude-rh-reading-notes.md`](paper/alpoge-claude-rh-reading-notes.md).
 
 **Status as of 23 Nov 2026: both lemmas compiled; classical dictionary open.**
 
 ## Start here
 
-- **A mathematician:** read [`results/common-period-map/COMMON-PERIOD-MAP.md`](results/common-period-map/COMMON-PERIOD-MAP.md), then the [paper](paper/).
+- **A mathematician:** read [`results/common-period-map/COMMON-PERIOD-MAP.md`](results/common-period-map/COMMON-PERIOD-MAP.md), then the [paper](paper/alpoge-claude-rh-reading-notes.md).
 - **A Lean user:** run [`compile-closure.ps1`](results/common-period-map/compile-closure.ps1), or read [`CommonPeriodMap2.lean`](results/common-period-map/CommonPeriodMap2.lean).
-- **A curious reader:** read [`paper/`](paper/) and the [investigation log](notes/RH-proof-handoff.md).
+- **A curious reader:** read the [paper](paper/alpoge-claude-rh-reading-notes.md) and the [investigation log](notes/RH-proof-handoff.md).
 
 ## Results
 
@@ -64,7 +64,7 @@ The prompts I gave are in [`prompts/`](prompts/) and the full investigation log 
 
 | Folder | What is in it |
 | --- | --- |
-| [`paper/`](paper/) | The main write-up. |
+| [`paper/`](paper/) | The main write-up, [`alpoge-claude-rh-reading-notes.md`](paper/alpoge-claude-rh-reading-notes.md). |
 | [`results/common-period-map/`](results/common-period-map/) | The two Lean files, the compiled output, `compile-closure.ps1`, `closure-files.txt`, the results summary and the latest compile log. |
 | [`results/gap2-test-bench/`](results/gap2-test-bench/) | Python recomputation of Rubinstein's lemniscate example, and its results. |
 | [`notes/`](notes/) | The handoff log, the expert map, Codex and GPT reports and checks, and `PATHS.md` (old path to new path). |
