@@ -30,11 +30,21 @@ Premises, and where the headline route supplies them (READ, source at `4e8bb36`;
   (SharpRestriction/GlobalSchurBounds/LinkMin.lean:704).
 * `cPr : ChosenProviso`, `cCo : ChosenCode`: fields of `Chosen` (GlobalSchurBounds/Chosen.lean:75, 77),
   from `hCh : ChosenE` (Chosen.lean:83; LinkMin.lean:703).
-* `hTu : TuSize Fm`: the hypothesis of `linkGLOBAL7_items` (LinkMin.lean:701).
-* `hNF : NuFullF`, `hRk : J.MuRank`, `hRam : RamRankF`: built from `hTu`, `hT2`, `hT5` by `settingF_of`,
-  `lvlF_of`, `nuCommensF_min`, `nuFullF_of`, `muRank_min`, `ramRankF_min`
-  (LinkMin.lean:705–709, 719). Those declarations live in `LinkMin.lean`, which is outside the 705-module
-  closure, so this file takes their results as premises instead of rebuilding them.
+* `hTu : TuSize Fm`: `linkGLOBAL7_items` ASSUMES it as a hypothesis (LinkMin.lean:701-702); it has no
+  local proof there. Outside `LinkMin`, the selected-family row `row_hTu_cTmin_alt`
+  (ThetaPairLifts/ThirdPlaceSeries/RowHTuCTmin.lean:11, 19) invokes `tuSize_min`
+  (SharpRestriction/ParamsHeightRankConstant.lean:180).
+* `hNF : NuFullF`: `nuCommensF_min` (LinkMin.lean:652, call at :707) then `nuFullF_of` (call at :708;
+  built in TopDensityNGeSixteen.lean:1651). A derivation from the level data `hE : J.LvlF`.
+* `hRk : J.MuRank`: `muRank_min` (LinkMin.lean:665, call at :709). It needs the chosen proviso `cPr` in
+  addition to `hNF`, `hE`, `tSet` and `C0 > 0`. A derivation.
+* `hRam : RamRankF`: the inline call is LinkMin.lean:718 (`ramRankF_min`, defined at :659). It is a valid
+  proof by projection and cast of the rank identity carried by `hE`; the estimate controlling the
+  ramified share is proved separately by `ramShare_at_of`.
+  `hE` and `tSet` come from `lvlF_of` (LinkMin.lean:638, call at :706) and `settingF_of` (call at :705)
+  applied to `hTu`, `hT2`, `hT5`. These builders live in several files; `LinkMin.lean` is outside the
+  705-module closure, so this file takes their results as premises instead of rebuilding them.
+  (Correction of an earlier version of this comment, following notes/h8-frame-check.md section 4.)
 -/
 
 noncomputable section
