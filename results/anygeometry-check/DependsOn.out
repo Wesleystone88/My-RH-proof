@@ -1,0 +1,25 @@
+modules loaded: 11831; OverIx loaded: false; EveryCharacterE loaded: false
+constants named *.anyGeometry in this environment: 0
+--- premises (definitions)
+premise: Formalism.MainNotions.LinkDIV  -> anyGeometry NOT reached  (38465 constants visited)
+premise: Formalism.MainNotions.LinkS  -> anyGeometry NOT reached  (28944 constants visited)
+premise: Formalism.MainNotions.ChosenProviso  -> anyGeometry NOT reached  (17580 constants visited)
+premise: UpperTheory.Top.TopG  -> anyGeometry NOT reached  (65860 constants visited)
+premise: UpperTheory.Top.VWin  -> anyGeometry NOT reached  (36124 constants visited)
+--- controls (our theorems)
+control: RHX.one_map_three_sections  -> anyGeometry NOT reached  (42333 constants visited)
+control: RHX.common_period_map  -> anyGeometry NOT reached  (39146 constants visited)
+control: RHX.common_period_map_family  -> anyGeometry NOT reached  (39161 constants visited)
+control: RHX.h1_pairing_size  -> anyGeometry NOT reached  (38466 constants visited)
+control: RHX.h2_level_corrections  -> anyGeometry NOT reached  (38466 constants visited)
+control: RHX.h3_height_comparison  -> anyGeometry NOT reached  (38466 constants visited)
+control: RHX.h4_word_counts  -> anyGeometry NOT reached  (33106 constants visited)
+control: RHX.h5_bottom_lattice  -> anyGeometry NOT reached  (36475 constants visited)
+control: RHX.h6_glued_lattice  -> anyGeometry NOT reached  (38523 constants visited)
+control: RHX.h7_gain_and_losses  -> anyGeometry NOT reached  (61642 constants visited)
+control: RHX.h9_target_slope  -> anyGeometry NOT reached  (38466 constants visited)
+--- positive control: the walker does detect a real dependency
+positive: RHX.h1_pairing_size  -> LinkDIV REACHED at Formalism.MainNotions.LinkDIV  (4 constants visited)
+    path: [RHX.h1_pairing_size, Formalism.MainNotions.LinkDIV]
+positive: RHX.h6_glued_lattice  -> LinkDIV REACHED at Formalism.MainNotions.LinkDIV  (4 constants visited)
+    path: [RHX.h6_glued_lattice, Formalism.MainNotions.LinkDIV]
