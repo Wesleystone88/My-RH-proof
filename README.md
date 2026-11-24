@@ -5,6 +5,14 @@ Everything is here on purpose: the prompts, the handoff notes, the dead ends and
 
 **Main write-up:** [paper/](paper/).
 
+**Status as of 23 Nov 2026: both lemmas compiled; classical dictionary open.**
+
+## Start here
+
+- **A mathematician:** read [`results/common-period-map/COMMON-PERIOD-MAP.md`](results/common-period-map/COMMON-PERIOD-MAP.md), then the [paper](paper/).
+- **A Lean user:** run [`compile-closure.ps1`](results/common-period-map/compile-closure.ps1), or read [`CommonPeriodMap2.lean`](results/common-period-map/CommonPeriodMap2.lean).
+- **A curious reader:** read [`paper/`](paper/) and the [investigation log](notes/RH-proof-handoff.md).
+
 ## Results
 
 | File | What it shows | Status |
