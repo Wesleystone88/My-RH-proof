@@ -1,6 +1,6 @@
 # From prime-power counts to zero exclusion: three theorems extracted from the Alpöge formalization
 
-Nov 22, 2026 · @Timmy
+Nov 22, 2026 · Timothy Wesley Stone
 
 ## The proof on one page
 
