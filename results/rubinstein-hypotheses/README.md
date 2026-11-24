@@ -2,13 +2,19 @@
 
 **COMPILED · 23 Nov 2026.** The files state what holds at every index of the selected family once the scale passes a common threshold. Each takes premises supplied along the headline proof. Each was run through Lean 4.33.1 in the pinned 705-module closure (`lake env lean`); every `#print axioms` shows only `propext`, `Classical.choice` and `Quot.sound`. The statements are unchanged from the drafts.
 
-| File | Theorem | Status | Lean output |
-|---|---|---|---|
-| [H1.lean](H1.lean) | `RHX.h1_pairing_size` | **COMPILED** | [H1.out](H1.out) |
-| [H2.lean](H2.lean) | `RHX.h2_level_corrections` | **COMPILED** | [H2.out](H2.out) |
-| [H3.lean](H3.lean) | `RHX.h3_height_comparison` | **COMPILED** | [H3.out](H3.out) |
-| [H6.lean](H6.lean) | `RHX.h6_glued_lattice` | **COMPILED** | [H6.out](H6.out) |
-| [H9.lean](H9.lean) | `RHX.h9_target_slope` | **COMPILED** | [H9.out](H9.out) |
+| File | Theorem | Status | Lean output | Match to Rubinstein (audit) |
+|---|---|---|---|---|
+| [H1.lean](H1.lean) | `RHX.h1_pairing_size` | **COMPILED** | [H1.out](H1.out) | **same** |
+| [H2.lean](H2.lean) | `RHX.h2_level_corrections` | **COMPILED** | [H2.out](H2.out) | **same** |
+| [H3.lean](H3.lean) | `RHX.h3_height_comparison` | **COMPILED** | [H3.out](H3.out) | **same** |
+| [H6.lean](H6.lean) | `RHX.h6_glued_lattice` | **COMPILED** | [H6.out](H6.out) | **same** |
+| [H9.lean](H9.lean) | `RHX.h9_target_slope` | **COMPILED** | [H9.out](H9.out) | **same** |
+
+The match column is from [`notes/batch1-audit.md`](../../notes/batch1-audit.md). H8 is [`CommonPeriodMap2.lean`](../common-period-map/CommonPeriodMap2.lean); the same audit finds it **different**: it does not state Rubinstein's inequality (III.330) and does not connect his three maps to `Bk`.
+
+**Read "same" with this caveat.** In H1, H2, H3, H9 and H6(i) the conclusion is one conjunct of the premise `LinkDIV`, and in `CommonPeriodMap2.lean` (8a) and (8b) are too. So these files show where each hypothesis sits in the code, not a new proof of it. Only H6(ii)(iii) and (8c) go through real source theorems (`slopesNF_of`, `matKF_of`).
+
+**Totals across all 13 hypotheses (H0–H12):** **same** H1, H2, H3, H4, H5, H6, H9 (7); **weaker** H0, H12 (2); **different** H7, H8, H10, H11 (4).
 
 The prose below was written for H1 and H6 while they were drafts; its READ and DERIVED labels describe how the statements were obtained from the source, not their Lean status.
 
