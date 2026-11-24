@@ -127,6 +127,16 @@ def main():
     say('  ', [(4 * k, vpq(r[k], 3), 4 * k * 3 // 8) for k in range(1, 31)])
     say('v_7(r_k) vs floor(4k*7/48):', [(4 * k, vpq(r[k], 7), 4 * k * 7 // 48) for k in range(1, 31, 3)])
 
+    say('\n## Naive kernel rate: v_p(r_k) against n/(p^2-1) and np/(p^2-1), n = 4k <= 300')
+    rbig, _ = theta_r(75)
+    for p in (3, 7, 11, 19):
+        q = p * p - 1
+        rows = [(4 * k, vpq(rbig[k], p)) for k in range(1, 76)]
+        diffs = [v - n / q for (n, v) in rows]
+        say(f'p = {p}: v_p(r_k) - n/(p^2-1) ranges over [{min(diffs):.2f}, {max(diffs):.2f}] for all n = 4..300;'
+            f' at n = 300: v = {rows[-1][1]}, n/(p^2-1) = {300 / q:.2f}, np/(p^2-1) = {300 * p / q:.2f}')
+        say('   (n, v_p) =', rows)
+
     # sizes: T_{4k} = r_k T0 (varpi/pi)^{4k}; T0 = sqrt(2) varpi / pi
     import mpmath as mp
     mp.mp.dps = 60
