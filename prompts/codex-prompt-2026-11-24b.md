@@ -1,7 +1,8 @@
-# Codex: "follow the zeta" (24 Nov 2026, task 4)
+# "Follow the zeta" (24 Nov 2026, task 4) — for Codex or Claude Code
 
-Rules: read and write only. No git, no builds, nothing in `C:\rhc`.
-Source: pinned at `4e8bb36`. Label every claim **READ**, **DERIVED** or **GUESS**.
+Rules: read and write only. No builds, no `lake`, nothing in `C:\rhc`. This is a reading task; no Lean needs to run.
+If you are Codex: no git. If you are Claude Code: no git until the last step below.
+Source: pinned at `4e8bb36` of homeowmorphism/riemann-hypothesis-original (src tree = upstream `e50d098`); reading it from GitHub at that commit is fine. Label every claim **READ**, **DERIVED** or **GUESS**.
 Either answer is fine. Report what the source says, even if it supports Nielsen.
 
 ## The claim being tested (pre-registered)
@@ -25,4 +26,8 @@ Nielsen (X, 23 Nov): the code "assigns a bundle to hold zeta, and that bundle ho
 
 5. **The verdict.** End with one paragraph: does any step match the "if she is right" pattern above? Name it with file:line, or say none was found and how far you looked.
 
-Write to `notes/zeta-bridge.md`.
+Write to `notes/zeta-bridge.md`. Do not edit any other file.
+
+## Last step (Claude Code only)
+
+Commit and push `notes/zeta-bridge.md` and this prompt file, with the message "Zeta bridge: test of Nielsen's claim from riemannHypothesis down" and a line saying who wrote the note. Then report the verdict paragraph.
