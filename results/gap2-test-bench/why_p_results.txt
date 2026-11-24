@@ -1,0 +1,36 @@
+A. Denominator growth per degree: min over n>=40 of v_p([u^n] series)/n
+   (full rate allows -1/(p^2-1); the slow rate corresponds to -p/(p^2-1))
+   p= 3: allowed -1/(p^2-1) = -0.1250, -p/(p^2-1) = -0.3750 | sl/u -0.1250  log(sigma/u) -0.1528  (sigma/u)^2 -0.3704  sigma^2 wp -0.3704
+   p= 7: allowed -1/(p^2-1) = -0.0208, -p/(p^2-1) = -0.1458 | sl/u -0.0208  log(sigma/u) -0.0357  (sigma/u)^2 -0.1429  sigma^2 wp -0.1429
+   p=11: allowed -1/(p^2-1) = -0.0083, -p/(p^2-1) = -0.0917 | sl/u -0.0083  log(sigma/u) -0.0227  (sigma/u)^2 -0.0909  sigma^2 wp -0.0909
+   p=19: allowed -1/(p^2-1) = -0.0028, -p/(p^2-1) = -0.0528 | sl/u +0.0000  log(sigma/u) -0.0132  (sigma/u)^2 -0.0500  sigma^2 wp -0.0500
+
+B. The first 1/p in log(sigma/u)
+   p= 3: first p-denominator of log(sigma/u) at u^4; L_4 = -1/60 = -c/(p(p+1)), c = [u^2]wp = 1/5, v_p(c) = 0; on the circle v(u)=p/(p^2-1) this term has v = 1/2 (exp needs > 1/(p-1) = 1/2); wp itself first has a p-denominator at u^6
+   p= 7: first p-denominator of log(sigma/u) at u^8; L_8 = -1/4200 = -c/(p(p+1)), c = [u^6]wp = 1/75, v_p(c) = 0; on the circle v(u)=p/(p^2-1) this term has v = 1/6 (exp needs > 1/(p-1) = 1/6); wp itself first has a p-denominator at u^46
+   p=11: first p-denominator of log(sigma/u) at u^12; L_12 = -1/321750 = -c/(p(p+1)), c = [u^10]wp = 2/4875, v_p(c) = 0; on the circle v(u)=p/(p^2-1) this term has v = 1/10 (exp needs > 1/(p-1) = 1/10); wp itself first has a p-denominator at u^118
+   p=19: first p-denominator of log(sigma/u) at u^20; L_20 = -1/1180968750 = -c/(p(p+1)), c = [u^18]wp = 2/6215625, v_p(c) = 0; on the circle v(u)=p/(p^2-1) this term has v = 1/18 (exp needs > 1/(p-1) = 1/18); wp has no p-denominator up to u^240
+
+C. EGF numbers v_p(n! [u^n] f): deviation from the full rate np/(p^2-1) and from the slow rate n/(p^2-1)
+   p= 3 naive                      : vs full [-62.0, -1.5]   vs slow [-2.0, +0.5]   at n=240: v=28, full rate 90.0
+   p= 3 only u^(p+1) term removed  : vs full [-22.0, +1.0]   vs slow [+0.5, +41.0]   at n=240: v=68, full rate 90.0
+   p= 7 naive                      : vs full [-31.0, -0.6]   vs slow [-1.0, +0.9]   at n=240: v=4, full rate 35.0
+   p= 7 only u^(p+1) term removed  : vs full [-5.4, +0.7]   vs slow [-0.1, +25.0]   at n=240: v=30, full rate 35.0
+   p=11 naive                      : vs full [-21.0, -0.4]   vs slow [-1.0, +1.0]   at n=240: v=1, full rate 22.0
+   p=11 only u^(p+1) term removed  : vs full [-2.1, +0.8]   vs slow [-0.1, +19.1]   at n=240: v=20, full rate 22.0
+
+D1. (did not explain it) degrees divisible by p^2-1 are just as bad as the rest
+   p= 3: (degree, v_p) at multiples of 8: [(8, -2), (16, -5), (24, -8), (32, -10), (40, -14), (48, -17), (56, -19), (64, -22)]
+   p= 7: (degree, v_p) at multiples of 48: [(48, -6), (96, -13), (144, -20), (192, -27), (240, -34)]
+   p=11: (degree, v_p) at multiples of 120: [(120, -10), (240, -21)]
+
+D2. (did not explain it) rewriting f in the formal-group coordinate t = sl(u) keeps the same growth
+   p= 3: min over m>=40 of v_p([t^m] f(arcsl t))/m = -0.3704   (p/(p^2-1) = 0.3750)
+   p= 7: min over m>=40 of v_p([t^m] f(arcsl t))/m = -0.1429   (p/(p^2-1) = 0.1458)
+   p=11: min over m>=40 of v_p([t^m] f(arcsl t))/m = -0.0833   (p/(p^2-1) = 0.0917)
+
+E. Bookkeeping: n! supplies n/(p-1) = (p+1) * n/(p^2-1) factors of p.
+   sl spends 1 share on denominators and keeps p shares   -> np/(p^2-1)  (full rate)
+   sigma^2 wp spends p shares and keeps 1                  -> n/(p^2-1)   (slow rate)
+   p shares spent = one term L_{p+1}u^{p+1} with a single 1/p, compounded by exp:
+   (L_{p+1}u^{p+1})^m/m! costs m + m/(p-1) = mp/(p-1) factors of p at degree m(p+1), i.e. p/(p^2-1) per degree.
