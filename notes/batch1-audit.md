@@ -4,6 +4,8 @@
 
 **READ.** Verdicts follow the batch 2 usage. **Same:** the Lean conclusion has every clause of the paper's statement, with the same inequality shape, and no clause missing, changed or extra, once the objects are identified. The family quantifier "one constant and one threshold for every late index" is the convention of batch 2 and is not counted as a difference. **Weaker:** a clause or an identification is dropped. **Different:** a clause is changed, or the Lean statement says something else about the same objects.
 
+**Update (24 Nov, afternoon):** a new file, `H8.lean`, states (III.330) through `frame_at_of`; see the last section ("H8 (new file)"). With it, 8 of 13 hypotheses match; `CommonPeriodMap2.lean` alone is still different.
+
 **Read this first: in H1, H2, H3, H9, H6(i), (8a) and (8b) the premise states the conclusion.** Each of these Lean theorems takes `LinkDIV Fm Cabs CH` as a hypothesis, and `LinkDIV_at` already contains the conclusion verbatim as one of its nine conjuncts. The proof is a projection (`exact (hD x hx i).2.2.2.2.2.2.1` and so on). So "same" means the Lean statement matches the paper's statement. It does **not** mean Lean re-derived Rubinstein's status argument. That argument (for example Theorem III.7.1 for H1) is not reproduced; the source supplies `LinkDIV` elsewhere. Only H6(ii)(iii) and (8c) go through real source theorems (`slopesNF_of`, `matKF_of`).
 
 The nine conjuncts of `LinkDIV_at`, in order ([GlobalTheoremInputs.lean:77–89][gti-linkdiv]): (1) `OneMapIntoCC`; (2) `sFrame … + RR.muMax ≤ x^CH · b`; (3) `ZeroAbove`; (4) `BesselId`; (5) `RRFull`; (6) the height bound `htMap … ≤ h u`; (7) the pairing-size inequality; (8) the level-correction inequality; (9) the height comparison. H9 uses (2); H6(i) and (8a) use (1); (8b) uses (6); H1 uses (7); H2 uses (8); H3 uses (9).
@@ -103,6 +105,27 @@ H8's own inequality is reached in the source by two further theorems: `frameReal
 
 **What this audit did not check.** No Lean was run; every compile result is in the `.out` files. I read the Lean files, the `LinkDIV_at` definition and the definitions behind the table above at `4e8bb36`, and Rubinstein's pp. 203–207 (text and page images). I did not read §III.7's definition of Ω_E, the definitions of `Places_at`'s hypotheses in full, or any proof body beyond the statements quoted. "Same" is a statement-level comparison under the identifications in the table; Rubinstein warns that the rows of the §III.10 dictionary for §III.7 are not verified.
 
+## H8 (new file)
+
+**READ.** `results/rubinstein-hypotheses/H8.lean` ([H8.lean:46–51][h8n]), theorem `RHX.h8_frame`, compiled on 24 Nov 2026 (`H8.out`: `propext`, `Classical.choice`, `Quot.sound`). Its conclusion is `Lnk.FrameF Fm CH`, the source's family-level statement of (III.330) ([QuadraticLogDerivCongr.lean:258–260][qldc-framef]; `Frame_at`, [:188–193][qldc-frame]). It is proved by the source's `frameF_of` ([TopDensityNGeSixteen.lean:606][td-framef]), whose proof calls `frame_at_of` ([:538, :645][td-frameat]). **No premise contains `Frame_at`, `FrameReal_at` or `FrameF`:** the `FrameRealF` it needs is built by `frameRealF_of''` ([:988][td-framef]) from `MatKF`, which comes from `matKF_of` ([:1348][td-matkf]) given `LinkS`, `ChosenProviso`, `LinkDIV`; `LatF` comes from `latF` with `rrRankF_of`. This is the route of the source's own `linkGLOBAL7_items` ([LinkMin.lean:706–717][lm-items]).
+
+| Paper clause (III.330), p. 206 | What `RHX.h8_frame` gives (DERIVED) |
+|---|---|
+| there are $\eta_u,e_u\ge0$ | `∃ η e, 0 ≤ η ∧ η ≤ etaB ∧ 0 ≤ e ∧ e ≤ eB` inside `Frame_at` |
+| $(\eta_u+4\sqrt{e_u})x^{C_H}\le6$ | `FrameF` states $(etaB+4\sqrt{eB})\,x^{C_H}\le6$ with $\eta\le etaB$, $e\le eB$; the paper's bound follows by monotonicity of $\sqrt{\ }$ since $x^{C_H}\ge0$ |
+| for every $R>0$ with $s_u-\mu^{\min}_{CC}\le R$ | `∀ HH, sFrame … − RR.muMinDual ≤ HH → 0 < HH →` |
+| $\mu_{CC}\ge s_u-\log|W_u|-rac1{1-\delta_p}ig(4\,sp_u\log(1+	frac R{sp_u})+(\eta_u+4\sqrt{e_u})Rig)$ | `sFrame − log (card Word) − (1 − delp)⁻¹ * (4 * uFrame * log (1 + HH / uFrame) + (η + 4 * √e) * HH) ≤ RR.muDual`. Same shape, term for term. |
+| constants $\eta_u=5x^{-C_H}+3\sqrt{lpha_{ram}}$, $e_u=2e_0$ (III.239) | In the proof, `frame_at_of` returns `Frame_at D (5·sg + 3√de) eB` with `sg = x^{-C_H}`, and its witnesses are `η = 5·sg + 3√de`, `e = 2·e0`. The **statement** of `FrameF` exposes only the bounds, so the file states only that. |
+| "$x$ large", translate $u$ | `∃ x0, ∀ x ≥ x0, … ∀ i`, the family-eventual convention of batches 1 and 2 |
+
+**Premises, and what they do.** `LinkDIV`, `LinkS`, `LinkIRR`, `ChosenProviso`, `ChosenCode` (from `GlobalTheoremInputs` and `Chosen`), plus `hNF : NuFullF`, `hRk : J.MuRank`, `hTu : TuSize`, `Lnk.RamRankF`, which the source builds from `hT2`, `hT5` in `LinkMin.lean` (outside the 705-module closure, so taken as premises). None of them states the conclusion; the work is done by `matKF_of`, `frameRealF_of''`, `latF` and `frame_at_of`. **GUESS:** these premises correspond in role to the named statements of Rubinstein's status paragraph ((S), (I), (III.234), …); I did not check that correspondence.
+
+**Differences from the paper (all strengthen).** (1) `etaB` and `eB` are chosen per scale $x$ and serve every index $i$; the paper's $\eta_u,e_u$ are per translate. (2) `FrameF` also asserts $eB\le1/4$; the paper lists $e_u\le	frac14$ among the source's "three further conditions" that "are not part of (H8)". (3) The identification of $sp_u$ with `uFrame` is not checked against (III.315) (**GUESS**).
+
+**Verdict: same.** The conclusion has every clause of (III.330) with the same inequality, and no clause is missing or changed. The two extras only strengthen it; batch 2 also counted H4 and H5 as same although they add a nonnegative constant. A stricter reading that counts any extra clause as a difference would call it different; I judge that the extras do not change what is asserted.
+
+**Effect on the totals.** With `H8.lean` as the H8 file, the 13 hypotheses are **same** H1, H2, H3, H4, H5, H6, H8, H9 (8); **weaker** H0, H12 (2); **different** H7, H10, H11 (3). `CommonPeriodMap2.lean` stays **different**: it states the ingredients, not (III.330). Of the eight, H1, H2, H3, H9 and H6(i) are projections of `LinkDIV` as described at the top; `H8.lean`'s conclusion is reached through a chain of real source theorems, and so are H6(ii)(iii).
+
 *Written by Claude Code (reading task, 24 Nov 2026). The Lean statements of H1, H6 and batch 2 were drafted by Codex; H2, H3 and H9 by Claude (Opus, chat).*
 
 [gti-linkdiv]: https://github.com/homeowmorphism/riemann-hypothesis-original/blob/4e8bb36faa8c9e3f1bda144ccf5a637f8b96066e/src/Formalism/SharpRestriction/GlobalTheoremInputs.lean#L77-L89
@@ -129,3 +152,6 @@ H8's own inequality is reached in the source by two further theorems: `frameReal
 [h6-18]: ../results/rubinstein-hypotheses/H6.lean#L18
 [h9-18]: ../results/rubinstein-hypotheses/H9.lean#L18
 [cpm2-41]: ../results/common-period-map/CommonPeriodMap2.lean#L41
+[h8n]: ../results/rubinstein-hypotheses/H8.lean#L46-L51
+[td-framef]: https://github.com/homeowmorphism/riemann-hypothesis-original/blob/4e8bb36faa8c9e3f1bda144ccf5a637f8b96066e/src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean#L606-L648
+[lm-items]: https://github.com/homeowmorphism/riemann-hypothesis-original/blob/4e8bb36faa8c9e3f1bda144ccf5a637f8b96066e/src/Formalism/SharpRestriction/GlobalSchurBounds/LinkMin.lean#L706-L717

@@ -9,12 +9,15 @@
 | [H3.lean](H3.lean) | `RHX.h3_height_comparison` | **COMPILED** | [H3.out](H3.out) | **same** |
 | [H6.lean](H6.lean) | `RHX.h6_glued_lattice` | **COMPILED** | [H6.out](H6.out) | **same** |
 | [H9.lean](H9.lean) | `RHX.h9_target_slope` | **COMPILED** | [H9.out](H9.out) | **same** |
+| [H8.lean](H8.lean) | `RHX.h8_frame` | **COMPILED** | [H8.out](H8.out) | **same** |
 
 The match column is from [`notes/batch1-audit.md`](../../notes/batch1-audit.md). H8 is [`CommonPeriodMap2.lean`](../common-period-map/CommonPeriodMap2.lean); the same audit finds it **different**: it does not state Rubinstein's inequality (III.330) and does not connect his three maps to `Bk`.
 
 **Read "same" with this caveat.** In H1, H2, H3, H9 and H6(i) the conclusion is one conjunct of the premise `LinkDIV`, and in `CommonPeriodMap2.lean` (8a) and (8b) are too. So these files show where each hypothesis sits in the code, not a new proof of it. Only H6(ii)(iii) and (8c) go through real source theorems (`slopesNF_of`, `matKF_of`).
 
-**Totals across all 13 hypotheses (H0–H12):** **same** H1, H2, H3, H4, H5, H6, H9 (7); **weaker** H0, H12 (2); **different** H7, H8, H10, H11 (4).
+**Totals across all 13 hypotheses (H0–H12):** **same** H1, H2, H3, H4, H5, H6, H9 (7); **weaker** H0, H12 (2); **different** H7, H8, H10, H11 (4), counting `CommonPeriodMap2.lean` as H8.
+
+**H8.lean (added 24 Nov 2026)** states Rubinstein's inequality (III.330) as `FrameF Fm CH`, reached through the source's `frameF_of` and `frame_at_of`; no premise contains `Frame_at`, `FrameReal_at` or `FrameF`. It takes `LinkDIV`, `LinkS`, `LinkIRR`, `ChosenProviso`, `ChosenCode` and four rank/size results the source builds in `LinkMin.lean` (outside the closure). The audit ([`notes/batch1-audit.md`](../../notes/batch1-audit.md), section "H8 (new file)") finds it **same**. With `H8.lean` as the H8 file the totals are **same** 8 (H1, H2, H3, H4, H5, H6, H8, H9), **weaker** 2 (H0, H12), **different** 3 (H7, H10, H11); `CommonPeriodMap2.lean` remains **different** because it states the ingredients, not (III.330).
 
 The prose below was written for H1 and H6 while they were drafts; its READ and DERIVED labels describe how the statements were obtained from the source, not their Lean status.
 
