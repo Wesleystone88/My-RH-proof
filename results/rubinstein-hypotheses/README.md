@@ -1,6 +1,16 @@
 # Rubinstein’s H1 and H6 on the headline family
 
-**DERIVED · uncompiled drafts.** The two files state what holds at every index of the selected family once the scale passes a common threshold. Each takes premises supplied along the headline proof. Neither draft has been run through Lean. The final `#print axioms` commands have no output for this run.
+**COMPILED · 23 Nov 2026.** The files state what holds at every index of the selected family once the scale passes a common threshold. Each takes premises supplied along the headline proof. Each was run through Lean 4.33.1 in the pinned 705-module closure (`lake env lean`); every `#print axioms` shows only `propext`, `Classical.choice` and `Quot.sound`. The statements are unchanged from the drafts.
+
+| File | Theorem | Status | Lean output |
+|---|---|---|---|
+| [H1.lean](H1.lean) | `RHX.h1_pairing_size` | **COMPILED** | [H1.out](H1.out) |
+| [H2.lean](H2.lean) | `RHX.h2_level_corrections` | **COMPILED** | [H2.out](H2.out) |
+| [H3.lean](H3.lean) | `RHX.h3_height_comparison` | **COMPILED** | [H3.out](H3.out) |
+| [H6.lean](H6.lean) | `RHX.h6_glued_lattice` | **COMPILED** | [H6.out](H6.out) |
+| [H9.lean](H9.lean) | `RHX.h9_target_slope` | **COMPILED** | [H9.out](H9.out) |
+
+The prose below was written for H1 and H6 while they were drafts; its READ and DERIVED labels describe how the statements were obtained from the source, not their Lean status.
 
 | Draft | Rubinstein v2 | Family statement |
 |---|---|---|
