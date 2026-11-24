@@ -1,0 +1,81 @@
+﻿compile-closure.ps1 log, started 2026-11-23T19:12:39
+[2026-11-23 19:12:40] Machine: cores 8, RAM 15.8 GB, C: free 67.5 GB
+[2026-11-23 19:12:40] sha256 CommonPeriodMap.lean: 573cd37bb2621d52be6e4f124eda0b35cb3565db1818d4b57aa2f004d5888410
+[2026-11-23 19:12:40] sha256 CommonPeriodMap2.lean: 5ccc451155506a4546b8e4df99f402e36218d8a2db50d679f0b8f4955f3847e0
+[2026-11-23 19:12:40] sha256 closure-files.txt: 74664cc73f7eec24eeaa32e76d8ba1fbcf8c5c4ba7e25c1f2ab7dcf8e8508484
+[2026-11-23 19:12:40] git: git version 2.47.0.windows.2
+[2026-11-23 19:12:40] elan: elan 4.4.0 (3cc76985a 2026-11-18)
+[2026-11-23 19:12:40] C:\rhc already exists; reusing it.
+[2026-11-23 19:12:40] Wrote 709 sparse-checkout patterns.
+[2026-11-23 19:12:40] Checking out the pinned commit (only the files we need) ...
+[2026-11-23 19:12:44] HEAD 4e8bb36faa8c9e3f1bda144ccf5a637f8b96066e, src tree 24df20b62d9976ccd20da819bc20b16f808f0fdd
+[2026-11-23 19:12:44] Source files present: 705 (expected 705)
+[2026-11-23 19:12:44] lean-toolchain: leanprover/lean4:v4.33.1
+[2026-11-23 19:12:44] Lean toolchain check (downloads Lean 4.33.1 the first time) ...
+[2026-11-23 19:12:44] Lean toolchain check (downloads Lean 4.33.1 the first time) finished: exit code 0, 0 min, C: free 67.5 GB
+[2026-11-23 19:12:44] lake: Lake version 5.0.0-src+819816b (Lean version 4.33.1)
+[2026-11-23 19:12:44] Mathlib download (Mathlib's own cache; never the project cache) ...
+[2026-11-23 19:16:26] Mathlib download (Mathlib's own cache; never the project cache) finished: exit code 0, 3.7 min, C: free 64 GB
+[2026-11-23 19:16:26] Build of the 705 modules from source ...
+[2026-11-23 19:19:25] Build of the 705 modules from source finished: exit code 0, 3 min, C: free 67.1 GB
+----- last 40 lines of build-closure.log -----
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean:1575:120: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean:1575:190: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean:1575:253: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean:1575:324: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean:1575:102: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean:1575:120: Unused tactic linter: `(intros; apply Bl.general_b_fact_left''''''''.goal1 <;> assumption)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean:1575:190: Unused tactic linter: `(apply @Bl.general_b_fact_left''''''''.goal1 <;> assumption)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean:1575:253: Unused tactic linter: `(intros; apply @Bl.general_b_fact_left''''''''.goal1 <;> assumption)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean:1575:324: Unused tactic linter: `(apply @Bl.general_b_fact_left''''''''.goal1 <;>
+    first
+    | assumption
+    | infer_instance)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: src/Formalism/SharpRestriction/GlobalSchurBounds/TopDensityNGeSixteen.lean:1908:17: This simp argument is unused:
+  dif_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Build completed successfully (9410 jobs).
+----- end -----
+[2026-11-23 19:19:25] Lean check of CommonPeriodMap.lean ...
+[2026-11-23 19:21:17] Lean check of CommonPeriodMap.lean finished: exit code 0, 1.9 min, C: free 66.9 GB
+[2026-11-23 19:21:17] Lean check of CommonPeriodMap2.lean ...
+[2026-11-23 19:21:56] Lean check of CommonPeriodMap2.lean finished: exit code 0, 0.6 min, C: free 67 GB
+----- output of CommonPeriodMap.lean -----
+'RHX.besS_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHX.KD_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHX.common_period_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHX.common_period_map_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+----- end -----
+[2026-11-23 19:21:56] PASS: CommonPeriodMap.lean
+----- output of CommonPeriodMap2.lean -----
+'RHX.one_map_three_sections' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+----- end -----
+[2026-11-23 19:21:56] PASS: CommonPeriodMap2.lean
+[2026-11-23 19:22:05] C:\rhc uses 10.8 GB. It is kept so that later checks are fast.
+[2026-11-23 19:22:05] ALL PASSED. Tell Claude "done".
