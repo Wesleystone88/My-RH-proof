@@ -1,0 +1,37 @@
+WHY-P EXTENDED TEST  (pre-registered 25 Nov 2026, before why_p_extended.py was run)
+From prompts/claude-code-prompt-2026-11-25d.md, task T2.
+
+Primes: p = 3, 7, 11, 19 (kept for comparison) and p = 23, 31, 43, 47 (new inert primes, all = 3 mod 4).
+Degrees n up to 600 (n a multiple of 4 for the EGF numbers, as in why_p.py section C).
+
+PASS if both hold:
+  (1) for EVERY p, the naive kernel's rate stays within +-2 of n/(p^2-1), i.e. the deviation of
+      v_p(n! [u^n] f) from n/(p^2-1) lies in [-2, +2] for all n computed;
+  (2) for EVERY p >= 7, removing the single term L_(p+1) closes at least 80% of the gap to the full
+      rate n*p/(p^2-1) at the largest n computed, i.e.
+      (v_removed - v_naive) / (n*p/(p^2-1) - v_naive) >= 0.8 at that n.
+FAIL otherwise, naming each p that fails.
+
+Method: exact rational arithmetic (fractions), same series as why_p.py (f = sigma^2 wp on the lemniscatic
+lattice g2 = 4, g3 = 0). COMPUTED, not a proof.
+==================================================================================================
+series built in 1 s; n up to 600
+  p | (1) dev of naive v_p(n! r) from n/(p^2-1): [min,max] | largest n: naive / removed / full rate | (2) gap closed
+  3 | [ -2.50,  +1.50] FAIL   | n=600: 75 / 175 / 225.0 | n/a (p<7) [for the record: 0.667]
+      (elapsed 2 s)
+  7 | [ -1.17,  +1.42] ok     | n=600: 12 / 77 / 87.5 | 0.861 ok
+      (elapsed 3 s)
+ 11 | [ -1.00,  +0.97] ok     | n=600: 4 / 50 / 55.0 | 0.902 ok
+      (elapsed 4 s)
+ 19 | [ -1.00,  +0.99] ok     | n=600: 1 / 30 / 31.7 | 0.946 ok
+      (elapsed 5 s)
+ 23 | [ -1.00,  +0.99] ok     | n=600: 1 / 25 / 26.1 | 0.955 ok
+      (elapsed 6 s)
+ 31 | [ -0.61,  +0.87] ok     | n=600: 1 / 19 / 19.4 | 0.980 ok
+      (elapsed 7 s)
+ 43 | [ -0.32,  +0.99] ok     | n=600: 0 / 13 / 14.0 | 0.931 ok
+      (elapsed 8 s)
+ 47 | [ -0.27,  +1.74] ok     | n=600: 0 / 12 / 12.8 | 0.940 ok
+      (elapsed 9 s)
+
+VERDICT: FAIL, failing: p=3 (rate)

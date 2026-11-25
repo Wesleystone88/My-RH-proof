@@ -23,6 +23,11 @@ from fractions import Fraction as Fr
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gap2_lemniscate_check import wp_coeffs, series_exp, vpq, lemniscate_A
 
+if '--extended' in sys.argv:          # T2 extension; the default output below is unchanged
+    from why_p_extended import run
+    run()
+    sys.exit(0)
+
 N = 240
 PRIMES = (3, 7, 11, 19)
 

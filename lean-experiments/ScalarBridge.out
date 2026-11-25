@@ -1,0 +1,3 @@
+'RHExtraction.normalized_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHExtraction.geometric_pole_contradiction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHExtraction.exclude_right_zero' depends on axioms: [propext, Classical.choice, Quot.sound]

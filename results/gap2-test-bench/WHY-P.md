@@ -62,3 +62,22 @@ Removing a single coefficient moves the numbers from the slow rate most of the w
 - This is measured, not proved, and only for the lemniscate at p = 3, 7, 11, 19 up to degree 240.
 - The size of the p-adic sigma function at supersingular primes is a studied topic: Bannai, Kobayashi and Yasuda, *The radius of convergence of the p-adic sigma function*, Math. Z. 286 (2017) 751–781. We could not read their theorem (paywalled), so we do not know whether it states this exact radius. This is likely known there and should be checked before calling anything here new.
 - A pointer, not tested: the proof's model logarithm (`letterLog`, L+ = Σ X^(l^(2e))/l^e) first divides by l at degree l², not at degree l+1. That is the structural opposite of the naive kernel's early 1/p.
+
+## Extension to p = 23, 31, 43, 47 and n up to 600 (25 Nov 2026, COMPUTED)
+
+Run: `python why_p.py --extended` (code in `why_p_extended.py`; the default output of `why_p.py` is unchanged, checked by diff). Pre-registered criteria and full output: `why_p_extended_results.txt`. Written by Claude Code from `prompts/claude-code-prompt-2026-11-25d.md` (written by Claude in chat).
+
+**Verdict: FAIL as pre-registered, because of one prime, p = 3, and only on criterion (1).**
+
+| p | (1) deviation of naive v_p(n!·r_n) from n/(p²−1), n ≤ 600 | (2) gap closed by removing L_(p+1), n = 600 |
+|---|---|---|
+| 3 | [−2.50, +1.50] **outside ±2** | 0.667 (p < 7, not required) |
+| 7 | [−1.17, +1.42] ok | 0.861 ok |
+| 11 | [−1.00, +0.97] ok | 0.902 ok |
+| 19 | [−1.00, +0.99] ok | 0.946 ok |
+| 23 | [−1.00, +0.99] ok | 0.955 ok |
+| 31 | [−0.61, +0.87] ok | 0.980 ok |
+| 43 | [−0.32, +0.99] ok | 0.931 ok |
+| 47 | [−0.27, +1.74] ok | 0.940 ok |
+
+Reading: for every p ≥ 7, including the four new inert primes, the naive kernel stays on the slow rate n/(p²−1) (within ±1.74) and removing the single term L_(p+1) closes 86–98% of the gap to the full rate n·p/(p²−1), rising with p. The failure is at p = 3 only: the deviation reaches −2.50 at n ≤ 600 (it was −2.0 at n ≤ 240), so the pre-registered ±2 band is exceeded by a bounded-looking but growing-with-n wobble; at p = 3 removing the term also closes only 67% (the earlier note already says p = 3 has later p-denominator terms that come early). I did not change the criterion after seeing the result. Whether the p = 3 deviation keeps growing with n was not tested beyond 600.
