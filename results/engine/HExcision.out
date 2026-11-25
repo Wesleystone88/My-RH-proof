@@ -1,0 +1,9 @@
+FIRST LINE: module defining hExpl6 (Formalism.LocalRingCardinality.KernelPlaceMeanBound) loaded: true; hExpl6 constants found: #[Formalism.BasicNotions.DV.hExpl6]
+modules loaded: 11369; sExpl constants: #[Formalism.MainNotions.LocalQuadraticParts.sExpl]; setDiv constants: #[]
+root present: true
+ch_top -> hExpl6: NOT reached (17403 constants visited)
+constants reachable from ch_top in total: 17403
+ch_top -> setDiv: NOT reached (17403 constants visited)
+--- positive control: sExpl -> hExpl6
+control OK: Formalism.MainNotions.LocalQuadraticParts.sExpl reaches Formalism.BasicNotions.DV.hExpl6 (17 constants visited)
+  path: [Formalism.MainNotions.LocalQuadraticParts.sExpl, Formalism.BasicNotions.DV.hExpl6]

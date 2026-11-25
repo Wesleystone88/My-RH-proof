@@ -1,0 +1,100 @@
+base instance: failing global atoms = []
+B_final(base) = 4.92032e+12,  ErrX5at(base) = 7443781.6
+  all hypotheses, {'nw': 1, 'uF0': mpf('0.5'), 'HH': mpf('2.0'), 'istar': 0, 'SI': 'on'}: max(ASK-Main) = 340324  <=  ErrX5at = 7443781.0 ? True
+  all hypotheses, {'nw': 1, 'uF0': mpf('5.0'), 'HH': mpf('2.0'), 'istar': 0, 'SI': 'on'}: max(ASK-Main) = 340329  <=  ErrX5at = 7443781.0 ? True
+  all hypotheses, {'nw': 1, 'uF0': mpf('50.0'), 'HH': mpf('2.0'), 'istar': 0, 'SI': 'on'}: max(ASK-Main) = 340331  <=  ErrX5at = 7443781.0 ? True
+  all hypotheses, {'nw': 1, 'uF0': mpf('500.0'), 'HH': mpf('2.0'), 'istar': 0, 'SI': 'on'}: max(ASK-Main) = 340331  <=  ErrX5at = 7443781.0 ? True
+  all hypotheses, {'nw': 2, 'uF0': mpf('0.5'), 'HH': mpf('2.0'), 'istar': 0, 'SI': 'on'}: max(ASK-Main) = 340325  <=  ErrX5at = 7443781.6 ? True
+  all hypotheses, {'nw': 2, 'uF0': mpf('0.5'), 'HH': mpf('2.0'), 'istar': 1, 'SI': 'on'}: max(ASK-Main) = 340325  <=  ErrX5at = 7443781.6 ? True
+  all hypotheses, {'nw': 2, 'uF0': mpf('5.0'), 'HH': mpf('2.0'), 'istar': 0, 'SI': 'on'}: max(ASK-Main) = 340330  <=  ErrX5at = 7443781.6 ? True
+  all hypotheses, {'nw': 2, 'uF0': mpf('5.0'), 'HH': mpf('2.0'), 'istar': 1, 'SI': 'on'}: max(ASK-Main) = 340330  <=  ErrX5at = 7443781.6 ? True
+  all hypotheses, {'nw': 2, 'uF0': mpf('50.0'), 'HH': mpf('2.0'), 'istar': 0, 'SI': 'on'}: max(ASK-Main) = 340332  <=  ErrX5at = 7443781.6 ? True
+  all hypotheses, {'nw': 2, 'uF0': mpf('50.0'), 'HH': mpf('2.0'), 'istar': 1, 'SI': 'on'}: max(ASK-Main) = 340332  <=  ErrX5at = 7443781.6 ? True
+  all hypotheses, {'nw': 2, 'uF0': mpf('500.0'), 'HH': mpf('2.0'), 'istar': 0, 'SI': 'on'}: max(ASK-Main) = 340332  <=  ErrX5at = 7443781.6 ? True
+  all hypotheses, {'nw': 2, 'uF0': mpf('500.0'), 'HH': mpf('2.0'), 'istar': 1, 'SI': 'on'}: max(ASK-Main) = 340332  <=  ErrX5at = 7443781.6 ? True
+SANITY OK: 12 feasible variants, none above ErrX5at
+h2.2 DIV                                                   ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.3 EComp5 (both sides)                                   ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.3a EComp5 upper                                         ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.3b EComp5 lower                                         UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.4 HComp                                                 UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.5 Count5 (all three)                                    ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.5a Count5 lower bound on log T                          ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.5b Count5 log T <= cCount m L                           ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.5c Count5 |log T - log T'|                              UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.6 Slopes (both)                                         ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.6a Slopes lower: -SL <= muM                             ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.6b Slopes upper: muMaxM <= SL                           UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.7 QuotientSlopeBoundsWith (both)                        ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.7a QSB upper (muMaxN <= ...)                            UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.7b QSB lower (G): muM+Ga+Fo-Ee-Lo5 <= muN               ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.8 LossBounds (both)                                     ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.8a LossBounds ASK-Ga <= LoP                             ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.8b LossBounds IO <= LoP                                 ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.9 SlopeIneq (SI)                                        ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.10c HHBound: s - muMinCC <= HH                          ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.1 Hida: muN <= muMaxN                                   UNKNOWN    ratio(B_final)=6.91693e-8 ratio(ErrX5at)=0.0457207  
+h2.1 Hida: 0<x                                             UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.1 Hida: 0<b                                             UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.1 Hida: 0<=a                                            UNKNOWN    ratio(B_final)=7.8086e-8  ratio(ErrX5at)=0.0432603  
+h2.1 Hida: 0<=b'                                           UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.1 Hida: 0<k                                             UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.1 Hida: 0<v                                             UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.1 Hida: 0<=aT                                           UNKNOWN    ratio(B_final)=1.05802e-7 ratio(ErrX5at)=0.0667285  
+h2.1 Hida: 0<=cSl1                                         UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.1 Hida: delBar<1                                        UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.1 Hida: 0<=etaBar                                       UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.1 Hida: 0<=eBar                                         UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.1 Hida: eBar<=1/4                                       UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h2.11a FParams: 0<=del                                     ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.11b FParams: del<=delBar                                UNKNOWN    ratio(B_final)=6.91837e-8 ratio(ErrX5at)=0.0457302  
+h2.11c FParams: 0<=eta                                     ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.11d FParams: eta<=etaBar                                UNKNOWN    ratio(B_final)=2.97258e-6 ratio(ErrX5at)=1.96487    violates the sharp bound ErrX5at but not the (much larger) conclusion bound B_final; not claimed ESSENTIAL for ch_top
+h2.11e FParams: 0<=e                                       ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.11f FParams: e<=eBar                                    ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.10a HHBound: 0<HH                                       ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.10b HHBound: HH<=x^cHH*b                                UNKNOWN    ratio(B_final)=1.94042e-5 ratio(ErrX5at)=12.8262    violates the sharp bound ErrX5at but not the (much larger) conclusion bound B_final; not claimed ESSENTIAL for ch_top
+h3 EW.x>=1                                                 UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h3 EW.eps>0                                                UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h3 EW.eps<=1                                               UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h3 EW.b>=1                                                 UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h3 EW.xb<=a                                                UNKNOWN    ratio(B_final)=7.8086e-8  ratio(ErrX5at)=0.0432603  
+h3 EW.xm<=k                                                UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h3 EW.eK>=0                                                UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h3 EW.k>=1                                                 UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h3 EW.k<=x^eK                                              UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h3 EW.k<=a                                                 UNKNOWN    ratio(B_final)=7.8086e-8  ratio(ErrX5at)=0.0432603  
+h3 EW.L>=0                                                 UNKNOWN    ratio(B_final)=1.05885e-7 ratio(ErrX5at)=0.0699259  
+h3 EW.L<=2x^eps                                            UNKNOWN    ratio(B_final)=0.407961   ratio(ErrX5at)=26.553     violates the sharp bound ErrX5at but not the (much larger) conclusion bound B_final; not claimed ESSENTIAL for ch_top
+h3 EW.La>=0                                                UNKNOWN    ratio(B_final)=6.54862e-7 ratio(ErrX5at)=0.0434004  
+h3 EW.La<=2x^eps                                           ESSENTIAL  ratio(B_final)=6.50771    ratio(ErrX5at)=0.0431419  
+h3 EW.bp>=0                                                UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h3 EW.k*bp<=a                                              UNKNOWN    ratio(B_final)=0.00016266 ratio(ErrX5at)=0.0634913  
+h3 EW.Xpp>=0                                               UNKNOWN    ratio(B_final)=6.92089e-8 ratio(ErrX5at)=0.0457277  
+h3 EW.Xpp<=a                                               UNKNOWN    ratio(B_final)=4.07169e-5 ratio(ErrX5at)=0.0634598  
+h3 EW.aT>=0                                                UNKNOWN    ratio(B_final)=1.05802e-7 ratio(ErrX5at)=0.0667285  
+h3 EW.aT<=2a                                               UNKNOWN    ratio(B_final)=0.407037   ratio(ErrX5at)=0.503945   
+h3 EW.B0>=0                                                UNKNOWN    ratio(B_final)=6.92418e-8 ratio(ErrX5at)=0.0457012  
+h3 EW.Nc>=0                                                UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h3 EW.log|W|<=(k-3)log2                                    UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h3 EW.delBar<=1/2                                          UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h3 EW.etaBar>=0                                            UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h3 EW.eBar>=0                                              UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h3 EW.ConstsBound                                          ESSENTIAL  ratio(B_final)=3.25223    ratio(ErrX5at)=1.0        
+h3 EW.etaterm                                              UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h4a BN.B0                                                  ESSENTIAL  ratio(B_final)=8.12955    ratio(ErrX5at)=0.0327921  
+h4b BN.Nc                                                  ESSENTIAL  ratio(B_final)=4.06478    ratio(ErrX5at)=1.0        
+h5a LargeX: log x <= x^eps                                 UNKNOWN    ratio(B_final)=6.91686e-8 ratio(ErrX5at)=0.0457203  
+h5b LargeX: KBig <= x^eps                                  ESSENTIAL  ratio(B_final)=79.6713    ratio(ErrX5at)=0.119666   
+h3 ErrWindows (whole)                                      ESSENTIAL  ratio(B_final)=6.50771    ratio(ErrX5at)=0.0431419  
+h4 BNBoundsU (whole)                                       ESSENTIAL  ratio(B_final)=8.12955    ratio(ErrX5at)=0.0327921  
+h5 LargeX (whole)                                          ESSENTIAL  ratio(B_final)=79.6713    ratio(ErrX5at)=0.119666   
+h2.1 HidaSetting (whole)                                   ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.11 FParams (whole)                                      ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.10 HHBound (whole)                                      ESSENTIAL  ratio(B_final)=+inf       ratio(ErrX5at)=+inf       
+h2.1 Hida: 0<f  (f=0 allowed: 1/f = 0 in Lean)             UNKNOWN    ratio(B_final)=6.91397e-8 ratio(ErrX5at)=0.0457012  
+h2.1 Hida: 0<d  (d=0: wmean = 0/0 = 0)                     UNKNOWN    ratio(B_final)=6.92702e-8 ratio(ErrX5at)=0.0457875  
+h1 IdentU                                                  UNKNOWN    not tested numerically: identifies the abstract record with the arithmetic (needs an ArithData); no other hypothesis mentions the arithmetic data
+h2.1 Hida: 0<w, 0<T                                        UNKNOWN    not tested: only logs of w and T occur and Real.log |.| already reaches every real value, so a negative w or T gives nothing new in this model
+h3 nT>=1, m<=x^(1/2+eps/2)                                 UNKNOWN    not tested: the model fixes |Top| = 1 and m = 1
+wrote drop_one_results.json
