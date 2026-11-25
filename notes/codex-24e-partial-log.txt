@@ -1,0 +1,2903 @@
+I’ll read the prompt and work through its tasks in order.
+
+
+
+
+Ran commands
+Get-Content -Raw -Encoding utf8 prompts/codex-prompt-2026-11-24e.md
+Shell
+$Get-Content -Raw -Encoding utf8 prompts/codex-prompt-2026-11-24e.md
+
+
+# Codex: next two tasks (24 Nov 2026, evening)
+
+Written by Claude in chat. Rules: read and write only. No git, no builds, no `lake`, nothing in `C:\rhc`.
+Source: pinned at `4e8bb36` of homeowmorphism/riemann-hypothesis-original (src tree = upstream `e50d098`).
+Rubinstein v2: https://www.math.uwaterloo.ca/~mrubinst/alpoge_claude_grh/zeta-paper_v2.pdf (hypotheses on pp. 203–214).
+Label every claim **READ**, **DERIVED** or **GUESS**. Either answer is fine for every item. "Not found" is a valid result.
+Do the tasks in order. Each writes one new file; do not edit any other file.
+
+## 1. Hunt for the source's own statement of the five non-matching hypotheses
+
+Background: our H8 file was "different" until we found that the source itself states Rubinstein's inequality (III.330), as `Frame_at` (QuadraticLogDerivCongr.lean:188) and `FrameF` (:258), proved via `frame_at_of`. See `notes/batch1-audit.md` and `notes/h8-frame-check.md`.
+
+Do the same search for the five that still do not match: **H0, H7, H10, H11, H12**. Their current files and the reasons they do not match are in `results/rubinstein-hypotheses/` and `notes/batch2-audit.md`.
+
+For each one:
+1. Quote Rubinstein's statement (page, equation).
+2. Search the pinned source for a definition or theorem whose statement has his form (not ours). Give every serious candidate with file:line, and quote it.
+3. Grade the best candidate against his statement: same, weaker or different, clause by clause, using the same standard as `notes/h8-frame-check.md` (whole statement, including scope: fixed scale vs family, eventual thresholds, parameter ranges).
+4. Say how the source proves it: which theorem, and whether that theorem is reached on the headline route (give the chain or say where you lose it). Say whether the conclusion would be picked out of a premise or derived.
+5. Feasibility for a new file: list the imports it would need, and whether each module appears in `results/common-period-map/closure-files.txt` or `results/rubinstein-hypotheses/h12-extra-closure.txt`.
+
+End with a table: hypothesis, best source candidate, grade, picked out or derived, feasible in current closure (yes/no).
+
+Write to `notes/source-statements-hunt.md`.
+
+## 2. Where the real proof of the picked-out hypotheses lives
+
+Background: `notes/batch1-audit.md` found that H1, H2, H3, H9, H6(i), (8a) and (8b) are each one conjunct of the premise `LinkDIV`, so our files only locate them. `notes/divinputs-trace.md` traced how the headline route builds `LinkDIV` down to `divClausesR_of` (ConstantGeTwentyEight.lean:184) and its input `DivInputsR`.
+
+For each of those seven items:
+1. Name the conjunct of `LinkDIV_at` (GlobalTheoremInputs.lean:77) that states it.
+2. Find the exact place in `divClausesR_of` (or whatever the headline route actually calls) where that conjunct is proved. Give file:line and the lemmas it calls.
+3. List which `DivInputsR` fields and which estimates that proof depends on, and say for each whether it is a real estimate or holds by construction (`rfl`, `HEq.rfl`, a copied field), consistent with `notes/divinputs-trace.md` and `notes/nielsen-rfl-check.md`. If you disagree with either note, say so.
+4. One plain sentence: "Rubinstein's Hn is proved in the code by …".
+
+End with a table: hypothesis, `LinkDIV` conjunct, proving lemma (file:line), main estimates, any by-construction step.
+
+Write to `notes/linkdiv-proofs.md`.
+
+
+
+
+
+
+
+Success
+
+
+
+
+
+$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+print(re.sub(r'\]\([^)]*\)',']',local('notes/batch2-audit.md'))[:16600]);print([Path('notes',k).exists() for k in ['source-statements-hunt.md','linkdiv-proofs.md']]);
+'@ | python -
+exit $LASTEXITCODE
+
+
+# Batch 2 against Rubinstein v2
+
+**DERIVED.** H4 and H5 give the same numerical bounds on the selected objects. H0 and H12 are weaker as statements about one identified set of data. H7, H10 and H11 are different as full statements, although each includes the corresponding numerical bound once its objects are identified.
+
+**READ.** Rubinstein fixes ε, a scale x and a translate u, and assumes the objects of §III.10 have been supplied. H12 separately asserts their simultaneous supply on intervals. The local files are family theorems with explicit premises. The comparisons below concern their conclusions on those families. The seven files are listed as drafts in the project index. [Rubinstein v2, p. 203] · [Rubinstein v2, p. 214] · [Local index]
+
+## H0 — weaker on the common arithmetic data
+
+**READ.** Rubinstein requires “$T$ is not empty” alongside positive integral m,n. Clauses (a)–(h) apply to the same parameters, orders, weights, word sets and two subsets of H. [Rubinstein v2, p. 203] · [Rubinstein v2, p. 204]
+
+| Paper clause (READ) | What `RHX.h0_window_sizes` gives (DERIVED) |
+|---|---|
+| (a), (b), (d). $x≥1$, $0<ε≤1$, $b≥1$, $a=xb$, $\log x≤x^ε$; $m≤x^{1/2+ε/2}$, $xm≤k$, $3≤k≤a$, $k≤x^{e_K}$; $0≤L_a≤2x^ε$, $b'≥0$, $kb'≤a$, $0≤X''≤a$. | These bounds are present. The proof increases the threshold to obtain the logarithm bound and identifies the scale with x. The witnesses include natural m≥1 and a finite group with positive cardinality n. [H0.lean:23] · [H0.lean:43] · [ErrorFormsWeakWindowsFalse.lean:28] |
+| (c), (e). $0≤a_t≤2a$ on T, positive weights on all cells and lifts, and positive root discriminant. | `ErrWindows0` bounds `Dd.aT` on `Top`. `HidaSetting` gives positivity of `Dd.w` on the finite cell index and of `Dd.v`. `TieGlobal` gives `Dd.v = host.v`, with `host.v = rdE/2`. The conclusion identifies membership in `TT` and `T2`. It drops the equivalences and the equalities that assign these orders to those columns and the weights to those arithmetic cells. [H0.lean:28] · [H0.lean:65] · [MeanBoundSecondForm.lean:111] · [DataHost.lean:143] · [SChain.lean:26] |
+| (f). $B_0=2nmbx^ε$, $N_c=\lvert T_2\rvert k b x^{2ε}/n^2$. | Lines 37–40 give **equalities** for each selected record, using its `R.n`, `R.m`, `R.k` and `host.T2.card`. The denominator $n(n x^{-ε})$ gives the paper’s normalization for positive x,n. At the shared group, m and T₂, `BNBounds` gives **upper bounds**. The conclusion drops `TiePts`, which equates each selected frame and m to the shared ones. [H0.lean:35] · [SChain.lean:33] · [TieGlobal.lean:39] |
+| (g), (h). $1≤\lvert W_u\rvert $, $\log\lvert W_u\rvert ≤(k-3)\log 2$, $\lvert T_2\rvert ≥x^{-ε}n$, $\lvert T\rvert ≥x^{-ε/8}n/2$. | Both word bounds hold for every selected translate. `RestSize` supplies both density bounds for the displayed sets, so T is nonempty. `ErrWindows0` also records nonemptiness on the abstract top side. [H0.lean:33] · [TieGlobal.lean:13] · [SChain.lean:53] · [ErrorFormsWeakWindowsFalse.lean:31] |
+
+**DERIVED.** The missing identifications matter when reusing a bound for a specific order, weight or budget. The proof opens a `ChainTied` witness that has them, then returns fewer fields. The conclusion also includes extra rank, slope and error-constant constraints in `HidaSetting` and `ErrWindows0`. Its premise is eventual tied-model supply on `Fm.Win`. It does not construct that supply from H0. [H0.lean:45] · [H0.lean:65] · [TieGlobal.lean:97]
+
+## H4 — same three numerical bounds
+
+**READ.** Rubinstein quantifies (III.326) over “all words $w,w'$”. In that inequality, $\log \mathrm{Lv}(w)$ lies between $\sum_{j=1}^m(\langle\log w_{u,j}\rangle+\log(\mathrm{rd}_E/(2π)))+m\ell_g-c_4(L_a+m^2L_a/k)$ and $c_4 m x^ε$. The absolute difference of the log levels of any two words at that translate is at most $c_4\log k$. [Rubinstein v2, p. 205]
+
+**DERIVED.** `RHX.h4_word_counts` gives all three with one nonnegative C at every sufficiently late index. The word is the Lean binder `u`, the level is `(D.mem u).A.T`, the lifts run from 1 to m, and the lower bound averages `log (wj D j τ * D.host.v / π)` with factor `1/D.R.f`. The theorem `card_Tau` proves this is the reciprocal of the number of places, and `lgG` is the logarithm of the product of the two auxiliary level factors $g_0,g_1$. Using positive weights and `host.v = rdE/2` gives the paper’s separated logarithms. The upper bound uses `L.sc.L`, equal to the scale raised to ε once `x > Fm.x1`. The threshold may be enlarged accordingly. `exact hCount` unpacks the family premise `CountF`, so the draft supplies no independent mass formula or count estimate. It does not choose a common $K$ for all the hypotheses, a requirement introduced in H12. [H4.lean:18] · [DataParams₂.lean:27] · [DataParams₂.lean:73] · [DataParams₂.lean:208] · [DataHost.lean:143] · [FamCore.lean:84] · [QuadraticLogDerivCongr.lean:165] · [QuadraticLogDerivCongr.lean:252] · [QuadraticLogDerivCongr.lean:347] · [QuotientSlopeBoundsWith.lean:27]
+
+## H5 — same two slope bounds
+
+**READ.** Rubinstein specifies “the first lattice of the chain”. For each word, (III.327) bounds its mean slope below by $-c_5 |T|aL_a(1+m/k)$ and its maximum slope above by $c_5 |T|aL_a$. [Rubinstein v2, p. 205]
+
+**DERIVED.** `RHX.h5_bottom_lattice` gives both inequalities on `(D.fm u).lat 0`, with `D.host.TT.card` and one nonnegative C for every late index and word. `TieLocal` identifies those slopes on the selected translates. The family conclusion only assumes `SlopesMF Fm` and the proof is `exact hSM`. It supplies no new estimate of the covolume and makes no assertion about the glued lattice. [H5.lean:18] · [QuadraticLogDerivCongr.lean:173] · [QuadraticLogDerivCongr.lean:253] · [TieGlobal.lean:72] · [MeanBoundSecondForm.lean:139]
+
+## H7 — different full statement, both pointwise loss bounds present
+
+**READ.** Rubinstein’s two requirements in (III.329) are “$P_u-G_{\rm top}≤\mathrm{LoP}$ and $I_u≤\mathrm{LoP}$”, with $\mathrm{LoP}=c_7|T|m b x^{e_L ε}$. His status paragraph distinguishes the general exponent from the choice $e_L=0$ on the final route and discusses the identification of the sum defining $P_u$. [Rubinstein v2, p. 205] · [Rubinstein v2, p. 206]
+
+**DERIVED.** `RHX.h7_gain_and_losses` returns both inequalities **for each translate** of one selected system. `TieLocal` identifies `Ga` and the place sum `IO`; `Ident` identifies `ASK` with the arithmetic sum truncated at its witness N, on the same `TT,a,w`. The returned `Dd.LoP C` has the paper’s factors with exponent `C.eLoss ≤ eL`. The model constant `C.cLoss` sits inside the scale-dependent witness; `ConstsBound C K` supplies a uniform envelope, so K and eL give a uniform weaker allowance when $x≥1$. No zero exponent is asserted. The conclusion omits the `GrowthInequalitySizes` condition that N dominates the order/weight ratios, and `TiePts` identifying the selected index with its translate. Both are available in the premise. Thus reusing the truncated sum as Rubinstein’s $P_u$ requires those identifications. [H7.lean:31] · [TieGlobal.lean:78] · [SChain.lean:26] · [SChain.lean:38] · [TieGlobal.lean:104] · [MeanBoundSecondForm.lean:105] · [ErrorFormsWeakWindowsFalse.lean:39]
+
+**READ.** The extra conjunct supplies `LinkG_at` for **every family index** at the late window scales, with a separate `Cg` and $δ(x)→0$. It includes estimates for inert primes below the cutoff. The proof obtains this conjunct from `LinkG`, and extracts the two global losses from `hFam` via `LossBounds` already present in `SizeData₂`. It does not deduce those losses from the local gain conjunct. [H7.lean:25] · [H7.lean:44] · [GlobalTheoremInputs.lean:122] · [SChain.lean:17] · [QuotientSlopeBoundsWith.lean:34]
+
+## H10 — different, with a stronger upper bound
+
+**READ.** The full H10 is “$0≤δ_p≤\tfrac12$”. Its status invokes the stronger exponential estimate in §III.8, (III.222), beyond a threshold. [Rubinstein v2, p. 207]
+
+**DERIVED.** `RHX.h10_discarded_fraction` includes the exact interval and additionally retains $δ_p≤\exp(-x^{ε_z/7})$ on every late index, where `Fm.ez = eps / Fm.J`. It takes `LinkIRR Fm` as input. At $x≥1$ positivity of the exponent gives the half bound. `TieLocal` identifies the model’s discarded fraction with the record’s `what₂.delp`. This is an eventual family version of the status argument, stronger than the bare H10 conclusion. [H10.lean:17] · [GlobalTheoremInputs.lean:55] · [FamCore.lean:149] · [TieGlobal.lean:82]
+
+## H11 — different, with the same rank bound and an extra slope inequality
+
+**READ.** H11 reads “For every word, $d_w≥1$.” Rubinstein identifies $d_w$ with the rank of the glued source (and the dimension of its ramified space). He separately discusses mean slope ≤ maximum slope as part of Definition M2. [Rubinstein v2, p. 203] · [Rubinstein v2, p. 207]
+
+**DERIVED.** `RHX.h11_positive_source_rank` asserts rank ≥1 and mean slope ≤ maximum slope for **the same** `(D.div.Nu u)`, for every word at every late index. `TieLocal` identifies that rank with the scalar word weight. The proof projects `LatF`, which already supplies the wordwise assertions. It does not reproduce Rubinstein’s dimension argument from (III.218), (III.234), or establish the O25(e) comparison of spaces. The rank assertion quantifies over words; the existence of a word is a separate H0(g) issue. [H11.lean:19] · [QuadraticLogDerivCongr.lean:185] · [TieGlobal.lean:65]
+
+## H12 — weaker as a joint existence statement
+
+**READ.** Rubinstein calls it “supply on windows”. His order of choice is global $C_{\rm abs},e_L≥0$ and $0<ε_1≤1/52$; for each $0<ε<ε_1$ choose $K,C_H,e_K≥0$ and $J≥1$; for each y choose $Z≥y$; **at each** $x∈[Z,Z^{3/2}]$ choose all of (a)–(e) together. Different x may use different primes. [Rubinstein v2, p. 213] · [Rubinstein v2, p. 214]
+
+| Paper requirement (READ) | What the draft exports (DERIVED) |
+|---|---|
+| (a), (b). $x^{1/J}≤Y≤x$. The same primes satisfy III.1.1(a,b,c,e) for $M=1$ and (d) on **all** $Y≤y'≤x$: the three quadratic characters for q,d,qd obey the $y'^{1/2+ε/2}$ smoothed-sum and $4\log y'$ logarithmic-derivative bounds. | `h12_pair_supply` supplies this window order and `WinDatum.good : PairGood ψ.N …`, including the full interval of character estimates, prime conditions and boxes. The paper specialization uses the trivial character of modulus 1. The theorem takes `VWinAt ψ 401` and `PairEx` as premises and adds a cohomology bound. [H12.lean:25] · [TwistForm.lean:19] · [PairGood.lean:18] |
+| (c). For these q,d, $n=2^e$, $e≥2$, $x^{2+8ε}≤n≤2x^{2+8ε}$; form E and H, $\lvert H\rvert =n$, and use common $b,m,k,T,T_2,a_t$ over all translates. | `WinDatum` bounds $c\,2^e$ for a supplied $c≥1$. Taking $c=1$ gives the numerical dyadic bound; $e≥2$ then follows sufficiently far out. The pair theorem does not output the whole host. `h12_family_windows` returns one `FamP` with `ChainTied` and actual host estimates for all its indices at each x. `TiePts` ties the q,d and frame of the selected translates to a base index. The second theorem’s `EAt` concerns the actual host at x, with constant 4. It does not expose that host’s `PairGood` on $[Y,x]$. Neither local theorem identifies **that base pair** with the `WinDatum` witness of the other. [H12.lean:27] · [H12.lean:32] · [TieGlobal.lean:39] · [TieGlobal.lean:97] · [ExplicitFormulaErrorOfHostConditions.lean:144] |
+| (d). Every translate satisfies H0–H11 with the same exponents and $c_1,\ldots,c_7≤K$. | `ChainTied` carries `SizeData₂`, `ErrWindows` and uniform upper bounds `C.eDiv ≤ eD`, `C.eLoss ≤ eL` and `C.cHH ≤ cHH`. These are source predicates with per-model constants. The draft does not return the twelve paper predicates under their object dictionary with the same `WinDatum`. The second theorem returns `ε₁>0` without the explicit cap (one can shrink it), no separately quantified J shared with the first theorem, and no explicit list of the paper’s sign conditions in its outer binders. [H12.lean:32] · [TieGlobal.lean:104] · [SChain.lean:17] · [ErrorFormsWeakWindowsFalse.lean:28] |
+| (e). $b=\exp(x^ε)$, $a_t>0$, $\lvert a_t/b-x\rvert ≤1$, $m≥x^{1/2-ε}$, $k≤n^2x^{1/2-ε}$; on thick cells $b≤w≤b(1+1/(nx^2))$, and elsewhere $a_t/w≥\exp(x^{ε/3})/3$. | `RestSize` gives the m,k bounds; `GrowthInequalitySizes` gives order closeness and `NodeSizes`, whose direct weight bounds are $b≤w≤b+η+1$ on thick cells and $w≤2b'$ on the remaining cells in the index set. `CostWindows` controls $η+1$. The scale definition gives $b=\exp(x^ε)$ at the actual host once `Fm.L_x` applies. The draft leaves the translation to the displayed thick-cell upper bound, thin-cell ratio and order positivity on the same paper data inside the source definitions and estimates. It supplies no clause (e) stated with all those inequalities and the pair from (a),(b). [H12.lean:37] · [SChain.lean:38] · [SChain.lean:50] · [GrowthBoundGivesRiemannHypothesis.lean:71] · [DataParams₂.lean:27] · [TieGlobal.lean:109] |
+
+**DERIVED.** The two existence statements cannot be joined merely by choosing their witnesses at the same x; even their displayed intervals are chosen separately. There is relevant evidence upstream: `supplyOfAdmOf` builds a supply using the window defined by `WinDatum` and transports `hW.good` to its host using the equalities for q and d. The missing result in this draft is a single theorem exporting that compatibility together with (a)–(e). `h12_family_windows` assumes `TopG` and `HostExW`. [Rubinstein v2, p. 214] · [H12.lean:40] · [supplyOfAdmOf.lean:56] · [supplyOfAdmOf.lean:110]
+
+**DERIVED · H12 import handoff.** I recursively followed the two import headers at `4e8bb36` and subtracted the 705 paths in the project closure. Including each entry module, `WinPairs` reaches 23 project modules (4 new) and `ZeroFreeAllOfTopG` reaches 754 (103 new). Three new modules are shared: the union adds **104**, bringing the extended project list to **809**. The companion file uses one prerequisite-first `src/…lean` path per line, the same project-only scope as the existing list. The explicit external import `Mathlib.Analysis.SpecialFunctions.ImproperIntegrals` is already covered by the baseline’s `Mathlib` umbrella (pinned `Mathlib.lean:2377`). This is an import audit only. [H12.lean:3] · [Baseline] · [Additional modules]
+
+[False, False]
+
+
+
+
+
+
+Success
+
+
+
+
+
+$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+for k in ('H0','H7','H10','H11','H12'):print(k,'\n',local('results/rubinstein-hypotheses/'+k+'.lean').split('noncomputable section')[-1][:2250])
+for j in (202,203,204,205,206,212,213):
+ a=pp[j].splitlines()
+ for i,l in enumerate(a):
+  if re.match(r'Hypothesis \(H(?:0|7|10|11|12)\)',l):print(j+1,'\n'.join(a[i:i+(25 if j in (202,212,213) else 12)]))
+for j in [213]:print(pp[j][:3300])
+
+'@ | python -
+exit $LASTEXITCODE
+
+
+H0 
+ 
+
+open Formalism.BasicNotions Formalism.MainNotions
+open Formalism.RankGapBounds.WeightedMeanData Formalism.LFunctionChainParameters.LErr
+open Formalism.LFunctionChainParameters.LChain
+
+namespace RHX
+
+theorem h0_window_sizes {eps : ℝ} (Fm : FamP eps) (heps : 0 < eps)
+    {eD eL K cHH eK CL t : ℝ}
+    (hFam : ∀ x ≥ t, x ∈ Fm.Win → ChainTied Fm eD eL K cHH eK CL x) :
+    ∃ x0 : ℝ, ∀ x ≥ x0, x ∈ Fm.Win →
+      ∃ (i0 : Fm.Ix x) (m f : ℕ) (pt : (Fm.D x i0).R.A → Fm.Ix x)
+        (Top : Type) (_ : Fintype Top)
+        (Dd : Data (Fm.D x i0).R.A (fun v => (Fm.D x (pt v)).what₂.Word) Top m f)
+        (C : Consts) (Xpp η X' : ℝ) (TT T2 : Finset (Fm.D x i0).R.A),
+        Dd.x = x ∧ Dd.ε = eps ∧ Real.log x ≤ x ^ eps ∧
+        1 ≤ m ∧ 3 ≤ Dd.k ∧ Dd.a = x * Dd.b ∧
+        (∀ v, 0 < Fintype.card (Fm.D x (pt v)).what₂.Word) ∧
+        TieGlobal Fm x pt Dd Xpp η X' ∧ TieLocal Fm x pt Dd ∧
+        (∀ h, h ∈ TT ↔ hval (Fm.D x i0).R.toFrame h ∈ Fm.TTn x) ∧
+        (∀ v h, h ∈ T2 ↔ ∃ s ∈ (Fm.D x (pt v)).host.T2, h = (Fm.D x i0).R.toFrame.dig s) ∧
+        (∀ v, let D := Fm.D x (pt v)
+              Dd.B0 = (2 * (D.R.n : ℝ)) * D.R.m * Dd.b * x ^ eps ∧
+              Dd.Nc = (D.host.T2.card : ℝ) * D.R.k * Dd.b * x ^ eps /
+                ((D.R.n : ℝ) * ((D.R.n : ℝ) * x ^ (-eps)))) ∧
+        Dd.HidaSetting C ∧ ErrWindows0 Dd C Xpp eK K ∧ BNBounds Dd T2 ∧
+        RestSize eps x (Fintype.card (Fm.D x i0).R.A) TT.card T2.card m Dd.b Dd.k Dd.a := by
+  obtain ⟨tLog, hLog⟩ := Filter.eventually_atTop.1 ((isLittleO_log_rpow_atTop heps).bound one_pos)
+  refine ⟨max (max t tLog) (Fm.x1 + 1), fun x hx hw => ?_⟩
+  obtain ⟨i0, m, f, pt, av, bv, Top, iT, Dd, C, Xpp, ell, N, TT, T2, a, w, eT, eP,
+    η, X', θ, hpt, hg, hl, ha, hX, hε, _, _, _, _, hSize, hErr, hBN, _, _, hRest⟩ :=
+    hFam x (le_of_max_le_left (le_of_max_le_left hx)) hw
+  have hx1 : 1 ≤ x := by rw [← hX]; exact hErr.1.1
+  have hlog : Real.log x ≤ x ^ eps := by
+    simpa only [Real.norm_eq_abs, one_mul, abs_of_nonneg (Real.log_nonneg hx1),
+      abs_of_nonneg (Real.rpow_nonneg (zero_le_one.trans hx1) eps)] using
+      hLog x (le_of_max_le_right (le_of_max_le_left hx))
+  have hxFam : Fm.x1 < x := by linarith [le_of_max_le_right hx]
+  have hm : 1 ≤ m := by
+    rw [← (hpt 0).2.1]
+    exact 
+H7 
+ 
+
+open Formalism.BasicNotions Formalism.MainNotions
+open Formalism.RankGapBounds.WeightedMeanData Formalism.LFunctionChainParameters.LErr
+open Formalism.D5 Formalism.LFunctionChainParameters.ThickSetMeanBounds
+open Formalism.LFunctionChainParameters.LChain
+
+namespace RHX
+
+theorem h7_gain_and_losses {eps : ℝ} (Fm : FamP eps) (lG : LinkG Fm)
+    {eD eL K cHH eK CL t : ℝ}
+    (hFam : ∀ x ≥ t, x ∈ Fm.Win → ChainTied Fm eD eL K cHH eK CL x) :
+    ∃ (Cg x0 : ℝ) (δ : ℝ → ℝ), Filter.Tendsto δ Filter.atTop (nhds 0) ∧
+      ∀ x ≥ x0, x ∈ Fm.Win →
+        (∀ i : Fm.Ix x, LinkG_at (Fm.Gx x i) Fm.GK Cg ((Fm.L x i).sc.b ^ δ x)) ∧
+        ∃ (i0 : Fm.Ix x) (m f : ℕ) (pt : (Fm.D x i0).R.A → Fm.Ix x)
+          (Top : Type) (_ : Fintype Top)
+          (Dd : Data (Fm.D x i0).R.A (fun v => (Fm.D x (pt v)).what₂.Word) Top m f)
+          (C : Consts) (Xpp η X' : ℝ) (av : ℕ → ℤ) (N : ℕ)
+          (ell : AddChar (E0 × (Fm.D x i0).R.A) ℂ → ℂ)
+          (TT T2 : Finset (Fm.D x i0).R.A) (a : (Fm.D x i0).R.A → ℝ)
+          (w : (Fm.D x i0).R.A → Fin m → E0 × (Fm.D x i0).R.A → ℝ)
+          (eT : Top ≃ TT) (eP : Fin f ≃ PhiSet (H := (Fm.D x i0).R.A)),
+          Dd.x = x ∧ Dd.ε = eps ∧ C.eLoss ≤ eL ∧ ErrWindows0 Dd C Xpp eK K ∧
+          TieGlobal Fm x pt Dd Xpp η X' ∧ TieLocal Fm x pt Dd ∧
+          TieArith Fm x pt av (arithOf (Fm.D x i0).host.toHostRaw) ell TT T2 a w ∧
+          Ident Dd (arithOf (Fm.D x i0).host.toHostRaw) N ell TT a w eT eP ∧
+          ∀ v, Dd.ASK v - Dd.Ga v ≤ Dd.LoP C ∧ Dd.IO v ≤ Dd.LoP C := by
+  obtain ⟨Cg, tg, δ, hδ, hg⟩ := lG
+  refine ⟨Cg, max tg t, δ, hδ, fun x hx hw => ⟨hg x ((le_max_left _ _).trans hx), ?_⟩⟩
+  obtain ⟨i0, m, f, pt, av, bv, Top, iT, Dd, C, Xpp, ell, N, TT, T2, a, w, eT, eP,
+    η, X', θ, _, hGlobal, hl, hArith, hX, hε, _, heL, _, hIdent, hSize, hErr, _⟩ :=
+    hFam x ((le_max_right _ _).trans hx) hw
+  obtain ⟨_, _, _, _, _, _, _, hLoss, _⟩ := hSize
+  exact ⟨i0, m, f, pt, Top, iT, Dd, C, Xpp, η, X', av, N, ell, TT, T2, a, w,
+    eT, eP, hX, hε, heL, hErr.1, hGlobal, hl, hArith, hIdent, hLoss⟩
+
+end RHX
+
+end
+
+#print axioms RHX.h7_gain_and_losses
+
+H10 
+ 
+
+open Formalism.BasicNotions Formalism.MainNotions
+
+namespace RHX
+
+theorem h10_discarded_fraction {eps : ℝ} (Fm : FamP eps) (hI : LinkIRR Fm) :
+    ∃ x0 : ℝ, ∀ x ≥ x0, ∀ i : Fm.Ix x,
+      0 ≤ (Fm.D x i).what₂.delp ∧
+      (Fm.D x i).what₂.delp ≤ Real.exp (-(x ^ (Fm.ez / 7))) ∧
+      (Fm.D x i).what₂.delp ≤ 1 / 2 := by
+  obtain ⟨t, h⟩ := hI
+  refine ⟨max t 1, fun x hx i => ?_⟩
+  obtain ⟨hn, hu⟩ := h x ((le_max_left _ _).trans hx) i
+  have hz : 0 < Fm.ez := by
+    rw [← Fm.L_ez x i]
+    exact (Fm.L x i).sc.ez_pos
+  have hp : 1 ≤ x ^ (Fm.ez / 7) :=
+    Real.one_le_rpow ((le_max_right _ _).trans hx) (by positivity)
+  exact ⟨hn, hu, hu.trans (Lnk.exp_neg_le_half hp)⟩
+
+end RHX
+
+end
+
+#print axioms RHX.h10_discarded_fraction
+
+H11 
+ 
+
+open Formalism.BasicNotions Formalism.MainNotions
+
+namespace RHX
+
+theorem h11_positive_source_rank {eps : ℝ} (Fm : FamP eps) (hLat : Lnk.LatF Fm) :
+    ∃ x0 : ℝ, ∀ x ≥ x0, ∀ (i : Fm.Ix x) (u : (Fm.D x i).what₂.Word),
+      1 ≤ ((Fm.D x i).div.Nu u).rank ∧
+      ((Fm.D x i).div.Nu u).mu ≤ ((Fm.D x i).div.Nu u).muMax := by
+  obtain ⟨x0, h⟩ := hLat
+  refine ⟨x0, fun x hx i u => ?_⟩
+  exact (h x hx i).1 u
+
+end RHX
+
+end
+
+#print axioms RHX.h11_positive_source_rank
+
+H12 
+ 
+
+open Formalism.BasicNotions Formalism.MainNotions Formalism.HC GlobalTheory.EX UpperTheory.Top
+
+namespace RHX
+
+theorem h12_pair_supply (ψ : PChar) (eps c : ℝ) (he : 0 < eps) (he' : eps < 1 / 52)
+    (hc : 1 ≤ c) (hV : VWinAt ψ 401) (hP : PairEx) :
+    ∃ J : ℝ, 1 ≤ J ∧ ∀ y : ℝ, ∃ Z : ℝ, y ≤ Z ∧
+      ∀ x : ℝ, Z ≤ x → x ≤ Z ^ ((3 : ℝ) / 2) →
+        ∃ (Y : ℝ) (q d e : ℕ), WinDatum ψ eps J c x Y q d e :=
+  UpperTheory.Top.winPairs ψ eps c he he' hc hV hP
+
+theorem h12_family_windows (ψ : PChar) (hTop : TopG)
+    (hSupply : HostExW (3 / 2) (GChi ψ).req) :
+    ∃ eD eL ε₁ : ℝ, 0 < ε₁ ∧ ∀ eps : ℝ, 0 < eps → eps < ε₁ →
+      ∃ (Fm : FamP eps) (K cHH eK CL : ℝ), ∀ y : ℝ, ∃ Z : ℝ, y ≤ Z ∧
+        ∀ x : ℝ, Z ≤ x → x ≤ Z ^ ((3 : ℝ) / 2) →
+          x ∈ Fm.Win ∧ Nonempty (Fm.Ix x) ∧ ChainTied Fm eD eL K cHH eK CL x ∧
+          ∀ i : Fm.Ix x, EAt (Level.cyc ψ) (Fm.D x i) x eps 4 ∧
+            VVle (Fm.D x i).host.E (Fm.D x i).R.t (Real.sqrt (Fm.L x i).sc.b) := by
+  obtain ⟨eD, eL, ε₁, hε, hf⟩ :=
+    hTop (3 / 2) (GChi ψ) (by norm_num) hSupply (hypV_of_cls ψ (3 / 2))
+  refine ⟨eD, eL, ε₁, hε, fun eps he he' => ?_⟩
+  obtain ⟨Fm, hc, K, cHH, eK, CL, t, ht⟩ := hf eps he he'
+  refine ⟨Fm, K, cHH, eK, CL, fun y => ?_⟩
+  obtain ⟨Z, hz, hw⟩ := hc.1 (max y (max t (Fm.x1 + 1)))
+  refine ⟨Z, (le_max_left _ _).trans hz, fun x hx hxr => ?_⟩
+  have hLate := (le_max_right _ _).trans (hz.trans hx)
+  have hx1 : Fm.x1 < x := by linarith [le_of_max_le_right hLate]
+  have hwin := hw x hx hxr
+  refine ⟨hwin, Fm.Ix_win x hwin, ht x (le_of_max_le_left hLate) hwin, fun i => ?_⟩
+  obtain ⟨hHost, hCoh⟩ := hc.2 x hx1 i
+  rw [Fm.L_x x i hx1, Fm.L_eps x i] at hHost
+  exact ⟨hHost, hCoh⟩
+
+end RHX
+
+end
+
+#print axioms RHX.h12_pair_supply
+#print axioms RHX.h12_family_windows
+
+203 Hypothesis (H0) (sizes). The numbers m ≥ 1 and n ≥ 1 are integers, T is not empty, and
+ (a) x ≥ 1, 0 < ε ≤ 1, b ≥ 1, a = xb, log x ≤ xε ;
+ (b) m ≤ x1/2+ε/2 ,   xm ≤ k,    3 ≤ k ≤ a,   k ≤ xeK ;
+ (c) 0 ≤ at ≤ 2a for t ∈ T ;
+
+
+                                                 203
+205 Hypothesis (H7) (the losses).
+
+            Pu − Gtop ≤ LoP           and     Iu ≤ LoP,         LoP = c7 |T | m b xeL ε .          (III.329)
+
+Status. This is (III.139) of §III.6 (there eL = 0), quoted there. On the route of the final theorem
+the source has eL = 0 as well (§9, Remark (2)); the exponent is kept here because the statement of
+the source that corresponds to Theorem M carries it. §III.6 proves the splitting of the left side
+
+                                                     205
+207 Hypothesis (H10). 0 ≤ δp ≤ 12 . This follows from Statement (I) of §III.8, (III.222), for
+x ≥ max(x0 , 1), where x0 is the threshold of that statement: then xεz /7 ≥ 1 > log 2. Statement (I)
+is quoted there; it holds for x ≥ x0 only.
+
+Hypothesis (H11). For every word, dw ≥ 1. Status. It follows from statements that §III.8
+already quotes. In the notation of §III.8 our dw is dram
+                                                     w   = dim Mw , since Uw is spanned over L0 by
+a basis of Mw (O25(e)). The lower bound in (III.218) gives dim Cw > 0, and the second condition
+of (III.234), with αram < 1, gives dram
+                                     w   ≥ (1 − αram ) dim Cw > 0. So (H11) follows from (III.218)
+and (III.234), which the status of (H8) uses in any case. (That µ(Λgl                 gl
+                                                                         w ) ≤ µmax (Λw ) is part of
+207 Hypothesis (H11). For every word, dw ≥ 1. Status. It follows from statements that §III.8
+already quotes. In the notation of §III.8 our dw is dram
+                                                     w   = dim Mw , since Uw is spanned over L0 by
+a basis of Mw (O25(e)). The lower bound in (III.218) gives dim Cw > 0, and the second condition
+of (III.234), with αram < 1, gives dram
+                                     w   ≥ (1 − αram ) dim Cw > 0. So (H11) follows from (III.218)
+and (III.234), which the status of (H8) uses in any case. (That µ(Λgl                 gl
+                                                                         w ) ≤ µmax (Λw ) is part of
+Definition M2; in the source it is a separate clause.)
+
+Remarks. (1) The Hypotheses speak of real numbers attached to the data: slopes, heights, logarithms
+of primes. The deduction of (M) from them is arithmetic of real numbers. The lattices themselves
+213 Hypothesis (H12) (supply on windows; assumed here, from the Lean development).
+There are real numbers Cabs ≥ 0, eL ≥ 0 and ε1 with 0 < ε1 ≤ 52  1
+                                                                   , and for every ε with 0 < ε < ε1
+there are real numbers K ≥ 0, CH ≥ 0, eK ≥ 0 and J ≥ 1, such that the following holds. For every
+real number y there is a real number Z ≥ y such that for every real x with Z ≤ x ≤ Z 3/2 there exist
+ (a) a real number Y with x1/J ≤ Y ≤ x;
+ (b) primes q and d that have the properties (a), (b), (c) and (e) of Theorem III.1.1 for M = 1, for
+     this ε and for this Y , and the property (d) of that theorem for M = 1 at all y ′ with Y ≤ y ′ ≤ x:
+     for χ = χq , χd and χq χd ,
+
+                                                       L′
+                 |Gχ (y ′ )| ≤ y ′ 1/2+ε/2   and          (1, χ) ≤ 4 log y ′    (Y ≤ y ′ ≤ x);        (III.362)
+                                                       L
+
+
+                                                        213
+ (c) data of the construction of §III.10 for this ε, this x and these q, d: an integer n = 2e with
+     e ≥ 2 and x2+8ε ≤ n ≤ 2x2+8ε ; the field E and the group H of order n formed with q, d and n
+     (§III.10, §1); and for every translate u ∈ H the objects listed at the start of §4. The numbers
+     b, m, k, the sets T and T2 , and the orders at are the same for all u; the set T2 is regarded as
+     a set of columns, that is, as a subset of H;
+ (d) such that (H0)–(H11) hold for every u ∈ H, with these Cabs , eL , CH , eK and with constants
+     c1 , . . . , c7 ≤ K;
+ (e) and such that b = exp(xε ); at > 0 and |at /b − x| ≤ 1 for t ∈ T ; m ≥ x1/2−ε and k ≤ n2 x1/2−ε ;
+     and, for every u ∈ H and every lift j, b ≤ wu,j (1, s) ≤ b (1 + 1/(nx2 )) for s ∈ uT2 , and
+     at /wu,j (v, s) ≥ 13 exp(xε/3 ) for every other cell (v, s) and every t ∈ T .
+How to read the quantifiers. The numbers Cabs , eL , ε1 come first and depend on nothing. The
+numbers K, CH , eK , J may depend on ε. None of these depends on x, on the translate or on the
+word. The interval [Z, Z 3/2 ] depends on ε and y. Everything in (a)–(e) may depend on x: the scale
+Y , the primes, n, the field and all the data. The Hypothesis does not say that two points x of one
+interval have the same primes. It does not say that Y is the left end Z of the interval.
+What “data” means. In (c), “data” means the objects listed at the start of §4, with the types stated
+there, together with the sets T, T2 ⊂ H, the numbers b, m, k, at (t ∈ T ) and the weights wu,j on
+the 2n cells. Corollary M11 uses no property of them beyond (H0)–(H11) and (e). In the source
+they are the objects of §III.10, whose existence is Hypotheses O12, O19–O21, O23–O25 there; so
+(H12) contains those hypotheses for the scales of its intervals, to the extent that the dictionary of
+§III.10, §7 is correct.
+What each clause is for. Clauses (c) and (d) are the hypotheses of Corollary M9 at the scale x;
+they give (M) at x. Clause (d) is for every u ∈ H; so the translates over which (M) takes its mean
+form the whole group H, which contains T2 . Clause (b) gives Estimate B at x (take y ′ = x in (d)
+of Theorem III.1.1), and it gives the hypotheses of Theorem III.2.1, hence Estimate C at x. Clause
+(a) ties the sizes of q and d to x. The proof of Corollary M11 uses only 1 ≤ Y ≤ x from it; the
+lower bound x1/J ≤ Y , and with it J, is what makes clause (b) available from Theorem III.1.1
+(Status, (1)), and is not used in the proof. Likewise the lower bounds in (a), (b) of Theorem III.1.1,
+the small primes in (c) and the height of the region in (e) are not used there. Clause (e) lists
+the conditions under which Part II, §4–5 pass from (M) to Estimate A: the shape of the weights
+(Part II, §4.2), and the two inequalities that make the four errors of (M) at most x1/2+ε .
+Status. Assumed here, from the Lean development; §9, Remark (7) gives the statements of the
+source to which it corresponds. Three remarks say how much of it the paper supplies.
+    (1) The pair. Theorem III.1.1, proved in §III.1 from four cited theorems, gives for M = 1, A = J
+and every large Y a pair q, d with the properties (a)–(e) there. Such a pair has the properties of
+clause (b) for every x with Y ≤ x ≤ Y J , because then [Y, x] ⊂ [Y, Y J ]. And Y ≤ x ≤ Y J is clause
+(a).
+
+
+
+
+
+
+Success
+
+
+
+
+
+$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+print(pp[218].split('Hypotheses')[0][-700:]);print(pp[219][:4800]);print(pp[221][-2800:]);print(pp[222][:1800]);sh('MeanBoundSecondForm',90,175);sh('QuotientSlopeBoundsWith',27,45);sh(Q,260,285)
+'@ | python -
+exit $LASTEXITCODE
+
+
+H3) is Compl3 (RecBridge.le
+                                        an:315)
+(H4), (H5)                              Count5 (QS:27),       Data.Slopes (MB:139);          Count_at,            yes
+                                        SlopesM_at (QLDC:167, 173)
+(H6)(ii),(iii)                          QuotientSlopeBoundsWith, Lo5 (QS:19, 15); SlopesN_at, LoU                 yes;   Lo5,
+                                        (QLDC:181, 177)                                                           LoU ref (a),
+                                                                                                                  (c)
+
+
+
+
+                                                            219
+
+This section                          Declarations in the source (file:line)                                     Dep.
+Lemma M10                             the first clause of SlopesN_at, proved by slopesN_at_of                    yes, ref or ?:
+                                      (TopDensityNGeSixteen.lean:1529) from Places_at (:1516)                    see left
+                                      with claimHigh_valid (W e i g h t e d S l o pe E x c e s s D e c o m p o
+                                      sition.lean:191); its hypothesis HypHigh (ClaimGaFre
+                                      e.lean:94) is filled in places_at_of (PlacesP.lean:297)
+                                      by muMax_le (:171). Statement (c) is the third clause of
+                                      LocalQuadraticParts.adm26 (LocalQuadraticParts.le
+                                      an:626). The inclusion Λdiv ⊂ Λsrc is the fourth clause of adm26
+                                      at the level places and a clause of NuDef elsewhere. In the lists
+                                      as used: places_at_of and adm26. Ref (d): slopesN_at_of.
+                                      In no list: muMax_le, claimHigh_valid, Places_at, HypHigh
+(H6)(i); (8b)                         clauses 1 and 6 of LinkDIV_at; (8b) and (H1) are consecutive               yes
+                                      parts of WordFacts (RecBridge.lean:128)
+(H7)                                  LossBounds (QS:34),          Data.LoP (MB:105);              Loss_at       yes;
+                                      (QLDC:203); proved by stLoss7                                              Data.LoP
+                                                                                                                 ref (a)
+(H8)                                  Data.SlopeIneq (MB:151); Frame_at, FrameF (QLDC:188,                       yes
+                                      258); proved by frame_at_of (TopDensityNGeSixteen.lea
+                                      n:538) from TheoremF (HN, StatementFrameF.lean:26)
+(H9), (H10), (H11)                    Data.HHBound, Data.FParams (MB:158, 161); clause 2 of                      yes;     the
+                                      LinkDIV_at, from FrameNumberBound (LocalQuadraticPart                      third ref (e)
+                                      s.lean:363); Lat_at (QLDC:185); LinkIRR (GTI:55)
+(H1)–(H11) together                   SizeData2 (SC:17), the conjunction of eleven clauses                       yes
+Lemma M3; (C6)                        SlopeIneq, MuChar, HNStep, HNSlopes (HN, Statement.le                      yes
+                                      an:91, 54, 64, 74); htMap, muDef (HN, StatementPl.lean:60,
+                                      64)
+Proposition M4                        TheoremFSharp, TheoremF (HN, StatementFrameF.lean:64,                      yes
+                                      26), with FrameLA1 (:11) for the rank bound and LayerCake
+                                      for Step 4
+Lemma M5                              key_identity (WM:170), key_identity5 (LC:105)                              yes
+Lemma M6                              phi_bound (WM:81)                                                          yes
+Proposition M7                        each_unit_bound_statement (LC:175), with s_lower5,                         yes
+                                      Vvar_bound5,          u_function_le_mean,          Ga_bound5,
+                                      weighted_mean_lower_bound_le (LC:50–173); the error
+                                      is ErrX5at (QS:45)
+Lemma M8                              errX5at_le (PC:613), core_ineq (SubThreeMulLogTwoLe.le                     yes; the last
+                                      an:13); CErr, KBig, LargeX (EF:19, 21, 52)                                 three ref (a)
+Theorem M, (III.357)                  Deduction.ch_top (ChTop:37)                                                yes
+(III.358)                             the division is in the proof of proposition_size_bound; not                yes
+                                      read
+the use of (M): the sum over u        ch_core (ChCore:343), sum_Th (ChCore:56); core_gm                          yes
+                                      (CoreGm:12); CoreAtH (CoreAtH:29)
+the Hypotheses hold for the records   linkCore (LSS:38): from fourteen statements on the family                  yes
+                                      it gives ChainTied; then tiedCore_of_chainTied (LGm:13).
+                                      The fourteen statements: linkGLOBAL7_items (LinkMin.le
+                                      an:693). The whole: FamilyClassConnected (DivinNOfHypV
+          
+tisfy EAtH (Level.cyc 1) has A0 equal to the whole group. (Statements only.) The source
+also has frames whose group has order c · 2e and whose A0 has index o > 1 (fieldChi; core_gm
+then has a weight (3o + 1)−1 ). They serve the Dirichlet characters.
+     (6) The bound for denominators. (III.259) is DIVinN_at (GTI:59); its left side, etaSum, is that
+of LinkN_at (GTI:40). The theorem inEta_num (SumLeEtaSumNum.lean:60) turns DIVinN_at into
+a row of the package from which the size bound is proved. The clause that §III.7 calls (S8) is a
+field of the structure ArithAt (ConstantGeTwentyEightAlt.lean:15); its left side is a sum over j
+of terms that contain etaSumBound (LinkDef.lean:93), which is bdj plus two logarithms. That
+bd is, on the route, the bound of DIVinN_at was not followed. divinN_of_hypV is in the lists as
+used. For (H9): clause 2 of LinkDIV_at is supplied from FrameNumberBound, and the statement
+that yields FrameNumberBoundFamily has DIVinN and ComplementTwoFamily, the source of (H2),
+among its hypotheses (FinalAll.lean:34). Statements read; proofs not read.
+    (7) The scales and the primes: the statements behind (H12). A family (FamCore) has a set Win of
+scales. FamilyClassConnected reads: there are eD , eL , ε1 > 0 such that for every 0 < ε < ε1 there
+is a family and there are K, cHH , eK , CL , x0 with ChainTied, that is, the Hypotheses, at every
+x ≥ x0 in Win. So eD = Cabs , eL and ε1 are chosen before ε, and K, CH , eK after it; this is the order
+of the quantifiers in (H12). ChebyshevInequalityAtWindowScale requires in addition HasWindows
+Win la: for every y there is Z ≥ y with [Z, Z la ] ⊂ Win; zeroFreeAll_of_topG is applied with la = 32
+(EveryCharacter.lean:10). On the route the set Win is {x : ∃ Y, q, d, e, WinDatum ψ ε J c x Y q d e}
+(supplyOfAdmOf.lean:56). WinDatum has the fields x1/J ≤ Y , Y ≤ x, good : PairGood ψ.N ε
+Y x q d, the two bounds for c · 2e , and the bound for Galois cohomology for the field. PairGood M
+ε Y X q d has four fields: pair (parts (a)–(c) of Theorem III.1.1 at Y ), coprime, bounds (part
+(d) for all y with Y ≤ y ≤ X) and boxes (part (e)). So the condition on (q, d) at x contains
+Estimate B on [Y, x], in particular at x. winPairs states: there is J ≥ 1 such that for every y there
+is Z ≥ y such that for every x ∈ [Z, Z 3/2 ] there are Y , q, d, e with WinDatum; J is found after ε.
+We read its proof: the pair comes from PairEx with A = J at the scale X 1/J , once for the window,
+and Y = X 1/J for every x of the window. We read the proof of supplyOfAdmOf from line 56 on:
+the frame and the field at x are produced by fieldChi from the q, d of the WinDatum of x (its
+conclusions H.q = q, H.d = d), and the character bounds required of the data (the fields bdG, bdL
+
+
+                                                 222
+
+of EAtH) are obtained by boundedTw from PairGood, by taking bounds at y = x. So the primes of
+the data at x are the primes of the WinDatum of x. In windowInequality_of_artinInputs (proof
+read) the character estimates and the bound of (M) (CoreAtH) are taken for the same x and the
+same record, hence the same q, d. FamCore has fields q_eq, d_eq: all records at one x have the
+same primes; nothing ties the primes of different x. The conclusion is G(x) ≤ x1/2+(eD +eL +7)ε for
+x ≥ x1 in Win (ChebyshevInequalityOnWindows). Not read: how the source’s form of Estimate C
+(ThinH) is supplied from boxes; the proof of core_gm, which is the source’s form of Part II, §5;
+the other parts of EAtH; the first 55 lines of the proof of supplyOfAdmOf. Differences from (H12).
+(H12) is stated for the objects of §III.10; the source speaks of its records. The source has ψ.N in
+the place of M = 1 and c · 2e in the place of 2e ; for ζ, ψ is trivial and ψ.N = 1. For ζ, c = 1: the
+number c comes from ordAny (OrdAny.lean:86), which gives 1 ≤ c ≤ |⟨ψ⟩|, and |⟨ψ⟩| = 1 for the
+trivial character. (The statement of fieldChi keeps only 1 ≤ c; the bound is in its proof.) Clause
+(e) of (H12) is not one statement of the source; it was checked against the table of O23 (§7, Status,
+(3)).
+    What remains. (i) Proofs of the Hypotheses. The table of §1 gives the status of each. For
+(H2), (H3), (H5), (H9) and the third part of (H4) no section of this paper gives a proof or a
+reduction, and the lower bound of (H4) is quoted in Part II in shape only, the size of its allowance
+being assumed. In the source (H2), (H3) and (H9) are clauses of the statement that contains (H1).
+For (H12) see §7: it is assumed, and the paper supplies only the existence of the primes. (ii) That
+the abstract numbers of §4 are the slopes, hei
+MeanBoundSecondForm
+90 def Ee (u0 : U0) (u : W u0) : ℝ := ∑ j, D.EeJ u0 u j
+91 
+92 def s (u0 : U0) : ℝ := wmean (D.d u0) (fun u => D.muN u0 u - D.h u0 u)
+93 
+94 def uF (u0 : U0) : ℝ :=
+95   (Finset.univ.sup' Finset.univ_nonempty (fun u : W u0 => D.muMaxN u0 u - D.h u0 u)) - D.s u0
+96 
+97 def Tterm (u0 : U0) (u : W u0) : ℝ :=
+98   (4 * (f : ℝ) / D.T u0 u) *
+99     (|D.Ga u0| + D.Ta u0 + D.muMaxM u0 u - D.muM u0 u + 2 * (f : ℝ) * Real.log (D.T u0 u))
+100 
+101 def Lo (u0 : U0) (u : W u0) : ℝ :=
+102   C.cSl1 * D.IO u0 + C.cSl1 * D.nT * (m : ℝ) * (D.a / D.k + D.b') * Real.log (D.T u0 u)
+103     + C.cSl1 * (m : ℝ) * D.B0 + D.Tterm u0 u
+104 
+105 def LoP : ℝ := C.cLoss * D.nT * (m : ℝ) * D.b * D.x ^ (C.eLoss * D.ε)
+106 
+107 def Main (u0 : U0) : ℝ :=
+108   ∑ j : Fin m, ∑ t, D.aT t * (Real.log (D.aT t) - 1 - D.gam + D.LpL
+109     - (1 / (f : ℝ)) * ∑ ρ : Fin f, Real.log (D.w u0 j ρ))
+110 
+111 def HidaSetting : Prop :=
+112   0 < D.x ∧ 0 < D.b ∧ 0 ≤ D.a ∧ 0 ≤ D.b' ∧ 0 < D.k ∧ 0 < D.v ∧ 0 < f ∧
+113   (∀ t, 0 ≤ D.aT t) ∧ (∀ u0 j ρ, 0 < D.w u0 j ρ) ∧
+114   (∀ u0 (u : W u0), 0 < D.d u0 u) ∧ (∀ u0 (u : W u0), 0 < D.T u0 u) ∧
+115   (∀ u0 (u : W u0), D.muN u0 u ≤ D.muMaxN u0 u) ∧
+116   0 ≤ C.cSl1 ∧ D.delBar < 1 ∧ 0 ≤ D.etaBar ∧ 0 ≤ D.eBar ∧ D.eBar ≤ 1 / 4
+117 
+118 def DIV : Prop :=
+119   ∀ u0 (u : W u0), D.muCC u0 + D.h u0 u - D.Fo u0 ≤
+120     (∑ t, ((m : ℝ) * (ph (D.aT t) - D.aT t * D.logOm) - D.aT t * Real.log (D.T u0 u)))
+121       + C.cDiv * D.nT * D.a * D.La + C.cDiv * (m : ℝ) * (D.B0 + D.Nc) * D.x ^ (C.eDiv * D.ε)
+122 
+123 def EComp : Prop :=
+124   ∀ u0 (u : W u0) (j : Fin m), |D.EeJ u0 u j - D.sumA * D.lg| ≤ C.cE * D.B0
+125 
+126 def HComp : Prop :=
+127   ∀ u0 (u u' : W u0),
+128     |(D.h u0 u + ∑ t, D.aT t * Real.log (D.T u0 u)) - (D.h u0 u' + ∑ t, D.aT t * Real.log (D.T u0 u'))|
+129       ≤ C.cH * (D.nT * D.a * D.La + (m : ℝ) * D.B0)
+130 
+131 def Count : Prop :=
+132   ∀ u0 (u : W u0),
+133     ((∑ j : Fin m, (1 / (f : ℝ)) * ∑ ρ : Fin f, Real.log (D.w u0 j ρ * D.v / π)) + (m : ℝ) * D.lg
+134         - C.cCount * (D.L + (m : ℝ) ^ 2 * D.L / D.k) - 2 * D.logGam / ((f : ℝ) * D.k)
+135         ≤ Real.log (D.T u0 u)) ∧
+136     Real.log (D.T u0 u) ≤ C.cCount * (m : ℝ) * D.L ∧
+137     ∀ u' : W u0, |Real.log (D.T u0 u) - Real.log (D.T u0 u')| ≤ C.cCount * Real.log D.k
+138 
+139 def Slopes : Prop :=
+140   ∀ u0 (u : W u0), -(C.cSlope * D.nT * D.a * D.La * (1 + (m : ℝ) / D.k)) ≤ D.muM u0 u ∧
+141     D.muMaxM u0 u ≤ C.cSlope * D.nT * D.a * D.La
+142 
+143 def SlopesN : Prop :=
+144   ∀ u0 (u : W u0),
+145     D.muMaxN u0 u ≤ D.muMaxM u0 u + D.Ga u0 + D.Fo u0 - D.Ee u0 u + C.cSl1 * (m : ℝ) * D.B0 ∧
+146     D.muM u0 u + D.Ga u0 + D.Fo u0 - D.Ee u0 u - D.Lo C u0 u ≤ D.muN u0 u
+147 
+148 def Losses : Prop :=
+149   umean (fun u0 => D.ASK u0 - D.Ga u0) ≤ D.LoP C ∧ umean D.IO ≤ D.LoP C
+150 
+151 def SlopeIneq : Prop :=
+152   ∀ u0, 0 ≤ D.del u0 → D.del u0 < 1 → 0 ≤ D.η u0 → 0 ≤ D.e u0 → D.e u0 ≤ 1 / 4 →
+153     D.s u0 - D.muMinCC u0 ≤ D.HH u0 → 0 < D.HH u0 →
+154     D.s u0 - Real.log (Fintype.card (W u0) : ℝ)
+155       - (1 - D.del u0)⁻¹ * (4 * D.uF u0 * Real.log (1 + D.HH u0 / D.uF u0)
+156           + (D.η u0 + 4 * Real.sqrt (D.e u0)) * D.HH u0) ≤ D.muCC u0
+157 
+158 def HHBound : Prop :=
+159   ∀ u0, D.s u0 - D.muMinCC u0 ≤ D.HH u0 ∧ 0 < D.HH u0 ∧ D.HH u0 ≤ D.x ^ C.cHH * D.b
+160 
+161 def FParams : Prop :=
+162   ∀ u0, 0 ≤ D.del u0 ∧ D.del u0 ≤ D.delBar ∧ 0 ≤ D.η u0 ∧ D.η u0 ≤ D.etaBar ∧
+163     0 ≤ D.e u0 ∧ D.e u0 ≤ D.eBar
+164 
+165 def Vvar : ℝ :=
+166   2 * (m : ℝ) * C.cE * D.B0 + C.cH * (D.nT * D.a * D.La + (m : ℝ) * D.B0)
+167     + D.sumA * (C.cCount * Real.log D.k)
+168 
+169 def MLo : ℝ :=
+170   C.cSl1 * D.LoP C + C.cSl1 * D.nT * (m : ℝ) * (D.a / D.k + D.b') * (C.cCount * (m : ℝ) * D.L)
+171     + C.cSl1 * (m : ℝ) * D.B0 + umean (fun u0 => wmean (D.d u0) (D.Tterm u0))
+172 
+173 def UBar : ℝ :=
+174   C.cSlope * D.nT * D.a * D.La * (2 + (m : ℝ) / D.k) + D.Vvar C + C.cSl1 * (m : ℝ) * D.B0 + D.MLo C
+175 
+QuotientSlopeBoundsWith
+27 def Count5 : Prop :=
+28   ∀ u0 (u : W u0),
+29     ((∑ j : Fin m, (1 / (f : ℝ)) * ∑ ρ : Fin f, Real.log (D.w u0 j ρ * D.v / π)) + (m : ℝ) * D.lg
+30         - C.cCount * (D.La + (m : ℝ) ^ 2 * D.La / D.k) ≤ Real.log (D.T u0 u)) ∧
+31     Real.log (D.T u0 u) ≤ C.cCount * (m : ℝ) * D.L ∧
+32     ∀ u' : W u0, |Real.log (D.T u0 u) - Real.log (D.T u0 u')| ≤ C.cCount * Real.log D.k
+33 
+34 def LossBounds : Prop :=
+35   ∀ u0, D.ASK u0 - D.Ga u0 ≤ D.LoP C ∧ D.IO u0 ≤ D.LoP C
+36 
+37 def MLo5 : ℝ :=
+38   C.cSl1 * D.LoP C + C.cSl1 * D.nT * (m : ℝ) * (D.a / D.k + D.b') * (C.cCount * (m : ℝ) * D.L)
+39     + C.cSl1 * Xpp + 1
+40 
+41 def UBar5 : ℝ :=
+42   C.cSlope * D.nT * D.a * D.La * (2 + (m : ℝ) / D.k) + D.Vvar C + C.cSl1 * (m : ℝ) * D.B0
+43     + MLo5 D C Xpp
+44 
+45 def ErrX5at (u0 : U0) : ℝ :=
+QuadraticLogDerivCongr
+260     (etaB + 4 * Real.sqrt eB) * x ^ CH ≤ 6 ∧ ∀ i : Fm.Ix x, Frame_at (Fm.D x i) etaB eB
+261 
+262 def LossF (eL : ℝ) : Prop :=
+263   ∃ C x0 : ℝ, 0 ≤ C ∧ ∀ x ≥ x0, x ∈ Fm.Win → ∃ (i0 : Fm.Ix x) (av bv : ℕ → ℤ),
+264     (∀ t ∈ Fm.TTn x, aWin (Fm.L x i0) (av t) ∧ (Fm.L x i0).sc.b' ≤ (bv t : ℝ) ∧ (bv t : ℝ) ≤ Fm.bTop x) ∧
+265     ∀ i : Fm.Ix x, (∀ t : (Fm.D x i).host.TT,
+266         (Fm.L x i).aT t = av (t : (Fm.D x i).R.A).val ∧
+267         (Fm.L x i).bT t = bv (t : (Fm.D x i).R.A).val) → Loss_at (Fm.L x i) C eL
+268 
+269 def CharF : Prop :=
+270   ∀ c6 C5 : ℝ, ∃ x0 : ℝ, ∀ x ≥ x0, ∀ i : Fm.Ix x, Char_at (Fm.L x i) x eps c6 C5
+271 
+272 def WinF : Prop :=
+273   ∀ c6 : ℝ, 0 < c6 → ∃ eK x0 : ℝ, 0 ≤ eK ∧ ∀ x ≥ x0, ∀ i : Fm.Ix x, Win_at (Fm.L x i) eK c6
+274 
+275 end Family
+276 
+277 end Formalism.MainNotions.Lnk
+278 
+279 end
+280 
+281 noncomputable section
+282 
+283 namespace Formalism.MainNotions.Lnk
+284 
+285 open Formalism.BasicNotions Formalism.D5 Formalism.FrobeniusOrbits Formalism.LFunctionChainParameters.LHost Formalism.RankGapBounds.WeightedMeanData Formalism.LFunctionChainParameters.WeightedSlopeBounds Formalism.LFunctionChainParameters.characterSumData Formalism.LFunctionChainParameters.ThickSetMeanBounds
+
+
+
+
+
+
+Success
+
+
+
+
+
+Command failed ($OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …)
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+print(pp[221][-1800:]);print(pp[222][:1050]);print(pp[202][-1830:]);print(pp[203][:820]);sh(Q,203,245);sh('MeanBoundSecondForm',103,117);sh('ErrorFormsWeakWindowsFalse',28,51);sh('SChain',17,62);sh('TieGlobal',97,118);sh(G,55,59);
+'@ | python -
+exit $LASTEXITCODE
+
+
+(H2),
+among its hypotheses (FinalAll.lean:34). Statements read; proofs not read.
+    (7) The scales and the primes: the statements behind (H12). A family (FamCore) has a set Win of
+scales. FamilyClassConnected reads: there are eD , eL , ε1 > 0 such that for every 0 < ε < ε1 there
+is a family and there are K, cHH , eK , CL , x0 with ChainTied, that is, the Hypotheses, at every
+x ≥ x0 in Win. So eD = Cabs , eL and ε1 are chosen before ε, and K, CH , eK after it; this is the order
+of the quantifiers in (H12). ChebyshevInequalityAtWindowScale requires in addition HasWindows
+Win la: for every y there is Z ≥ y with [Z, Z la ] ⊂ Win; zeroFreeAll_of_topG is applied with la = 32
+(EveryCharacter.lean:10). On the route the set Win is {x : ∃ Y, q, d, e, WinDatum ψ ε J c x Y q d e}
+(supplyOfAdmOf.lean:56). WinDatum has the fields x1/J ≤ Y , Y ≤ x, good : PairGood ψ.N ε
+Y x q d, the two bounds for c · 2e , and the bound for Galois cohomology for the field. PairGood M
+ε Y X q d has four fields: pair (parts (a)–(c) of Theorem III.1.1 at Y ), coprime, bounds (part
+(d) for all y with Y ≤ y ≤ X) and boxes (part (e)). So the condition on (q, d) at x contains
+Estimate B on [Y, x], in particular at x. winPairs states: there is J ≥ 1 such that for every y there
+is Z ≥ y such that for every x ∈ [Z, Z 3/2 ] there are Y , q, d, e with WinDatum; J is found after ε.
+We read its proof: the pair comes from PairEx with A = J at the scale X 1/J , once for the window,
+and Y = X 1/J for every x of the window. We read the proof of supplyOfAdmOf from line 56 on:
+the frame and the field at x are produced by fieldChi from the q, d of the WinDatum of x (its
+conclusions H.q = q, H.d = d), and the character bounds required of the data (the fields bdG, bdL
+
+
+                                                 222
+
+of EAtH) are obtained by boundedTw from PairGood, by taking bounds at y = x. So the primes of
+the data at x are the primes of the WinDatum of x. In windowInequality_of_artinInputs (proof
+read) the character estimates and the bound of (M) (CoreAtH) are taken for the same x and the
+same record, hence the same q, d. FamCore has fields q_eq, d_eq: all records at one x have the
+same primes; nothing ties the primes of different x. The conclusion is G(x) ≤ x1/2+(eD +eL +7)ε for
+x ≥ x1 in Win (ChebyshevInequalityOnWindows). Not read: how the source’s form of Estimate C
+(ThinH) is supplied from boxes; the proof of core_gm, which is the source’s form of Part II, §5;
+the other parts of EAtH; the first 55 lines of the proof of supplyOfAdmOf. Differences from (H12).
+(H12) is stated for the objects of §III.10; the source speaks of its records. The source has ψ.N in
+the place of M = 1 and c · 2e in the place of 2e ; for ζ, ψ is trivial and ψ.N = 1. For ζ, c = 1: the
+number c comes from ordAny (OrdAny.lean:86), which gives 1 ≤ c ≤ |⟨ψ⟩|, and |⟨ψ⟩| = 
+ its slope is called µ0,α in (III.118)). And real
+   numbers Eerr,j (w), 1 ≤ j ≤ m, with sum Eerr (w), as in (III.106).
+ • The target R∨ , a lattice with norms in HomL0 (U ′ , L0 ), of rank Dr . Write µCC = µ(R∨ ) and
+    CC = µmin (R ).
+   µmin         ∨
+
+ • Real numbers Gtop , F0 as in (III.106), and Iu =       w λw ew io(w) ≥ 0, the sum over the places
+                                                       P
+
+   w of L0 of the numbers of §III.6.
+ • A real number δp , as in §III.8.
+The number hw . The proofs of this section use only that hw is a real number satisfying the
+Hypotheses. In the source it is one explicit number: in the notation of §III.7 it is H − ⟨log κ⟩, the
+h of Theorem III.7.1, formed for the word w. The Hypotheses (H1), (H3), (H9) and the statement
+(8b) below all speak of this same number, and (H3) has content only for it.
+     Put ℓg = log(g0 g1 ), and let ΩE > 0 be the number with log ΩE = γ + log(2π/rdE ) − cχd , as in
+(II.54) of Part II. In this section ΩE is this number and nothing else; that it is a period is part of
+the proof of (H1), in §III.7. Let su and spu be the numbers (III.315) for Λw = Λgl   w and the given
+hw ; so su is the inner mean (III.304). Both are formed from means over the words with the weights
+dw . These means are defined because the set of words is not empty, by (H0)(g), and every dw is
+positive, by (H11). Let c1 , . . . , c7 ≥ 0, Cabs ≥ 0, eL ≥ 0, CH ≥ 0, eK ≥ 0 be real numbers. They
+are the constants of the Hypotheses. In the source they do not depend on x, on u or on the word.
+
+Hypothesis (H0) (sizes). The numbers m ≥ 1 and n ≥ 1 are integers, T is not empty, and
+ (a) x ≥ 1, 0 < ε ≤ 1, b ≥ 1, a = xb, log x ≤ xε ;
+ (b) m ≤ x1/2+ε/2 ,   xm ≤ k,    3 ≤ k ≤ a,   k ≤ xeK ;
+ (c) 0 ≤ at ≤ 2a for t ∈ T ;
+
+
+                                                 203
+
+ (d) 0 ≤ La ≤ 2xε ,    b′ ≥ 0,   k b′ ≤ a,   0 ≤ X ′′ ≤ a;
+ (e) wu,j (v, s) > 0 for all cells and lifts, and rdE > 0;
+ (f) B0 = 2n m b xε and Nc = |T2 | k b x2ε /n2 ;
+ (g) 1 ≤ |Wu | and log |Wu | ≤ (k − 3) log 2;
+ (h) |T2 | ≥ x−ε n and |T | ≥ 21 x−ε/8 n.
+Status. For the parameters of Hypothesis O23 (the table of §III.10, §3) and x large in terms of ε, the
+first sentence, (a)–(f), the second half of (g) and (h) hold; this is a direct check from the conditions
+of that table. For instance k ≤ 2x9/2+10ε ≤ a and kb′ = ka/X ′ ≤ a because X ′ = exp(xε/3 );
+X ′′ = xnX ′ ≤ xb; La = log(xb rdE ) ≤ 2xε because log b = xε and log rdE ≤ xε/2 by (III.282) and
+the sizes of q, d; at ≤ a(1 + 1/(kx13 )); the weights are at least w′′ > 0; and |Wu | ≤ 2k−3 . Among
+these conditions the one that needs the largest x is kb′ ≤ a, tha
+QuadraticLogDerivCongr
+203 def Loss_at (C eL : ℝ) : Prop :=
+204   IOsum L ≤ C * D.host.TT.card * D.R.m * L.sc.b * L.sc.x ^ (eL * L.sc.eps) ∧
+205   ∀ (e : Formalism.HC.Frame) (m : ℕ) (AD : ArithData e.A) (N : ℕ) (TT : Finset e.A) (a : e.A → ℝ)
+206     (w : Fin m → E0 × e.A → ℝ), Reads L e m TT a w → HEq AD (arithOf D.host.toHostRaw) →
+207     (∀ j t ρ, t ∈ TT → InPhi ρ → a t / w j ρ ≤ N) →
+208     (∑ t ∈ TT, ∑ j : Fin m, ASK AD N (a t) t (w j)) - L.Ga ≤
+209       C * D.host.TT.card * D.R.m * L.sc.b * L.sc.x ^ (eL * L.sc.eps)
+210 
+211 def Nodes_at : Prop :=
+212   ∀ (e : Formalism.HC.Frame) (m : ℕ) (T2 : Finset e.A) (u0 : e.A) (w : Fin m → E0 × e.A → ℝ), D.R.toFrame = e → D.R.m = m →
+213     (∀ h, h ∈ T2 ↔ ∃ s ∈ D.host.T2, h = (e).dig s) → D.host.u0.val = hval e u0 →
+214     (∀ (j : Fin m) (g : E0 × e.A) (τ : D.what₂.Tau),
+215       gcode _ ((D.eTau τ : D.R.Psi) : D.R.GG) = mcode e g → w j g = wj D (j.val + 1) τ) →
+216     (∀ j g, (¬ ∃ τ : D.what₂.Tau, gcode _ ((D.eTau τ : D.R.Psi) : D.R.GG) = mcode e g) → w j g = 1) →
+217     (∀ j ρ, InPhi ρ → 1 ≤ w j ρ) ∧
+218     (∀ j ρ, IsThickAt T2 u0 ρ → L.sc.b ≤ w j ρ ∧ w j ρ ≤ L.sc.b + L.etaSz + 1) ∧
+219     (∀ j ρ, InPhi ρ → ¬ IsThickAt T2 u0 ρ → w j ρ ≤ 2 * L.sc.b')
+220 
+221 def Char_at (x eps c6 C5 : ℝ) : Prop :=
+222   ∀ (e : Formalism.HC.Frame) (AD : ArithData e.A), D.R.toFrame = e → HEq AD (arithOf D.host.toHostRaw) →
+223     ∃ ell : AddChar (E0 × e.A) ℂ → ℂ,
+224       (∀ ψ : AddChar (E0 × e.A) ℂ, ψ ≠ 0 → ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N), χ.IsPrimitive →
+225         (∀ n : ℕ, n ≠ 0 → χ (n : ZMod N) = primVal AD ψ n) → ell ψ = GlobalTheoryTheory.logDerivativeAtOne χ) ∧
+226       L.logDerivativeAtOne = (ell chC).re ∧
+227       (ChThin_at D x eps c6 →
+228         ThinScales AD ell (Real.exp (x ^ (eps / 3))) (Real.exp (-(c6 * x ^ (eps / 8))))) ∧
+229       (ChQD_at D x eps C5 → ValuesAtX AD ell x eps C5)
+230 
+231 def Win_at (eK c6 : ℝ) : Prop :=
+232   (D.R.m : ℝ) ≤ L.sc.x ^ ((1 : ℝ) / 2 + L.sc.eps / 2) ∧ L.sc.x * D.R.m ≤ D.R.k ∧
+233   (D.R.k : ℝ) ≤ L.sc.x ^ eK ∧ (D.R.k : ℝ) ≤ L.sc.a ∧
+234   0 ≤ L.La ∧ L.La ≤ 2 * L.sc.x ^ L.sc.eps ∧
+235   D.R.k * L.sc.b' ≤ L.sc.a ∧ L.sc.X'' D.R.n ≤ L.sc.a ∧
+236   (∀ t, (L.aT t : ℝ) ≤ 2 * L.sc.a) ∧
+237   Real.log (Fintype.card D.what₂.Word : ℝ) ≤ ((D.R.k : ℝ) - 3) * Real.log 2 ∧
+238   2 * (D.R.f : ℝ) * (L.sc.x + 1) * Real.exp (-(c6 * L.sc.x ^ (L.sc.eps / 8))) ≤ 1 / L.sc.x ∧
+239   6 * (D.R.f : ℝ) * (L.sc.x + 1) * (L.etaSz + 1) ≤ L.sc.b / L.sc.x ∧
+240   L.sc.x ^ ((1 : ℝ) / 2 - L.sc.eps) ≤ D.R.m ∧
+241   (D.R.k : ℝ) ≤ (D.R.n : ℝ) ^ 2 * L.sc.x ^ ((1 : ℝ) / 2 - L.sc.eps) ∧
+242   L.sc.x ^ (-L.sc.eps) ≤ (D.host.T2.card : ℝ) / D.R.n ∧
+243   (∀ t, |(L.aT t : ℝ) / L.sc.b - L.sc.x| ≤ 1) ∧
+244   0 < D.host.v
+245 
+MeanBoundSecondForm
+103     + C.cSl1 * (m : ℝ) * D.B0 + D.Tterm u0 u
+104 
+105 def LoP : ℝ := C.cLoss * D.nT * (m : ℝ) * D.b * D.x ^ (C.eLoss * D.ε)
+106 
+107 def Main (u0 : U0) : ℝ :=
+108   ∑ j : Fin m, ∑ t, D.aT t * (Real.log (D.aT t) - 1 - D.gam + D.LpL
+109     - (1 / (f : ℝ)) * ∑ ρ : Fin f, Real.log (D.w u0 j ρ))
+110 
+111 def HidaSetting : Prop :=
+112   0 < D.x ∧ 0 < D.b ∧ 0 ≤ D.a ∧ 0 ≤ D.b' ∧ 0 < D.k ∧ 0 < D.v ∧ 0 < f ∧
+113   (∀ t, 0 ≤ D.aT t) ∧ (∀ u0 j ρ, 0 < D.w u0 j ρ) ∧
+114   (∀ u0 (u : W u0), 0 < D.d u0 u) ∧ (∀ u0 (u : W u0), 0 < D.T u0 u) ∧
+115   (∀ u0 (u : W u0), D.muN u0 u ≤ D.muMaxN u0 u) ∧
+116   0 ≤ C.cSl1 ∧ D.delBar < 1 ∧ 0 ≤ D.etaBar ∧ 0 ≤ D.eBar ∧ D.eBar ≤ 1 / 4
+117 
+ErrorFormsWeakWindowsFalse
+28 def ErrWindows0 (D : Data U0 W Top m f) (C : Consts) (Xpp eK K : ℝ) : Prop :=
+29   1 ≤ D.x ∧ 0 < D.ε ∧ D.ε ≤ 1 ∧
+30   1 ≤ D.b ∧ D.x * D.b ≤ D.a ∧
+31   1 ≤ D.nT ∧
+32   (m : ℝ) ≤ D.x ^ ((1 : ℝ) / 2 + D.ε / 2) ∧ D.x * m ≤ D.k ∧
+33   0 ≤ eK ∧ 1 ≤ D.k ∧ D.k ≤ D.x ^ eK ∧ D.k ≤ D.a ∧
+34   0 ≤ D.L ∧ D.L ≤ 2 * D.x ^ D.ε ∧ 0 ≤ D.La ∧ D.La ≤ 2 * D.x ^ D.ε ∧
+35   0 ≤ D.b' ∧ D.k * D.b' ≤ D.a ∧
+36   0 ≤ Xpp ∧ Xpp ≤ D.a ∧
+37   (∀ t, 0 ≤ D.aT t ∧ D.aT t ≤ 2 * D.a) ∧
+38   0 ≤ D.B0 ∧ 0 ≤ D.Nc ∧
+39   (∀ u0, Real.log (Fintype.card (W u0) : ℝ) ≤ (D.k - 3) * Real.log 2) ∧
+40   D.delBar ≤ 1 / 2 ∧ 0 ≤ D.etaBar ∧ 0 ≤ D.eBar ∧
+41   ConstsBound C K
+42 
+43 def ErrWindows (D : Data U0 W Top m f) (C : Consts) (Xpp eK K : ℝ) : Prop :=
+44   ErrWindows0 D C Xpp eK K ∧
+45   (D.etaBar + 4 * Real.sqrt D.eBar) * (D.x ^ C.cHH * D.b) ≤ K * D.x ^ D.ε * (D.nT * D.a)
+46 
+47 def ErrWindowsWeak (D : Data U0 W Top m f) (C : Consts) (Xpp eK K : ℝ) : Prop :=
+48   ErrWindows0 D C Xpp eK K ∧ D.etaBar ≤ 1 ∧ D.eBar ≤ 1
+49 
+50 end
+51 
+SChain
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+  File "<stdin>", line 7, in sh
+  File "<stdin>", line 6, in ls
+  File "<stdin>", line 5, in p
+AssertionError: ('SChain', ['Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ClassCounting/SChain.lean', 'Formalism/SizeWindowBrackets/SChain.lean'])
+
+
+
+
+
+
+Exit code 1
+
+
+
+
+
+$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+sh(Q,201,209);sh('SizeWindowBrackets/SChain',17,62);sh('TieGlobal',97,119);sh(G,51,62);sh('MeanBoundSecondForm',36,56)
+for n in ns:
+ if not n.startswith(('Formalism/SharpRestriction','Formalism/SizeWindowBrackets','Development/AutomorphicArithmetic/CharacterBoxes')):continue
+ b=z.read(n)
+ if not any(k in b for k in [b'delp',b'delBar',b'MuRank',b'stLoss7']):continue
+ decl='"''"'
+ for i,l in enumerate(b.decode().splitlines(),1):
+  if re.match(r'^(?:(?:private|protected|noncomputable) )*(?:theorem|def|lemma|abbrev) ',l):decl=l.split('(')[0][:95]
+  if re.search(r'(?:delp|delBar|D\.del [^ ]+) ≤ (?:1 / 2|\(1 : ℝ\) / 2)|^(?:theorem|def) (?:[^ ]*\.)?(?:MuRank|muRank_min|stLoss7|loss_at_of|lossF_of_7)\b',l):
+   print(n.split('/')[-1],i,decl,l[:95])
+
+'@ | python -
+exit $LASTEXITCODE
+
+
+QuadraticLogDerivCongr
+201     gcode _ ((D.eTau τ : D.R.Psi) : D.R.GG) = mcode e g → w j g = wj D (j.val + 1) τ
+202 
+203 def Loss_at (C eL : ℝ) : Prop :=
+204   IOsum L ≤ C * D.host.TT.card * D.R.m * L.sc.b * L.sc.x ^ (eL * L.sc.eps) ∧
+205   ∀ (e : Formalism.HC.Frame) (m : ℕ) (AD : ArithData e.A) (N : ℕ) (TT : Finset e.A) (a : e.A → ℝ)
+206     (w : Fin m → E0 × e.A → ℝ), Reads L e m TT a w → HEq AD (arithOf D.host.toHostRaw) →
+207     (∀ j t ρ, t ∈ TT → InPhi ρ → a t / w j ρ ≤ N) →
+208     (∑ t ∈ TT, ∑ j : Fin m, ASK AD N (a t) t (w j)) - L.Ga ≤
+209       C * D.host.TT.card * D.R.m * L.sc.b * L.sc.x ^ (eL * L.sc.eps)
+SizeWindowBrackets/SChain
+17 def SizeData₂ (Dd : Data U0 W Top m f) (C : Consts) (Xpp : ℝ) : Prop :=
+18   Dd.HidaSetting C ∧ Dd.DIV C ∧ EComp5 Dd C ∧ Dd.HComp C ∧ Count5 Dd C ∧ Dd.Slopes C ∧
+19   QuotientSlopeBoundsWith Dd C Xpp ∧ LossBounds Dd C ∧ Dd.SlopeIneq ∧ Dd.HHBound C ∧ Dd.FParams
+20 
+21 end
+22 
+23 section
+24 variable {H : Type} [AddCommGroup H] [Fintype H] [DecidableEq H]
+25 
+26 def Ident {W : H → Type} {Top : Type} {m f : ℕ} (Dd : Data H W Top m f) (D : ArithData H) (N : ℕ)
+27     (ell : AddChar (E0 × H) ℂ → ℂ) (TT : Finset H) (a : H → ℝ) (w : H → Fin m → E0 × H → ℝ)
+28     (eT : Top ≃ TT) (eP : Fin f ≃ PhiSet (H := H)) : Prop :=
+29   (∀ τ, Dd.aT τ = a (eT τ)) ∧ (∀ u0 j ρ, Dd.w u0 j ρ = w u0 j (eP ρ)) ∧
+30   Dd.gam = Real.eulerMascheroniConstant ∧ Dd.LpL = (ell chC).re ∧
+31   (∀ u0, Dd.ASK u0 = ∑ t ∈ TT, ∑ j : Fin m, ASK D N (a t) t (w u0 j))
+32 
+33 def BNBounds {W : H → Type} {Top : Type} {m f : ℕ} (Dd : Data H W Top m f) (T2 : Finset H) : Prop :=
+34   Dd.B0 ≤ (2 * (Fintype.card H : ℝ)) * m * Dd.b * Dd.x ^ Dd.ε ∧
+35   Dd.Nc ≤ (T2.card : ℝ) * Dd.k * Dd.b * Dd.x ^ Dd.ε
+36     / ((Fintype.card H : ℝ) * ((Fintype.card H : ℝ) * Dd.x ^ (-Dd.ε)))
+37 
+38 def GrowthInequalitySizes {m : ℕ} (TT T2 : Finset H) (a : H → ℝ) (w : H → Fin m → E0 × H → ℝ) (N : ℕ) (x b b' η X' θ : ℝ) : Prop :=
+39   0 ≤ η ∧ 0 < X' ∧ 0 < b' ∧ b' * X' ≤ x * b ∧ 0 ≤ θ ∧
+40   (∀ t ∈ TT, |a t / b - x| ≤ 1) ∧
+41   NodeSizes T2 b b' η w ∧
+42   (∀ u0 j t ρ, t ∈ TT → InPhi ρ → a t / w u0 j ρ ≤ N)
+43 
+44 def GrowthInequalityRemainingHyps (D : ArithData H) (ell : AddChar (E0 × H) ℂ → ℂ) (N : ℕ) {m : ℕ} (TT T2 : Finset H) (a : H → ℝ)
+45     (w : H → Fin m → E0 × H → ℝ) (x ε b b' η X' θ CL : ℝ) : Prop :=
+46   GrowthInequalitySizes TT T2 a w N x b b' η X' θ ∧ ThinScales D ell X' θ ∧ ValuesAtX D ell x ε CL
+47 
+48 end
+49 
+50 def CostWindows (x f b η θ : ℝ) : Prop :=
+51   2 * f * (x + 1) * θ ≤ 1 / x ∧ 6 * f * (x + 1) * (η + 1) ≤ b / x
+52 
+53 def RestSize (ε x : ℝ) (n nT nT2 m : ℕ) (b k aE : ℝ) : Prop :=
+54   aE ≤ 2 * x * b ∧
+55   x ^ (-(ε / 8)) * n / 2 ≤ nT ∧
+56   x ^ (-ε) ≤ (nT2 : ℝ) / n ∧
+57   x ^ ((1 : ℝ) / 2 - ε) ≤ m ∧
+58   k ≤ (n : ℝ) ^ 2 * x ^ ((1 : ℝ) / 2 - ε)
+59 
+60 def ChainCore (eD eL K cHH eK CL ε x : ℝ) : Prop :=
+61   ∃ (H : Type) (_ : AddCommGroup H) (_ : Fintype H) (_ : DecidableEq H)
+62     (W : H → Type) (_ : ∀ u0, Fintype (W u0)) (_ : ∀ u0, Nonempty (W u0)) (Top : Type) (_ : Fintype Top)
+TieGlobal
+97 def ChainTied {eps : ℝ} (Fm : FamP eps) (eD eL K cHH eK CL x : ℝ) : Prop :=
+98   ∃ (i0 : Fm.Ix x) (m f : ℕ) (pt : (Fm.D x i0).R.A → Fm.Ix x) (av bv : ℕ → ℤ)
+99     (Top : Type) (_ : Fintype Top)
+100     (Dd : Data (Fm.D x i0).R.A (fun u0 => (Fm.D x (pt u0)).what₂.Word) Top m f) (C : Consts) (Xpp : ℝ)
+101     (ell : AddChar (E0 × (Fm.D x i0).R.A) ℂ → ℂ) (N : ℕ) (TT T2 : Finset (Fm.D x i0).R.A) (a : (Fm.D x i0).R.A → ℝ)
+102     (w : (Fm.D x i0).R.A → Fin m → E0 × (Fm.D x i0).R.A → ℝ) (eT : Top ≃ TT)
+103     (eP : Fin f ≃ PhiSet (H := (Fm.D x i0).R.A)) (η X' θ : ℝ),
+104     TiePts Fm x (Fm.D x i0).R.toFrame m f (Fm.D x i0).host.q (Fm.D x i0).host.d pt av bv ∧
+105     TieGlobal Fm x pt Dd Xpp η X' ∧ TieLocal Fm x pt Dd ∧
+106     TieArith Fm x pt av (arithOf (Fm.D x i0).host.toHostRaw) ell TT T2 a w ∧
+107     Dd.x = x ∧ Dd.ε = eps ∧ C.eDiv ≤ eD ∧ C.eLoss ≤ eL ∧ C.cHH ≤ cHH ∧
+108     Ident Dd (arithOf (Fm.D x i0).host.toHostRaw) N ell TT a w eT eP ∧
+109     Formalism.LFunctionChainParameters.LChain.SizeData₂ Dd C Xpp ∧
+110     ErrWindows Dd C Xpp eK K ∧
+111     BNBounds Dd T2 ∧
+112     GrowthInequalityRemainingHyps (arithOf (Fm.D x i0).host.toHostRaw) ell N TT T2 a w x eps Dd.b Dd.b' η X' θ CL ∧
+113     CostWindows x (fPl (Fm.D x i0).R.A) Dd.b η θ ∧
+114     RestSize eps x (Fintype.card (Fm.D x i0).R.A) TT.card T2.card m Dd.b Dd.k Dd.a
+115 
+116 theorem ChainTied.core_of {eps : ℝ} {Fm : FamP eps} {eD eL K cHH eK CL x : ℝ}
+117     (hF : ∀ i : Fm.Ix x, HostFacts (arithOf (Fm.D x i).host.toHostRaw))
+118     (h : ChainTied Fm eD eL K cHH eK CL x) : ChainCore eD eL K cHH eK CL eps x := by
+119   obtain ⟨i0, m, f, pt, av, bv, Top, iT, Dd, C, Xpp, ell, N, TT, T2, a, w, eT, eP, η, X', θ,
+GlobalTheoremInputs
+51 
+52 def SmallLevelRankEq {eps : ℝ} (Fm : FamP eps) : Prop :=
+53   ∃ x0 : ℝ, ∀ x ≥ x0, ∀ i : Fm.Ix x, ∀ j ∈ SizeData₂.lifts (Fm.D x i), (Fm.L x i).dZ0 j = (Fm.D x i).what₂.D0
+54 
+55 def LinkIRR {eps : ℝ} (Fm : FamP eps) : Prop :=
+56   ∃ x0 : ℝ, ∀ x ≥ x0, ∀ i : Fm.Ix x,
+57     Rows.DelpNonneg (Fm.D x i).what₂ ∧ (Fm.D x i).what₂.delp ≤ Real.exp (-(x ^ (Fm.ez / 7)))
+58 
+59 def DIVinN_at {D : D7} (L : SizeData₂ D) (j : ℕ) (C : ℝ) : Prop :=
+60   etaSum L j ≤ (D.what₂.D0 : ℝ) * (C * L.sc.x ^ L.sc.eps * (L.B0 + L.Nc))
+61 
+62 def DIVinN {eps : ℝ} (Fm : FamP eps) : Prop :=
+MeanBoundSecondForm
+36 
+37 structure Data (U0 : Type) (W : U0 → Type) (Top : Type) (m f : ℕ) where
+38   x : ℝ
+39   ε : ℝ
+40   a : ℝ
+41   b : ℝ
+42   b' : ℝ
+43   k : ℝ
+44   L : ℝ
+45   La : ℝ
+46   B0 : ℝ
+47   Nc : ℝ
+48   gam : ℝ
+49   LpL : ℝ
+50   v : ℝ
+51   lg : ℝ
+52   logGam : ℝ
+53   aT : Top → ℝ
+54   w : U0 → Fin m → Fin f → ℝ
+55   d : (u0 : U0) → W u0 → ℝ
+56   T : (u0 : U0) → W u0 → ℝ
+SumLogPrimeFactorsLe.lean 717 def MuRank {eps : ℝ}  def MuRank {eps : ℝ} (Fm : FamP eps) : Prop :=
+LinkMin.lean 665 theorem muRank_min  theorem muRank_min (Fm : FamP eps) {C0 : ℝ} (hC0 : 0 < C0) (cPr : ChosenProviso Fm C0) (hN : Nu
+LossesSmallShares.lean 308 theorem lossF_of_7  theorem lossF_of_7 (Fm : FamP eps) (h : LossesSmallShares Fm) (hW : ChosenWS Fm) : LossFS Fm 0 
+ChainLatticeSizesModelEventually.lean 357 theorem sizeConditions_of_split : HidaSettingOfHyp        by linarith [hSz.1], by linarith [show G.delBar ≤ 1 / 2 from w25], w26, w27, heB⟩
+ErrorFormsWeakWindowsFalse.lean 40 def ErrWindows0    D.delBar ≤ 1 / 2 ∧ 0 ≤ D.etaBar ∧ 0 ≤ D.eBar ∧
+ErrorFormsWeakWindowsFalse.lean 117 def TextSizes {U0 : Type} {W : U0 → Type} [∀ u0, Fintype    D.delBar ≤ 1 / 2 ∧ 0 ≤ D.etaBar ∧ 0 ≤ D.eBar ∧
+
+
+
+
+
+
+Success
+
+
+
+
+
+$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+sh('ErrorFormsWeakWindowsFalse',100,121);sh('SumLogPrimeFactorsLe',715,720);sh('QuotientSlopeBoundsWith',1,24);sh('TieGlobal',39,81);print(pp[202].split('Hypothesis (H0)')[-1]);print(pp[203][:1380]);print(pp[204].split('Hypothesis (H7)')[-1][:740]);print(pp[206][:1260])
+
+'@ | python -
+exit $LASTEXITCODE
+
+
+ErrorFormsWeakWindowsFalse
+100   ∀ ε e : ℝ, 0 < ε → ∃ x₀ : ℝ, ∀ x k n lrd : ℝ, x₀ ≤ x → 0 < k → k ≤ x ^ e → 0 < n → n ≤ x ^ e →
+101     lrd ≤ x ^ (ε / 3) →
+102     1 ≤ x ∧ 1 ≤ bTx x ε ∧ Real.log (bTx x ε) = x ^ ε ∧ Real.log (aTx x ε) + lrd ≤ 2 * x ^ ε ∧
+103     k ≤ aTx x ε ∧ 0 ≤ bpTx x ε ∧ k * bpTx x ε ≤ aTx x ε ∧
+104     0 ≤ XppTx x ε n ∧ XppTx x ε n ≤ aTx x ε
+105 
+106 def TextSizes {U0 : Type} {W : U0 → Type} [∀ u0, Fintype (W u0)] {Top : Type} [Fintype Top] {m f : ℕ}
+107     (D : Data U0 W Top m f) (C : Consts) (Xpp eK K n lrd : ℝ) : Prop :=
+108   D.b = bTx D.x D.ε ∧ D.a = aTx D.x D.ε ∧ D.b' = bpTx D.x D.ε ∧ Xpp = XppTx D.x D.ε n ∧
+109   D.L = Real.log D.b ∧ D.La = Real.log D.a + lrd ∧ 0 ≤ lrd ∧ lrd ≤ D.x ^ (D.ε / 3) ∧
+110   0 < n ∧ n ≤ D.x ^ eK ∧ D.ε ≤ 1 ∧
+111   1 ≤ D.nT ∧
+112   (m : ℝ) ≤ D.x ^ ((1 : ℝ) / 2 + D.ε / 2) ∧ D.x * m ≤ D.k ∧
+113   0 ≤ eK ∧ 1 ≤ D.k ∧ D.k ≤ D.x ^ eK ∧
+114   (∀ t, 0 ≤ D.aT t ∧ D.aT t ≤ 2 * D.a) ∧
+115   0 ≤ D.B0 ∧ 0 ≤ D.Nc ∧
+116   (∀ u0, Real.log (Fintype.card (W u0) : ℝ) ≤ (D.k - 3) * Real.log 2) ∧
+117   D.delBar ≤ 1 / 2 ∧ 0 ≤ D.etaBar ∧ 0 ≤ D.eBar ∧
+118   (D.etaBar + 4 * Real.sqrt D.eBar) * (D.x ^ C.cHH * D.b) ≤ K * D.x ^ D.ε * (D.nT * D.a) ∧
+119   ConstsBound C K
+120 
+121 def ErrorFormsEventualUnderSizeParameters : Prop :=
+SumLogPrimeFactorsLe
+715   ∃ x0 : ℝ, ∀ x ≥ x0, ∀ (i : Fm.Ix x) u, ((Fm.D x i).div.Nu u).L.FG
+716 
+717 def MuRank {eps : ℝ} (Fm : FamP eps) : Prop :=
+718   ∃ x0 : ℝ, ∀ x ≥ x0, ∀ (i : Fm.Ix x) u, 0 < ((Fm.D x i).div.Nu u).rank
+719 
+720 def MuTu {eps : ℝ} (Fm : FamP eps) : Prop :=
+QuotientSlopeBoundsWith
+1 import Formalism.RankGapBounds.MeanBoundSecondForm
+2 
+3 open Real
+4 
+5 namespace Formalism.LFunctionChainParameters.WeightedSlopeBounds
+6 
+7 open Formalism.RankGapBounds.WeightedMeanData
+8 
+9 noncomputable section
+10 
+11 variable {U0 : Type} [Fintype U0] {W : U0 → Type} [∀ u0, Fintype (W u0)]
+12   [∀ u0, Nonempty (W u0)] {Top : Type} [Fintype Top] {m f : ℕ}
+13 variable (D : Data U0 W Top m f) (C : Consts) (Xpp : ℝ)
+14 
+15 def Lo5 (u0 : U0) (u : W u0) : ℝ :=
+16   C.cSl1 * D.IO u0 + C.cSl1 * D.nT * (m : ℝ) * (D.a / D.k + D.b') * Real.log (D.T u0 u)
+17     + C.cSl1 * Xpp + 1
+18 
+19 def QuotientSlopeBoundsWith : Prop :=
+20   ∀ u0 (u : W u0),
+21     D.muMaxN u0 u ≤ D.muMaxM u0 u + D.Ga u0 + D.Fo u0 - D.Ee u0 u + C.cSl1 * (m : ℝ) * D.B0 ∧
+22     D.muM u0 u + D.Ga u0 + D.Fo u0 - D.Ee u0 u - Lo5 D C Xpp u0 u ≤ D.muN u0 u
+23 
+24 def EComp5 : Prop :=
+TieGlobal
+39 def TiePts (pt : φ.A → Fm.Ix x) (av bv : ℕ → ℤ) : Prop :=
+40   ∀ u0 : φ.A,
+41     (Fm.D x (pt u0)).R.toFrame = φ ∧ (Fm.D x (pt u0)).R.m = m ∧ (Fm.D x (pt u0)).R.f = f ∧
+42     (Fm.D x (pt u0)).host.q = q ∧ (Fm.D x (pt u0)).host.d = d ∧
+43     (Fm.D x (pt u0)).host.u0.val = hval φ u0 ∧
+44     ∀ t : (Fm.D x (pt u0)).host.TT,
+45       (Fm.L x (pt u0)).aT t = av (t : (Fm.D x (pt u0)).R.A).val ∧
+46       (Fm.L x (pt u0)).bT t = bv (t : (Fm.D x (pt u0)).R.A).val
+47 
+48 variable {φ m f}
+49 
+50 def TieGlobal (pt : φ.A → Fm.Ix x) {Top : Type}
+51     (Dd : Data φ.A (fun u0 => (Fm.D x (pt u0)).what₂.Word) Top m f) (Xpp η X' : ℝ) : Prop :=
+52   ∀ u0 : φ.A,
+53     Dd.a = (Fm.L x (pt u0)).sc.a ∧ Dd.b = (Fm.L x (pt u0)).sc.b ∧ Dd.b' = (Fm.L x (pt u0)).sc.b' ∧
+54     Dd.k = ((Fm.D x (pt u0)).R.k : ℝ) ∧ Dd.L = (Fm.L x (pt u0)).sc.L ∧ Dd.La = (Fm.L x (pt u0)).La ∧
+55     Dd.B0 = (Fm.L x (pt u0)).B0 ∧ Dd.Nc = (Fm.L x (pt u0)).Nc ∧
+56     Dd.gam = Real.eulerMascheroniConstant ∧ Dd.LpL = (Fm.L x (pt u0)).logDerivativeAtOne ∧
+57     Dd.v = (Fm.D x (pt u0)).host.v ∧
+58     Dd.lg = Real.log (((Fm.D x (pt u0)).host.g 0 : ℝ) * ((Fm.D x (pt u0)).host.g 1 : ℝ)) ∧
+59     Dd.logGam = Real.log (GamL (Fm.L x (pt u0))) ∧
+60     Xpp = (Fm.L x (pt u0)).sc.X'' (Fm.D x (pt u0)).R.n ∧ η = (Fm.L x (pt u0)).etaSz ∧
+61     X' = (Fm.L x (pt u0)).sc.X'
+62 
+63 def TieLocal (pt : φ.A → Fm.Ix x) {Top : Type}
+64     (Dd : Data φ.A (fun u0 => (Fm.D x (pt u0)).what₂.Word) Top m f) : Prop :=
+65   ∀ u0 : φ.A,
+66     (∀ u : (Fm.D x (pt u0)).what₂.Word,
+67       Dd.d u0 u = (((Fm.D x (pt u0)).div.Nu u).rank : ℝ) ∧
+68       Dd.T u0 u = (((Fm.D x (pt u0)).mem u).A.T : ℝ) ∧
+69       Dd.muN u0 u = ((Fm.D x (pt u0)).div.Nu u).mu ∧
+70       Dd.muMaxN u0 u = ((Fm.D x (pt u0)).div.Nu u).muMax ∧
+71       Dd.h u0 u = (Fm.D x (pt u0)).div.h u ∧
+72       Dd.muM u0 u = (((Fm.D x (pt u0)).fm u).lat 0).mu ∧
+73       Dd.muMaxM u0 u = (((Fm.D x (pt u0)).fm u).lat 0).muMax ∧
+74       ∀ j : Fin m, Dd.EeJ u0 u j =
+75         ∑ w ∈ (Fm.L x (pt u0)).supp, SizeData₂.sz w ((Fm.L x (pt u0)).E u (j.val + 1) w)) ∧
+76     Dd.muCC u0 = (Fm.D x (pt u0)).div.RR.muDual ∧
+77     Dd.muMinCC u0 = (Fm.D x (pt u0)).div.RR.muMinDual ∧
+78     Dd.Fo u0 = (Fm.L x (pt u0)).Fo ∧ Dd.Ga u0 = (Fm.L x (pt u0)).Ga ∧
+79     Dd.Ta u0 = ∑ w ∈ (Fm.L x (pt u0)).supp, SizeData₂.sz w ((Fm.L x (pt u0)).tau w) ∧
+80     Dd.IO u0 = ∑ w ∈ (Fm.L x (pt u0)).supp,
+81       SizeData₂.lwP w * ((Fm.D x (pt u0)).what₂.places.ramIdx w : ℝ) * (Fm.L x (pt u0)).io w ∧
+ (sizes). The numbers m ≥ 1 and n ≥ 1 are integers, T is not empty, and
+ (a) x ≥ 1, 0 < ε ≤ 1, b ≥ 1, a = xb, log x ≤ xε ;
+ (b) m ≤ x1/2+ε/2 ,   xm ≤ k,    3 ≤ k ≤ a,   k ≤ xeK ;
+ (c) 0 ≤ at ≤ 2a for t ∈ T ;
+
+
+                                                 203
+
+ (d) 0 ≤ La ≤ 2xε ,    b′ ≥ 0,   k b′ ≤ a,   0 ≤ X ′′ ≤ a;
+ (e) wu,j (v, s) > 0 for all cells and lifts, and rdE > 0;
+ (f) B0 = 2n m b xε and Nc = |T2 | k b x2ε /n2 ;
+ (g) 1 ≤ |Wu | and log |Wu | ≤ (k − 3) log 2;
+ (h) |T2 | ≥ x−ε n and |T | ≥ 21 x−ε/8 n.
+Status. For the parameters of Hypothesis O23 (the table of §III.10, §3) and x large in terms of ε, the
+first sentence, (a)–(f), the second half of (g) and (h) hold; this is a direct check from the conditions
+of that table. For instance k ≤ 2x9/2+10ε ≤ a and kb′ = ka/X ′ ≤ a because X ′ = exp(xε/3 );
+X ′′ = xnX ′ ≤ xb; La = log(xb rdE ) ≤ 2xε because log b = xε and log rdE ≤ xε/2 by (III.282) and
+the sizes of q, d; at ≤ a(1 + 1/(kx13 )); the weights are at least w′′ > 0; and |Wu | ≤ 2k−3 . Among
+these conditions the one that needs the largest x is kb′ ≤ a, that is, k ≤ exp(xε/3 ). Part (h) is a
+condition of O23 (the rows of T2 and T ); that sets with these densities exist is proved in §III.3
+(Theorems III.3.1(a) and III.3.2). The first half of (g), that the translate has at least one word, is
+not among the conditions of O23. It follows from the first condition of (III.234), |W| ≥ C0 G2 xCH ,
+which §III.8 quotes: there C0 = 3, G ≥ 1 and x ≥ 1, so |W| ≥ 3. The status of (H8) and of (H11)
+rests on (III.234) in any case. So this half of (g) has the status of (H11): it is proved from a named
+statement. In the sour
+ (the losses).
+
+            Pu − Gtop ≤ LoP           and     Iu ≤ LoP,         LoP = c7 |T | m b xeL ε .          (III.329)
+
+Status. This is (III.139) of §III.6 (there eL = 0), quoted there. On the route of the final theorem
+the source has eL = 0 as well (§9, Remark (2)); the exponent is kept here because the statement of
+the source that corresponds to Theorem M carries it. §III.6 proves the splitting of the left side
+
+                                                     205
+
+hypotheses the bound for denominators, that is, the conclusion (III.259) of Proposition G2 of §III.9,
+and the statement behind (H2). We read these statements, not their proofs (§9, Remark (6)).
+
+Hypothesis (H10). 0 ≤ δp ≤ 12 . This follows from Statement (I) of §III.8, (III.222), for
+x ≥ max(x0 , 1), where x0 is the threshold of that statement: then xεz /7 ≥ 1 > log 2. Statement (I)
+is quoted there; it holds for x ≥ x0 only.
+
+Hypothesis (H11). For every word, dw ≥ 1. Status. It follows from statements that §III.8
+already quotes. In the notation of §III.8 our dw is dram
+                                                     w   = dim Mw , since Uw is spanned over L0 by
+a basis of Mw (O25(e)). The lower bound in (III.218) gives dim Cw > 0, and the second condition
+of (III.234), with αram < 1, gives dram
+                                     w   ≥ (1 − αram ) dim Cw > 0. So (H11) follows from (III.218)
+and (III.234), which the status of (H8) uses in any case. (That µ(Λgl                 gl
+                                                                         w ) ≤ µmax (Λw ) is part of
+Definition M2; in the source it is a separate clause.)
+
+Remarks. (1) The Hypotheses speak of real numbers attached to the data: slopes, heights, logarithms
+of p
+
+
+
+
+
+
+Success
+
+
+
+
+
+$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+for n in ns:
+ if not n.startswith(('Formalism/','Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/','Development/AutomorphicArithmetic/CharacterBoxes/')):continue
+ b=z.read(n)
+ pats=rb'(?:theorem|def|lemma) (?:[^\s.]+\.)*(?:stLoss7|lossBounds_of|loss_at_of|linkCore|closed_linkIRR_of_join_count|familyClassConnected|FamilyClassConnected|winF_of|win_at_of|winF_of_min|HalfDel|.*delp.*half|.*del_le_half|.*[rR]ank_pos.*|.*[rR]ank[Pp]os.*)\b'
+ if re.search(pats,b):
+  for i,l in enumerate(b.decode().splitlines(),1):
+   if re.search(pats,l.encode()) and ('.div.Nu' in l or 'rank' not in l.lower() or 'nu' in l.lower()):print(n.split('/')[-1],i,l[:105])
+
+'@ | python -
+exit $LASTEXITCODE
+
+
+DivinNOfHypV.lean 13 def FamilyClassConnected (ℰ : FamClass) : Prop :=
+LinkIrr.lean 22 theorem closed_linkIRR_of_join_count : GlobalTheory.GLq.Green → ∀ (𝒜 : FamClass)
+AbsNormSpanGalois.lean 80 lemma finrank_pos_real (K : Type) [Field K] [NumberField K] : (0 : ℝ) < (Module.finrank ℚ K : ℝ) := by
+LossRequirementsOfSmallShares.lean 165 theorem stLoss7 : ThickDensitySizeWindowsForAllFamilies := fun _ Fm h1 h2 h3 => losses_of_small_share_wei
+SumLogPrimeFactorsLe.lean 682 theorem ne_bot_of_rank_pos {K : Type} [Field K] [NumberField K] [StarRing K] (A : HLat K)
+JointsL.lean 1255 theorem jnt_rank_pos (D : D7) (Lv : LevelData D) (u : D.what₂.Word) (hN : D.NuFull)
+LossesSmallShares.lean 38 theorem linkCore (Fm : FamP eps) (Cabs CH eL C5 c6 : ℝ) (hCabs : 0 ≤ Cabs) (hCH : 0 ≤ CH) (heL : 0 ≤ eL) 
+
+
+
+
+
+
+Success
+
+
+
+
+
+$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+sh('JointsL',1255,1285);sh('DivinNOfHypV',12,23);sh('LossesSmallShares',38,72);sh('LossRequirementsOfSmallShares',135,167);sh('ThirdPlaceSeries/LinkIrr',22,42);sh('ZeroFreeAllOfTopG',26,34);sh('CharacterBoxes/WinPairs',5,29);sh('supplyOfAdmOf',52,69)
+
+'@ | python -
+exit $LASTEXITCODE
+
+
+JointsL
+1255 theorem jnt_rank_pos (D : D7) (Lv : LevelData D) (u : D.what₂.Word) (hN : D.NuFull)
+1256     (hSet : product_first_zeroth_parts.HidaSetting D u) (h2 : product_first_zeroth_parts.Conclusion2 D u) (h4f : StandardLattice.Conclusion4f D Lv)
+1257     (hg : StandardLattice.GBig D) (hs : ∀ i, StandardLattice.SplitsF D (D.host.g i)) (hsT : StandardLattice.SplitsF D (D.mem u).A.T)
+1258     (hM : StandardLattice.Mu0Tie D u) (hDu : StandardLattice.FactDuStar D) : 0 < (D.div.Nu u).rank := by
+1259   have hT := two_lt_level_prime D u hSet
+1260   have h1 : (D.div.Nu u).rank = (D.mem u).A.du := hN.rank u
+1261   rw [h1]
+1262   exact jnt_du_pos D u h2 (jnt_duS_pos D Lv u h4f hg hs hsT hM hDu hT) hT
+1263 
+1264 def RankCondF {eps : ℝ} (Fm : FamP eps) : Prop :=
+1265   ∃ x0 : ℝ, ∀ x, x0 ≤ x → Fm.x1 < x → ∀ i : Fm.Ix x,
+1266     StandardLattice.GBig (Fm.D x i) ∧ (∀ j, StandardLattice.SplitsF (Fm.D x i) ((Fm.D x i).host.g j)) ∧
+1267     ∀ u, StandardLattice.SplitsF (Fm.D x i) ((Fm.D x i).mem u).A.T ∧ StandardLattice.Mu0Tie (Fm.D x i) u
+1268 
+1269 theorem muRank_of {eps : ℝ} (Fm : FamP eps) (crystallineComparison C3 : ℝ) (hN : NuFullF Fm)
+1270     (h10 : product_first_zeroth_parts.ConclusionOnFamily Fm crystallineComparison) (hS : SettingEventually Fm) (h24 : StandardLattice.FamilyPartFour Fm C3) (hR : RankCondF Fm) :
+1271     J.MuRank Fm := by
+1272   obtain ⟨a0, hN⟩ := hN
+1273   obtain ⟨a1, h10⟩ := h10
+1274   obtain ⟨a2, hS⟩ := hS
+1275   obtain ⟨a3, hR⟩ := hR
+1276   refine ⟨max (max a0 a1) (max (max a2 a3) (Fm.x1 + 1)), fun x hx i u => ?_⟩
+1277   have b0 : a0 ≤ x := le_trans (le_trans (le_max_left _ _) (le_max_left _ _)) hx
+1278   have b1 : a1 ≤ x := le_trans (le_trans (le_max_right _ _) (le_max_left _ _)) hx
+1279   have b2 : a2 ≤ x := le_trans (le_trans (le_trans (le_max_left _ _) (le_max_left _ _)) (le_max_right _ _)) hx
+1280   have b3 : a3 ≤ x := le_trans (le_trans (le_trans (le_max_right _ _) (le_max_left _ _)) (le_max_right _ _)) hx
+1281   have b4 : Fm.x1 < x := by
+1282     have := le_trans (le_trans (le_max_right _ _) (le_max_right _ _)) hx
+1283     linarith
+1284   obtain ⟨hg, hs, hu⟩ := hR x b3 b4 i
+1285   have hSet := hS x b2 b4 i u
+DivinNOfHypV
+12 
+13 def FamilyClassConnected (ℰ : FamClass) : Prop :=
+14   ∃ eD eL ε₁ : ℝ, 0 < ε₁ ∧ ∀ eps : ℝ, 0 < eps → eps < ε₁ →
+15     ∃ Fm : FamP eps, ℰ Fm ∧ ∃ K cHH eK CL x0 : ℝ, ∀ x ≥ x0, x ∈ Fm.Win → ChainTied Fm eD eL K cHH eK CL x
+16 
+17 theorem vvRecord (D : D7) (B : ℝ) (h : VVle D.host.E D.R.t B) :
+18     ShaFinOdd D ∧ Summable (vvTerm D) ∧ ∑' l, vvTerm D l ≤ B := by
+19   letI := D.nd.instOm
+20   letI := D.nd.algOm
+21   haveI := D.nd.acOm
+22   obtain ⟨h1, h2⟩ := h D.nd.Om D.nd.ldat
+23   have key : ∀ (p : ℕ) [Fact p.Prime], ((∑ e ∈ Finset.Ico 1 D.R.t, D.what₂.shaLen p e : ℚ) : ℝ) =
+LossesSmallShares
+38 theorem linkCore (Fm : FamP eps) (Cabs CH eL C5 c6 : ℝ) (hCabs : 0 ≤ Cabs) (hCH : 0 ≤ CH) (heL : 0 ≤ eL) (hc6 : 0 < c6)
+39     (hCount : CountF Fm) (hSM : SlopesMF Fm) (hSN : SlopesNF Fm) (hLat : LatF Fm) (hNodes : NodesF Fm)
+40     (hFr : FrameF Fm CH) (hLoss : LossFS Fm eL) (hChar : CharF Fm) (hWin : WinF Fm)
+41     (cTT : ChosenTT Fm) (cQD : ChosenQD Fm C5) (cTh : ChosenThin Fm c6) (lI : LinkIRR Fm) (lD : LinkDIV Fm Cabs CH) :
+42     ∃ K cHH eK CL x0 : ℝ, ∀ x ≥ x0, x ∈ Fm.Win → ChainTied Fm Cabs eL K cHH eK CL x := by
+43   obtain ⟨xQD, hQD⟩ := cQD
+44   obtain ⟨xTh, hTh⟩ := cTh
+45   obtain ⟨Cc, xC, hCc, hC⟩ := hCount
+46   obtain ⟨Cs, xS, hCs, hS⟩ := hSM
+47   obtain ⟨C1, xN, hC1, hN⟩ := hSN
+48   obtain ⟨xL, hL⟩ := hLat
+49   obtain ⟨xO, hO⟩ := hNodes
+50   obtain ⟨xF, hF⟩ := hFr
+51   obtain ⟨Cl, xLo, hCl, hLo⟩ := hLoss
+52   obtain ⟨xCh, hChr⟩ := hChar c6 C5
+53   obtain ⟨eK, xW, heK, hW⟩ := hWin c6 hc6
+54   obtain ⟨xTT, hTT⟩ := cTT
+55   obtain ⟨xI, hI⟩ := lI
+56   obtain ⟨Cd, xD, hD⟩ := lD
+57   have hCd' : (0 : ℝ) ≤ max Cd 0 := le_max_right _ _
+58   have hCdle : Cd ≤ max Cd 0 := le_max_left _ _
+59   refine ⟨max Cd 0 + Cc + Cs + C1 + Cl + 6, CH, eK, C5,
+60     Fm.x1 + 1 + |xQD| + |xTh| + |xC| + |xS| + |xN| + |xL| + |xO| + |xF| + |xLo| + |xCh| + |xW| + |xTT| + |xI| + |xD|,
+61     fun x hx hxw => ?_⟩
+62   have hpos := Fm.one_lt_family_threshold
+63   have habs : 0 ≤ |xQD| ∧ 0 ≤ |xTh| ∧ 0 ≤ |xC| ∧ 0 ≤ |xS| ∧ 0 ≤ |xN| ∧ 0 ≤ |xL| ∧ 0 ≤ |xO| ∧ 0 ≤ |xF| ∧ 0 ≤ |xLo| ∧
+64       0 ≤ |xCh| ∧ 0 ≤ |xW| ∧ 0 ≤ |xTT| ∧ 0 ≤ |xI| ∧ 0 ≤ |xD| :=
+65     ⟨abs_nonneg _, abs_nonneg _, abs_nonneg _, abs_nonneg _, abs_nonneg _, abs_nonneg _, abs_nonneg _, abs_nonneg _,
+66       abs_nonneg _, abs_nonneg _, abs_nonneg _, abs_nonneg _, abs_nonneg _, abs_nonneg _⟩
+67   obtain ⟨a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14⟩ := habs
+68   have hx1 : Fm.x1 < x := by linarith
+69   have hxQD : x ≥ xQD := by linarith [le_abs_self xQD]
+70   have hxTh : x ≥ xTh := by linarith [le_abs_self xTh]
+71   have hxC : x ≥ xC := by linarith [le_abs_self xC]
+72   have hxS : x ≥ xS := by linarith [le_abs_self xS]
+LossRequirementsOfSmallShares
+135   have hPCK : P.C ≤ K := hW.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
+136   have hU : unitU P (SizeData₂.lifts (Fm.D x i)).card (TTv (Fm.D x i)).card =
+137       ((Fm.D x i).host.TT.card : ℝ) * (Fm.D x i).R.m * (Fm.L x i).sc.b := by
+138     unfold unitU; rw [card_lifts, card_TTv, pd_b tie]
+139   have hU0 : 0 ≤ ((Fm.D x i).host.TT.card : ℝ) * (Fm.D x i).R.m * (Fm.L x i).sc.b :=
+140     mul_nonneg (mul_nonneg (Nat.cast_nonneg _) (Nat.cast_nonneg _)) (Real.exp_pos _).le
+141   have hone : (Fm.L x i).sc.x ^ ((0 : ℝ) * (Fm.L x i).sc.eps) = 1 := by rw [zero_mul, Real.rpow_zero]
+142   have hKabs : K ≤ |K| := le_abs_self K
+143   have hbig : (3 * P.C + 13) * (((Fm.D x i).host.TT.card : ℝ) * (Fm.D x i).R.m * (Fm.L x i).sc.b) ≤
+144       (3 * |K| + 13) * (Fm.D x i).host.TT.card * (Fm.D x i).R.m * (Fm.L x i).sc.b *
+145         (Fm.L x i).sc.x ^ ((0 : ℝ) * (Fm.L x i).sc.eps) := by
+146     rw [hone, mul_one]
+147     have := mul_le_mul_of_nonneg_right (show 3 * P.C + 13 ≤ 3 * |K| + 13 by linarith) hU0
+148     simpa [mul_assoc] using this
+149   have hsmall : ((Fm.D x i).host.TT.card : ℝ) * (Fm.D x i).R.m * (Fm.L x i).sc.b ≤
+150       (3 * P.C + 13) * (((Fm.D x i).host.TT.card : ℝ) * (Fm.D x i).R.m * (Fm.L x i).sc.b) := by
+151     have := mul_le_mul_of_nonneg_right (show (1 : ℝ) ≤ 3 * P.C + 13 by linarith) hU0
+152     linarith
+153   constructor
+154   · have h2 := hc2 ()
+155     rw [IO_at (Fm.Gx x i) Fm.GK Fm.Cr hH, hU] at h2
+156     linarith
+157   · intro e' m' AD N TT' a w hr hAD hcut
+158     rw [hAsk x eA i e' m' AD N TT' a w hr hAD hcut]
+159     have h1 := hc1 ()
+160     rw [Ga_at (Fm.Gx x i) Fm.GK Fm.Cr C bo hH, hU, tie.d, ASK_at (Fm.Gx x i) Fm.GK Fm.Cr C bo hH] at h1
+161     linarith
+162 
+163 end Family
+164 
+165 theorem stLoss7 : ThickDensitySizeWindowsForAllFamilies := fun _ Fm h1 h2 h3 => losses_of_small_share_weight Fm h1 h2 h3
+166 
+167 theorem stLoss7W : StLoss7W := fun _ Fm h1 h2 hW h3 => Lnk.lossF_of_7W Fm (losses_of_small_share_weight Fm h1 h2 h3) hW
+ThirdPlaceSeries/LinkIrr
+22 theorem closed_linkIRR_of_join_count : GlobalTheory.GLq.Green → ∀ (𝒜 : FamClass)
+23     (sel : _root_.Formalism.L2.TwistSelection 𝒜)
+24     (cIc : ℝ)
+25     (hcI : 0 < cIc)
+26     (irrC : Closed (D3 3 𝒜) fun Fm _ => ∃ x0 : ℝ, ∀ x ≥ x0, ∀ i : Fm.Ix x, ∃ A : Formalism.MainNotions.ArithmeticCylinders.AllRows (Fm.D x i),
+27       Formalism.MainNotions.ArithmeticCylinders.LabelCountGoodInjective A ∧ Formalism.L2.GlobalTheoryTheory.AllJoin.AllJoinA A ∧
+28         Formalism.L2.GlobalTheoryTheory.ConcN.CountAllRows A (Formalism.L2.GlobalTheoryTheory.ConcN.epsC cIc (Fm.D x i).R.r (Fm.D x i).R.f)), Closed (D3 3 𝒜) fun Fm _ => LinkIRR Fm := by
+29   intro hG 𝒜 sel cIc hcI irrC
+30   have irr : Closed (D3 3 𝒜) fun {eps} Fm _ => ∃ x0 : ℝ, ∀ x ≥ x0, ∀ i : Fm.Ix x, ∃ A : Formalism.MainNotions.ArithmeticCylinders.AllRows (Fm.D x i),
+31       Formalism.MainNotions.ArithmeticCylinders.LabelCountGoodInjective A ∧ Formalism.L2.GlobalTheoryTheory.AllJoin.AllJoinA A ∧ Formalism.MainNotions.ArithmeticCylinders.admLq (Fm.D x i) ∧
+32         Formalism.L2.GlobalTheoryTheory.ConcN.CountAllRows A (Formalism.L2.GlobalTheoryTheory.ConcN.epsC cIc (Fm.D x i).R.r (Fm.D x i).R.f) ∧
+33         Formalism.L2.GlobalTheoryTheory.ConcN.SizesRec (Fm.D x i) x Fm.ez 6 :=
+34     closed_of_mem (irrC.imp fun Fm _ _ H hc => by
+35       obtain ⟨x0, H⟩ := H
+36       refine ⟨max (max x0 (sel Fm (d3_a hc)).1) (max (Fm.x1 + 1) 4), fun x hx i => ?_⟩
+37       have h1 : Fm.x1 < x := by have := le_trans (le_trans (le_max_left _ _) (le_max_right _ _)) hx; linarith
+38       have hs : (sel Fm (d3_a hc)).1 ≤ x := le_trans (le_trans (le_max_right _ _) (le_max_left _ _)) hx
+39       obtain ⟨A, a, b, c⟩ := H x (le_trans (le_trans (le_max_left _ _) (le_max_left _ _)) hx) i
+40       exact ⟨A, a, b, GlobalTheory.Top.Lq.admissibleLabelWeights_of_greenCuspidalParametrisation hG _ _ ((sel Fm (d3_a hc)).2 x h1 hs i).T.n.types, c,
+41         sizesRec_at Fm h1 (le_trans (le_trans (le_max_right _ _) (le_max_right _ _)) hx) i le_rfl⟩)
+42   exact (irr.and (closed_eps_le_one _)).imp fun Fm _ he ⟨h, h1⟩ =>
+ZeroFreeAllOfTopG
+26 theorem zeroFreeAll_of_topG {la : ℝ} (hla : 1 < la) (h : TopG) (hS : ∀ ψ : PChar, HostExW la (GChi ψ).req) : ZeroFreeAll := by
+27   have key : ZeroFreeOn fun _ => True :=
+28     zeroFreeOn_of_tiedWin_cyc (Fam := FamP) (core := fun Fm => Fm.toFamCore) (Tied := fun Fm => ChainTied Fm) hla
+29       (fun ψ _ => UpperTheory.Comparison₂.level_gm_le_on_family_scales _) (fun ψ _ => UpperTheory.Comparison₂.formB _) fun ψ _ => by
+30         obtain ⟨eD, eL, ε₁, h1, h2⟩ := h la (GChi ψ) hla (hS ψ) (hypV_of_cls ψ la)
+31         refine ⟨eD, eL, ε₁, h1, fun eps a b => ?_⟩
+32         obtain ⟨Fm, c, d⟩ := h2 eps a b
+33         exact ⟨Fm, eFamC_of_cls ψ la Fm c, c.1, d⟩
+34   exact key
+CharacterBoxes/WinPairs
+5 theorem UpperTheory.Top.winPairs :
+6     ∀ (ψ : PChar) (eps c : ℝ), 0 < eps → eps < 1 / 52 → 1 ≤ c → VWinAt ψ 401 → PairEx →
+7       ∃ J : ℝ, 1 ≤ J ∧ ∀ y : ℝ, ∃ Z : ℝ, y ≤ Z ∧ ∀ x : ℝ, Z ≤ x → x ≤ Z ^ ((3 : ℝ) / 2) →
+8         ∃ (Y : ℝ) (q d e : ℕ), WinDatum ψ eps J c x Y q d e := by
+9   intro ψ eps c heps heps52 hc hV hP
+10   obtain ⟨e, he⟩ := exists_pageN eps heps
+11   obtain ⟨J, hJ, X0, hX0⟩ := hV eps heps heps52 e he
+12   have hN : 0 < ψ.N := Nat.pos_of_ne_zero (NeZero.ne _)
+13   obtain ⟨Y1, hY1⟩ := hP ψ.N hN eps J heps heps52 hJ
+14   have ha : 0 < 2 + 8 * eps := by linarith
+15   have hc0 : 0 ≤ c := by linarith
+16   obtain ⟨k, hk1, hka⟩ : ∃ k : ℝ, 1 ≤ k ∧ k ^ (2 + 8 * eps) = c := by
+17     refine ⟨c ^ (1 / (2 + 8 * eps)), Real.one_le_rpow hc (one_div_nonneg.2 ha.le), ?_⟩
+18     rw [one_div, Real.rpow_inv_rpow hc0 ha.ne']
+19   have hk0 : 0 ≤ k := by linarith
+20   refine ⟨J, hJ, fun y => ?_⟩
+21   have hJ0 : J ≠ 0 := ne_of_gt (by linarith)
+22   have hJi : 0 ≤ 1 / J := one_div_nonneg.2 (by linarith)
+23   obtain ⟨M, hM1, hMy, hMY1, hMk3, hMk400⟩ : ∃ M : ℝ, 1 ≤ M ∧ y ≤ M ∧ Y1 ≤ M ∧
+24       k ^ (3 : ℝ) ≤ M ∧ k ^ (400 : ℝ) ≤ M :=
+25     ⟨max 1 (max y (max Y1 (max (k ^ (3 : ℝ)) (k ^ (400 : ℝ))))), by simp, by simp, by simp, by simp, by simp⟩
+26   obtain ⟨X, hXX0, hXM⟩ : ∃ X : ℝ, X0 ≤ X ∧ M ^ J ≤ X := ⟨max X0 (M ^ J), le_max_left _ _, le_max_right _ _⟩
+27   have hM0 : 0 ≤ M := by linarith
+28   have hX1 : 1 ≤ X := (Real.one_le_rpow hM1 (by linarith)).trans hXM
+29   have hX0' : 0 ≤ X := by linarith
+supplyOfAdmOf
+52     refine ⟨|x0A| + |x0B| + |x0T| + A ^ J + (c : ℝ) * 2 ^ e0 + 1, ?_, ?_, ?_, ?_, ?_⟩ <;>
+53       linarith [le_abs_self x0A, le_abs_self x0B, le_abs_self x0T, abs_nonneg x0A, abs_nonneg x0B,
+54         abs_nonneg x0T]
+55   refine ⟨CT2, C8, 4, c6, Cb, x1, le_trans hC1 hC8, by norm_num, hc6, hCb, ?_⟩
+56   refine ⟨⟨J, hJ, {x | ∃ Y q d e, UpperTheory.Top.WinDatum ψ eps J c x Y q d e}, hwin⟩, ?_⟩
+57   rintro s hs hx ⟨hsJ, Y, q, d, e, hW⟩
+58   have hx1 : 1 < s.x := s.one_lt_alt
+59   have hJ0 : 0 < J := by linarith
+60   have hYA : A ≤ Y := by
+61     calc A = (A ^ J) ^ (1 / J) := by rw [one_div, Real.rpow_rpow_inv hA0 hJ0.ne']
+62       _ ≤ s.x ^ (1 / J) := Real.rpow_le_rpow hAJ0 (h1J.trans hx) (div_nonneg zero_le_one hJ0.le)
+63       _ ≤ Y := hW.lo
+64   have hY0 : 0 ≤ Y := hA0.trans hYA
+65   have hYK : K ≤ Y ^ (eps / 5) := by
+66     rw [← hAK]
+67     exact Real.rpow_le_rpow hA0 hYA (by positivity)
+68   obtain ⟨hHyp, hjac, -⟩ := UpperTheory.Top.pairHyp eps Y q d hW.good.pair
+69   have hq3 : q ≠ 3 := by
+
+
+
+
+
+
+Success
+
+
+
+
+
+Command failed ($OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …)
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+for n in ns:
+ if not (n.startswith(('Formalism/','Development/AutomorphicArithmetic/CharacterBoxes','Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries'))):continue
+ b=z.read(n)
+ if re.search(rb'delp[^\n]{0,42}?(?:1 / 2|2\)⁻¹)|0 < \(D.div.Nu u\).rank|theorem[^\n]{0,70} LossBounds|\) : LossBounds',b):
+  for i,l in enumerate(b.decode().splitlines(),1):
+   if re.search(r'delp[^\n]{0,42}?(?:1 / 2|2\)⁻¹)|0 < \(D.div.Nu u\).rank|\) : LossBounds',l):print(n.split('/')[-1],i,l[:155])
+print(pp[202].split('Hypothesis (H0)')[-1][-880:]);print(pp[203][:480]);print(pp[219].split('(H12)')[-1][:880])
+
+'@ | python -
+exit $LASTEXITCODE
+
+
+  File "<stdin>", line 23
+    if re.search(rb'delp[^\n]{0,42}?(?:1 / 2|2\)⁻¹)|0 < \(D.div.Nu u\).rank|theorem[^\n]{0,70} LossBounds|\) : LossBounds',b):
+                                                                                                                             ^
+SyntaxError: bytes can only contain ASCII literal characters
+
+
+
+
+
+
+Exit code 1
+
+
+
+
+
+$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+pat=r'delp[^\n]{0,42}?(?:1 / 2|2\)⁻¹)|0 < \(D.div.Nu u\).rank|\) : LossBounds'
+for n in ns:
+ if not n.startswith(('Formalism/','Development/AutomorphicArithmetic/CharacterBoxes','Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries')):continue
+ b=z.read(n)
+ if re.search(pat.encode(),b):
+  for i,l in enumerate(b.decode().splitlines(),1):
+   if re.search(pat,l):print(n.split('/')[-1],i,l[:155])
+print(pp[202].split('Hypothesis (H0)')[-1][-900:]);print(pp[203][:480]);
+
+'@ | python -
+exit $LASTEXITCODE
+
+
+PointEvaluationSide.lean 52       (∀ u, 0 < (D.div.Nu u).rank) → C0 ≤ c → _root_.GlobalTheory.Fc.DefiniteSideCondition D O c b C CH := by
+RowsUOfColPins.lean 17 theorem rowsU_of_colPins_alt : ∀ CY CT : ℝ, 0 ≤ CT → ∃ C0 : ℝ, ∀ (D : D7) (L : SizeData₂ D) (hT : GatTies D) (Gi : Formalism.MainNotions.G.Inst D L) (Gl : 
+RowsUOfColPinsStatement.lean 13 theorem _root_.GlobalTheory.T.kernel_columns_from_ties_alt : ∀ CY CT : ℝ, 0 ≤ CT → ∃ C0 : ℝ, ∀ (D : D7) (L : SizeData₂ D) (hT : GatTies D) (Gi : Formalism.
+FamRec.lean 155     (∀ u, 0 < (D.div.Nu u).rank) → D.div.OneMapIntoCC →
+FamRecP.lean 1210 theorem losses5 (C : Consts) (hA : LossBounds A C) : LossBounds B C := by
+FamRecP.lean 1543     (hrk : ∀ u, 0 < (D.div.Nu u).rank) (C : ℝ) (hMu : NprimeMuR L C) (u : D.what₂.Word) :
+PlacesP.lean 130     (hle : L.NuLat u ≤ DV.MramL D u) (hr : 0 < (D.div.Nu u).rank)
+PlacesP.lean 172     (hr : 0 < (D.div.Nu u).rank) (k : D.what₂.places.Pl → ℕ)
+PlacesP.lean 299     (hrank : ∀ u, 0 < (D.div.Nu u).rank)
+SumLogPrimeFactorsLe.lean 695     (hlat : ∀ u, (D.div.Nu u).L.FG ∧ 0 < (D.div.Nu u).rank) (CT CG : ℝ)
+HeightBoundOfComponentBounds.lean 14     (hr : ∀ u, 0 < (D.div.Nu u).rank)
+JointsL.lean 1258     (hM : StandardLattice.Mu0Tie D u) (hDu : StandardLattice.FactDuStar D) : 0 < (D.div.Nu u).rank := by
+QuadraticLogDerivCongr.lean 186   (∀ u, 0 < (D.div.Nu u).rank ∧ (D.div.Nu u).mu ≤ (D.div.Nu u).muMax) ∧ D.div.RR.muMinDual = -D.div.RR.muMax
+QuadraticLogDerivCongr.lean 1323 theorem lat_at (D : D7) (hR : D.RRFull) (hN : D.NuFull) (hr : ∀ u, 0 < (D.div.Nu u).rank)
+TopDensityNGeSixteen.lean 680     (hrk : ∀ u, 0 < (D.div.Nu u).rank) (hOne : D.div.OneMapIntoCC)
+ (sizes). The numbers m ≥ 1 and n ≥ 1 are integers, T is not empty, and
+ (a) x ≥ 1, 0 < ε ≤ 1, b ≥ 1, a = xb, log x ≤ xε ;
+ (b) m ≤ x1/2+ε/2 ,   xm ≤ k,    3 ≤ k ≤ a,   k ≤ xeK ;
+ (c) 0 ≤ at ≤ 2a for t ∈ T ;
+
+
+                                                 203
+
+ (d) 0 ≤ La ≤ 2xε ,    b′ ≥ 0,   k b′ ≤ a,   0 ≤ X ′′ ≤ a;
+ (e) wu,j (v, s) > 0 for all cells and lifts, and rdE > 0;
+ (f) B0 = 2n m b xε and Nc = |T2 | k b x2ε /n2 ;
+ (g) 1 ≤ |Wu | and log |Wu | ≤ (k − 3) log 2;
+ (h) |T2 | ≥ x−ε n and |T | ≥ 21 x−ε/8 n.
+Status. For the parameters of Hypothesis O23 (the table of §III.10, §3) and x large in terms of ε, the
+first sentence, (a)–(f), the second half of (g) and (h) hold; this is a direct check from the conditions
+of that table. Fo
+
+
+
+
+
+
+Success
+
+
+
+
+
+$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+for k,pat in [(Q,r'(LossBounds|Loss_at|Win_at|HidaSetting|RestSize|delBar ≤|exp_neg_one|linkCore)'),('LossesSmallShares',r'^(def|theorem) |LossBounds'),('LossRequirementsOfSmallShares',r'^theorem |^def .*Loss'),('ThirdPlaceSeries/LinkIrr',r'^theorem|^  (exact|refine|have) '),('LossesSmallShares',r'^  (exact|obtain) .*|chainTied')]:
+ out=[f'{i} {v[:140]}' for i,v in enumerate(ls(k),1) if re.search(pat,v)]
+ print(k,'\n','\n'.join(out[:33]))
+print([s for s in ls('ChTop') if 'ChainCore' in s][:2]);print(local('results/common-period-map/closure-files.txt')[:200])
+
+'@ | python -
+exit $LASTEXITCODE
+
+
+QuadraticLogDerivCongr 
+ 203 def Loss_at (C eL : ℝ) : Prop :=
+231 def Win_at (eK c6 : ℝ) : Prop :=
+267         (Fm.L x i).bT t = bv (t : (Fm.D x i).R.A).val) → Loss_at (Fm.L x i) C eL
+273   ∀ c6 : ℝ, 0 < c6 → ∃ eK x0 : ℝ, 0 ≤ eK ∧ ∀ x ≥ x0, ∀ i : Fm.Ix x, Win_at (Fm.L x i) eK c6
+814 theorem av_facts {eK c6 : ℝ} (hW : Win_at (Fm.L x (M.pt 0)) eK c6) {n : ℕ} (hn : n ∈ Fm.TTn x) :
+929   have hWu : ∀ u0 : M.e.A, Win_at (Fm.L x (M.pt u0)) eK c6 := fun u0 => hW x hxW (M.pt u0)
+931   unfold Win_at at hW0
+979   have L1 : (M.data ⌈2 * (Fm.L x i0).sc.a⌉₊ CH etaB eB ηv ev).HidaSetting (mkC (max Cd 0) Cabs Cc Cs C1 Cl eL CH) :=
+1022   have L8 : LossBounds (M.data ⌈2 * (Fm.L x i0).sc.a⌉₊ CH etaB eB ηv ev) (mkC (max Cd 0) Cabs Cc Cs C1 Cl eL CH) := by
+1102   have S1 : RestSize eps x (Fintype.card M.e.A) M.TT.card M.T2.card M.m (Fm.L x i0).sc.b
+1809     (hN : L.sc.x ^ (-L.sc.eps) ≤ (D.host.T2.card : ℝ) / D.R.n) (c6 : ℝ) (hX : XL L.sc c6) : Win_at L 5 c6 := by
+LossesSmallShares 
+ 13 def LossFS (Fm : FamP eps) (eL : ℝ) : Prop :=
+23 theorem lossFS_of_cover (Fm : FamP eps) (eL : ℝ) (h : LossF Fm eL) (hc : Fm.CoverAll) : LossFS Fm eL := by
+38 theorem linkCore (Fm : FamP eps) (Cabs CH eL C5 c6 : ℝ) (hCabs : 0 ≤ Cabs) (hCH : 0 ≤ CH) (heL : 0 ≤ eL) (hc6 : 0 < c6)
+201   have L8 : LossBounds (M.data ⌈2 * (Fm.L x i0).sc.a⌉₊ CH etaB eB ηv ev) (mkC (max Cd 0) Cabs Cc Cs C1 Cl eL CH) := by
+298 def LossesSmallShares (Fm : FamP eps) : Prop :=
+301 theorem lossF_of_7W (Fm : FamP eps) (h : LossesSmallShares Fm) (hW : ChosenW Fm) : LossF Fm 0 := by
+308 theorem lossF_of_7 (Fm : FamP eps) (h : LossesSmallShares Fm) (hW : ChosenWS Fm) : LossFS Fm 0 := by
+315 theorem size_windows_of_thick_density (Fm : FamP eps) (hT2 : ThickSetDensityEventually Fm) : WinF Fm := by
+353 theorem thick_density_of_construction (Fm : FamP eps) (hT2 : ThickSetEventually Fm) : ThickSetDensityEventually Fm := by
+357 theorem chosenBadp_of_old (Fm : FamP eps) (Cb : ℝ) (hCb : 0 ≤ Cb) (cTT : ChosenTT Fm) (cBad : ChosenBad Fm Cb) :
+435 theorem muRank_of_proviso (Fm : FamP eps) {C0 : ℝ} (crystallineComparison : ℝ) (hC0 : 0 < C0)
+464 def LinkGLOBAL7 (Fm : FamP eps) (Cabs CH C0 eD eL : ℝ) : Prop :=
+468 theorem linkGLOBAL7_pk (Fm : FamP eps) (Cabs CH C0 C3 crystallineComparison C22 : ℝ)
+LossRequirementsOfSmallShares 
+ 16 theorem cands_eq : cands L K = sAt L K := rfl
+18 theorem card_lifts (D : D7) : (SizeData₂.lifts D).card = D.R.m := by
+21 theorem card_TTv (D : D7) : (TTv D).card = D.host.TT.card := by
+28 theorem bad_card_at (p : ℕ) : ((TTv D).filter (fun n => badAt X p n)).card = (badTops X p).card := by
+41 theorem loss_setting_family : LossSettingFamily := by
+86 theorem losses_of_small_share_weight (hTT : ChosenTT Fm) (hBad : ChosenBadp Fm) (hG : LinkG Fm) : Lnk.LossesSmallShares Fm := by
+165 theorem stLoss7 : ThickDensitySizeWindowsForAllFamilies := fun _ Fm h1 h2 h3 => losses_of_small_share_weight Fm h1 h2 h3
+167 theorem stLoss7W : StLoss7W := fun _ Fm h1 h2 hW h3 => Lnk.lossF_of_7W Fm (losses_of_small_share_weight Fm h1 h2 h3) hW
+173 theorem size_alt_alt (sN : SizeN L) (sM : SizeM L) (sTT : SizeTT L) (h24 : 24 ≤ L.sc.x ^ ((1 : ℝ) / 4)) :
+230 theorem exists_le_of_sum {Ω : Type} [Fintype Ω] [Nonempty Ω] (F : Ω → ℝ) (B : ℝ)
+238 theorem term_le (θ s : ℝ) (hθ : 0 < θ) (hs : 0 ≤ s) : ((if θ < s then 2 else 0) + 4 * s : ℝ) ≤ (2 / θ + 4) * s := by
+253 theorem chosenW_of (hG : LinkG Fm) : ChosenW Fm := by
+331 theorem loss_requirements_of_local_input (C0 CH : ℝ) (h : ChosenE Fm C0 CH) (hG : LinkG Fm) (hc : Fm.CoverAll) :
+337 theorem loss_requirements_of_small_shares (C0 CH : ℝ) (h : ChosenE Fm C0 CH) (hW : ChosenWall Fm) : WeightVectorSmallSharesSeven Fm C0 CH :=
+344 theorem small_share_weight_exists : SmallShareWeightExists := fun _ Fm hG => chosenW_of Fm hG
+346 theorem stOld7 : StOld7 := fun _ Fm C0 CH h hG hc => loss_requirements_of_local_input Fm C0 CH h hG hc
+ThirdPlaceSeries/LinkIrr 
+ 22 theorem closed_linkIRR_of_join_count : GlobalTheory.GLq.Green → ∀ (𝒜 : FamClass)
+30   have irr : Closed (D3 3 𝒜) fun {eps} Fm _ => ∃ x0 : ℝ, ∀ x ≥ x0, ∀ i : Fm.Ix x, ∃ A : Formalism.MainNotions.ArithmeticCylinders.AllRows (F
+42   exact (irr.and (closed_eps_le_one _)).imp fun Fm _ he ⟨h, h1⟩ =>
+LossesSmallShares 
+ 24   obtain ⟨C, x0, hC, hL⟩ := h
+26   obtain ⟨i0, av, bv, h1, h2⟩ := hL x (le_of_max_le_left hx) hwin
+33   obtain ⟨i1, -, hi1⟩ := hc x hx1 i0 0 av bv hn h1
+34   exact ⟨i0, av, bv, h1, ⟨i1, hi1⟩, h2⟩
+43   obtain ⟨xQD, hQD⟩ := cQD
+44   obtain ⟨xTh, hTh⟩ := cTh
+45   obtain ⟨Cc, xC, hCc, hC⟩ := hCount
+46   obtain ⟨Cs, xS, hCs, hS⟩ := hSM
+47   obtain ⟨C1, xN, hC1, hN⟩ := hSN
+48   obtain ⟨xL, hL⟩ := hLat
+49   obtain ⟨xO, hO⟩ := hNodes
+50   obtain ⟨xF, hF⟩ := hFr
+51   obtain ⟨Cl, xLo, hCl, hLo⟩ := hLoss
+52   obtain ⟨xCh, hChr⟩ := hChar c6 C5
+53   obtain ⟨eK, xW, heK, hW⟩ := hWin c6 hc6
+54   obtain ⟨xTT, hTT⟩ := cTT
+55   obtain ⟨xI, hI⟩ := lI
+56   obtain ⟨Cd, xD, hD⟩ := lD
+67   obtain ⟨a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14⟩ := habs
+86   obtain ⟨i0, av, bv, hadm, ⟨i1, hc1⟩, hloss⟩ := hLo x hxLo hxw
+96   obtain ⟨etaB, eB, hη0, he0, he4, h6, hFa⟩ := hF x hxF
+101   obtain ⟨ell, hell1, hell2, hell3, hell4⟩ := hChr x hxCh i0 M.e M.AD rfl HEq.rfl
+112   obtain ⟨w1, w2, w3, w4, w5, w6, w7, w8, -, -, w11, w12, w13, w14, w15, -, w17⟩ := hW0
+290   exact ⟨i0, M.m, M.f, M.pt, av, bv, ↥(Fm.TTn x), inferInstance,
+302   obtain ⟨C, x0, hC, hL⟩ := h
+303   obtain ⟨x1, hW⟩ := hW
+305   obtain ⟨i0, av, bv, h1, h3⟩ := hW x (le_of_max_le_right hx) hwin
+306   exact ⟨i0, av, bv, h1, fun i hi => hL x (le_of_max_le_left hx) i (h3 i hi)⟩
+309   obtain ⟨C, x0, hC, hL⟩ := h
+310   obtain ⟨x1, hW⟩ := hW
+312   obtain ⟨i0, av, bv, h1, h2, h3⟩ := hW x (le_of_max_le_right hx) hwin
+313   exact ⟨i0, av, bv, h1, h2, fun i hi => hL x (le_of_max_le_left hx) i (h3 i hi)⟩
+318   obtain ⟨aT, hT2⟩ := hT2
+[]
+src/Development/AutomorphicArithmetic/ConductorsKronecker/ChCond.lean
+src/Development/AutomorphicArithmetic/ConductorsKronecker/Imports.lean
+src/Development/AutomorphicArithmetic/ConductorsKronecker/I
+
+
+
+
+
+
+Success
+
+
+
+
+
+$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+sh('LossesSmallShares',194,226);sh('LossesSmallShares',264,297);sh('ThirdPlaceSeries/LinkIrr',40,46);print(pp[222][890:1600])
+for k in ['TieGlobal',Q,'LossesSmallShares','ErrorFormsWeakWindowsFalse','MeanBoundSecondForm','QuotientSlopeBoundsWith','SizeWindowBrackets/SChain','ChTop','LossRequirementsOfSmallShares',G,'ThirdPlaceSeries/LinkIrr','SumLogPrimeFactorsLe','JointsL',M,'CharacterBoxes/WinPairs','CharacterBoxes/ZeroFreeAllOfTopG','supplyOfAdmOf','TopWin','DivinNOfHypV','OrdAny','TopPlug','GrowthBoundGivesRiemannHypothesis','ThirdPlaceSeries/TopShape']:
+ a=p(k);print(k,'B' if 'src/'+a in local('results/common-period-map/closure-files.txt').splitlines() else 'X' if 'src/'+a in local('results/rubinstein-hypotheses/h12-extra-closure.txt').splitlines() else 'OUT')
+
+'@ | python -
+exit $LASTEXITCODE
+
+
+LossesSmallShares
+194   have L5 : Count5 (M.data ⌈2 * (Fm.L x i0).sc.a⌉₊ CH etaB eB ηv ev) (mkC (max Cd 0) Cabs Cc Cs C1 Cl eL CH) :=
+195     M.data_Count5 hx1 _ _ _ _ _ _ _ (fun u0 => hC x hxC (M.pt u0))
+196   have L6 : (M.data ⌈2 * (Fm.L x i0).sc.a⌉₊ CH etaB eB ηv ev).Slopes (mkC (max Cd 0) Cabs Cc Cs C1 Cl eL CH) :=
+197     M.data_Slopes hx1 _ _ _ _ _ _ _ (fun u0 => hS x hxS (M.pt u0))
+198   have L7 : QuotientSlopeBoundsWith (M.data ⌈2 * (Fm.L x i0).sc.a⌉₊ CH etaB eB ηv ev) (mkC (max Cd 0) Cabs Cc Cs C1 Cl eL CH)
+199       ((Fm.L x i0).sc.X'' (Fm.D x i0).R.n) :=
+200     M.model_slopes_five hx1 _ _ _ _ _ _ _ (fun u0 => hN x hxN (M.pt u0))
+201   have L8 : LossBounds (M.data ⌈2 * (Fm.L x i0).sc.a⌉₊ CH etaB eB ηv ev) (mkC (max Cd 0) Cabs Cc Cs C1 Cl eL CH) := by
+202     intro u0
+203     obtain ⟨hio, hask⟩ := hloss (M.pt u0) (M.pt_w u0)
+204     have h1 := hask M.e M.m M.AD ⌈2 * (Fm.L x i0).sc.a⌉₊ M.TT M.a (M.w u0) (M.reads u0) (M.hAD u0) (hcut u0)
+205     rw [M.s_card u0, M.s_m u0, M.s_sc hx1 u0, M.s_x hx1, M.s_eps] at h1 hio
+206     exact ⟨h1, hio⟩
+207   have liftZP_newton : (M.data ⌈2 * (Fm.L x i0).sc.a⌉₊ CH etaB eB ηv ev).SlopeIneq := M.data_SlopeIneq _ _ _ _ _ _ hfr
+208   have ParameterUpperBound : (M.data ⌈2 * (Fm.L x i0).sc.a⌉₊ CH etaB eB ηv ev).HHBound (mkC (max Cd 0) Cabs Cc Cs C1 Cl eL CH) :=
+209     M.data_HHBound hx1 _ _ _ _ _ _ _ rfl (fun u0 => (hDu u0).2.1) (fun u0 => (hL x hxL (M.pt u0)).2)
+210   have liftZP_unit : (M.data ⌈2 * (Fm.L x i0).sc.a⌉₊ CH etaB eB ηv ev).FParams := fun u0 =>
+211     ⟨(hI x hxI (M.pt u0)).1, (hI x hxI (M.pt u0)).2, hηv0 u0, hηvB u0, hev0 u0, hevB u0⟩
+212 
+213   have hK6 : (6 : ℝ) ≤ max Cd 0 + Cc + Cs + C1 + Cl + 6 := by linarith
+214   have k1 : max Cd 0 ≤ max Cd 0 + Cc + Cs + C1 + Cl + 6 := by linarith
+215   have k2 : Cc ≤ max Cd 0 + Cc + Cs + C1 + Cl + 6 := by linarith
+216   have k3 : Cs ≤ max Cd 0 + Cc + Cs + C1 + Cl + 6 := by linarith
+217   have k4 : C1 ≤ max Cd 0 + Cc + Cs + C1 + Cl + 6 := by linarith
+218   have k5 : Cl ≤ max Cd 0 + Cc + Cs + C1 + Cl + 6 := by linarith
+219   have E0 : ErrWindows0 (M.data ⌈2 * (Fm.L x i0).sc.a⌉₊ CH etaB eB ηv ev) (mkC (max Cd 0) Cabs Cc Cs C1 Cl eL CH)
+220       ((Fm.L x i0).sc.X'' (Fm.D x i0).R.n) eK (max Cd 0 + Cc + Cs + C1 + Cl + 6) :=
+221     ⟨hx1', heps, heps1, hb1, le_of_eq hab.symm, hnT, w1, w2, heK, hk1, w3, w4, (by show 0 ≤ (Fm.L x i0).sc.L; rw [hLx]; linarith),
+222       (by show (Fm.L x i0).sc.L ≤ 2 * x ^ eps; rw [hLx]; linarith), w5, w6, hb'0.le, w7, hXpp0, w8,
+223       fun τ => ⟨le_trans ha0.le (M.av_facts hx1 (hWu 0) τ.2).1, (M.av_facts hx1 (hWu 0) τ.2).2.1⟩,
+224       loss_bound_nonneg _, Nc_nonneg _,
+225       fun u0 => by
+226         have h := (hWu u0).2.2.2.2.2.2.2.2.2.1
+LossesSmallShares
+264       (Fm.L x i0).sc.b' (Fm.L x i0).etaSz (Fm.L x i0).sc.X' (Real.exp (-(c6 * x ^ (eps / 8)))) C5 :=
+265     ⟨⟨(Fm.L x i0).etaSz_pos.le, Real.exp_pos _, hb'0,
+266       le_of_eq (by rw [← hab]; exact div_mul_cancel₀ _ (Real.exp_pos _).ne'), (Real.exp_pos _).le,
+267       fun t ht => (M.av_facts hx1 (hWu 0) ((M.mem_TT t).mp ht)).2.2,
+268       ⟨fun u0 j ρ hρ => lt_of_lt_of_le one_pos ((hnod u0).1 j ρ hρ),
+269         fun u0 j ρ hρ => by
+270           have h := (hnod u0).2.1 j ρ hρ
+271           rw [M.s_sc hx1 u0, Fm.eta_eq x (M.pt u0) M.i0] at h
+272           exact h,
+273         fun u0 j ρ hρ hρ' => by
+274           have h := (hnod u0).2.2 j ρ hρ hρ'
+275           rw [M.s_sc hx1 u0] at h
+276           exact h⟩,
+277       fun u0 j t ρ ht hρ => hcut u0 j t ρ ht hρ⟩,
+278       by rw [hX']; exact hell3 (hTh x hxTh i0), hell4 (hQD x hxQD i0)⟩
+279   have W1 : CostWindows x (fPl M.e.A) (Fm.L x i0).sc.b (Fm.L x i0).etaSz (Real.exp (-(c6 * x ^ (eps / 8)))) := by
+280     rw [M.fPl_eq]; exact ⟨w11, w12⟩
+281   have S1 : RestSize eps x (Fintype.card M.e.A) M.TT.card M.T2.card M.m (Fm.L x i0).sc.b
+282       ((Fm.D x i0).R.k : ℝ) (Fm.L x i0).sc.a := by
+283     have h1 := (hTT x hxTT i0).1
+284     unfold Scale.delta1 at h1
+285     rw [hsx, hse, card_TT Fm x i0, ← M.card_TT'] at h1
+286     refine ⟨by rw [hab]; have := mul_pos hx0 hb0; linarith, ?_, ?_, w13, ?_⟩
+287     · rw [hcardH]; exact h1
+288     · rw [hcardH, M.card_thick_set_model_eq]; exact w15
+289     · rw [hcardH]; exact w14
+290   exact ⟨i0, M.m, M.f, M.pt, av, bv, ↥(Fm.TTn x), inferInstance,
+291     M.data ⌈2 * (Fm.L x i0).sc.a⌉₊ CH etaB eB ηv ev, mkC (max Cd 0) Cabs Cc Cs C1 Cl eL CH,
+292     (Fm.L x i0).sc.X'' (Fm.D x i0).R.n, ell, ⌈2 * (Fm.L x i0).sc.a⌉₊, M.TT, M.T2, M.a, M.w, M.eT, M.eP,
+293     (Fm.L x i0).etaSz, (Fm.L x i0).sc.X', Real.exp (-(c6 * x ^ (eps / 8))),
+294     M.tiePts, M.tieGlobal hx1 _ _ _ _ _ _, M.tieLocal _ _ _ _ _ _, M.tieArith ell hell1, rfl, rfl, le_refl _, le_refl _,
+295     le_refl _, M.ident _ _ _ _ _ _ ell hell2,
+296     ⟨L1, L2, L3, L4, L5, L6, L7, L8, liftZP_newton, ParameterUpperBound, liftZP_unit⟩, E1, B1, R1, W1, S1⟩
+297 
+ThirdPlaceSeries/LinkIrr
+40       exact ⟨A, a, b, GlobalTheory.Top.Lq.admissibleLabelWeights_of_greenCuspidalParametrisation hG _ _ ((sel Fm (d3_a hc)).2 x h1 hs i).T.n.types, c,
+41         sizesRec_at Fm h1 (le_trans (le_trans (le_max_right _ _) (le_max_right _ _)) hx) i le_rfl⟩)
+42   exact (irr.and (closed_eps_le_one _)).imp fun Fm _ he ⟨h, h1⟩ =>
+43       linkIRR_of_join_ex _ 6 cIc he h1 hcI Fm h
+44 end GlobalTheory.Top.Irr
+45 end
+46 end
+ 2e in the place of 2e ; for ζ, ψ is trivial and ψ.N = 1. For ζ, c = 1: the
+number c comes from ordAny (OrdAny.lean:86), which gives 1 ≤ c ≤ |⟨ψ⟩|, and |⟨ψ⟩| = 1 for the
+trivial character. (The statement of fieldChi keeps only 1 ≤ c; the bound is in its proof.) Clause
+(e) of (H12) is not one statement of the source; it was checked against the table of O23 (§7, Status,
+(3)).
+    What remains. (i) Proofs of the Hypotheses. The table of §1 gives the status of each. For
+(H2), (H3), (H5), (H9) and the third part of (H4) no section of this paper gives a proof or a
+reduction, and the lower bound of (H4) is quoted in Part II in shape only, the size of its allowance
+being assumed. In the source (H2), (H3) and 
+TieGlobal B
+QuadraticLogDerivCongr B
+LossesSmallShares OUT
+ErrorFormsWeakWindowsFalse B
+MeanBoundSecondForm B
+QuotientSlopeBoundsWith B
+SizeWindowBrackets/SChain B
+ChTop X
+LossRequirementsOfSmallShares OUT
+GlobalTheoremInputs B
+ThirdPlaceSeries/LinkIrr OUT
+SumLogPrimeFactorsLe B
+JointsL OUT
+LinkMin OUT
+CharacterBoxes/WinPairs X
+CharacterBoxes/ZeroFreeAllOfTopG X
+supplyOfAdmOf OUT
+TopWin X
+DivinNOfHypV X
+OrdAny OUT
+TopPlug OUT
+GrowthBoundGivesRiemannHypothesis B
+ThirdPlaceSeries/TopShape OUT
+
+
+
+
+
+
+Success
+
+
+
+
+
+Command failed ($OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …)
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+sh('ThirdPlaceSeries/TopShape',33,55);sh('LossRequirementsOfSmallShares',136,165);sh('CharacterBoxes/supplyOfAdmOf',8,34) if 'CharacterBoxes/supplyOfAdmOf.lean' in '"''"'.join([]) else sh('supplyOfAdmOf',10,33);print([(i,l[:170]) for i,l in enumerate(ls('supplyOfAdmOf'),1) if 'fieldChi' in l or 'hW.good' in l]);sh('TieGlobal',13,24);sh('LinkMin',801,814);sh('WinPairs',5,10);print(local('results/rubinstein-hypotheses/H12.lean')[-1700:])
+'@ | python -
+exit $LASTEXITCODE
+
+
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ThirdPlaceSeries/TopShape
+33 theorem UpperTheory.Top.shape_closed_link_n_of_green : GlobalTheory.GLq.Green → _root_.GlobalTheory.Fc.TopShapeAlt True True (fun 𝒞 => Closed 𝒞 fun Fm _ => LinkN Fm) UpperTheory.Top.TopG := by
+34   intro hGreen 𝒜 cT hEx sel hduty selS selP selDH selC selB hRB hTw hPA hLamP hDivG hDcPtG hTu hn4 hLit hVC hWu hRF hTF c30 hc30 sTy sNG sM sLp sO h30 hInstR selJ jOn hMt rRows aPt0 aPtTw aPer0 aPerTw aP10 aAtG aC2 hServ nR nRest cIc hcI irrC zL tie hU hG la G hla hH hV
+35   have hgl := GlobalTheory.Top.link_gl 𝒜 hduty tie hU hG
+36   have bRest := _root_.GlobalTheory.Top.link_brest_alt 𝒜 sel selS selP selDH selC selB hRB hPA hDivG hDcPtG rRows tie
+37   have hCsz : Closed (D3 3 𝒜) fun Fm _ => 0 ≤ Fm.Csz := Formalism.MainNotions.DIV.closed_Csz_ge_fn (D3 3 𝒜) fun _ => 0
+38   have oneMap : Closed (D3 3 𝒜) fun Fm _ => ∀ hc : D3 3 𝒜 Fm, _root_.Formalism.L2.Top4.EventuallyAlongSelection sel Fm (d3_a hc) ((_root_.Formalism.L2.Top4.SingleMapCondition selB) Fm (d3_a hc)) :=
+39     Closed.of_class fun Fm _ _ hc => ⟨0, fun x hx h _ i j => (hRB Fm (d3_a hc) x hx h i).oneMap j⟩
+40   have hA2 := _root_.GlobalTheory.Top.closed_family_admissible_twist_link_alt 𝒜 sel aPt0 aPtTw aPer0 aPerTw aP10 aAtG hServ
+41   have hC5 := _root_.GlobalTheory.Top.selection_closed_of_wu_decay_alt 𝒜 sel selS selP selDH selC selB hWu hRF selJ jOn rRows
+42   have hBR : Closed (D3 3 𝒜) fun Fm CH => ∀ hc : D3 3 𝒜 Fm, TuSize Fm → DGamSize Fm →
+43       _root_.Formalism.L2.DIV.DivisionKernelConstantBounds Fm (_root_.Formalism.L2.Top4.RankOfDivisionKernel sel selS selP selDH selC (_root_.Formalism.L2.Top4.kernelChoiceOfSelection selB) (_root_.Formalism.L2.Top4.indefiniteRealisationChoiceOfSelection selB) hPA Fm hc) 2 CH :=
+44     (bRest.and ((Closed.of_class fun Fm _ hc => cut_of_stable (hMt Fm (d3_a hc))).and (rRows.and (oneMap.and (hCsz.and (hA2.and (aC2.and hC5))))))).imp
+45       fun Fm CH _ ⟨r, o, rr, om, cz, a, c, c5⟩ hc hT hD =>
+46         (r hc hT hD).toRows_alt (fun hN => _root_.GlobalTheory.Top.wire_sel_alt 𝒜 sel selS selP selDH selC selB hTw hPA hDivG hDcPtG Fm hc CH cz hD (rr hc) (om hc) (r hc hT hD).bu hN) o a (complement_two_of_items c) c5
+47   have hDIV := _root_.Formalism.L2.DIV.closed_linkDIVt_of_closed_bridge_kernel (D3 3 𝒜) 2 (_root_.Formalism.L2.Top4.RankOfDivisionKernel sel selS selP selDH selC (_root_.Formalism.L2.Top4.kernelChoiceOfSelection selB) (_root_.Formalism.L2.Top4.indefiniteRealisationChoiceOfSelection selB) hPA) hBR
+48   have hsub : ∀ {eps : ℝ} (Fm : FamP eps), WithTw (WithSm (WithChN fun Fm => 𝒜 Fm ∧ G.cls la Fm)) Fm →
+49       WithTw (WithSm (WithChN 𝒜)) Fm := fun _ hc => ⟨⟨⟨hc.1.1.1.1, hc.1.1.2⟩, hc.1.2⟩, hc.2⟩
+50   have hE := _root_.GlobalTheory.Top.designExists_of_tuSize_aux4n_litThin (fun Fm => 𝒜 Fm ∧ G.cls la Fm) cT (fun hM => hEx hM la G hla hH) (fun Fm hc => sel Fm hc.1)
+51     (fun Fm hc => hduty Fm hc.1) (Pk.Closed.sub hTu hsub) (Pk.Closed.sub hn4 hsub) hLit
+52   exact UpperTheory.Top.topDesWin (WithChN 𝒜) (WithChN fun Fm => 𝒜 Fm ∧ G.cls la Fm) (G.cls la) 2 3 2 0 hE
+53     (fun _ hc => ⟨hc.1.1, hc.2⟩) (fun _ hc => hc.1.2) hV nRest (_root_.GlobalTheory.Top.closed_linkEta_of_duty 𝒜 sel hduty)
+54     (_root_.GlobalTheory.Top.Irr.closed_linkIRR_of_join_count hGreen 𝒜 sel cIc hcI irrC) (_root_.GlobalTheory.Top.link_alt_alt_alt 𝒜 sel selS selP selDH selC selB hPA hLamP hDivG zL) hDIV hgl.1 (_root_.GlobalTheory.Top.closed_linkG_of_duty 𝒜 sel hduty)
+55     (_root_.GlobalTheory.Top.link_alt_alt_bis 𝒜 sel selS hWu hRF hTF c30 hc30 sTy sNG sM sLp sO h30 hInstR) hgl.2
+LossRequirementsOfSmallShares
+136   have hU : unitU P (SizeData₂.lifts (Fm.D x i)).card (TTv (Fm.D x i)).card =
+137       ((Fm.D x i).host.TT.card : ℝ) * (Fm.D x i).R.m * (Fm.L x i).sc.b := by
+138     unfold unitU; rw [card_lifts, card_TTv, pd_b tie]
+139   have hU0 : 0 ≤ ((Fm.D x i).host.TT.card : ℝ) * (Fm.D x i).R.m * (Fm.L x i).sc.b :=
+140     mul_nonneg (mul_nonneg (Nat.cast_nonneg _) (Nat.cast_nonneg _)) (Real.exp_pos _).le
+141   have hone : (Fm.L x i).sc.x ^ ((0 : ℝ) * (Fm.L x i).sc.eps) = 1 := by rw [zero_mul, Real.rpow_zero]
+142   have hKabs : K ≤ |K| := le_abs_self K
+143   have hbig : (3 * P.C + 13) * (((Fm.D x i).host.TT.card : ℝ) * (Fm.D x i).R.m * (Fm.L x i).sc.b) ≤
+144       (3 * |K| + 13) * (Fm.D x i).host.TT.card * (Fm.D x i).R.m * (Fm.L x i).sc.b *
+145         (Fm.L x i).sc.x ^ ((0 : ℝ) * (Fm.L x i).sc.eps) := by
+146     rw [hone, mul_one]
+147     have := mul_le_mul_of_nonneg_right (show 3 * P.C + 13 ≤ 3 * |K| + 13 by linarith) hU0
+148     simpa [mul_assoc] using this
+149   have hsmall : ((Fm.D x i).host.TT.card : ℝ) * (Fm.D x i).R.m * (Fm.L x i).sc.b ≤
+150       (3 * P.C + 13) * (((Fm.D x i).host.TT.card : ℝ) * (Fm.D x i).R.m * (Fm.L x i).sc.b) := by
+151     have := mul_le_mul_of_nonneg_right (show (1 : ℝ) ≤ 3 * P.C + 13 by linarith) hU0
+152     linarith
+153   constructor
+154   · have h2 := hc2 ()
+155     rw [IO_at (Fm.Gx x i) Fm.GK Fm.Cr hH, hU] at h2
+156     linarith
+157   · intro e' m' AD N TT' a w hr hAD hcut
+158     rw [hAsk x eA i e' m' AD N TT' a w hr hAD hcut]
+159     have h1 := hc1 ()
+160     rw [Ga_at (Fm.Gx x i) Fm.GK Fm.Cr C bo hH, hU, tie.d, ASK_at (Fm.Gx x i) Fm.GK Fm.Cr C bo hH] at h1
+161     linarith
+162 
+163 end Family
+164 
+165 theorem stLoss7 : ThickDensitySizeWindowsForAllFamilies := fun _ Fm h1 h2 h3 => losses_of_small_share_weight Fm h1 h2 h3
+supplyOfAdmOf
+10 
+11 open Formalism.BasicNotions Formalism.MainNotions Formalism.MainNotions.Inhab Formalism.HC GlobalTheory.EX UpperTheory.Top HostParam.Seam
+12 
+13 theorem UpperTheory.T3.supplyOfAdmOf :
+14     (∀ eps C0 : ℝ, 0 < eps → eps < 1 / 52 → 1 ≤ C0 → ∃ CT2 C8 c6 Cb x0 : ℝ, C0 ≤ C8 ∧ 0 < c6 ∧ 0 < Cb ∧
+15       ∀ (s : Scale) (R : Ranks) (H0 : HostAx R.toFrame) (M : ℕ) (Y : ℝ), s.eps = eps → x0 ≤ s.x → RankVal s R →
+16         s.J ≤ C0 → (R.o : ℝ) ≤ C0 → (H0.QS : ℝ) ≤ C0 * R.n → 0 < M → (M : ℝ) ≤ C0 → H0.QS ∣ Nat.lcm (2 ^ (R.e + 2)) M →
+17         PairWin s Y → PairGood M eps Y s.x H0.q H0.d → FieldRows H0.toHostRaw ⌊Y ^ (eps / 5)⌋₊ → admitted R H0 →
+18         ∃ (H : Host R) (q0 : ℕ), H.toHostAx = H0 ∧ H.CT2 = CT2 ∧ HostGood s C8 4 c6 Cb H q0 ∧
+19           R.toFrame.Shares H.TT (s.x ^ (-1 + s.eps))) → ∀ ψ : PChar, VWinAt ψ 401 →
+20       (∀ eps : ℝ, 0 < eps → eps < 1 / 52 → ∃ x0 : ℝ, ∀ (s : Scale) (φ : Frame) (H0 : HostAx φ), s.eps = eps → x0 ≤ s.x →
+21         s.x ^ (2 + 8 * eps) ≤ (φ.ord : ℝ) → (φ.ord : ℝ) ≤ 2 * s.x ^ (2 + 8 * eps) → φ.o = (Level.cyc ψ).o → KerChi ψ H0.toHostRaw →
+22         ∃ (R : Ranks) (h : R.toFrame = φ), RankVal s R ∧ admitted R (h ▸ H0)) →
+23       HostExW (3 / 2) (fun _ s R H _ => EAtH (Level.cyc ψ) H.toHostRaw H.TT s.x s.eps 4 ∧ VVle H.E R.t (Real.sqrt s.b)) := by
+24   intro hSup ψ hV hAdm eps heps heps'
+25   haveI := ψ.ne
+26   have hN0 : 0 < ψ.N := Nat.pos_of_ne_zero (NeZero.ne _)
+27   have heps0 : eps ≠ 0 := heps.ne'
+28   obtain ⟨c, e0, hc, hF⟩ := UpperTheory.Top.fieldChi ψ
+29   obtain ⟨J, hJ, hwin⟩ := UpperTheory.Top.winPairs ψ eps (c : ℝ) heps heps' (by exact_mod_cast hc) hV QH.pairEx
+30   obtain ⟨C0, hC1, hCJ, hCo, hCN⟩ : ∃ C0 : ℝ, 1 ≤ C0 ∧ J ≤ C0 ∧ ((Level.cyc ψ).o : ℝ) ≤ C0 ∧
+31       8 * (ψ.N : ℝ) ≤ C0 :=
+32     by
+33       have h1 : (0 : ℝ) ≤ ((Level.cyc ψ).o : ℝ) := Nat.cast_nonneg _
+[(28, '  obtain ⟨c, e0, hc, hF⟩ := UpperTheory.Top.fieldChi ψ'), (68, '  obtain ⟨hHyp, hjac, -⟩ := UpperTheory.Top.pairHyp eps Y q d hW.good.pair'), (71, '    have h1 := hW.good.pair.q_lo'), (94, '    hF e he q d ⌊Y ^ (eps / 5)⌋₊ hHyp hq3 hW.good.coprime h4N hjacb'), (114, '    (by rw [hHq, hHd]; exact hW.good) hFR hAdmR'), (126, '      (by rw [hHq, hHd]; exact hW.good)')]
+TieGlobal
+13 instance (D : D7) : Nonempty D.what₂.Word := ⟨D.u₀⟩
+14 
+15 def hval (φ : Formalism.HC.Frame) (h : φ.A) : ℕ := Formalism.HC.Frame.A.val h
+16 
+17 def sgnZ (s : ℤˣ) : ZMod 2 := if s = 1 then 0 else 1
+18 
+19 def gcode (φ : Formalism.HC.Frame) (g : φ.GG) : (ZMod 2 × ZMod 2) × ℕ :=
+20   ((sgnZ g.1.2, sgnZ g.1.1), Formalism.HC.Frame.A.val (φ.iotaInv g.2))
+21 
+22 def mcode (φ : Formalism.HC.Frame) (g : E0 × φ.A) : (ZMod 2 × ZMod 2) × ℕ := (g.1, hval φ g.2)
+23 
+24 def recOf {φ : Formalism.HC.Frame} (H : Formalism.HC.HostRaw φ) : (ZMod H.condN)ˣ →* Multiplicative (E0 × φ.A) where
+LinkMin
+801 
+802     (hW : FamU Fm fun D u => Nonempty (product_first_zeroth_parts.FreeT D u)) (hμ : FamU Fm product_first_zeroth_parts.SlopeLine) (hB : FamU Fm product_first_zeroth_parts.LemB)
+803 
+804     (hI : FamU Fm product_first_zeroth_parts.IntAtT) (hFi : FamU Fm product_first_zeroth_parts.FiSt) (hX : FamU Fm product_first_zeroth_parts.CrossDia) (hU : FamU Fm product_first_zeroth_parts.UnfAll) :
+805     TuSize Fm → LinkGLOBAL7 Fm Cabs CH C0 Cabs 0 :=
+806   linkGLOBAL7_min Fm Cabs CH C0 4 hCabs hCH hC0
+807     (family_property_mono (low_weight_bound_at h2U h2v0) fun D h => StandardLattice.massRatio_of_definiteVolume D (StandardLattice.volumeMass_of_unfolding D h.1) h.2)
+808     (family_property_mono (low_weight_bound_at h2U h2v0) fun D h => StandardLattice.volumeY0EqualsMass_of_aux2v D (StandardLattice.volume_eq_mass_of_definite D (StandardLattice.volumeMass_of_unfolding D h.1) h.2))
+809     (family_property_mono (low_weight_bound_at h3S tDs) fun D h => StandardLattice.theorem_three_sigma_holds D h.1 (DiscreteSeriesWeylDimension.lowest_K_type_count_of_weyl D hWK hLK) h.2)
+810     (flipTwoThree.familySlopeLowerOpen_of_std flipTwoThree.stdSlopeLow_holds flipTwoThree.hookBound_holds Fm hCS) (flipTwoThree.family_slope_bound_of_max_slope flipTwoThree.hookBound_holds Fm hSMx) tCV hW hμ
+811     (hI.mono fun _ _ _ h => fun w hw hs v => h 0 (Nat.zero_le _) w hw hs v)
+812     ((hFi.and (hX.and hU)).mono fun _ _ _ h => fun v φ hφ => by
+813       have h9 := product_first_zeroth_parts.ram_of h.1 (product_first_zeroth_parts.DiaMul_of h.1 h.2.2) h.2.1 h.2.2 0 (Nat.zero_le _) v φ hφ
+814       exact ⟨h9.1, h9.2.1, h9.2.2.2.2.2⟩)
+WinPairs
+  File "<stdin>", line 7, in sh
+  File "<stdin>", line 6, in ls
+  File "<stdin>", line 5, in p
+AssertionError: ('WinPairs', ['Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/WinPairs.lean', 'Development/AutomorphicArithmetic/CharacterBoxes/WinPairs.lean'])
+
+
+
+
+
+
+Exit code 1
+
+
+
+
+
+Command failed ($OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …)
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+print([n for n in ns if n.endswith(('/LinkGl.lean','/TopDesWin.lean','/JoinEx.lean'))]);sh('ThirdPlaceSeries/LinkGl',14,58);sh('LinkMin',778,794);print(local('results/rubinstein-hypotheses/H12.lean')[-1850:])
+'@ | python -
+exit $LASTEXITCODE
+
+
+['Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/LinkGl.lean']
+ThirdPlaceSeries/LinkGl
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+  File "<stdin>", line 7, in sh
+  File "<stdin>", line 6, in ls
+  File "<stdin>", line 5, in p
+AssertionError: ('ThirdPlaceSeries/LinkGl', [])
+
+
+
+
+
+
+Exit code 1
+
+
+
+
+
+$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+sh('LinkGl',1,48);print(local('results/rubinstein-hypotheses/H12.lean')[-1820:]);sh('LinkMin',781,792);sh('LossRequirementsOfSmallShares',147,165);sh('LinkMin',718,721)
+'@ | python -
+exit $LASTEXITCODE
+
+
+LinkGl
+1 import Mathlib
+2 import Formalism.SharpRestriction.GlobalSchurBounds.TuSizeOfRealPlaceSecondLayer
+3 import Formalism.SharpRestriction.GlobalSchurBounds.LogXLowerFamilyOfTheorems
+4 import Development.AbelianVarietyTheory.Proofs.FlagMeasures.HermRepUnram
+5 import Formalism.LocalToGlobal.TieTwRecOf
+6 import Formalism.LocalToGlobal.SiegelLatticeTheory.FlagStabilizerTensors.JoinSISel
+7 
+8 noncomputable section
+9 
+10 open Formalism.BasicNotions Formalism.MainNotions Formalism.MainNotions.Pk Formalism.MainNotions.Lnk Formalism.MainNotions.GlobalTheoryTheory Formalism.L2.GlobalTheoryTheory Formalism.MainNotions.RT Formalism.L2.Top3 Formalism.L2.Top4
+11 
+12 set_option maxHeartbeats 1600000 in
+13 
+14 theorem GlobalTheory.Top.link_gl : ∀ (𝒜 : FamClass)
+15     (hduty : ∀ {eps : ℝ} (Fm : FamP eps), 𝒜 Fm → Duty Fm)
+16     (tie : Closed (D3 3 𝒜) fun Fm _ => RealPlaceSecondLayerConditions Fm)
+17     (hU : ∀ D, MassRatioUnderVolume D)
+18     (hG : ∀ D, GenusMassVolumes.GenusMassAt D 2), (Closed (D3 3 𝒜) fun Fm CH => ChosenE Fm 3 CH → NuFullF Fm ∧ J.MuRank Fm) ∧ (Closed (D3 3 𝒜) fun Fm CH => TuSize Fm → DGamSize Fm → LinkGLOBAL Fm 2 CH 3 2 0) := by
+19   intro 𝒜 hduty tie hU hG
+20   have hC0 : (3 : ℝ) ≤ 3 := le_refl _
+21   have hC0' : (0 : ℝ) < 3 := by norm_num
+22   have hCe : Real.exp 1 ≤ 3 := le_trans (le_of_lt (lt_trans Real.exp_one_lt_d9 (by norm_num))) hC0
+23   have hCabs : (0 : ℝ) ≤ 2 := by norm_num
+24   haveI : Fact Formalism.HermitianLattices.Ext.L3.HermRepUnram := ⟨GlobalTheory.hermRepUnram⟩
+25   have hGLm := Formalism.MainNotions.Wire.famGLmin_of_realPlaceSecondLayer (D3 3 𝒜) tie hU hG
+26   have hRk : Closed (D3 3 𝒜) fun Fm CH => ChosenE Fm 3 CH → NuFullF Fm ∧ J.MuRank Fm :=
+27     ((hGLm.muRank 3 hC0').and
+28       (Closed.of_class (P := fun Fm _ => TuSize Fm) fun _ _ hc => hc.2.2.1)).imp fun _ _ _ h c => h.1 h.2 c
+29   have hGL : Closed (D3 3 𝒜) fun Fm CH => TuSize Fm → DGamSize Fm → LinkGLOBAL Fm 2 CH 3 2 0 :=
+30     hGLm.link8 2 3 hCabs hC0 fun Fm hc => (hduty Fm (d3_a hc)).2.2.2.2.1
+31   exact ⟨hRk, hGL⟩
+32 
+33 end
+lay the supply and its family use.
+-/
+
+noncomputable section
+
+open Formalism.BasicNotions Formalism.MainNotions Formalism.HC GlobalTheory.EX UpperTheory.Top
+
+namespace RHX
+
+theorem h12_pair_supply (ψ : PChar) (eps c : ℝ) (he : 0 < eps) (he' : eps < 1 / 52)
+    (hc : 1 ≤ c) (hV : VWinAt ψ 401) (hP : PairEx) :
+    ∃ J : ℝ, 1 ≤ J ∧ ∀ y : ℝ, ∃ Z : ℝ, y ≤ Z ∧
+      ∀ x : ℝ, Z ≤ x → x ≤ Z ^ ((3 : ℝ) / 2) →
+        ∃ (Y : ℝ) (q d e : ℕ), WinDatum ψ eps J c x Y q d e :=
+  UpperTheory.Top.winPairs ψ eps c he he' hc hV hP
+
+theorem h12_family_windows (ψ : PChar) (hTop : TopG)
+    (hSupply : HostExW (3 / 2) (GChi ψ).req) :
+    ∃ eD eL ε₁ : ℝ, 0 < ε₁ ∧ ∀ eps : ℝ, 0 < eps → eps < ε₁ →
+      ∃ (Fm : FamP eps) (K cHH eK CL : ℝ), ∀ y : ℝ, ∃ Z : ℝ, y ≤ Z ∧
+        ∀ x : ℝ, Z ≤ x → x ≤ Z ^ ((3 : ℝ) / 2) →
+          x ∈ Fm.Win ∧ Nonempty (Fm.Ix x) ∧ ChainTied Fm eD eL K cHH eK CL x ∧
+          ∀ i : Fm.Ix x, EAt (Level.cyc ψ) (Fm.D x i) x eps 4 ∧
+            VVle (Fm.D x i).host.E (Fm.D x i).R.t (Real.sqrt (Fm.L x i).sc.b) := by
+  obtain ⟨eD, eL, ε₁, hε, hf⟩ :=
+    hTop (3 / 2) (GChi ψ) (by norm_num) hSupply (hypV_of_cls ψ (3 / 2))
+  refine ⟨eD, eL, ε₁, hε, fun eps he he' => ?_⟩
+  obtain ⟨Fm, hc, K, cHH, eK, CL, t, ht⟩ := hf eps he he'
+  refine ⟨Fm, K, cHH, eK, CL, fun y => ?_⟩
+  obtain ⟨Z, hz, hw⟩ := hc.1 (max y (max t (Fm.x1 + 1)))
+  refine ⟨Z, (le_max_left _ _).trans hz, fun x hx hxr => ?_⟩
+  have hLate := (le_max_right _ _).trans (hz.trans hx)
+  have hx1 : Fm.x1 < x := by linarith [le_of_max_le_right hLate]
+  have hwin := hw x hx hxr
+  refine ⟨hwin, Fm.Ix_win x hwin, ht x (le_of_max_le_left hLate) hwin, fun i => ?_⟩
+  obtain ⟨hHost, hCoh⟩ := hc.2 x hx1 i
+  rw [Fm.L_x x i hx1, Fm.L_eps x i] at hHost
+  exact ⟨hHost, hCoh⟩
+
+end RHX
+
+end
+
+#print axioms RHX.h12_pair_supply
+#print axioms RHX.h12_family_windows
+
+LinkMin
+781 
+782 theorem low_weight_bound_at {Fm : FamP eps} {P Q : D7 → Prop} (h : flipTwoThree.fam0 Fm P) (h' : flipTwoThree.fam0 Fm Q) :
+783     flipTwoThree.fam0 Fm fun D => P D ∧ Q D := by
+784   obtain ⟨a, ha⟩ := h
+785   obtain ⟨b, hb⟩ := h'
+786   exact ⟨max a b, fun x hx hx1 i =>
+787     ⟨ha x (le_of_max_le_left hx) hx1 i, hb x (le_of_max_le_right hx) hx1 i⟩⟩
+788 
+789 theorem family_property_mono {Fm : FamP eps} {P Q : D7 → Prop} (h : flipTwoThree.fam0 Fm P) (hPQ : ∀ D, P D → Q D) : flipTwoThree.fam0 Fm Q := by
+790   obtain ⟨a, ha⟩ := h
+791   exact ⟨a, fun x hx hx1 i => hPQ _ (ha x hx hx1 i)⟩
+792 
+LossRequirementsOfSmallShares
+147     have := mul_le_mul_of_nonneg_right (show 3 * P.C + 13 ≤ 3 * |K| + 13 by linarith) hU0
+148     simpa [mul_assoc] using this
+149   have hsmall : ((Fm.D x i).host.TT.card : ℝ) * (Fm.D x i).R.m * (Fm.L x i).sc.b ≤
+150       (3 * P.C + 13) * (((Fm.D x i).host.TT.card : ℝ) * (Fm.D x i).R.m * (Fm.L x i).sc.b) := by
+151     have := mul_le_mul_of_nonneg_right (show (1 : ℝ) ≤ 3 * P.C + 13 by linarith) hU0
+152     linarith
+153   constructor
+154   · have h2 := hc2 ()
+155     rw [IO_at (Fm.Gx x i) Fm.GK Fm.Cr hH, hU] at h2
+156     linarith
+157   · intro e' m' AD N TT' a w hr hAD hcut
+158     rw [hAsk x eA i e' m' AD N TT' a w hr hAD hcut]
+159     have h1 := hc1 ()
+160     rw [Ga_at (Fm.Gx x i) Fm.GK Fm.Cr C bo hH, hU, tie.d, ASK_at (Fm.Gx x i) Fm.GK Fm.Cr C bo hH] at h1
+161     linarith
+162 
+163 end Family
+164 
+165 theorem stLoss7 : ThickDensitySizeWindowsForAllFamilies := fun _ Fm h1 h2 h3 => losses_of_small_share_weight Fm h1 h2 h3
+LinkMin
+718     (frameRealF_of'' Fm Cabs CH C0 hCH.le lD lI lS cPr hNF hRank hTu (ramRankF_min Fm hE)
+719       (matKF_of Fm Cabs CH C0 (by linarith) lS cPr lD)) hLat cPr cCo hNF
+720   exact linkCore Fm Cabs CH 0 C5' c6 hCabs hCH.le le_rfl hc6 hCount hSM hSN hLat (nodesF Fm) hFr
+721     (lossF_of_7 Fm (Formalism.L2.GlobalTheoryTheory.Loss7.stLoss7 eps Fm cTT cBad lG) cW) (charF Fm) (size_windows_of_thick_density Fm cT2) cTT cQD cTh lI lD
+
+
+
+
+
+
+Success
+
+
+
+
+
+$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+sh('LinkGl',29,43);sr('LogXLowerFamilyOfTheorems',r'^theorem |linkGLOBAL|muRank');sh('LogXLowerFamilyOfTheorems',56,69);print(local('results/rubinstein-hypotheses/H12.lean')[-1230:]);sh('TieGlobal',49,65);
+'@ | python -
+exit $LASTEXITCODE
+
+
+LinkGl
+29   have hGL : Closed (D3 3 𝒜) fun Fm CH => TuSize Fm → DGamSize Fm → LinkGLOBAL Fm 2 CH 3 2 0 :=
+30     hGLm.link8 2 3 hCabs hC0 fun Fm hc => (hduty Fm (d3_a hc)).2.2.2.2.1
+31   exact ⟨hRk, hGL⟩
+32 
+33 end
+LogXLowerFamilyOfTheorems
+19 theorem s59 (𝒞 : FamClass) : Closed 𝒞 fun Fm _ => ∀ x : ℝ, Fm.x1 < x → ∀ i : Fm.Ix x, UnusedSlot33.division_rows_rational_lattice (Fm.D x i) :=
+22 theorem lemma_one_seven_closed (𝒞 : FamClass) : Closed 𝒞 fun Fm _ => EvD Fm UnusedSlot33.division_rows_rational_lattice :=
+25 theorem hLit (𝒞 : FamClass) (h6 : Closed 𝒞 fun Fm _ => ShortIntervalPrimes.FamilySixthHypothesis Fm) :
+29 theorem t7 (𝒞 : FamClass) (C0 : ℝ) (h : ∀ {eps : ℝ} (Fm : FamP eps), 𝒞 Fm → LLKerE Fm) :
+33 theorem log_gamma_small_family {eps : ℝ} (Fm : FamP eps) : ShortIntervalPrimes.compactDualInputFamily Fm := ShortIntervalPrimes.family_log_gamma_small_holds Fm
+35 theorem log_X_lower_family_of_theorems {eps : ℝ} (Fm : FamP eps) (h2b : flipTwoThree.fam0 Fm StandardLattice.MassRatio₂) (h2v : flipTwoThree.fam0 Fm StandardLattice.BaseVolumeEqualsMass)
+52 theorem linkGLOBAL_of_7 {eps : ℝ} (Fm : FamP eps) (Cabs CH C0 eD eL : ℝ) (h : LinkGLOBAL7 Fm Cabs CH C0 eD eL)
+56 theorem linkGLOBAL_of_7w {eps : ℝ} (Fm : FamP eps) (Cabs CH C0 eD eL : ℝ) (h : LinkGLOBAL7 Fm Cabs CH C0 eD eL)
+60 theorem FamGLmin.link7 {𝒞 : FamClass} {C5 : ℝ} (h : FamGLmin 𝒞 C5) (Cabs C0 : ℝ) (hCabs : 0 ≤ Cabs) (hC0 : 3 ≤ C0) :
+65       linkGLOBAL7_min Fm Cabs CH C0 C5 hCabs hCH hC0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11
+67 theorem FamGLmin.link {𝒞 : FamClass} {C5 : ℝ} (h : FamGLmin 𝒞 C5) (Cabs C0 : ℝ) (hCabs : 0 ≤ Cabs) (hC0 : 3 ≤ C0) :
+69   (h.link7 Cabs C0 hCabs hC0).imp fun Fm CH _ l hc hT _ => linkGLOBAL_of_7 Fm Cabs CH C0 Cabs 0 (l hT) hc
+71 theorem FamGLmin.link8 {𝒞 : FamClass} {C5 : ℝ} (h : FamGLmin 𝒞 C5) (Cabs C0 : ℝ) (hCabs : 0 ≤ Cabs) (hC0 : 3 ≤ C0)
+75     fun Fm CH _ ⟨l, hWa⟩ hT _ => linkGLOBAL_of_7w Fm Cabs CH C0 Cabs 0 (l hT) hWa
+77 theorem family_theorems_two_and_five {eps : ℝ} (Fm : FamP eps) (hW : FamU Fm fun D u => Nonempty (product_first_zeroth_parts.FreeT D u))
+83 theorem FamGLmin.muRank {𝒞 : FamClass} {C5 : ℝ} (h : FamGLmin 𝒞 C5) (C0 : ℝ) (hC0 : 0 < C0) :
+91     exact ⟨hNF, muRank_min Fm hC0 cPr hNF hE tSet⟩
+93 theorem FamGLmin.muRank7 {𝒞 : FamClass} {C5 : ℝ} (h : FamGLmin 𝒞 C5) (C0 : ℝ) (hC0 : 0 < C0) :
+98     exact muRank_items Fm C0 hC0 hT2 hT5 hTu cPr
+100 theorem FamGLmin.nuFull {𝒞 : FamClass} {C5 : ℝ} (h : FamGLmin 𝒞 C5)
+118 theorem packet_conditions_iff_pure (D : D7) (u : D.what₂.Word) : IncidenceTransportConditions D u ↔ IncidenceTransportConditionsWithoutExistence D u ∧ BrExists D u :=
+121 theorem packet_conditions_closed (𝒞 : FamClass)
+129 theorem brExists_of {D : D7} {u : D.what₂.Word} (H : PrimeDegreeVariant.Conclusion6) (P : product_first_zeroth_parts.Pend D u) (tie : J.BrTie P) : BrExists D u :=
+132 theorem brExists_of_tie {D : D7} {u : D.what₂.Word} (P : product_first_zeroth_parts.Pend D u) (tie : J.BrTie P) : BrExists D u :=
+137 theorem mass_count_uniform_constant (C₀ : ℝ) (h2 : 2 ≤ C₀) : ∃ C : ℝ, ∀ (Cn : ℝ) (D : D7) (x : ℝ), MsCount D C₀ → Conclusion1 D Cn C x := by
+208 theorem mass_count_uniform_holds : ∃ C : ℝ, ∀ (Cn : ℝ) (D : D7) (x : ℝ), flipTwoThree.Conclusion1 D Cn C x :=
+212 theorem VolumeRatio₂ (Cn Cd : ℝ) : ∃ C : ℝ, ∀ (D : D7) (x Cth : ℝ), flipTwoThree.adm2 D Cn Cth x → flipTwoThree.Conclusion2 D Cn Cd C x :=
+217 theorem counting_constant_as_function (Cd : ℝ) : ∃ K : ℝ → ℝ, ∀ (Cn : ℝ) (D : D7) (x Cth : ℝ), flipTwoThree.adm2 D Cn Cth x → flipTwoThree.Conclusion2 D Cn Cd (K Cn) x :=
+LogXLowerFamilyOfTheorems
+56 theorem linkGLOBAL_of_7w {eps : ℝ} (Fm : FamP eps) (Cabs CH C0 eD eL : ℝ) (h : LinkGLOBAL7 Fm Cabs CH C0 eD eL)
+57     (hW : ChosenWall Fm) : LinkGLOBAL Fm Cabs CH C0 eD eL :=
+58   fun hCh hIn => h (Formalism.L2.GlobalTheoryTheory.Loss7.loss_requirements_of_small_shares Fm C0 CH hCh hW) hIn
+59 
+60 theorem FamGLmin.link7 {𝒞 : FamClass} {C5 : ℝ} (h : FamGLmin 𝒞 C5) (Cabs C0 : ℝ) (hCabs : 0 ≤ Cabs) (hC0 : 3 ≤ C0) :
+61     Closed 𝒞 fun Fm CH => TuSize Fm → LinkGLOBAL7 Fm Cabs CH C0 Cabs 0 :=
+62   ((closed_CH 𝒞).and (h.h2b.and (h.h2v.and (h.h3.and (h.hZa.and (h.hZb.and (h.tCV.and (h.hW.and (h.hμ.and
+63     (h.hI.and (h.hR.and h.hB))))))))))).imp
+64     fun Fm CH _ ⟨hCH, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11⟩ =>
+65       linkGLOBAL7_min Fm Cabs CH C0 C5 hCabs hCH hC0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11
+66 
+67 theorem FamGLmin.link {𝒞 : FamClass} {C5 : ℝ} (h : FamGLmin 𝒞 C5) (Cabs C0 : ℝ) (hCabs : 0 ≤ Cabs) (hC0 : 3 ≤ C0) :
+68     Closed 𝒞 fun Fm CH => Fm.CoverAll → TuSize Fm → DGamSize Fm → LinkGLOBAL Fm Cabs CH C0 Cabs 0 :=
+69   (h.link7 Cabs C0 hCabs hC0).imp fun Fm CH _ l hc hT _ => linkGLOBAL_of_7 Fm Cabs CH C0 Cabs 0 (l hT) hc
+tExW (3 / 2) (GChi ψ).req) :
+    ∃ eD eL ε₁ : ℝ, 0 < ε₁ ∧ ∀ eps : ℝ, 0 < eps → eps < ε₁ →
+      ∃ (Fm : FamP eps) (K cHH eK CL : ℝ), ∀ y : ℝ, ∃ Z : ℝ, y ≤ Z ∧
+        ∀ x : ℝ, Z ≤ x → x ≤ Z ^ ((3 : ℝ) / 2) →
+          x ∈ Fm.Win ∧ Nonempty (Fm.Ix x) ∧ ChainTied Fm eD eL K cHH eK CL x ∧
+          ∀ i : Fm.Ix x, EAt (Level.cyc ψ) (Fm.D x i) x eps 4 ∧
+            VVle (Fm.D x i).host.E (Fm.D x i).R.t (Real.sqrt (Fm.L x i).sc.b) := by
+  obtain ⟨eD, eL, ε₁, hε, hf⟩ :=
+    hTop (3 / 2) (GChi ψ) (by norm_num) hSupply (hypV_of_cls ψ (3 / 2))
+  refine ⟨eD, eL, ε₁, hε, fun eps he he' => ?_⟩
+  obtain ⟨Fm, hc, K, cHH, eK, CL, t, ht⟩ := hf eps he he'
+  refine ⟨Fm, K, cHH, eK, CL, fun y => ?_⟩
+  obtain ⟨Z, hz, hw⟩ := hc.1 (max y (max t (Fm.x1 + 1)))
+  refine ⟨Z, (le_max_left _ _).trans hz, fun x hx hxr => ?_⟩
+  have hLate := (le_max_right _ _).trans (hz.trans hx)
+  have hx1 : Fm.x1 < x := by linarith [le_of_max_le_right hLate]
+  have hwin := hw x hx hxr
+  refine ⟨hwin, Fm.Ix_win x hwin, ht x (le_of_max_le_left hLate) hwin, fun i => ?_⟩
+  obtain ⟨hHost, hCoh⟩ := hc.2 x hx1 i
+  rw [Fm.L_x x i hx1, Fm.L_eps x i] at hHost
+  exact ⟨hHost, hCoh⟩
+
+end RHX
+
+end
+
+#print axioms RHX.h12_pair_supply
+#print axioms RHX.h12_family_windows
+
+TieGlobal
+49 
+50 def TieGlobal (pt : φ.A → Fm.Ix x) {Top : Type}
+51     (Dd : Data φ.A (fun u0 => (Fm.D x (pt u0)).what₂.Word) Top m f) (Xpp η X' : ℝ) : Prop :=
+52   ∀ u0 : φ.A,
+53     Dd.a = (Fm.L x (pt u0)).sc.a ∧ Dd.b = (Fm.L x (pt u0)).sc.b ∧ Dd.b' = (Fm.L x (pt u0)).sc.b' ∧
+54     Dd.k = ((Fm.D x (pt u0)).R.k : ℝ) ∧ Dd.L = (Fm.L x (pt u0)).sc.L ∧ Dd.La = (Fm.L x (pt u0)).La ∧
+55     Dd.B0 = (Fm.L x (pt u0)).B0 ∧ Dd.Nc = (Fm.L x (pt u0)).Nc ∧
+56     Dd.gam = Real.eulerMascheroniConstant ∧ Dd.LpL = (Fm.L x (pt u0)).logDerivativeAtOne ∧
+57     Dd.v = (Fm.D x (pt u0)).host.v ∧
+58     Dd.lg = Real.log (((Fm.D x (pt u0)).host.g 0 : ℝ) * ((Fm.D x (pt u0)).host.g 1 : ℝ)) ∧
+59     Dd.logGam = Real.log (GamL (Fm.L x (pt u0))) ∧
+60     Xpp = (Fm.L x (pt u0)).sc.X'' (Fm.D x (pt u0)).R.n ∧ η = (Fm.L x (pt u0)).etaSz ∧
+61     X' = (Fm.L x (pt u0)).sc.X'
+62 
+63 def TieLocal (pt : φ.A → Fm.Ix x) {Top : Type}
+64     (Dd : Data φ.A (fun u0 => (Fm.D x (pt u0)).what₂.Word) Top m f) : Prop :=
+65   ∀ u0 : φ.A,
+
+
+
+
+
+
+Success
+
+
+
+
+
+$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+sh('LogXLowerFamilyOfTheorems',60,90);sh('LossesSmallShares',219,228);print([(i,l[:155]) for i,l in enumerate(ls('LossesSmallShares'),1) if 'exp' in l and ('1 / 2' in l or 'log 2' in l)]);print([(i,l[:130]) for i,l in enumerate(ls('LinkMin'),1) if 'muRank_min' in l]);print([(i,l[:110]) for i,l in enumerate(ls('TieGlobal'),1) if 'BNBoundsU' in l]);
+'@ | python -
+exit $LASTEXITCODE
+
+
+LogXLowerFamilyOfTheorems
+60 theorem FamGLmin.link7 {𝒞 : FamClass} {C5 : ℝ} (h : FamGLmin 𝒞 C5) (Cabs C0 : ℝ) (hCabs : 0 ≤ Cabs) (hC0 : 3 ≤ C0) :
+61     Closed 𝒞 fun Fm CH => TuSize Fm → LinkGLOBAL7 Fm Cabs CH C0 Cabs 0 :=
+62   ((closed_CH 𝒞).and (h.h2b.and (h.h2v.and (h.h3.and (h.hZa.and (h.hZb.and (h.tCV.and (h.hW.and (h.hμ.and
+63     (h.hI.and (h.hR.and h.hB))))))))))).imp
+64     fun Fm CH _ ⟨hCH, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11⟩ =>
+65       linkGLOBAL7_min Fm Cabs CH C0 C5 hCabs hCH hC0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11
+66 
+67 theorem FamGLmin.link {𝒞 : FamClass} {C5 : ℝ} (h : FamGLmin 𝒞 C5) (Cabs C0 : ℝ) (hCabs : 0 ≤ Cabs) (hC0 : 3 ≤ C0) :
+68     Closed 𝒞 fun Fm CH => Fm.CoverAll → TuSize Fm → DGamSize Fm → LinkGLOBAL Fm Cabs CH C0 Cabs 0 :=
+69   (h.link7 Cabs C0 hCabs hC0).imp fun Fm CH _ l hc hT _ => linkGLOBAL_of_7 Fm Cabs CH C0 Cabs 0 (l hT) hc
+70 
+71 theorem FamGLmin.link8 {𝒞 : FamClass} {C5 : ℝ} (h : FamGLmin 𝒞 C5) (Cabs C0 : ℝ) (hCabs : 0 ≤ Cabs) (hC0 : 3 ≤ C0)
+72     (hW : ∀ {eps : ℝ} (Fm : FamP eps), 𝒞 Fm → ChosenWall Fm) :
+73     Closed 𝒞 fun Fm CH => TuSize Fm → DGamSize Fm → LinkGLOBAL Fm Cabs CH C0 Cabs 0 :=
+74   ((h.link7 Cabs C0 hCabs hC0).and (Closed.of_class (P := fun Fm _ => ChosenWall Fm) fun Fm _ hc => hW Fm hc)).imp
+75     fun Fm CH _ ⟨l, hWa⟩ hT _ => linkGLOBAL_of_7w Fm Cabs CH C0 Cabs 0 (l hT) hWa
+76 
+77 theorem family_theorems_two_and_five {eps : ℝ} (Fm : FamP eps) (hW : FamU Fm fun D u => Nonempty (product_first_zeroth_parts.FreeT D u))
+78     (hμ : FamU Fm product_first_zeroth_parts.SlopeLine) (hI : FamU Fm LocalLatticeBases.HeckeIntegralLevelZero) (hR : FamU Fm LocalLatticeBases.HeckeRamifiedLevelZero) (hB : FamU Fm LocalLatticeBases.SecondBranchInclusionLength) :
+79     FamU Fm product_first_zeroth_parts.family_property_and ∧ FamU Fm LocalLatticeBases.CongruenceLatticeLengthBound :=
+80   ⟨(hW.and hμ).mono fun _ _ hS h => by obtain ⟨⟨W⟩, hm⟩ := h; exact product_first_zeroth_parts.division_side_conditions_at_sizeData hS W hm,
+81    (hB.and (hI.and hR)).mono fun _ _ hS h => LocalLatticeBases.congruence_no_kernel_minimal hS h.1 h.2.1 h.2.2⟩
+82 
+83 theorem FamGLmin.muRank {𝒞 : FamClass} {C5 : ℝ} (h : FamGLmin 𝒞 C5) (C0 : ℝ) (hC0 : 0 < C0) :
+84     Closed 𝒞 fun Fm CH => TuSize Fm → ChosenE Fm C0 CH → NuFullF Fm ∧ J.MuRank Fm :=
+85   (h.hW.and (h.hμ.and (h.hI.and (h.hR.and h.hB)))).imp fun Fm _ _ ⟨hW, hμ, hI, hR, hB⟩ hTu hCh => by
+86     have tSet : SettingEventually Fm := Formalism.L2.GlobalTheoryTheory.Places.settingF_of Fm hTu
+87     obtain ⟨hT2, hT5⟩ := family_theorems_two_and_five Fm hW hμ hI hR hB
+88     have hE : J.LvlF Fm := lvlF_of Fm tSet hT2 hT5
+89     have hNF : NuFullF Fm := nuFullF_of Fm (nuCommensF_min Fm hE)
+90     obtain ⟨_, _, _, _, _, _, _, _, _, _, _, cPr, _⟩ := hCh
+LossesSmallShares
+219   have E0 : ErrWindows0 (M.data ⌈2 * (Fm.L x i0).sc.a⌉₊ CH etaB eB ηv ev) (mkC (max Cd 0) Cabs Cc Cs C1 Cl eL CH)
+220       ((Fm.L x i0).sc.X'' (Fm.D x i0).R.n) eK (max Cd 0 + Cc + Cs + C1 + Cl + 6) :=
+221     ⟨hx1', heps, heps1, hb1, le_of_eq hab.symm, hnT, w1, w2, heK, hk1, w3, w4, (by show 0 ≤ (Fm.L x i0).sc.L; rw [hLx]; linarith),
+222       (by show (Fm.L x i0).sc.L ≤ 2 * x ^ eps; rw [hLx]; linarith), w5, w6, hb'0.le, w7, hXpp0, w8,
+223       fun τ => ⟨le_trans ha0.le (M.av_facts hx1 (hWu 0) τ.2).1, (M.av_facts hx1 (hWu 0) τ.2).2.1⟩,
+224       loss_bound_nonneg _, Nc_nonneg _,
+225       fun u0 => by
+226         have h := (hWu u0).2.2.2.2.2.2.2.2.2.1
+227         rw [M.s_k u0] at h
+228         exact h,
+[(322, '  obtain ⟨a5, h5⟩ := ev_pow_le_exp (1 / 2) eps 5 (by norm_num) h0')]
+[(665, 'theorem muRank_min (Fm : FamP eps) {C0 : ℝ} (hC0 : 0 < C0) (cPr : ChosenProviso Fm C0) (hN : NuFullF Fm)'), (709, '  have hRank : J.MuRank Fm := muRank_min Fm (by linarith) cPr hNF hE tSet'), (745, '  exact ⟨hNF, muRank_min Fm hC0 cPr hNF hE tSet⟩'), (761, '    exact ⟨muRank_min Fm (by linarith) cPr hNF hE tSet, rrRankF_of Fm Cabs CH C0 (by linarith) lS cPr lI lD,')]
+[]
+
+
+
+
+
+
+Success
+
+
+
+
+
+$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def …
+Shell
+$$OutputEncoding=New-Object System.Text.UTF8Encoding($false)
+$env:PYTHONUTF8='1'
+@'
+from pathlib import Path
+import re,zipfile,os,urllib.parse,collections
+z=zipfile.ZipFile(Path(os.environ['TEMP'])/'rh-bb-src.zip');ns=z.namelist()
+def p(k):
+ a=[n for n in ns if n.endswith('/'+k+'.lean') or n==k+'.lean'];assert len(a)==1,(k,a);return a[0]
+def ls(k):return z.read(p(k)).decode('utf-8-sig').splitlines()
+def sh(k,a,b):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if a<=i<=b))
+def sr(k,pat):print(k);print('\n'.join(f'{i} {v}' for i,v in enumerate(ls(k),1) if re.search(pat,v)))
+def scan(pat,filt='Formalism/'):
+ rg=re.compile(pat.encode())
+ for n in ns:
+  if filt not in n:continue
+  b=z.read(n)
+  if rg.search(b):
+   for i,l in enumerate(b.decode().splitlines(),1):
+    if rg.search(l.encode()) and not l.startswith('import '):print(n,i,l[:145])
+def local(k):return Path(k).read_text(encoding='utf-8-sig')
+pp=local(Path(os.environ['TEMP'],'expert-rh-rubin.txt')).split('\f')
+Q='QuadraticLogDerivCongr';M='LinkMin';G='GlobalTheoremInputs';T='TopDensityNGeSixteen'
+sh('LossesSmallShares',228,235);print([(i,l[:115]) for i,l in enumerate(ls('TieGlobal'),1) if 'def Tie' in l]);scan(r'(?:def|theorem) (?:[\w.]+\.)?(?:BNBoundsU|linkIRR_of_join_ex|HostExW)\b','Formalism/');sh('supplyOfAdmOf',8,18);sr('OrdAny',r'theorem ordAny|1 ≤ c');print([n for n in ns if n.endswith('/PairGood.lean') or n.endswith('/TwistForm.lean')]);
+'@ | python -
+exit $LASTEXITCODE
+
+
+LossesSmallShares
+228         exact h,
+229       exp_neg_le_half (Real.one_le_rpow hx1' (by positivity : 0 ≤ Fm.ez / 7)), hη0, he0,
+230       ⟨hCd', k1, hCd', k1, hCd', k1, hCc, k2, hCs, k3, hC1, k4, hCl, k5, hCabs, heL, hCH⟩⟩
+231   have E1 : ErrWindows (M.data ⌈2 * (Fm.L x i0).sc.a⌉₊ CH etaB eB ηv ev) (mkC (max Cd 0) Cabs Cc Cs C1 Cl eL CH)
+232       ((Fm.L x i0).sc.X'' (Fm.D x i0).R.n) eK (max Cd 0 + Cc + Cs + C1 + Cl + 6) := by
+233     refine ⟨E0, ?_⟩
+234     show (etaB + 4 * Real.sqrt eB) * (x ^ CH * (Fm.L x i0).sc.b) ≤
+235       (max Cd 0 + Cc + Cs + C1 + Cl + 6) * x ^ eps * ((Fintype.card ↥(Fm.TTn x) : ℝ) * (Fm.L x i0).sc.a)
+[(39, 'def TiePts (pt : φ.A → Fm.Ix x) (av bv : ℕ → ℤ) : Prop :='), (50, 'def TieGlobal (pt : φ.A → Fm.Ix x) {Top : Type}'), (63, 'def TieLocal (pt : φ.A → Fm.Ix x) {Top : Type}'), (84, 'def TieArith (pt : φ.A → Fm.Ix x) (av : ℕ → ℤ) (D : ArithData φ.A) (ell : AddChar (E0 × φ.A) ℂ → ℂ)')]
+supplyOfAdmOf
+8 import Development.AutomorphicArithmetic.CharacterBoxes.EventuallyRankLeRpowOfLtOneDivFiftytwo
+9 import Development.AutomorphicArithmetic.MeanSquareBounds.pairEx
+10 
+11 open Formalism.BasicNotions Formalism.MainNotions Formalism.MainNotions.Inhab Formalism.HC GlobalTheory.EX UpperTheory.Top HostParam.Seam
+12 
+13 theorem UpperTheory.T3.supplyOfAdmOf :
+14     (∀ eps C0 : ℝ, 0 < eps → eps < 1 / 52 → 1 ≤ C0 → ∃ CT2 C8 c6 Cb x0 : ℝ, C0 ≤ C8 ∧ 0 < c6 ∧ 0 < Cb ∧
+15       ∀ (s : Scale) (R : Ranks) (H0 : HostAx R.toFrame) (M : ℕ) (Y : ℝ), s.eps = eps → x0 ≤ s.x → RankVal s R →
+16         s.J ≤ C0 → (R.o : ℝ) ≤ C0 → (H0.QS : ℝ) ≤ C0 * R.n → 0 < M → (M : ℝ) ≤ C0 → H0.QS ∣ Nat.lcm (2 ^ (R.e + 2)) M →
+17         PairWin s Y → PairGood M eps Y s.x H0.q H0.d → FieldRows H0.toHostRaw ⌊Y ^ (eps / 5)⌋₊ → admitted R H0 →
+18         ∃ (H : Host R) (q0 : ℕ), H.toHostAx = H0 ∧ H.CT2 = CT2 ∧ HostGood s C8 4 c6 Cb H q0 ∧
+OrdAny
+87     ∀ (M : ℕ) [NeZero M] (Ξ : Subgroup (DirichletCharacter ℂ M)), ∃ c e0 : ℕ, 1 ≤ c ∧ c ≤ Nat.card Ξ ∧
+['Development/AutomorphicArithmetic/CharacterBoxes/PairGood.lean', 'Development/AutomorphicArithmetic/CharacterBoxes/TwistForm.lean']
+
+
+
+
+
+
+Success
+
+
+
+
+
+
+
+
+
+
+
+You've hit your usage limit. Upgrade your plan or add credits to continue, or try again at Nov 29, 2026, 10:47 AM.
