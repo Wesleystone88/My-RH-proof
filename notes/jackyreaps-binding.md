@@ -8,6 +8,8 @@ Per name exactly one mark: **SAME**, **WEAKER IN HIS MODEL**, or **NOT FOUND AT 
 
 ## Result: every name that he models is **WEAKER IN HIS MODEL**; none is SAME; none is NOT FOUND
 
+> **Reading the label.** WEAKER IN HIS MODEL means his stand-in says *less* than the real definition. It is not a claim that the real definition is weak. (Added 25 Nov, written in chat, after a reader took it the other way.)
+
 Method (**READ**): I downloaded the full pinned tree (`codeload` tarball of `4e8bb36`, 175,189 `.lean` files; the `C:\rhc\src` build tree has only the 809-file closure and the partial `rh-source` clone was not used) and searched declarations by name with ripgrep. His stand-ins are from [ThetaConstraints.lean @ 433c7c6](https://github.com/jackyreaps/X-files/blob/433c7c64691f9c2457bbe4cfe2e8d860baef3a60/riemann-hypothesis/ThetaConstraints.lean). I also grepped his `Disproof.lean`, `LivePathExtraction.lean`, `ContinuumGapChallenge.lean`, `DependencyConfirmed.lean`, `ExtractedVacuousGeometry.lean` for the last three names: no hit. Mark meaning: his stand-in is `True`/an empty slot/a trivially true statement, the real one is a genuine statement, so the real one says more.
 
 | Name | Real declaration at our pin (statement) | His stand-in | Mark |
