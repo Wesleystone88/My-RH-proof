@@ -1,0 +1,182 @@
+{
+ "lines": 1080769508,
+ "seconds": 9195,
+ "declarations": 1468418,
+ "by_kind": {
+  "inductive": 7969,
+  "quot": 4,
+  "def": 214241,
+  "thm": 1246110,
+  "axiom": 3,
+  "opaque": 91
+ },
+ "marked_expressions": 6108,
+ "fallback_lines": 27329,
+ "oat_name_id": 1568703,
+ "geocl_name_id": 1571802,
+ "present": {
+  "OAt": "GlobalTheory.Mem.Top.Bl.OAt",
+  "OAt.mk": "GlobalTheory.Mem.Top.Bl.OAt.mk",
+  "OAt.rec": "GlobalTheory.Mem.Top.Bl.OAt.rec",
+  "GeoCl": "GlobalTheory.Mem.Top.Bl.GeoCl",
+  "GeoCl.base": "GlobalTheory.Mem.Top.Bl.GeoCl.base",
+  "GeoCl.step": "GlobalTheory.Mem.Top.Bl.GeoCl.step",
+  "GeoCl.rec": "GlobalTheory.Mem.Top.Bl.GeoCl.rec",
+  "geoCl": "GlobalTheory.Mem.Top.Bl.geoCl",
+  "anyGeometry": "GlobalTheory.Mem.Top.Bl.anyGeometry",
+  "geoCl_of": "GlobalTheory.Mem.Top.Bl.geoCl_of",
+  "OAt.geo": "GlobalTheory.Mem.Top.Bl.OAt.geo",
+  "OAt.lam": "GlobalTheory.Mem.Top.Bl.OAt.lam"
+ },
+ "extra_names": {
+  "OAt.mk": "GlobalTheory.Mem.Top.Bl.OAt.mk",
+  "OAt.rec": "GlobalTheory.Mem.Top.Bl.OAt.rec",
+  "GeoCl.base": "GlobalTheory.Mem.Top.Bl.GeoCl.base",
+  "GeoCl.step": "GlobalTheory.Mem.Top.Bl.GeoCl.step",
+  "GeoCl.rec": "GlobalTheory.Mem.Top.Bl.GeoCl.rec",
+  "OAt.geo": "GlobalTheory.Mem.Top.Bl.OAt.geo",
+  "OAt.lam": "GlobalTheory.Mem.Top.Bl.OAt.lam"
+ },
+ "classes": {
+  "1": "OAt.geo",
+  "2": "GeoCl eliminator",
+  "4": "anyGeometry",
+  "8": "OAt.lam",
+  "16": "OAt eliminator"
+ },
+ "declarations_with_class": {
+  "1": 3,
+  "2": 1,
+  "4": 14,
+  "8": 4,
+  "16": 0
+ },
+ "seed_examples": {
+  "1": [
+   [
+    "571687894",
+    "proj"
+   ],
+   [
+    "571693026",
+    "7032660"
+   ]
+  ],
+  "2": [
+   [
+    "82083374",
+    "1571805"
+   ]
+  ],
+  "4": [
+   [
+    "82083412",
+    "1571807"
+   ]
+  ],
+  "8": [
+   [
+    "571693201",
+    "7032661"
+   ]
+  ],
+  "16": []
+ },
+ "decl_hits": [
+  {
+   "kind": "inductive",
+   "name": "GlobalTheory.Mem.Top.Bl.GeoCl",
+   "mask": 2
+  },
+  {
+   "kind": "def",
+   "name": "GlobalTheory.Mem.Top.Bl.parametersOfDependence",
+   "mask": 4
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.Fc.S0.Open0ProofU.open_orbit_of_unramified_exponents_alt",
+   "mask": 4
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.Mem.Top.DivRec.divEx_prov",
+   "mask": 4
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.Mem.Top.DivRec.divEx_of_ox",
+   "mask": 4
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.Mem.Top.Bl.OAt.geo",
+   "mask": 1
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.Mem.Top.Bl.OAt.lam",
+   "mask": 8
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.Mem.Top.Closing.divEx_geoCl",
+   "mask": 13
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.Mem.Top.Closing.memberE_closing_alt_alt",
+   "mask": 4
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.T.parameter_of_discrete_series_ray_alt",
+   "mask": 8
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.Mem.Top.Bl.exists_baseLattice_of_pair_alt",
+   "mask": 4
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.Mem.OxMove.oAt_setDiv",
+   "mask": 9
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.Mem.Top.Bl.exists_baseLattice_of_prime_alt",
+   "mask": 4
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.T.member_exists_baseLattice_alt",
+   "mask": 4
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.Fc.StageOneU.member_bundles_large_unramified_exponents_alt",
+   "mask": 4
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.T.large_unramified_exponent_bundles_exist_alt",
+   "mask": 4
+  },
+  {
+   "kind": "thm",
+   "name": "UpperTheory.GalC.final_of_alt",
+   "mask": 4
+  },
+  {
+   "kind": "thm",
+   "name": "GlobalTheory.Fc.S0.StageU.hypotheses_nonempty_of_unramified_exponents_alt",
+   "mask": 4
+  },
+  {
+   "kind": "thm",
+   "name": "UpperTheory.Lit.nonempty_hyps_definite_side_of_closed_bound",
+   "mask": 4
+  }
+ ]
+}
