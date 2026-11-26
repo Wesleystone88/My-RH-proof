@@ -1,0 +1,3300 @@
+{
+ "lines": 1080769508,
+ "seconds": 10163.4,
+ "declarations": 1468418,
+ "by_kind": {
+  "inductive": 7969,
+  "quot": 4,
+  "def": 214241,
+  "thm": 1246110,
+  "axiom": 3,
+  "opaque": 91
+ },
+ "fallback_lines": 27330,
+ "transport_split": false,
+ "structs": {
+  "GlobalTheory.Mem.Top.Bl.DivT": {
+   "found": true,
+   "fields_declared": 5,
+   "accessors_found": 5,
+   "fields": {
+    "GlobalTheory.Mem.Top.Bl.DivT.Qp": {
+     "index": 0,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.CoreAsm.stepW_core",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.ze_u_prm_of_extension_with_law",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_kerTie",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WitTr.divT_setDiv",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Svd.Part.ofBuilt._proof_3",
+       "kind": "thm",
+       "how": "used directly",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": []
+    },
+    "GlobalTheory.Mem.Top.Bl.DivT.chr": {
+     "index": 1,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.exists_kernel_spectral_data_at_witnesses",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WitTr.divT_setDiv",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": []
+    },
+    "GlobalTheory.Mem.Top.Bl.DivT.loc": {
+     "index": 2,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WitTr.divT_setDiv",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": []
+    },
+    "GlobalTheory.Mem.Top.Bl.DivT.inK": {
+     "index": 3,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WitTr.divT_setDiv",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.inK",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.geo",
+       "kind": "thm"
+      }
+     ]
+    },
+    "GlobalTheory.Mem.Top.Bl.DivT.geo": {
+     "index": 4,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WitTr.divT_setDiv",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.geo",
+       "kind": "thm"
+      }
+     ]
+    }
+   },
+   "taken_apart_in": []
+  },
+  "Formalism.L2.LinkedFamilyData": {
+   "found": false,
+   "fields_declared": null,
+   "accessors_found": 0,
+   "fields": {},
+   "taken_apart_in": []
+  },
+  "Formalism.L2.TiedDataSAlt": {
+   "found": true,
+   "fields_declared": 25,
+   "accessors_found": 16,
+   "fields": {
+    "Formalism.L2.TiedDataSAlt.host": {
+     "index": 0,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "Formalism.L2.HostDatumWithTies",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.zscale_f0_of_witness_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.bWit_zsc_F0_heq_F0K_of_sc_eq",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.HostDatumExists.exists_hostDatum_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.host",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.pieces",
+       "kind": "thm"
+      }
+     ]
+    },
+    "Formalism.L2.TiedDataSAlt.#1": {
+     "index": 1,
+     "label": "UNOPENED",
+     "note": "never appears outside the structure's own declarations",
+     "opened_in": [],
+     "mentioned_in": []
+    },
+    "Formalism.L2.TiedDataSAlt.cols": {
+     "index": 2,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "Formalism.L2.TiedDataSKAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.L2.Rows.LowerMapTieTwAlt",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "Formalism.L2.Rows.RowPinMinAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.L2.JointsSAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.L2.SG.SpectralTiesReal.STiesRAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.IndefR.pwOf_alt",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "Formalism.L2.Rows.RowSideDeterminedAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.L2.SG.JoinSI.IndefiniteRealisationJoin",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.L2.DIV.SlopeMaxB.colTies_of_sel_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "Formalism.L2.SG.JoinSI.colJoinS_of_spectral_ties_real",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.L2.SG.JoinSI.adm13_of_transported_join",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.L2.SG.JoinSI.IndefiniteRealisationJoin.toJoinAt",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.MainNotions.Ext.Lw.rankTiesF_of_C2S_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_1",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_2",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_3",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_4",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_7",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_8",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_9",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_10",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_11",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_12",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_13",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_14",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_15",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_16",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching._proof_17",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.SRe.SRest.toRealSpectralMatching",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.BundleWitness",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.BundleWitness.casesOn",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.PlugPt.pin_pt_of_bundle_witness",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.ClassSumPinLink.pIota_classSumPin_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.zscale_f0_of_witness_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.weight_one_places_finite_of_witness",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fc.TieOfLink.nonempty_tie_of_wit",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.bWit_zsc_F0_heq_F0K_of_sc_eq",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.bwit_cf_eq_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Div.PgTie.pgEq_of_linked_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.LinkLev.tS_fin_conj_match_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.JPin.seeEx_joinPin_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.KJoinLat.joinSI_nonempty_and_V0_spans",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.KJoinLat.join_subspace_real_data_lattice_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fc.JoinLinked.join_linked_realization_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fc.JoinLinked.selJ_of_bWit",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiS.HypothesisAtPackage",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.LevelCondition",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.ReadsCoefficients",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.ValidRealPackage",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.AdForm.TwStdAlt",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.colsStd_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fam.level_character_matches_witness_alt_bis",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.xi_chrEq_cols_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.mem_Q_packB_iff_mem_QE_of_bWit",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.LinkedPins.realPins_of_seeAt_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fam.LinkedPins.realisation_normalisation_of_bundle_witness",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Core.Mi.idE_levelMatch_of_bwit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fam.realAt_cols_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.pkVal_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopVal.Inj.eq_zero_of_isRes_pkAt_eq_zero",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.BaseLevel.levG_base_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.TwSet.data_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopVal.TwSet.levS_iff_cls_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.LevTw.levRead_packB_of_bWit",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopVal.LevTw.levIs_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.LevTw.levChi_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.reads_of_pairVal",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.reads_pk_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.exists_read_at_pack_b_of_b_wit",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.pkHyp_of_real_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fam.truePack_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MemberRanks.admissible_ranks_at_member_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.MemberCount.rankMu_of_bundle_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Core.LevLow.levelPrime_lower_at_points_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.MemberFrame.admissible_ranks_of_mass_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.ValidRealPackage.casesOn",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fam.trueD_of_truePack_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.BottomData.Pin",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.MiTop.formsAtZero",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.LocalBottomCompatibility",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.MiTop.IsTranslate'",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.BaseChain.com_is_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.BaseChain.stage_y_is",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.LevZero.StabMatch.exists_center_stab_at_of_transport_correction",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.ColMatchFam.col_level_match_fam_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.LevZeroMem.conj_mem_K_two_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.LevZeroMem.mem_K_two_iff_of_family_character",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.LevZeroMem.mem_rowJ_iff_rTup_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.LevZeroChr.rowChi_conj_of_mem_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.LevZeroChr.row_character_eq_extension_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.MiTop.exists_isAt_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.sdY_frames_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.line_ideal_at_own_prime_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.CongFlag.resS_eq_of_flag_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.centralRatio_red_eq_one_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.matching_coset_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.exists_botDat_pin_of_placed_of_framed",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.GeometricFamily.Is",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.XGeoPlace.exists_index_place_eq_of_readsStd_of_mem",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.RatDec.exists_yRat_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.MeasCommon.measures_common_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.commOf_is_of_geoMeas_of_coords_is",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.GeoExists.isSelfDualC_lambdaX_of_pkHyp",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.levelPrime_not_mem_places_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.pg_qAll_under_inj_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.SDLatY.exists_selfDual_latY_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.tuplePlace_under_notMem_tP_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.PlaceInj.under_injective_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.StepMove.fock_vac_moved_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopMove.fock_vac_moved_top_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.GeoExists.core_data_of_point",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.LiftSide.exists_characters_is_and_same_of_pkHyp",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Core.Mi.SpanX.itSpans_pk_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Core.Mi.SpanY.itSpans_pk_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FockVecSum.fockVec_eq_sum_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.StepLevelP.io_levChi_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.LiftVol.lift_levelP_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.LiftVol.liftS_pt_eq_cI_smul_io",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.StepLevelP.ioX_levChi_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopStep.ioXT_levelP_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.liftS_ptT_eq_cI_smul_ioT",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.IsFam.main_alt_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.MidLoc.mid_locFac_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.PkPlaces.pk_places_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.KomExist.exists_compactOpen_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamChars.eta_unr_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MuUnrOff.mu_charUnramAt_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.WeilTup.weilOK_fam_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TupChars.under_ne_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TupChars.charUnramAt_xi_under",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TupChars.charUnramAt_eta",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamChars.weilOK_of_rank_one_gram",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.PkFrame.pk_frame_places_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.QVecJoin.qVec_pinTup_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.zero_forms_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.LowJoin.exists_quadratic_extension_readsLow",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MidVacLat.main_alt_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.chi_compat_pk_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MidDat.moved_datum_prod_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopVac.moved_vacuum_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopDatumTheta.chS_eq_chrStep_fst",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamSplit.split_datum_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TupRoot.weil_tuple_root_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.AdForm.clsPinD_of_famCol_of_trueW",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.linkTail_of_topReadAt_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.kom_weil_unram_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.lattice_eq_base_off_twist_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamTrace.LatFwd.lattice_forward_preserves_base_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamTrace.keepsPairs_of_mem_level_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamTrace.TraceFwd.traceAtG_of_mem_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamTrace.lastRow_cong_of_keepsPairs_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamTrace.uloc_T_of_inLevG_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FinPl.AwayLevel.mem_levelVL_base_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamTrace.RedAt.inJ_red_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamTrace.AtG.mem_Uloc_badG_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamTrace.bc_prV_mem_Uloc_off_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamTrace.Rows.main_alt_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.OffTrace.embA_moves_off_level_iff_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TraceAtG.levAtG_embA_iff_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamTraceChiCol.frame_close_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamTraceChiCol.ColRead.colLam_read_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamTraceChiColChar.psi_uniformizer_eq_psi_zero_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.FamPlaced.placedP_of_allTrue",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopLevelP.vector_of_mem_cxp",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.GoodFix.e_zero_theta_descent_eval_alt_bis",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.BaseChain.stepY_weil_vec_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.BaseChain.stepY_thetaFun_isItW_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.BaseChain.stepY_integrable_and_eq_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.BaseChain.stepX_weil_vec_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopConv.top_comb_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.BaseChain.lastStep_integrableOn_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.famAllQ_of_allTrue_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.exists_isShift_of_center_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.IsColumnForm",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.PairingL2.pwOf_op_ramCrd_eq_puFun",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.anchor_pairs_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.CenIsom.ipC_colDictL_eq_sum_inner_shP",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.MiTop.CenIsom.ipC_colDictL_rtr_eq",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.MiTop.exists_linear_isometry_colForm_rTrans_of_pin",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.botRel_of_pin_of_mem_center",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.miStar2_at_realisation_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.descent_eV_mem_level_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.PtRowsAt.realPins_of_bWit'",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.PtRowsAt.see_join_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fam.PtRowsAt.seeEx_and_joinSI_nonempty_of_bWit",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "Formalism.L2.TiedDataSKAlt.casesOn",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.ColRows.rowsU_of_colPins_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Col2.LowerTie.lowerMap_tieTw_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.JointsTrue.joints_of_standard_character",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.exists_kernel_spectral_data_at_witnesses",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.SelectionPairing.ev_at_join_pinned",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.SelectionPairing.exists_selection_pair_local_langlands_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.SelRealIn.realIn_exists_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.RecInAt.recIn_parts_exists_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.lower_map_sharp_ambient_tie_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.SelRowPin.selected_lower_map_third_stage_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.SelSideW.selected_side_realization_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.SelAll.bwit_exists_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.exact_ranks_along_tied_family_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "Formalism.L2.SG.SpectralTiesReal.STiesRAlt.tr",
+       "kind": "def"
+      },
+      {
+       "decl": "Formalism.L2.SG.SpectralTiesReal.STiesRAlt.into",
+       "kind": "thm"
+      },
+      {
+       "decl": "Formalism.L2.SG.SpectralTiesReal.STiesRAlt.bij",
+       "kind": "thm"
+      },
+      {
+       "decl": "Formalism.L2.SG.SpectralTiesReal.STiesRAlt.colPin",
+       "kind": "thm"
+      },
+      {
+       "decl": "Formalism.L2.SG.JoinSI.IndefiniteRealisationJoin.pairTie",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.BundleWitness.s",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.cols",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.tw",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.idE_and_levelMatch_of_bWit",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.characters_match_bundle_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.level_group_reference_tuple_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.mem_level_iff_twisted_class_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.level_character_twisted_class_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "Formalism.L2.SG.SpectralTiesReal.STiesRAlt.lev",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.MiTop.LocalBottomCompatibility.adapted",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.exists_central_stab_of_transport_correction",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.level_trace_adapted_translate_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.central_adapted_element_property_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.central_adapted_element_value_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.line_vector_bessel_existence_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Fam.ValidRealPackage.std",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Fam.GeometricFamily.Is.bot",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.MiTop.BottomData.Pin.adapted",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.MiTop.BottomData.Pin.h0",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.join_subspace_real_data_exists_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.full",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.exists_selected_realization_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.selected_realization_geometric_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.selected_realization_side_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.selected_lower_map_holds_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.selected_side_realization_holds_alt",
+       "kind": "thm"
+      }
+     ]
+    },
+    "Formalism.L2.TiedDataSAlt.full": {
+     "index": 3,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "Formalism.L2.JointsSAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.JointsTrue.joints_of_standard_character",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.exists_kernel_spectral_data_at_witnesses",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.full",
+       "kind": "thm"
+      }
+     ]
+    },
+    "Formalism.L2.TiedDataSAlt.#4": {
+     "index": 4,
+     "label": "UNOPENED",
+     "note": "never appears outside the structure's own declarations",
+     "opened_in": [],
+     "mentioned_in": []
+    },
+    "Formalism.L2.TiedDataSAlt.provA": {
+     "index": 5,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "Formalism.L2.JointsSAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.L2.RecTAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.IndefR.IndefiniteRealisation",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Top.link_alt_alt_bis",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.RealInAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.BigTop.PtAt.RealisedCondition.exists_frame",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.BigTop.PtAt.RealisedCondition.valLL0",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.BigTop.PtAt.RealisedCondition.psiChoice",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.JointsTrue.joints_of_standard_character",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.exists_kernel_spectral_data_at_witnesses",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_recPinE_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.SelRealIn.psi_eq_theta_psi_of_recPin",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.SelRealIn.realIn_exists_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.exact_ranks_along_tied_family_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.R3.RealInAlt.psiPin",
+       "kind": "thm"
+      },
+      {
+       "decl": "Formalism.IndefR.IndefiniteRealisation.psiPin",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.theta",
+       "kind": "thm"
+      }
+     ]
+    },
+    "Formalism.L2.TiedDataSAlt.theta": {
+     "index": 6,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "Formalism.L2.JointsSAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.L2.RecTAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.IndefR.IndefiniteRealisation",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Top.link_alt_alt_bis",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.RealInAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.BigTop.PtAt.RealisedCondition.exists_frame",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.BigTop.PtAt.RealisedCondition.valLL0",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.BigTop.PtAt.RealisedCondition.psiChoice",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.JointsTrue.joints_of_standard_character",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.exists_kernel_spectral_data_at_witnesses",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_recPinE_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.SelRealIn.psi_eq_theta_psi_of_recPin",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.SelRealIn.realIn_exists_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.exact_ranks_along_tied_family_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.R3.RealInAlt.psiPin",
+       "kind": "thm"
+      },
+      {
+       "decl": "Formalism.IndefR.IndefiniteRealisation.psiPin",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.theta",
+       "kind": "thm"
+      }
+     ]
+    },
+    "Formalism.L2.TiedDataSAlt.twIn": {
+     "index": 7,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "Formalism.L2.TiedDataSKAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.L2.Rows.LowerMapTieTwAlt",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "Formalism.L2.JointsSAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.L2.HostDatumWithTies",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.IndefR.IndefiniteRealisationNormalisation",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.IndefR.IndefiniteRealisationRecursion",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.IndefR.IndefiniteRealisationCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Top.closed_linkEta_of_duty",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Top.Irr.closed_linkIRR_of_join_count",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.RecursiveInput",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.BigOn.Exp.lowAt_holds_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.PlugPt.pin_pt_of_bundle_witness",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.zscale_f0_of_witness_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.BigTop.PtAt.RealisedCondition.exists_frame",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.BigTop.PtAt.RealisedCondition.valLL0",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.BigTop.PtAt.RealisedCondition.psiChoice",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.realPins_realTOf_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.RecPinsTie.main_alt_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fc.TieOfLink.nonempty_tie_of_wit",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.bWit_zsc_F0_heq_F0K_of_sc_eq",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.bwit_cf_eq_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.locPin_level_character_of_bWit",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fc.TieOfLink.hasTie_of_linked",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.LevelCondition",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.ReadsCoefficients",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.AdForm.TwStdAlt",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.colsStd_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.LinkedPins.realPins_of_seeAt_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fam.LinkedPins.realisation_normalisation_of_bundle_witness",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopVal.TwSet.levS_iff_cls_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.LevTw.levIs_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.LevTw.levChi_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.reads_of_pairVal",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopVal.exists_read_at_pack_b_of_b_wit",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.zero_forms_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.AdForm.clsPinD_of_famCol_of_trueW",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.linkTail_of_topReadAt_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "Formalism.L2.TiedDataSKAlt.casesOn",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.ColRows.rowsU_of_colPins_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Col2.LowerTie.lowerMap_tieTw_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.JointsTrue.joints_of_standard_character",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.exists_kernel_spectral_data_at_witnesses",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.HostDatumExists.exists_hostDatum_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.RecInAt.recIn_parts_exists_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.SelRowPin.selected_lower_map_third_stage_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.passIn3_at_realT_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.RowPlacementReal.placement_of_realisation_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.R3.RecursiveInput.tpEq",
+       "kind": "thm"
+      },
+      {
+       "decl": "Formalism.IndefR.IndefiniteRealisationRecursion.tpEq",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.chr",
+       "kind": "thm"
+      },
+      {
+       "decl": "Formalism.IndefR.IndefiniteRealisationNormalisation.cfEq",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.recursion_local_row_condition_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.bWit_C_eq_cf_of_sc_eq",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.gal",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.local_level_character_pin_of_witness",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.tw",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.mem_level_iff_twisted_class_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.level_character_twisted_class_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.twE",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.twGood",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.nn",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.exp",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.chiD",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.twF",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.types",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.cover",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.plB",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.thetaChr",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.dt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.pieces",
+       "kind": "thm"
+      }
+     ]
+    },
+    "Formalism.L2.TiedDataSAlt.n": {
+     "index": 8,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "Formalism.L2.TiedDataSKAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.L2.Rows.LowerMapTieTwAlt",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "Formalism.L2.JointsSAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.L2.HostDatumWithTies",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.IndefR.IndefiniteRealisationNormalisation",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.IndefR.IndefiniteRealisationRecursion",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.IndefR.IndefiniteRealisationCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Top.closed_linkEta_of_duty",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Top.Irr.closed_linkIRR_of_join_count",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.RecursiveInput",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.BigOn.Exp.lowAt_holds_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.PlugPt.pin_pt_of_bundle_witness",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.zscale_f0_of_witness_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.BigTop.PtAt.RealisedCondition.exists_frame",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.BigTop.PtAt.RealisedCondition.valLL0",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.BigTop.PtAt.RealisedCondition.psiChoice",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.realPins_realTOf_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.RecPinsTie.main_alt_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fc.TieOfLink.nonempty_tie_of_wit",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.bWit_zsc_F0_heq_F0K_of_sc_eq",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.bwit_cf_eq_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.locPin_level_character_of_bWit",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fc.TieOfLink.hasTie_of_linked",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.LevelCondition",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.ReadsCoefficients",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.AdForm.TwStdAlt",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.colsStd_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.LinkedPins.realPins_of_seeAt_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fam.LinkedPins.realisation_normalisation_of_bundle_witness",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopVal.TwSet.levS_iff_cls_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.LevTw.levIs_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.LevTw.levChi_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.reads_of_pairVal",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopVal.exists_read_at_pack_b_of_b_wit",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.zero_forms_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.AdForm.clsPinD_of_famCol_of_trueW",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.linkTail_of_topReadAt_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "Formalism.L2.TiedDataSKAlt.casesOn",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.ColRows.rowsU_of_colPins_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Col2.LowerTie.lowerMap_tieTw_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.JointsTrue.joints_of_standard_character",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.exists_kernel_spectral_data_at_witnesses",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.HostDatumExists.exists_hostDatum_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.RecInAt.recIn_parts_exists_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.SelRowPin.selected_lower_map_third_stage_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.passIn3_at_realT_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.RowPlacementReal.placement_of_realisation_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.R3.RecursiveInput.tpEq",
+       "kind": "thm"
+      },
+      {
+       "decl": "Formalism.IndefR.IndefiniteRealisationRecursion.tpEq",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.chr",
+       "kind": "thm"
+      },
+      {
+       "decl": "Formalism.IndefR.IndefiniteRealisationNormalisation.cfEq",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.recursion_local_row_condition_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.bWit_C_eq_cf_of_sc_eq",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.gal",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.local_level_character_pin_of_witness",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.tw",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.mem_level_iff_twisted_class_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.level_character_twisted_class_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.nn",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.exp",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.chiD",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.twF",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.types",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.cover",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.plB",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.thetaChr",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.dt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.pieces",
+       "kind": "thm"
+      }
+     ]
+    },
+    "Formalism.L2.TiedDataSAlt.#9": {
+     "index": 9,
+     "label": "UNOPENED",
+     "note": "never appears outside the structure's own declarations",
+     "opened_in": [],
+     "mentioned_in": []
+    },
+    "Formalism.L2.TiedDataSAlt.thetaChr": {
+     "index": 10,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.thetaChr",
+       "kind": "thm"
+      }
+     ]
+    },
+    "Formalism.L2.TiedDataSAlt.chrVal": {
+     "index": 11,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "GlobalTheory.BigTop.PtAt.RealisedCondition.valLL0",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": []
+    },
+    "Formalism.L2.TiedDataSAlt.chrDt": {
+     "index": 12,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "Formalism.L2.JointsSAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.JointsTrue.joints_of_standard_character",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.dt",
+       "kind": "thm"
+      }
+     ]
+    },
+    "Formalism.L2.TiedDataSAlt.#13": {
+     "index": 13,
+     "label": "UNOPENED",
+     "note": "never appears outside the structure's own declarations",
+     "opened_in": [],
+     "mentioned_in": []
+    },
+    "Formalism.L2.TiedDataSAlt.#14": {
+     "index": 14,
+     "label": "UNOPENED",
+     "note": "never appears outside the structure's own declarations",
+     "opened_in": [],
+     "mentioned_in": []
+    },
+    "Formalism.L2.TiedDataSAlt.chrPsi": {
+     "index": 15,
+     "label": "OPENED IN PROOF",
+     "note": "opened; see 'how' per declaration",
+     "opened_in": [
+      {
+       "decl": "GlobalTheory.BigTop.PtAt.RealisedCondition.psiChoice",
+       "kind": "thm",
+       "how": "used directly",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": []
+    },
+    "Formalism.L2.TiedDataSAlt.#16": {
+     "index": 16,
+     "label": "UNOPENED",
+     "note": "never appears outside the structure's own declarations",
+     "opened_in": [],
+     "mentioned_in": []
+    },
+    "Formalism.L2.TiedDataSAlt.what₂": {
+     "index": 17,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "Formalism.L2.HostDatumWithTies",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.zscale_f0_of_witness_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.bWit_zsc_F0_heq_F0K_of_sc_eq",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.HostDatumExists.exists_hostDatum_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.pieces",
+       "kind": "thm"
+      }
+     ]
+    },
+    "Formalism.L2.TiedDataSAlt.inK": {
+     "index": 18,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.inK",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.geo",
+       "kind": "thm"
+      }
+     ]
+    },
+    "Formalism.L2.TiedDataSAlt.geo": {
+     "index": 19,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.geo",
+       "kind": "thm"
+      }
+     ]
+    },
+    "Formalism.L2.TiedDataSAlt.tw": {
+     "index": 20,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "Formalism.L2.TiedDataSKAlt",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "Formalism.L2.Rows.LowerMapTieTwAlt",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Fam.LevelCondition",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.ReadsCoefficients",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.AdForm.TwStdAlt",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.colsStd_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopVal.TwSet.levS_iff_cls_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.LevTw.levIs_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.LevTw.levChi_of_bWit_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.TopVal.reads_of_pairVal",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.TopVal.exists_read_at_pack_b_of_b_wit",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Fam.zero_forms_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.AdForm.clsPinD_of_famCol_of_trueW",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.MiTop.linkTail_of_topReadAt_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "Formalism.L2.TiedDataSKAlt.casesOn",
+       "kind": "def",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.ColRows.rowsU_of_colPins_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Col2.LowerTie.lowerMap_tieTw_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.exists_kernel_spectral_data_at_witnesses",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.R3.SelRowPin.selected_lower_map_third_stage_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.tw",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.mem_level_iff_twisted_class_alt",
+       "kind": "thm"
+      },
+      {
+       "decl": "GlobalTheory.T.level_character_twisted_class_alt",
+       "kind": "thm"
+      }
+     ]
+    },
+    "Formalism.L2.TiedDataSAlt.#21": {
+     "index": 21,
+     "label": "UNOPENED",
+     "note": "never appears outside the structure's own declarations",
+     "opened_in": [],
+     "mentioned_in": []
+    },
+    "Formalism.L2.TiedDataSAlt.g": {
+     "index": 22,
+     "label": "OPENED IN PROOF",
+     "note": "at least one opening passes it to a function or theorem: follow those by hand",
+     "opened_in": [
+      {
+       "decl": "Formalism.L2.gTiedF_of_C2S_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+       "kind": "inductive",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": true
+      },
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+       "kind": "thm",
+       "how": "passed on",
+       "also_in_statement": false
+      }
+     ],
+     "mentioned_in": [
+      {
+       "decl": "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.g",
+       "kind": "thm"
+      }
+     ]
+    },
+    "Formalism.L2.TiedDataSAlt.#23": {
+     "index": 23,
+     "label": "UNOPENED",
+     "note": "never appears outside the structure's own declarations",
+     "opened_in": [],
+     "mentioned_in": []
+    },
+    "Formalism.L2.TiedDataSAlt.#24": {
+     "index": 24,
+     "label": "UNOPENED",
+     "note": "never appears outside the structure's own declarations",
+     "opened_in": [],
+     "mentioned_in": []
+    }
+   },
+   "taken_apart_in": []
+  }
+ },
+ "true_preds": {},
+ "mentions": {
+  "Formalism.L2.Geo.GeoTiedP": {
+   "is_declaration_in_export": true,
+   "mentioned_in_body": [
+    "Formalism.L2.TiedDataSAlt",
+    "GlobalTheory.GeoGraft.GeoOver",
+    "GlobalTheory.Mem.Top.Bl.DivT",
+    "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible",
+    "GlobalTheory.Mem.Top.Bl.WPt.exists_pinned_spectral_data_compatible",
+    "GlobalTheory.Mem.Top.Bl.WitTr.GeoDivTr.geoTiedP_divTr",
+    "GlobalTheory.Mem.Top.Bl.tiedDataS_assemble_alt",
+    "GlobalTheory.Mem.Top.DivRec.exists_divT",
+    "GlobalTheory.Mem.Top.DivRec.geoOver_stages"
+   ],
+   "mentioned_in_statement_only": [
+    "Formalism.L2.TiedDataSAlt.geo",
+    "GlobalTheory.Mem.Top.Bl.DivT.geo",
+    "GlobalTheory.Mem.Top.Bl.SpectralDataCompatible.geo"
+   ]
+  },
+  "inst._@.Formalism.LocalToGlobal.LatticeGeometry.GeoTiedP": {
+   "is_declaration_in_export": false,
+   "mentioned_in_body": [],
+   "mentioned_in_statement_only": []
+  },
+  "Formalism.MainNotions.J.linkMu": {
+   "is_declaration_in_export": true,
+   "mentioned_in_body": [
+    "Formalism.MainNotions.J.linkMu_of_linkDIV",
+    "Formalism.SlopeId.linkMu_of_sizes"
+   ],
+   "mentioned_in_statement_only": []
+  },
+  "Formalism.SlopeId.linkMu_of_sizes": {
+   "is_declaration_in_export": true,
+   "mentioned_in_body": [
+    "Formalism.SlopeId.linkMu_of_full"
+   ],
+   "mentioned_in_statement_only": []
+  },
+  "Formalism.SlopeId.linkMu_of_full": {
+   "is_declaration_in_export": true,
+   "mentioned_in_body": [
+    "Formalism.L2.DIV.RestAll.bRest_all_alt"
+   ],
+   "mentioned_in_statement_only": []
+  },
+  "Formalism.MainNotions.J.linkMu_of_linkDIV": {
+   "is_declaration_in_export": true,
+   "mentioned_in_body": [
+    "UpperTheory.Top.topDesWin"
+   ],
+   "mentioned_in_statement_only": []
+  },
+  "GlobalTheory.Mem.Top.Bl.TrueLocal.omTied_retie_of_cube": {
+   "is_declaration_in_export": true,
+   "mentioned_in_body": [
+    "GlobalTheory.Mem.Top.Bl.TrueLocal.omTied_withTrue"
+   ],
+   "mentioned_in_statement_only": []
+  },
+  "GlobalTheory.GeoGraft.GeoOver": {
+   "is_declaration_in_export": true,
+   "mentioned_in_body": [
+    "GlobalTheory.Mem.Top.DivRec.exists_divT"
+   ],
+   "mentioned_in_statement_only": [
+    "GlobalTheory.Mem.Top.DivRec.geoOver_stages"
+   ]
+  },
+  "Formalism.L2.Geo.divXFl": {
+   "is_declaration_in_export": true,
+   "mentioned_in_body": [
+    "Formalism.L2.Geo.tiedX_fl",
+    "GlobalTheory.Mem.Top.DivRec.geoOver_stages"
+   ],
+   "mentioned_in_statement_only": []
+  },
+  "Formalism.L2.Geo.famFlJ": {
+   "is_declaration_in_export": true,
+   "mentioned_in_body": [
+    "Formalism.L2.Geo.isoInv_famFlJ",
+    "Formalism.L2.Geo.levInTie_famFlJ",
+    "GlobalTheory.Mem.Top.DivRec.geoOver_stages"
+   ],
+   "mentioned_in_statement_only": []
+  },
+  "x._@.Formalism.LocalToGlobal.LatticeGeometry.GeoTiedP": {
+   "is_declaration_in_export": false,
+   "mentioned_in_body": [],
+   "mentioned_in_statement_only": []
+  },
+  "h._@.Formalism.LocalToGlobal.LatticeGeometry.GeoTiedP": {
+   "is_declaration_in_export": false,
+   "mentioned_in_body": [],
+   "mentioned_in_statement_only": []
+  },
+  "left._@.Formalism.LocalToGlobal.LatticeGeometry.GeoTiedP": {
+   "is_declaration_in_export": false,
+   "mentioned_in_body": [],
+   "mentioned_in_statement_only": []
+  },
+  "right._@.Formalism.LocalToGlobal.LatticeGeometry.GeoTiedP": {
+   "is_declaration_in_export": false,
+   "mentioned_in_body": [],
+   "mentioned_in_statement_only": []
+  },
+  "Formalism.L2.Geo.tiedX_fl": {
+   "is_declaration_in_export": true,
+   "mentioned_in_body": [
+    "GlobalTheory.Mem.Top.DivRec.geoOver_stages"
+   ],
+   "mentioned_in_statement_only": []
+  },
+  "a._@._internal.0.Formalism.LocalToGlobal.LatticeGeometry.GeoTiedP": {
+   "is_declaration_in_export": false,
+   "mentioned_in_body": [],
+   "mentioned_in_statement_only": []
+  },
+  "GlobalTheory.Mem.Top.DivRec.geoOver_stages": {
+   "is_declaration_in_export": true,
+   "mentioned_in_body": [
+    "GlobalTheory.Mem.Top.DivRec.exists_divT"
+   ],
+   "mentioned_in_statement_only": []
+  },
+  "GlobalTheory.Mem.Top.Bl.WitTr.GeoDivTr.geoTiedP_divTr": {
+   "is_declaration_in_export": true,
+   "mentioned_in_body": [
+    "GlobalTheory.Mem.Top.Bl.WitTr.divT_setDiv"
+   ],
+   "mentioned_in_statement_only": []
+  },
+  "rhOfAll": {
+   "is_declaration_in_export": true,
+   "mentioned_in_body": [
+    "riemannHypothesis",
+    "riemannZeta_eq_zero_re"
+   ],
+   "mentioned_in_statement_only": []
+  },
+  "riemannHypothesis": {
+   "is_declaration_in_export": true,
+   "mentioned_in_body": [],
+   "mentioned_in_statement_only": []
+  }
+ },
+ "names_written": 1468418,
+ "control_26h": {
+  "riemannHypothesis_mentions_rhOfAll_in_body": true,
+  "riemannHypothesis_in_name_list": true
+ }
+}
